@@ -1,0 +1,55 @@
+body {
+	background-color: #22eeee;
+	/*background: url('data/img/welcome1.png');
+	background-repeat: repeat;*/
+}
+
+p{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.footfix:hover{
+	color:#00DD11;
+	font-size: 20px;
+	font-family: "Comic Sans MS";
+}
+
+/*divisor ekata danna oni*/
+#leftd{
+	float:left;	
+	background-color: #eeeee2;
+	width: 25%;
+	position:static;
+	height: 500px;
+	
+}
+
+#rightd{
+	/*float: right;*/
+	position:static;
+	float:left;
+	background-color: yellow;
+	width:75%;
+}
+
+#foot{
+	background-color: white;
+	position: fixed;
+	font-size:medium;
+	height:25px;
+	bottom: 0;
+	left: 0;
+	float: none;
+	width:100%;
+}
+
+#topp{
+	position:static;
+	left:0;
+	top:0;
+	background-color: #00dd11;
+	width:100%;
+	height: auto;
+	
+}

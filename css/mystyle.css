@@ -1,0 +1,23 @@
+.selectitempanal{
+	background-color: #D2D2D2;
+	width:300px;
+	
+}
+.pricelabel{
+	background-color: #ECECEC;
+	width:150px;
+	height: 30px;
+}
+.additempanal{
+	background-color: #D2D2D2;
+	width: 940px;
+	margin-left: 72px;
+}
+.filters{
+	background-color: #D2D2D2;
+	width: 1075px;
+	margin-left: 20px;
+}
+.margin{
+	margin-left: 10px;
+}
