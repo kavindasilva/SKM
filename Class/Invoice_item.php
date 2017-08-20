@@ -1,6 +1,6 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../groupproject/Invoice.php');
-require_once(realpath(dirname(__FILE__)) . '/../groupproject/Tire.php');
+require_once(realpath(dirname(__FILE__)) . 'Invoice.php');
+require_once(realpath(dirname(__FILE__)) . 'Tire.php');
 
 /**
  * @access public
@@ -10,6 +10,7 @@ require_once(realpath(dirname(__FILE__)) . '/../groupproject/Tire.php');
 class Invoice_item {
 	private $_invoiceNo;
 	private $_tid;
+	public $qty;
 	/**
 	 * @AssociationType groupproject.Invoice
 	 */
