@@ -14,7 +14,7 @@ $satatement="select unit_price from tire where supplier_s_id='$sid' && tire_size
 $result2 = mysqli_query($conn, $satatement);
 $r2 = mysqli_fetch_array($result2);
 $up = $r2['unit_price'];
-$fup=array('stack'=>'overflow');
+
 echo $up;
 
 ?>
