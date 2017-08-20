@@ -52,7 +52,7 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
            
-            <button  data-toggle="modal" class="btn btn-default" data-target="#myModal" >Sign In</button>
+            <button  data-toggle="modal" class="btn btn-default" data-target="#loginModal" >Sign In</button>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -94,12 +94,13 @@
           </div>
         </div>
       </div>
-       
-        <div class="modal fade" id="myModal">
+     
+        <div class="modal fade" id="loginModal">
+         <div class="modal-dialog">
+            
           <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
-         
+				<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
           </div>
           <div class="modal-body">
             <form method="post" action="php/user.php" name="login_form">
@@ -111,10 +112,19 @@
             </form>
           </div>
           <div class="modal-footer">Not Registerd? <a href="#" class="btn btn-primary">Register</a></div>
-        </div>
-       <script>
+       
+	  </div>
+	  </div>
+       
+        
+      
+      <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
+  </div>
+ 
+  </body>
+  <script>
 // Get the modal
-var modal = document.getElementById('id01');
+var modal = document.getElementById('loginModal');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -123,10 +133,7 @@ window.onclick = function(event) {
     }
 }
 </script> 
-        
-      
-      <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
-  </div>
- 
-  </body>
+  
+  
+  
 </html>
