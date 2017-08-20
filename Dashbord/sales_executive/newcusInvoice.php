@@ -251,23 +251,24 @@
     		
     	</div>
      <section class="content ">
-  <form>
+  <form id="maininvoiceform">
 	<div class="form-group  ">
-  <label class="col-md-4 control-label">First Name</label>  
-  <div class="col-md-4">
-  <input id="textinputfname"  type="text" placeholder="Full Name" class="form-control input-md" required="">
+  		<label class="col-md-4 control-label">First Name</label>  
+  	<div class="col-md-4">
+  		<input id="textinputfname"  type="text" placeholder="Full Name" class="form-control input-md" required="">
     
-  </div>
-   <div class="col-xs-1 control-label">
-	   <label  style="margin-left: 50px">Date</label></div>
+ 	 </div>
+   	<div class="col-xs-1 control-label">
+	   <label  style="margin-left: 50px" id="date">Date</label></div>
 	   <!-- display date-->
 		<div class="col-xs-2 control-label"><label id="date"></label></div>
 	  <script>
 		  n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("date").innerHTML = y + "/" + m + "/" + d;</script>
+		  y = n.getFullYear();
+		  m = n.getMonth() + 1;
+		  d = n.getDate();
+		  document.getElementById("date").innerHTML = y + "/" + m + "/" + d;
+		</script>
   
 	  </div></br></br></br>
  <div class="form-group">
@@ -283,14 +284,94 @@ document.getElementById("date").innerHTML = y + "/" + m + "/" + d;</script>
  <div class="form-group">
   <label class="col-md-4 control-label" >Contact</label>  
   <div class="col-md-4">
-  <input id="textinputcontact"  type="text" placeholder="Contact No" class="form-control input-md" required="">
+  <input id="textinputcontact"  min=10 max=10 ="text" placeholder="Contact No" class="form-control input-md" required="">
     
   </div>
   
 </div>
 </br></br>
-<!-- add tires to invoice pannel goes here-->
-<form id="addtiresform" action="#" method="post">
+
+ <!-- invoice items pannel starts here-->
+  <div class="row">
+        <div  class="col-xs-3" style="width: auto;">
+          <div class="box pull-left" >
+            <div class="box-header">
+              <h3 class="box-title">Invoice Items</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="orderitems" class="table-bordered table-hover" width="600" >
+                <thead>
+                <tr>
+                 <th><input type=checkbox></th>
+                  <th>Brand</th>
+                  <th>Country</th>
+                  <th>Tire Size</th>
+                  <th>Unit Price(Rs.)</th>
+                  <th>Quantity</th>
+                  <th>Total Amount</th>
+                </tr>
+                </thead>
+               
+                <tbody>
+                                 
+                </tbody>
+                
+              </table>
+            </div>
+            <div class="box-footer">
+            <div class="row">
+            <div class="col-md-3">
+            	<button type="button" class="btn btn-danger" style="width: 153px" onClick="removeall()">Remove All Items</button>
+            	</div>
+            	<div class="col-md-3 pull-right" id="subtotal">
+            		<label class="pricelabel" id="subtotal"></label>
+            	</div>
+            	<div class="col-md-3 pull-right">
+            		<strong>Sub Total</strong>
+				</div>
+				</div></br>
+            	<div class="row">
+            		<div class="col-md-3 pull-right">
+            		<select class="form-control" id="discount">
+            			<option value=".1">10%</option>
+            			<option value=".15">15%</option>
+            		</select>
+            	</div>
+            	<div class="col-md-3">
+            	<button type="button" class="btn btn-warning" style="width: 153px">Remove Selected Item</button>
+            	</div>
+            	<div class="col-md-3 pull-right">
+            		<strong>Discount Type</strong>
+            	</div>
+            	</div></br>
+            	<div class="row">
+            		<div class="col-md-3 pull-right">
+            		<label class="pricelabel " id="dis"></label>
+            	</div>
+            	<div class="col-md-3 pull-right">
+            		<strong>Discount</strong>
+            	</div>
+            	</div>
+            	<div class="row"><div class="col-md-3">
+            	<button type="button" class="btn btn-primary" onClick="a();" style="width: 153px" >Generate Invoice</button>
+            	</div>
+            		<div class="col-md-3 pull-right">
+            		<label class="pricelabel" id="net"></label>
+            	</div>
+            	<div class="col-md-3 pull-right">
+            		<strong>Net Amount</strong>
+            	</div>
+            	</div>
+            	
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+	  </div>
+			</form>
+			<!-- add tires to invoice pannel goes here-->
+<form id="addtiresform" action="#" method="post" class="pull-left">
  <div class="selectitempanal container pull-left">
 	 <h4><strong>Add tires</strong></h3>
  	 <div class="row">
@@ -327,85 +408,6 @@ document.getElementById("date").innerHTML = y + "/" + m + "/" + d;</script>
  </div>
  </form>
  <!-- add tires to invoice pannel concludes here-->
- <!-- invoice items pannel starts here-->
-  <div class="row">
-        <div  class="col-xs-12" style="width: auto; margin-left: 72px">
-          <div class="box" >
-            <div class="box-header">
-              <h3 class="box-title">Invoice Items</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="orderitems" class="table-bordered table-hover" width="600" >
-                <thead>
-                <tr>
-                 <th><input type=checkbox></th>
-                  <th>Brand</th>
-                  <th>Country</th>
-                  <th>Tire Size</th>
-                  <th>Unit Price(Rs.)</th>
-                  <th>Quantity</th>
-                  <th>Total Amount</th>
-                </tr>
-                </thead>
-               
-                <tbody>
-                                 
-                </tbody>
-                
-              </table>
-            </div>
-            <div class="box-footer">
-            <div class="row">
-            <div class="col-md-3">
-            	<button type="button" class="btn btn-danger" style="width: 153px" onClick="removeall()">Remove All Items</button>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<label class="pricelabel"></label>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Sub Total</strong>
-				</div>
-				</div></br>
-            	<div class="row">
-            		<div class="col-md-3 pull-right">
-            		<select class="form-control">
-            			<option value=".1">10%</option>
-            			<option value=".15">15%</option>
-            		</select>
-            	</div>
-            	<div class="col-md-3">
-            	<button type="button" class="btn btn-warning" style="width: 153px">Remove Selected Item</button>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Discount Type</strong>
-            	</div>
-            	</div></br>
-            	<div class="row">
-            		<div class="col-md-3 pull-right">
-            		<label class="pricelabel "></label>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Discount</strong>
-            	</div>
-            	</div>
-            	<div class="row"><div class="col-md-3">
-            	<button type="submit" class="btn btn-primary" style="width: 153px">Generate Invoice</button>
-            	</div>
-            		<div class="col-md-3 pull-right">
-            		<label class="pricelabel "></label>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Net Amount</strong>
-            	</div>
-            	</div>
-            	
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-	  </div>
-			</form>
 	  </section>
 	
 
@@ -432,6 +434,9 @@ document.getElementById("date").innerHTML = y + "/" + m + "/" + d;</script>
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+ 
+<!-- jQuery 3.1.1 -->
+<script src="../../js/jquery-3.1.1.min.js"></script>   
   
 <!-- inline javascript goes here-->
 <script>
@@ -452,26 +457,57 @@ document.getElementById("date").innerHTML = y + "/" + m + "/" + d;</script>
 				url:"assets/loadinvoiceitem.php",
 				data:({brand:x,country:y,tiresize:z}),
 				success:function(data){
+					
 				 $('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td></tr>");
-					
-					
-			}
-			})
+				validate.sum+=data*q;
+				updatedata();
+				}	
+			});
 		}
-		
-		
 	}
+	validate.sum=0;
+	function updatedata(){
+				$("#subtotal").html(validate.sum);
+				var discount=validate.sum*document.getElementById('discount').value;	
+				$("#dis").html(discount);
+				var netamount=validate.sum-discount;
+				$("#net").html(netamount);	
+	}
+	
 	function removeall(){
+
+		validate.sum=0;
 		$(".table-bordered  .removable").remove();
 	}
+	function a(){
+	//$('#maininvoiceform').on('submit',function(){
+		var fn=document.getElementById('textinputfname').value;
+		var ln=document.getElementById('textinputlname').value;
+		var cn=document.getElementById('textinputcontact').value;
+		var tot=document.getElementById('subtotal').textContent;
+		var dis=document.getElementById('dis').textContent;
+		var net=document.getElementById('net').textContent;
+	
+	  $.ajax({
+		  type:"post",
+		  url:"controler/cusinvoicecontroler.php",
+		  data:({fname:fn,lname:ln,contact:cn,total:tot,discount:dis,netamount:net}),
+		  success:function(data){
+			  alert(data);
+		  }
+	  });
+	}//);
+	
+	$('#discount').on('change',function(){
+		updatedata();
+	});
 	
 </script>
 
   
 
 
-<!-- jQuery 3.1.1 -->
-<script src="../../js/jquery-3.1.1.min.js"></script>
+
 <!-- Bootstrap no need 3.3.7 -->
 <script src="../../js/bootstrap.min.js"></script>
 <!-- FastClick no need -->
