@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SKMM.Home</title>
     <!-- Bootstrap -->
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -14,7 +14,38 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-  </head>
+  </head>	
+  <div class="modal fade" id="loginModal">
+         <div class="modal-dialog">
+         <div class="modal-content">   
+    <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="php/user.php" name="login_form">
+             <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="UserName" name="euname" id="username" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+             <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback" name="passwd" required></span>
+      </div>
+              
+              
+              <p><button type="submit" class="btn btn-primary">Sign in</button>
+                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+                
+              </div>
+			 </div>
+	  </div>
+	  </div>
   <body>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 	<script src="js/jquery-1.11.3.min.js"></script>
@@ -94,30 +125,7 @@
           </div>
         </div>
       </div>
-     
-        <div class="modal fade" id="loginModal">
-         <div class="modal-dialog">
-            
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="php/user.php" name="login_form">
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="text" class="span3" name="euname" id="username" placeholder="UserName" required></p>
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="password" class="span3" name="passwd" placeholder="Password" required></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">Not Registerd? <a href="#" class="btn btn-primary">Register</a></div>
-       
-	  </div>
-	  </div>
-       
-        
-      
+ 
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
   </div>
  
