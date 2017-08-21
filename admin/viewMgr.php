@@ -299,9 +299,9 @@ function viewAllMgr(){
 			echo "<td>" . $row['user_user_name'] . "</td>";
 
 			
-			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/></td>";
-			echo "<td><input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";//"</td>";
+			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/>";//"</td>";
+			echo "<input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
 	}
