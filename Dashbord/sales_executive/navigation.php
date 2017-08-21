@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
 
     <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -100,7 +100,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Dulmina Renuke</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -148,7 +148,7 @@
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Dulmina Renuke</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -165,26 +165,24 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd"class="active treeview menu-open">
-          <a href="#">
+        <li  id="dd" class="active treeview menu-open">
+          <a href="dashbord">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-           
           </a>
-         
         </li>
        
         <li class="treeview">
-                <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Order</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          <li class="treeview">
+         	<a href="#">
+            	<i class="fa fa-edit"></i> <span>Order</span>
+            	<span class="pull-right-container">
+              	<i class="fa fa-angle-left pull-right"></i>
+           	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> New Order</a></li>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Find Order</a></li>
            </ul>
         </li>
@@ -196,9 +194,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="newinvoice.php"><i class="fa fa-circle-o"></i> New Invoice</a></li>
-            <li><a href="newcusInvoice.php"><i class="fa fa-circle-o" style="color:aliceblue;"></i> <span style="color:aliceblue;">Customer Invoice</span></a></li>
-            <li><a href="findinvoice.php"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
+            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i> New Invoice</a></li>
+            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
           </ul>
         </li>
     
@@ -232,17 +229,9 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-   
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
+  <div class="content-wrapper" id="content-wrapper" >
+    
+    <!-- content will be loaded here -->
     
   </div>
   <!-- /.content-wrapper -->
@@ -281,6 +270,7 @@
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
+<script src="../../js/navigation_controler.js"></script>
 
 </body>
 
