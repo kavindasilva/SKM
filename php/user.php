@@ -5,6 +5,7 @@ require_once 'dbcon.php';
 
 //if(isset($_POST['log'])){
 	//echo "form login";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = $_POST['euname'];
 	$password = $_POST['password'];
 	
@@ -28,14 +29,20 @@ require_once 'dbcon.php';
 			$_SESSION['user']=''; //user id
 				 header("Location:../Dashbord/sales_executive/navigation.php");
 			
-			//adm=admin, sae=sales exe, chf=chief mgr...
+			$_SESSION['user']=$r['user_name']; //user name
 			$usrtype=$r['type'];
+			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
+			//header("Location:../Dashbord/adminlte.io/themes/AdminLTE/index2.html"); //for testing purposes
+			
+			//adm=admin, sae=sales exe, chf=chief mgr...
+						
 			if($usrtype=='adm')
 			{	
 				header('Location: ./admin/admin.php');
 				}
 			elseif($usrtype=='sae')
-				echo "you are a sales executive";
+				header('Location: ../dashboard/sales_executive/index2.html');
+				//echo "you are a sales executive";
 			elseif($usrtype=='chf')
 				echo "hi lokka";
 				
@@ -49,6 +56,7 @@ require_once 'dbcon.php';
 			
 		}
 	}
+}
 	
 //}
 
