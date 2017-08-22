@@ -161,7 +161,7 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="index.php"><i class="fa fa-circle-o"></i> New user</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Reset password</a></li>
