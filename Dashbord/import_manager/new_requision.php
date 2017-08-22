@@ -250,7 +250,9 @@
           <strong class="col-xs-2">Tire Brand</strong>
           <div class="col-xs-2">
             <select class="form-control" >
-             <option value="" >Select</option>
+            <option value="">Select</option>
+             <option value="" >Dunlop</option>
+             <option value="" >Kaizen</option>
            </select>
           </div>
           
@@ -259,6 +261,8 @@
           <div class="col-xs-2">
           <select class="form-control" >
              <option value="" >Select</option>
+             <option value="" >Japan</option>
+			  <option value="">Thaiwan</option>
           </select>
           </div>
           <button class="col-xs-1 btn btn-success" type="button">Go</button>
