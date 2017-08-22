@@ -42,7 +42,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-//include '../php/dbcon2.php';
+include '../php/dbcon2.php';
 //include  //header files & css,JS
 
 ?>
@@ -171,7 +171,7 @@ $_SESSION['user']="Test1";
 		
 		<li class="treeview">
 
-          <a href="#">
+          <a href="viewMgr.php">
             <i class="fa fa-edit"></i> <span>Managers</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -209,78 +209,20 @@ $_SESSION['user']="Test1";
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-<?php
-//session maintainence // kavindasilva
-/**
- * get method eken user type eka ganna. ekata adalawa fields display karanna
- 
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="adm") {
-     echo "not an admin";
-	 //header('Location:../login.html');
- }
-
-/**/
-include '../php/dbcon2.php';
-//include  //header files & css,JS
-
-
-if(!isset($_GET['type'])){
-	//header("Location: index.php");
-}
-$newUserType=$_GET['type'];
-
-
-?>
-<script type="text/javascript" src="adminFun.js"></script>
-
-<center>
-
-<form method="post" action="adminfuns1.php">
-<table>
-	<td><input type='text' name='utype' value="<?php echo $newUserType; ?>" hidden/>
+   <script type="text/javascript" src="adminFun.js"></script>
+	<h2>admin control panel</h2> <br/>
 	
-	<tr><td>First name</td>	<td><input type="text" name="fname" autocomplete="off" required/></td></tr>
-	<tr><td>Last name</td>	<td><input type="text" name="lname" autocomplete="off" required=""/></td></tr>
-	<tr><td>Email</td>		<td><input type="email" name="eml" autocomplete="off" required=""/></td></tr>
-	<tr><td>Address</td>	<td><textarea name="addr" autocomplete="off"></textarea></td></tr>
-	<tr><td>Phone</td>		<td><input type="text" name="telp" autocomplete="off" required=""/></td></tr>
-	<tr><td>Prefered username</td><td><input type="text" name="prefuser" autocomplete="off" />
-									<button  data-toggle="modal" class="btn btn-default" data-target="#myModal" >Check</button>
-									</td></tr>
-	<!--sub>danata username eka validate karanne na. ekata UI ekak dala availability check karanna oni</sub-->
+	<!--searchRows(trindex, eleid, tableid)-->
 	
-	<?php
-	switch ($newUserType) {
-	case 'cust': echo"<title>New customer</title>"; 
-		customer();break;
+	<input type='text' class="" id="srch1" onkeyup="searchRows(1,this.id,'tblMgr');" placeholder="search by name"/><br/>
 	
-	case 'salex': echo"<title>New Sales executive</title>";
-		salesEx();break;
-	
-	case 'dealer': echo"<title>New Dealer</title>";
-		dealer();break;
-	
-	case 'suppl': echo"<title>New Supplier</title>";
-		supplier();break;
-	case 'ks':
-		break;
-	
-	default:
-		break;
-}
-	?>
+	<?php viewAllMgr(); ?>
 	
 	
-	<tr><td><input type="submit" name="" value="OK" onclick="return confirmI();" /></td>	<td><input type="reset" value="Clear" /></td></tr>
-</table>
-</form>
-</center>
-
-<ol class="breadcrumb">
+<!--form method="get" action="">
+<input ty />
+</form-->
+      <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
@@ -312,24 +254,6 @@ $newUserType=$_GET['type'];
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-  
-  <div class="modal fade" id="myModal">
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
-         
-          </div>
-          <div class="modal-body">
-            <form method="post" action="php/user.php" name="login_form">
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="text" class="span3" name="euname" id="username" placeholder="UserName" required></p>
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="password" class="span3" name="passwd" placeholder="Password" required></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">Not Registerd? <a href="#" class="btn btn-primary">Register</a></div>
-        </div>
 
 
 </div>
@@ -348,46 +272,40 @@ $newUserType=$_GET['type'];
 </body>
 </html>
 
-
-
 <?php
- 
- /*
-$newUserType = $_POST['utype'];
-$fnm=$_POST['fname'];
-$lnm=$_POST['lname'];
-$username=$fnm.$lnm; //username eka unique, PK. 
+//view all users
+function viewAllMgr(){
+	$sqlq = "select * from employee;"; //sql query, users list
+	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
+	
+	if (mysqli_num_rows($res) == 0) //check result
+		echo "<p>No users in the system</p>";
+	
+	else {
+		echo "<table id='tblMgr' class='table table-striped'>";
+		echo "<tr> <th>ID</th> <th>Name</th> <th>Telephone</th> <th>User type</th> <th>Username</th></tr>";
+		//echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
+		
+		while ($row = mysqli_fetch_array($res)) {
+			echo "<form method='post' action='adminfuns2.php'>";
+			
+			echo "<tr><input type='text' name='eid' value='" . $row['e_id'] . "' hidden/>"; //to track the employee id
+			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
+			
+			echo "<td>" . $row['e_id'] . "</td>";
+			echo "<td>" . $row['name'] . "</td>";
+			echo "<td>" . $row['tel'] . "</td>";
+			echo "<td>" . $row['type'] . "</td>";
+			echo "<td>" . $row['user_user_name'] . "</td>";
 
-$em=$_POST['eml'];
-$adr=$_POST['addr'];
-$phn=$_POST['telp'];*/
-
-//in case of redirection
-function fillForm($field){ //field == text box name
-	if(isset($_GET[$field])){ //
-		//header("Location: index.php");
-		echo $_GET['$field'];
+			
+			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/></td>";
+			echo "<td><input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/></td>";
+			echo "<td><input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+		}
+		echo "</table>";
 	}
-}
-function customer(){
-	echo "<tr><td>Company</td>		<td><input type='text' name='comp' autocomplete='off'/></td></tr>";
-	echo "<tr><td>User type</td>		<td><input type='text' name='utype0' value='Customer' disabled/>";
-	//echo "<td><input type='text' name='utype0' value='Customer' hidden/>"; //for user type
-}
-
-function salesEx(){
-	//echo "<tr><td>Company</td>	<td><input type='text' name='comp' autocomplete='off'/></td></tr>";
-	echo "<tr><td>User type</td>		<td><input type='text' name='utype0' value='Sales Executive' disabled/>";
-}
-
-function supplier(){
-	echo "<tr><td>Brand</td>		<td><input type='text' name='brnd' autocomplete='on' required/></td></tr>";
-	echo "<tr><td>Country</td>		<td><input type='text' name='cont' autocomplete='on' required/></td></tr>";
-	echo "<tr><td>User type</td>		<td><input type='text' name='utype0' value='Supplier' disabled/>";
-}
-
-function dealer(){
-	echo "<tr><td>User type</td>		<td><input type='text' name='utype0' value='Dealer' disabled/>";
+	
 }
 
 ?>

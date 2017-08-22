@@ -1,0 +1,8 @@
+/* CSS Document */
+  body{
+	background-image: url(../images/road.jpg);
+}
+#loginicon{
+	width: 55px;
+	height: 55px;
+}
