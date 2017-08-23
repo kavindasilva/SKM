@@ -3,7 +3,7 @@
 // me file eke thiyenne mage mysql ekata configure karapu credentials
 $host="127.0.0.1";
 $uname="root";
-$password="";
+$password="1";
 $dataBase="skm";
 
 $conn=new mysqli($host,$uname,$password,$dataBase);
