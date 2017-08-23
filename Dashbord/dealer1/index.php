@@ -210,7 +210,7 @@ include_once '../../php/dbcon2.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <script type="text/javascript" src="adminFun.js"></script>
-	<B>Customer dashboard</b> <br/>
+	<B>Dealer dashboard</b> <br/>
 	<br/>
 <div class="">
 	

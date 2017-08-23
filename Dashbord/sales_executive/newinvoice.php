@@ -123,15 +123,17 @@
 	  </br>
 		  <div class="row">
         <div  class="col-xs-12" style="width:auto; margin-left: 72px">
+         <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;">
           <div class="box" >
             <div class="box-header">
-              <h3 class="box-title">Invoice Items</h3>
+              <h3 class="box-title">Order Items</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="orderitems" class=" table-bordered table-hover" width="920" >
+              <table id="orderitems" class="table-bordered table-hover" width="700" >
                 <thead>
                 <tr>
+                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -140,55 +142,47 @@
                   <th>Total Amount</th>
                 </tr>
                 </thead>
+               
                 <tbody>
-                <tr>
-                  <td>Dunlop</td>
-                  <td>195R16
-                  </td>
-                  <td>20</td>
-                 
-                </tr>
-                
+                                 
                 </tbody>
                 
               </table>
             </div>
             <div class="box-footer">
             <div class="row">
-                      	<div class="col-md-3 pull-right">
-            		<label class="pricelabel"></label>
+            
+            	<div class="col-md-3 pull-right" id="subtotal">
+            		<label class="pricelabel" id="subtotal"></label>
             	</div>
             	<div class="col-md-3 pull-right">
             		<strong>Sub Total</strong>
 				</div>
 				</div></br>
             	<div class="row">
-            		<div class="col-md-3 pull-right  " >
-            		<select class="form-control pricelabel">
+            		<div class="col-md-3 pull-right">
+            		<select class="form-control" id="discount">
+            			<option value=".1">10%</option>
             			<option value=".15">15%</option>
-            			<option value=".2">20%</option>
-            			<option value=".25">25%</option>
             		</select>
             	</div>
-            	
+           
             	<div class="col-md-3 pull-right">
             		<strong>Discount Type</strong>
             	</div>
             	</div></br>
             	<div class="row">
-            	<div class="col-md-3">
-            	<button type="submit" class="btn btn-primary" style="width: 153px;margin-left: 10px;">Generate Invoice</button>
-            	</div>
             		<div class="col-md-3 pull-right">
-            		<label class="pricelabel "></label>
+            		<label class="pricelabel " id="dis"></label>
             	</div>
             	<div class="col-md-3 pull-right">
             		<strong>Discount</strong>
             	</div>
-			</div></br>
-            	<div class="row">
+            	</div>
+            	<div class="row"><div class="col-md-3">
+            	</div>
             		<div class="col-md-3 pull-right">
-            		<label class="pricelabel "></label>
+            		<label class="pricelabel" id="net"></label>
             	</div>
             	<div class="col-md-3 pull-right">
             		<strong>Net Amount</strong>

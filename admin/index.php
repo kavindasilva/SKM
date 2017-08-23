@@ -143,7 +143,7 @@ $_SESSION['user']="Test1";
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu"  id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
           <a href="index.php">
@@ -162,8 +162,8 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> New user</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="#" name="index"><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="#" name=""><i class="fa fa-circle-o"></i> View all</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Reset password</a></li>
             <li><a href="#"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
@@ -179,8 +179,8 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Edit details</a></li>
+            <li><a href="#" name="viewMgr"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="#" name="viewMgr"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
            </ul>
         </li>
@@ -207,7 +207,7 @@ $_SESSION['user']="Test1";
   
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <script type="text/javascript" src="adminFun.js"></script>
@@ -275,6 +275,7 @@ $_SESSION['user']="Test1";
 <script src="../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../js/demo.js"></script>
+<script src="../js/navigation_controler.js"></script>
 
 </body>
 </html>
