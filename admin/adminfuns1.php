@@ -2,10 +2,10 @@
 //NO session maintainence // kavindasilva
 /**
  * contains only admin functions. Unauthorized access is not monitored
- * functions: Add new user
+ * functions: Add new user <- data taken from adduser.php
 
  /**/
-include '../php/dbcon2.php';
+include_once '../php/dbcon2.php';
 //include  //header files & css,JS
 
 $newUserType = $_POST['utype'];

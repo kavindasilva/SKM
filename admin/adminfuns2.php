@@ -5,7 +5,7 @@
  * functions: edit users
 
  /**/
-include '../php/dbcon2.php';
+include_once '../php/dbcon2.php';
 //include  //header files & css,JS
 
 $newUserType = $_POST['utype'];

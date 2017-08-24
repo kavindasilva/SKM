@@ -18,6 +18,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../js/navigation_controler.js">
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -184,8 +185,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="new_requision.php"><i class="fa fa-circle-o"></i> New Requisition</a></li>
-            <li><a href="pending_requision.php"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
+            <li><a href="newrequisition" name="newrequisition" class="fa fa-circle-o"></i> New Requisition</a></li>
+            <li><a href="pendingrequesition" name="pendingrequisition"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
            </ul>
         </li>
         <li class="treeview">
@@ -232,16 +233,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-   
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
     
   </div>
   <!-- /.content-wrapper -->

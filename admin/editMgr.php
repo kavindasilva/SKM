@@ -1,3 +1,29 @@
+<?php
+
+/**
+this file contains:
+ edit manager UI+sql
+ manager password reset UI+sql
+*/
+//session maintainence // kavindasilva
+session_start();
+$_SESSION['user']="Test1";
+/**
+ if(!isset($_SESSION['user'])){
+	echo "user not set";
+	//header('Location:../login.html');
+ }
+ elseif ($_SESSION['utype']!="adm") {
+     echo "not an admin";
+	 //header('Location:../login.html');
+ }
+
+/**/
+include_once '../php/dbcon2.php';
+//include  //header files & css,JS
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,41 +231,35 @@ $_SESSION['user']="Test1";
   </aside>
   
   
-  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-   <script type="text/javascript" src="adminFun.js"></script>
+	<script type="text/javascript" src="adminFun.js"></script>
 	<B>admin control panel</b> <br/>
-	Select a user type to insert<br/>
-<div class="">
-	<a href="adduser.php?type=cust"><button class="list-group-item" name="" value="">Customer</button></a>
-	<a href="adduser.php?type=salex"><button class="list-group-item" name="" value="">Sales Executive</button></a>
-	<a href="adduser.php?type=dealer"><button class="list-group-item" name="" value="">Dealer</button></a> 
-	
-	<a href="adduser.php?type=suppl"><button class="list-group-item" name="" value="">Supplier</button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a> <br />
-	
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a> <br />
-	
-</div>
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
 
+<?php
+require_once "../php/dbcon.php";
+
+$empID1=$_POST['eid'];
+
+//view manager details 
+if(isset($_POST['updatemgr'])){
+	changeMgrUI($empID1);
+}
+
+//edit manager details 
+if(isset($_POST['setupdate'])){
+	changeMgrSQL();
+}
+
+
+?>
+
+	</section>
     <!-- Main content -->
-    
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       Sole Agent of Dunlop tires in Srilanka
@@ -281,44 +301,69 @@ $_SESSION['user']="Test1";
 </html>
 
 <?php
-//view all users
-function viewAll2(){
-	$sqlq = "select * from users;"; //sql query, users list
-	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
+function changeMgrUI($empID){
+	$sql1="select * from employee where e_id=".$empID; //name, tel
+	$sql2="select * from user where user_name=(select user_user_name from employee where e_id=$empID);"; //get user table details - email, address
 	
-	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
-	
-	else {
-		echo "<table id='tblstd'>";
-		echo "<tr> <th>ID</th> <th></th> <th>First name</th> <th>Last name</th> <th>Birthday</th> <th>class</th>";
-		echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
-		
-		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='funs1.php'>";
-			//echo "<form method='post' action='funs1.php' onsubmit='confirmD();'>";
-			//echo "<form method='post' action=''>"; //auto refreshing
-			
-			echo "<tr><input type='text' name='sid' value='" . $row['sid'] . "' hidden/>"; //make teacher
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
-			
-			echo "<td>" . $row['sid'] . "</td>";
-			echo "<td>" . $row['photo'] . "</td>";
-			echo "<td>" . $row['fname'] . "</td>";
-			echo "<td>" . $row['lname'] . "</td>";
-			echo "<td>" . $row['dob'] . "</td>";
-			echo "<td>" . $row['class'] . "</td>";
-			echo "<td>" . $row['gender'] . "</td>";
-			echo "<td>" . $row['tel1'] . "</td>";
-			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";
-			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
-		}
-		echo "</table>";
+	$res1=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res1){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	$res2=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res2){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
 	}
 	
+	//there is a non-empty result set in both sql queries
+	$r1=mysqli_fetch_array($res1);
+	$r2=mysqli_fetch_array($res2);
+	
+	echo "<form method='post' action='editMgr.php'>";
+	echo "<Table>";
+	//echo"<tr><td></td> <td></td></tr>";
+	echo "<input type='text' name='eid' value='".$r1['e_id']."' hidden/>";
+	echo "<input type='text' name='uname' value='".$r2['user_name']."' hidden/>";
+	echo"<tr><td>Employee ID</td> <td><input type='text' value='".$r1['e_id']."' name='' disabled/></td></tr>";
+	echo"<tr><td>User name</td> <td><input type='text' value='".$r2['user_name']."' name='' disabled/></td></tr>";
+	
+	echo"<tr><td>Name</td> <td><input type='text' value='".$r1['name']."' name='nam'/></td></tr>";
+	echo"<tr><td>Telephone</td> <td><input type='text' value='".$r1['tel']."' name='telp'/></td></tr>";
+	echo"<tr><td>Email</td> <td><input type='text' value='".$r2['email']."' name='eml'/></td></tr>";
+	echo"<tr><td>Address</td> <td><textarea name='addr'>".$r2['address']."</textarea></td></tr>";
+	
+	echo"<tr><td><input type='submit' onclick='return confirmU()' name='setupdate' value='OK'></td> <td><a href='viewMgr.php'>";
+	echo "<input type='button' value='cancel'></a></td></tr>";
+	echo"</table></form>";
 }
 
+function changeMgrSQL(){
+	$userName=$_POST['uname'];
+	$Empid=$_POST['eid'];
+	
+	$newName=$_POST['nam'];
+	$newTel=$_POST['telp'];
+	$newEmail=$_POST['eml'];
+	$newAddr=$_POST['addr'];
+	
+	$sql1="update user set email='$newEmail', address='$newAddr' where user_name='$userName';";
+	$sql2="update employee set name='$newName', tel='$newTel' where e_id='$Empid';";
+	
+	$res1=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res1){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	$res2=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res2){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	else{
+		echo "<script>alert('Manager details updated succesfully');window.location.href = 'index.php';</script>";
+	}
+	
+}	
+	
 ?>

@@ -42,7 +42,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include '../php/dbcon2.php';
+include_once '../php/dbcon2.php';
 //include  //header files & css,JS
 
 ?>
@@ -143,9 +143,9 @@ include '../php/dbcon2.php';
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu"  id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd"class="active treeview menu-open">
+        <li  id="dd" class="active treeview menu-open">
           <a href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            
@@ -154,6 +154,7 @@ include '../php/dbcon2.php';
         </li>
        
         <li class="treeview">
+
           <a href="#">
             <i class="fa fa-edit"></i> <span>Users</span>
             <span class="pull-right-container">
@@ -161,11 +162,11 @@ include '../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.php"><i class="fa fa-circle-o"></i> New user</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Edit details</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Reset password</a></li>
-            <li><a href="#"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
+            <li><a href="index.php" ><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="viewAll.php" ><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Edit details</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
            </ul>
         </li>
 		
@@ -179,7 +180,7 @@ include '../php/dbcon2.php';
           </a>
           <ul class="treeview-menu">
             <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Edit details</a></li>
+            <li><a href="viewMgr.php" name="viewMgr"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
            </ul>
         </li>
@@ -192,7 +193,7 @@ include '../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Change password</a></li>
+            <li><a href="../php/changepass.php"><i class="fa fa-circle-o"></i> Change password</a></li>
             <li><a href="../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
@@ -204,12 +205,11 @@ include '../php/dbcon2.php';
   </aside>
   
   
-  
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-   <script type="text/javascript" src="adminFun.js"></script>
+	<script type="text/javascript" src="adminFun.js"></script>
 	<h2>admin control panel</h2> <br/>
 	
 	<!--searchRows(trindex, eleid, tableid)-->
@@ -268,6 +268,7 @@ include '../php/dbcon2.php';
 <script src="../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../js/demo.js"></script>
+<script src="../js/navigation_controler.js"></script>
 
 </body>
 </html>
@@ -287,7 +288,7 @@ function viewAllMgr(){
 		//echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
 		
 		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='adminfuns2.php'>";
+			echo "<form method='post' action='editMgr.php'>";
 			
 			echo "<tr><input type='text' name='eid' value='" . $row['e_id'] . "' hidden/>"; //to track the employee id
 			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
@@ -300,8 +301,8 @@ function viewAllMgr(){
 
 			
 			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";//"</td>";
-			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/>";//"</td>";
-			echo "<input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/></form></td></tr>";//"</td>";
+			//echo "<input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/>";	
 		}
 		echo "</table>";
 	}
