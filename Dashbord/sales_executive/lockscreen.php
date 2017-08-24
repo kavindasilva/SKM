@@ -21,14 +21,14 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition lockscreen">
+<body style="background-image:url(../../images/yANCMtk.jpg)">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="../../index2.html"><b>SKM</b>unasinghe Motors</a>
+    <a href="../../index.php" style="color: aliceblue;"><b >SKM</b>unasinghe Motors</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">John Doe</div>
+  <div class="lockscreen-name" style="color: aliceblue;">John Doe</div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">

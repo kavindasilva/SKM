@@ -13,7 +13,10 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<!--SKM file-->
 	<link href="css/home.css" rel="stylesheet">
-		
+	<link href="css/aos.css" rel="stylesheet">
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>	
+			
   </head>	
   
   <div class="modal fade" id="loginModal">
@@ -41,52 +44,34 @@
             </form>
           </div>
           <div class="modal-footer">
-                <button type="button" class="btn btn-info pull-right" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
                 
               </div>
 			 </div>
 	  </div>
 	  </div>
-  <body id="mainbackground">
-	
-  <div class="container ">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-          <a class="navbar-brand" href="#">S.K.Munasinghe Motors</a></div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="defaultNavbar1">
-          <ul class="nav navbar-nav">
-            
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-            <li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-          <form class="navbar-form navbar-left" role="search">
-          
-           
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-           
-            <button  data-toggle="modal" class="btn btn-default" data-target="#loginModal" >Sign In</button>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
+  <body id="mainbackground">	
+  <div class="container">
+  <!--header-->
+   <header id="header" class="row">   
+   		<a href="index.php"><img src="images/skmlogo.jpg" id="hedinicon"></a>
+	   	<nav id="header-nav-wrap">
+	   	
+			<ul class="header-main-nav">
+				<li class="skm">SKMunasinghe motors</li>
+				<li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                <li ><a class="smoothscroll"  href="#about" title="about">About</a></li>
+				<li><a class="smoothscroll"  href="#pricing" title="pricing">Pricing</a></li>
+				<li><a class="smoothscroll"  href="#testimonials" title="testimonials">Testimonials</a></li>
+				<li><a class="smoothscroll"  href="#download" title="download">Download</a></li>	
+			</ul>
+
+            <button  data-toggle="modal" class="btn btn-warning" data-target="#loginModal" >Sign In</button>
+		</nav>
+   </header>
+   <!-- header concludes here-->
+    
+  
     <div id="carousel1" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel1" data-slide-to="0" class="active"></li>
@@ -124,11 +109,25 @@
       </div>
  
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
+	  </br></br></br></br></br></br>
+    <div class="row"> 
+    <div id="dunlop" class=" col-md-6">
+    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-up">
+    </div>
+    <div id="kaizen" class="tire col-md-6">
+    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="fade-up">
+    </div>
+    </div> 
+    
   </div>
- 
+ <div id="pricelist">
+    	
+    </div>
  
   </body>
   
-  
+  <script>
+    AOS.init();
+  </script>
   
 </html>
