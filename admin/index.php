@@ -145,7 +145,7 @@ $_SESSION['user']="Test1";
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu"  id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd"class="active treeview menu-open">
+        <li  id="dd" class="active treeview menu-open">
           <a href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            
@@ -162,11 +162,11 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="index"><i class="fa fa-circle-o"></i> New user</a></li>
-            <li><a href="#" name=""><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Edit details</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Reset password</a></li>
-            <li><a href="#"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
+            <li><a href="index.php" ><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="viewAll.php" ><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Edit details</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
+            <li><a href="viewAll.php"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
            </ul>
         </li>
 		
@@ -179,8 +179,8 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="viewMgr"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#" name="viewMgr"><i class="fa fa-circle-o"></i> Edit details</a></li>
+            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="viewMgr.php" name="viewMgr"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
            </ul>
         </li>
@@ -193,7 +193,7 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Change password</a></li>
+            <li><a href="../php/changepass.php"><i class="fa fa-circle-o"></i> Change password</a></li>
             <li><a href="../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
