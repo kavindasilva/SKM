@@ -120,8 +120,35 @@
     </div> 
     
   </div>
- <div id="pricelist">
-    	
+ 	<div id="pricelist">
+    	<div class="tab">
+  			<button class="tablinks" onclick="openCity(event, 'London')">Passenger Car Tyres</button>
+ 			<button class="tablinks" onclick="openCity(event, 'Paris')">4x4 (RV/4WD) Tyres</button>
+  			<button class="tablinks" onclick="openCity(event, 'Tokyo')">Truck Tyres
+    & Bus Tyres</button>
+		</div>
+  		<div class="box" style="background-color:aliceblue;">
+            <div class="box-header">
+              <h3 class="box-title">Price List</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="orderitems" class="table-bordered table-hover" width="700" >
+                <thead>
+                <tr>
+                  <th>Tire Size</th>
+                  <th>Japan</th>
+                  <th>Thailand</th>
+                  <th>Indonesia</th>
+                </tr>
+                </thead>
+                <tbody>                 
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+   	
     </div>
  
   </body>
