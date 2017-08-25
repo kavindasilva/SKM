@@ -16,7 +16,7 @@
 	<link href="css/aos.css" rel="stylesheet">
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
-			
+	<link rel="stylesheet" href="fonts/font-awesome.min.css">		
   </head>	
   
   <div class="modal fade" id="loginModal">
@@ -72,7 +72,7 @@
    <!-- header concludes here-->
     
   
-    <div id="carousel1" class="carousel slide" data-ride="carousel">
+    <div id="carousel1" class="carousel slide" data-ride="carousel" data-aos="fade-up">
       <ol class="carousel-indicators">
         <li data-target="#carousel1" data-slide-to="0" class="active"></li>
         <li data-target="#carousel1" data-slide-to="1"></li>
@@ -112,10 +112,10 @@
 	  </br></br></br></br></br></br>
     <div class="row"> 
     <div id="dunlop" class=" col-md-6">
-    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-up">
+    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-right">
     </div>
     <div id="kaizen" class="tire col-md-6">
-    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="fade-up">
+    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="fade-left">
     </div>
     </div> 
     
@@ -127,13 +127,17 @@
   			<button class="tablinks" onclick="openCity(event, 'Tokyo')">Truck Tyres
     & Bus Tyres</button>
 		</div>
-  		<div class="box" style="background-color:aliceblue;">
+ 		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
+			<input type="text" id="myInput" onkeyup="" placeholder="Search for tire size.."></div></br>
+<!-- dunlop tires price list table-->			
+			<div class="row">
+  		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h3 class="box-title">Price List</h3>
+              <h4 class="box-title">Dunlop tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="orderitems" class="table-bordered table-hover" width="700" >
+              <table id="orderitems" class="table-bordered table-hover" width="620" >
                 <thead>
                 <tr>
                   <th>Tire Size</th>
@@ -148,9 +152,51 @@
             </div>
             <!-- /.box-body -->
           </div>
+<!--google map location of SKM-->          
+          <div id="map" class="pull-right col-md-5" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.346597921569!2d79.87071012246584!3d6.880222420451064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3e5718eafe129f4!2sS.+K.+Munasinghe+Motors!5e0!3m2!1sen!2s!4v1503665177210" width="550" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+          </div>
+		</br>
+<!-- kaizen tires price list-->          
+          <div class="row">
+          	<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
+            <div class="box-header">
+              <h4 class="box-title">Kaizen tires price List</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="orderitems" class="table-bordered table-hover" width="620" >
+                <thead>
+                <tr>
+                  <th>Tire Size</th>
+                  <th>Japan</th>
+                  <th>Thailand</th>
+                  <th>Indonesia</th>
+                </tr>
+                </thead>
+                <tbody>                 
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <div class="col-md-5" style="margin-left: 80px;">
+          <img src="images/tires.png" data-aos="fade-up" class="topbotom">
+          <img src="images/cars.usnews.com.jpg" data-aos="fade-up" class="middlepic">
+          <img src="images/The-Fast-and-the-Furious-modern-renders-Mitsubishi-Eclipse-Cross.jpg" data-aos="fade-up" class="middlepic">
+          <img src="images/1379603518.jpg" data-aos="fade-up"  class="topbotom">
+			  </div>
+          </div>
+<!-- kaizen tires price list concludes here-->           
    	
     </div>
- 
+<!-- fotter goes here-->    
+    <div id="footterskm">
+    <div class="col-md-3" id="footerheding" style="color: aliceblue">
+    	<label><strong>SKM</strong>unasinghe Motors</label>
+    </div>
+    	
+    </div>
+<!-- fotter concluds here-->  
   </body>
   
   <script>

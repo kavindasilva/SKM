@@ -171,7 +171,7 @@
       	offset: 200,
       	duration: 800,
       	easing: 'ease-in-sine',
-      	delay: 400,
+      	delay: 300,
 			once: true,
 			disable: 'mobile'
     	});
