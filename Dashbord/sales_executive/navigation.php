@@ -120,11 +120,11 @@
                 </div>
 				 
                 <div class="pull-right">
-                  <a href="../../index.html" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="../../index.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
-                  <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
                 </div>
               </li>
             </ul>
