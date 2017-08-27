@@ -20,7 +20,17 @@ elseif(mysqli_num_rows($res)==0){
 else{
 	//when old password is correct
 	if($oldpw==$res['password']){
+		$sql="update user set password='$newpw' where user_name='$uname';";
+		$res=mysqli_query($conn, $sql);
 		
+		if(!$res){
+			echo "password change error<br>";
+			echo mysqli_error($conn);
+			return;
+		}
+		else{
+			echo "<script>alert('Password updated succesfully');window.location.href = 'index.php';</script>";
+		}
 	}
 }
 
