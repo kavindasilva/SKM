@@ -185,8 +185,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="newrequisition" name="newrequisition" class="fa fa-circle-o"></i> New Requisition</a></li>
-            <li><a href="pendingrequesition" name="pendingrequisition"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
+            <li><a  href="#" name="newrequisition"> <i class="fa fa-circle-o"></i> New Requisition</a></li>
+            <li><a href="#" name="pendingrequisition"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
            </ul>
         </li>
         <li class="treeview">
