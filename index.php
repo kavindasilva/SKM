@@ -1,3 +1,8 @@
+<?php
+include_once "/php/tireDetails.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -150,7 +155,8 @@
                   <th>Indonesia</th>
                 </tr>
                 </thead>
-                <tbody>                 
+                <tbody>
+                	<?php viewTire('Dunlop'); ?>                 
                 </tbody>
               </table>
             </div>
@@ -177,7 +183,8 @@
                   <th>Indonesia</th>
                 </tr>
                 </thead>
-                <tbody>                 
+                <tbody>    
+                	<?php viewTire('Kaizen'); ?>             
                 </tbody>
               </table>
             </div>
