@@ -61,9 +61,8 @@
 				<li class="skm">SKMunasinghe motors</li>
 				<li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
                 <li ><a class="smoothscroll"  href="#about" title="about">About</a></li>
-				<li><a class="smoothscroll"  href="#pricing" title="pricing">Pricing</a></li>
-				<li><a class="smoothscroll"  href="#testimonials" title="testimonials">Testimonials</a></li>
-				<li><a class="smoothscroll"  href="#download" title="download">Download</a></li>	
+				<li><a class="smoothscroll"  href="#Other" title="Other">Other</a></li>
+				<li><a class="smoothscroll"  href="#Contact" title="Contact">Contact Us</a></li>
 			</ul>
 
             <button  data-toggle="modal" class="btn btn-warning" data-target="#loginModal" >Sign In</button>
@@ -109,12 +108,17 @@
       </div>
  
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
-	  </br></br></br></br></br></br>
-    <div class="row"> 
-    <div id="dunlop" class=" col-md-6">
-    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-right">
+	  </br></br></br></br></br>
+    <div class="row">
+    <div class="col-md-5 pull-left" id="abouttext" style="color: aliceblue;" data-aos="fade-right">
+    <label > We are sole agents for Dunlop, Kaizen, Malhotra Tyres & Dong-Ah Tubes</label>
+    <p>In 1888, John Boyd Dunlop, a Scottish Veterinarian invented the first practical pneumatic tyre.J.B. Dunlop experimented ways to ease the discomfort of his son's tricycle and eventually came up with the air-filled or pneumatic tyre. From there this remarkable new idea has made a great contribution to the development of contemporary automobile society.Since then, Dunlop flourished in the world for more than 123 years. </p>
+    
+		</div>
+    <div id="dunlop" class=" col-md-2" style="padding-top: 20px;">
+    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-left">
     </div>
-    <div id="kaizen" class="tire col-md-6">
+    <div id="kaizen" class="tire col-md-5" style="padding-top: 20px;">
     	<img src="images/kaizen_logo.jpg" class="tire" data-aos="fade-left">
     </div>
     </div> 
@@ -191,7 +195,7 @@
     </div>
 <!-- fotter goes here-->    
     <div id="footterskm">
-    <div class="col-md-3" id="footerheding" style="color: aliceblue">
+    <div class="col-md-3" id="footerheding">
     	<label><strong>SKM</strong>unasinghe Motors</label>
     </div>
     	

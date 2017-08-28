@@ -69,7 +69,7 @@
 #header-nav-wrap .header-main-nav .skm{
 	color: aliceblue;
 	position:relative;
-	right: 530px;
+	right: 600px;
 	font-size: 20px;
 }
 #hedinicon{
@@ -90,7 +90,7 @@
 	background-color:antiquewhite;
 	height: auto;
 	position:relative;
-	top: 70px;
+	top: 30px;
 	width: 1265px;
 	margin-left: 40px;
 }
@@ -167,11 +167,11 @@ div.tab button:focus
 }
 .topbotom{
 	width: 400px;
-	height: 150px;
+	height: 190px;
 	padding: 10px;
 }
 #footterskm{
-	margin-top: 100px;
+	margin-top: 50px;
 	background-color: black;
 	width: 1265px;
 	margin-left: 40px;
@@ -180,4 +180,9 @@ div.tab button:focus
 #footterskm #footerheding{
 	font-size: 22px;
 	color: aliceblue;
+}
+#abouttext{
+	font-size: 16px;
+	/*opacity: 0.3;*/
+	background: rgba(200, 54, 54, 0.5);
 }
