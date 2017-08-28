@@ -27,15 +27,15 @@ function viewTire($brnd='All'){
 	}
 	else{
 		if(mysqli_num_rows($res)==0){
-			echo "<tr> <td colspan=4>$type tire list is empty</td> </tr>";
+			echo "<tr> <td colspan=4>$brnd tire list is empty</td> </tr>";
 		}
 		else{
 			while($row=mysqli_fetch_array($res)){
 				echo "<tr>";
 				
-				echo "<td></td>";
-				echo "<td></td>";
-				echo "<td></td>";
+				echo "<td>".$row['tire_size']."</td>";
+				echo "<td>".$row['country']."</td>";
+				echo "<td>".$row['unit_price']."</td>";
 				echo "<td></td>";
 				
 				echo "</tr>";

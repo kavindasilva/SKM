@@ -1,5 +1,5 @@
 <?php
-include_once "tireDetails.php";
+include_once "/php/tireDetails.php";
 
 ?>
 
@@ -183,7 +183,8 @@ include_once "tireDetails.php";
                   <th>Indonesia</th>
                 </tr>
                 </thead>
-                <tbody>                 
+                <tbody>    
+                	<?php viewTire('Kaizen'); ?>             
                 </tbody>
               </table>
             </div>
