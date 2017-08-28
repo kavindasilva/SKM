@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -28,7 +31,9 @@
     <a href="../../index.php" style="color: aliceblue;"><b >SKM</b>unasinghe Motors</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name" style="color: aliceblue;">John Doe</div>
+  <div class="lockscreen-name" style="color: aliceblue;"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
