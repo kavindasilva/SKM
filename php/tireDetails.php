@@ -5,13 +5,18 @@ require_once "dbcon.php";
 
 //select tire types. default all tires
 //just display only required fields on the home page
-function viewTire($type='All'){
+function viewTire($brnd='All'){
 	$sql="";
-	if($type=='All'){
+	$sq2="";
+	$sq3="";
+	
+	if($brnd=='All'){
 		$sql="select * from tire;";
 	}
 	else{
-		$sql="select * from tire where brand_name='".$type."';";
+		$sql="select * from tire where brand_name='".$brnd."' and country='japan';";
+		$sq2="select * from tire where brand_name='".$brnd."' and country='thailand';";
+		$sq3="select * from tire where brand_name='".$brnd."' and country='indonesia';";
 	}
 	
 	$res=mysqli_query($GLOBALS['conn'], $sql);
