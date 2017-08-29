@@ -42,7 +42,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-//include '../php/dbcon2.php';
+include_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -212,7 +212,9 @@ $_SESSION['user']="Test1";
    <script type="text/javascript" src="adminFun.js"></script>
 	<B>admin control panel</b> <br/>
 	
-	
+	<?php
+	viewAll2();
+	?>
 	
 <!--form method="get" action="">
 <input ty />
@@ -270,11 +272,11 @@ $_SESSION['user']="Test1";
 <?php
 //view all users
 function viewAll2(){
-	$sqlq = "select * from users;"; //sql query, users list
+	$sqlq = "select * from user where type='dealer' or type='cust' type='suppl';"; //sql query, users list
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
+		echo "<p>No external users in the system</p>";
 	
 	else {
 		echo "<table id='tblstd'>";
