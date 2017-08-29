@@ -1,8 +1,6 @@
 <?php
-
-
 require_once 'dbcon.php';
-
+session_start();
 //if(isset($_POST['log'])){
 	//echo "form login";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,27 +24,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$r = mysqli_fetch_array($result);
 		$rpass = $r['password']; //password from DB
 		if ($rpass==$password){
-			$_SESSION['user']=''; //user id
-				 header("Location:../Dashbord/sales_executive/navigation.php");
-			
-			$_SESSION['user']=$r['user_name']; //user name
+			$_SESSION['currentuser']=$name; //user name		
 			$usrtype=$r['type'];
 			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
-			//header("Location:../Dashbord/adminlte.io/themes/AdminLTE/index2.html"); //for testing purposes
-			
-			//adm=admin, sae=sales exe, chf=chief mgr...
 						
-			if($usrtype=='adm')
+			if($usrtype=='ad')
 			{	
 				header('Location: ./admin/admin.php');
 				}
-			elseif($usrtype=='sae')
-				header('Location: ../dashboard/sales_executive/index2.html');
-				//echo "you are a sales executive";
-			elseif($usrtype=='chf')
-				echo "hi lokka";
+			elseif($usrtype=='se')
+				header('Location: ../dashbord/sales_executive/navigation.php');		
+			elseif($usrtype=='ch')
+				header('Location: ../dashbord/cheif_manager/navigation.php');	
+			elseif($usrtype=='im')
+				header('Location: ../dashbord/import_manager/navigation.php');
+			elseif($usrtype=='de')
+				header('Location: ../dashbord/dealer1/navigation.php');
+			elseif($usrtype=='sm')
+				header('Location: ../dashbord/Stock_Manager/navigation.php');
+			elseif($usrtype=='su')
+				header('Location: ../dashbord/supplier/navigation.php');
+			else
+				header('Location: ../dashbord/Customer/navigation.php');
 				
-			//header('Location: user.php'); //redirection
+			
 		}
 		else{
 			

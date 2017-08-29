@@ -14,7 +14,8 @@ function viewTire($brnd='All'){
 		$sql="select * from tire;";
 	}
 	else{
-		$sql="select * from tire where brand_name='".$brnd."' and country='japan';";
+		//$sql="select * from tire where brand_name='".$brnd."' and country='japan';";
+		$sql="select * from tire where brand_name='".$brnd." ';";
 		$sq2="select * from tire where brand_name='".$brnd."' and country='thailand';";
 		$sq3="select * from tire where brand_name='".$brnd."' and country='indonesia';";
 	}
