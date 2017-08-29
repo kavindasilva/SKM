@@ -58,3 +58,10 @@ function validate(){
 	$('#discount').on('change',function(){
 		updatedata();
 	});	
+alert("ggf");
+$('#shopname').on('change',function(){
+	alert("ggf");
+if($('#shopname').value!=""){
+	$('#companyname').prop("disabled", true);
+}
+		});
