@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,7 +102,9 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Dulmina Renuke</span>
+              <span class="hidden-xs"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -120,11 +124,11 @@
                 </div>
 				 
                 <div class="pull-right">
-                  <a href="../../index.html" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="../../index.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
-                  <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
                 </div>
               </li>
             </ul>
@@ -148,7 +152,9 @@
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Dulmina Renuke</p>
+          <p><?php
+				  echo $_SESSION['currentuser'];
+				  ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

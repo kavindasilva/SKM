@@ -1,8 +1,188 @@
 /* CSS Document */
   body{
 	background-image: url(../images/road.jpg);
+	background-attachment: fixed;
 }
 #loginicon{
 	width: 55px;
 	height: 55px;
+}
+#header {
+  width: 100%;
+  height: 72px;
+  opacity: 0.9;	
+  background-color: #111111;
+  position: fixed;
+  left: 52%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 501;
+}
+
+/* ------------------------------------------------------------------- 
+ * navigation - (_layout.scss) 
+ * ------------------------------------------------------------------- */
+
+#header-nav-wrap {
+ 
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+
+#header-nav-wrap .header-main-nav {
+  display: inline-block;
+  list-style: none;
+  height: 72px;
+  margin: 0 1rem 0 0;
+}
+
+#header-nav-wrap .header-main-nav li {
+	font-family:Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif"Sans;
+	font-size: 15px;
+  display: inline-block;
+  padding-left: 0;
+  margin-right: 1.5rem;
+	font-weight: bold;
+}
+
+#header-nav-wrap .header-main-nav li a {
+  display: block;
+  line-height: 72px;
+}
+
+#header-nav-wrap .header-main-nav li a,
+#header-nav-wrap .header-main-nav li a:visited {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+#header-nav-wrap .header-main-nav li a:hover,
+#header-nav-wrap .header-main-nav li a:focus {
+  color: #ffffff;
+}
+
+#header-nav-wrap .header-main-nav li.current a {
+  color: #ffffff;
+}
+#header-nav-wrap .header-main-nav .skm{
+	color: aliceblue;
+	position:relative;
+	right: 600px;
+	font-size: 20px;
+}
+#hedinicon{
+	width: 72px;
+	height: 72px;
+}
+#carousel1{
+	position: relative;
+	top: 70px;
+	width: 1275px;
+	right: 70px;
+}
+.carousel1{
+	position: fixed;
+	
+}
+#pricelist{
+	background-color:antiquewhite;
+	height: auto;
+	position:relative;
+	top: 30px;
+	width: 1265px;
+	margin-left: 40px;
+}
+.tire{
+	margin-left: 100px;
+	width:250px;
+	height: 150px;
+}
+ /* Style the tab */
+div.tab {
+	margin-left: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color:goldenrod;
+	width: 41%;
+	
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: thin;
+    outline:double#F1F1F1;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #C0C0C0;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active,
+div.tab button:focus
+{
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+} 
+/* Style the dunlop tires price list content */
+.dunlopprice{
+	margin-left: 26px;
+	height: 450px;
+	
+}
+
+#searchdiv{
+	margin-left: 10px;
+	font-size: 17px;
+	border: 1px solid #ddd;
+	background-color: aliceblue;
+	width: 41%;
+}
+#myInput{
+	border: 1px solid #ddd;
+	width: 92%;
+}
+#map{
+	margin-right: 60px;
+}
+.middlepic{
+	width: 197px;
+	height: 130px;
+	padding: 10px;
+}
+.topbotom{
+	width: 400px;
+	height: 190px;
+	padding: 10px;
+}
+#footterskm{
+	margin-top: 50px;
+	background-color: black;
+	width: 1265px;
+	margin-left: 40px;
+	height: 150px;
+}
+#footterskm #footerheding{
+	font-size: 22px;
+	color: aliceblue;
+}
+#abouttext{
+	font-size: 16px;
+	/*opacity: 0.3;*/
+	background: rgba(200, 54, 54, 0.5);
 }
