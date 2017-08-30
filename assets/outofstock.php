@@ -11,7 +11,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancle</button>
-                <button type="button" class="btn btn-outline pull-right" data-dismiss="modal" style="background-color: #E05D0F;">Proceed anyway</button>
+                <button type="button" class="btn btn-outline pull-right" data-dismiss="modal" onClick="prceedanyway();" style="background-color: #E05D0F;">Proceed anyway</button>
               </div>
             </div>
             <!-- /.modal-content -->
