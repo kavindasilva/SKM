@@ -58,3 +58,29 @@ function validate(){
 	$('#discount').on('change',function(){
 		updatedata();
 	});	
+$('#shopname').on('change',function(){
+if($('#shopname').value!=""){
+	document.getElementById("companyname").selectedIndex = "0";	
+}	
+		}); 	
+
+$('#companyname').on('change',function(){
+if($('#companyname').value!=""){
+	document.getElementById("shopname").selectedIndex = "0";	
+}	
+		}); 
+function showsize(){
+	$('#tiresize').children('option:not(:first)').remove();
+	var b=document.getElementById('brand').value;
+	var c=document.getElementById('country').value;
+	$.ajax({
+				type:"post",
+				url:"assets/loadsize.php",
+				data:({brand:b,country:c}),
+				success:function(data){	
+				$('#tiresize').append("<option value=\""+data+"\">"+data+"</option>");
+				}	
+			});
+}
+$('#brand').on('change',showsize);
+$('#country').on('change',showsize);
