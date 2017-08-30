@@ -9,17 +9,30 @@ function validate(){
 				 
 			}
 		else{
-			
 			$.ajax({
 				type:"post",
-				url:"assets/loadinvoiceitem.php",
+				url:"assets/checkavailability.php",
 				data:({brand:x,country:y,tiresize:z}),
-				success:function(data){
-				 $('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td></tr>");
-				validate.sum+=data*q;
-				updatedata();
-				}	
+				success:function(qty){			
+					if(q>qty){
+						$('.modal-warning').modal('show');
+					}
+					else{
+						$.ajax({
+							type:"post",
+							url:"assets/loadinvoiceitem.php",
+							data:({brand:x,country:y,tiresize:z}),
+							success:function(data){
+				 			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td></tr>");
+							validate.sum+=data*q;
+							updatedata();
+												}	
+							});
+						}
+					}
 			});
+			
+			
 		}
 	}
 	validate.sum=0;
