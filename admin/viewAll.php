@@ -326,10 +326,10 @@ function viewDealer(){
 		echo "<table id='tblstd'  class='table table-condensed'>";
 		echo "<tr> <th>dealer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='adminfuns2.php'>";
+			echo "<form method='post' action='editUser.php'>";
 			
 			echo "<tr><input type='text' name='did' value='" . $row['d_id'] . "' hidden/>"; //dealer ID
-			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //dealer ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //dealer user_name
 			
 			echo "<td>" . $row['d_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
@@ -338,9 +338,9 @@ function viewDealer(){
 			echo "<td>" . $row['tel'] . "</td>";
 			echo "<td>" . $row['shop_name'] . "</td>";
 			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<td><input type='submit' name='updatedealer' onclick='return confirmU()' value='Update'/>";
 			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
-			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<input type='submit' name='deletedealer' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
 	}
@@ -357,10 +357,10 @@ function viewCus(){
 		echo "<table id='tblstd'  class='table table-condensed'>";
 		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th></tr>";//" <th>Shop name</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='adminfuns2.php'>";
+			echo "<form method='post' action='editUser.php'>";
 			
 			echo "<tr><input type='text' name='rid' value='" . $row['r_id'] . "' hidden/>"; //customer ID
-			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //customer ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //customer user_name
 			
 			echo "<td>" . $row['r_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
@@ -369,9 +369,9 @@ function viewCus(){
 			echo "<td>" . $row['tel'] . "</td>";
 			//echo "<td>" . $row['shop_name'] . "</td>";
 			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<td><input type='submit' name='updatecust' onclick='return confirmU()' value='Update'/>";
 			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
-			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<input type='submit' name='deletecust' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
 	}
@@ -388,10 +388,10 @@ function viewSup(){
 		echo "<table id='tblstd'  class='table table-condensed'>";
 		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='adminfuns2.php'>";
+			echo "<form method='post' action='editUser.php'>";
 			
 			echo "<tr><input type='text' name='rid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
-			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //supplier ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //supplier user_name
 			
 			echo "<td>" . $row['s_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
@@ -400,9 +400,9 @@ function viewSup(){
 			echo "<td>" . $row['brand'] . "</td>";
 			echo "<td>" . $row['country'] . "</td>";
 			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<td><input type='submit' name='updatesup' onclick='return confirmU()' value='Update'/>";
 			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
-			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<input type='submit' name='deletesup' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
 	}
