@@ -6,6 +6,7 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
+<?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,7 +30,14 @@
       	<div class="col-xs-2">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
-        <option value="Yamuna Motors" >Yamuna Motors</option>
+       <?php
+	$query="select shop_name from dealer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
+	}
+	
+	?>
       		 </select>
 		 </div>
 		 <strong class="col-xs-1">or </strong>
@@ -38,7 +46,14 @@
       	<div class="col-xs-2">
  		<select class="form-control" id="companyname" >
         <option value="" >Select</option>
-        <option value="ICTA" >ICTA</option>
+       <?php
+	$query="select company_name from customer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['company_name']."\" >".$row['company_name']."</option>";
+	}
+	
+	?>
       		 </select>
 		 </div>
 		 
