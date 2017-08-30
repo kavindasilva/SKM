@@ -273,6 +273,8 @@ include_once '../php/dbcon.php';
 //view all users
 function viewAll2(){
 	viewDealer();
+	viewCus();
+	viewSup();
 	
 	$sqlq = "select * from user where type='dealer' or type='cust' or type='suppl';"; //sql query, users list
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
@@ -318,19 +320,16 @@ function viewDealer(){
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
+		echo "<p>No dealers in the system</p>";
 	
 	else {
 		echo "<table id='tblstd'  class='table table-condensed'>";
 		echo "<tr> <th>dealer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
-		//echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
-		
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='adminfuns2.php'>";
 			
 			echo "<tr><input type='text' name='did' value='" . $row['d_id'] . "' hidden/>"; //dealer ID
 			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //dealer ID
-			//echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
 			
 			echo "<td>" . $row['d_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
@@ -338,18 +337,75 @@ function viewDealer(){
 			echo "<td>" . $row['address'] . "</td>";
 			echo "<td>" . $row['tel'] . "</td>";
 			echo "<td>" . $row['shop_name'] . "</td>";
-			/*echo "<td>" . $row['class'] . "</td>";
-			echo "<td>" . $row['gender'] . "</td>";
-			echo "<td>" . $row['tel1'] . "</td>";
-			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";*/
 			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
+			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
 	}
+}
+
+function viewCus(){
+	$sqlq = "select u.user_name,u.email,u.address,r.tel,r.r_id from user u, regular_customer r WHERE u.user_name=r.user_user_name ;"; //sql query, customer list
+	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
+	if (mysqli_num_rows($res) == 0) //check result
+		echo "<p>No customer in the system</p>";
+	
+	else {
+		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th></tr>";//" <th>Shop name</th></tr>";
+		while ($row = mysqli_fetch_array($res)) {
+			echo "<form method='post' action='adminfuns2.php'>";
+			
+			echo "<tr><input type='text' name='rid' value='" . $row['r_id'] . "' hidden/>"; //customer ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //customer ID
+			
+			echo "<td>" . $row['r_id'] . "</td>";
+			echo "<td>" . $row['user_name'] . "</td>";
+			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['address'] . "</td>";
+			echo "<td>" . $row['tel'] . "</td>";
+			//echo "<td>" . $row['shop_name'] . "</td>";
+			
+			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
+			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+		}
+		echo "</table>";
+	}
+}
+
+function viewSup(){
+	$sqlq = "select u.user_name,u.email,u.address,s.brand,s.country,s.s_id from user u, supplier s WHERE u.user_name=s.user_user_name ;"; //sql query, customer list
+	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
+	
+	if (mysqli_num_rows($res) == 0) //check result
+		echo "<p>No customer in the system</p>";
+	
+	else {
+		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
+		while ($row = mysqli_fetch_array($res)) {
+			echo "<form method='post' action='adminfuns2.php'>";
+			
+			echo "<tr><input type='text' name='rid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //supplier ID
+			
+			echo "<td>" . $row['s_id'] . "</td>";
+			echo "<td>" . $row['user_name'] . "</td>";
+			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['address'] . "</td>";
+			echo "<td>" . $row['brand'] . "</td>";
+			echo "<td>" . $row['country'] . "</td>";
+			
+			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/>";
+			echo "<input type='submit' name='resetusr' onclick='return confirmU()' value='Reset password'/>";
+			echo "<input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
+		}
+		echo "</table>";
+	}
 }
 
 ?>
