@@ -15,7 +15,6 @@ function validate(){
 				url:"assets/loadinvoiceitem.php",
 				data:({brand:x,country:y,tiresize:z}),
 				success:function(data){
-					
 				 $('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td></tr>");
 				validate.sum+=data*q;
 				updatedata();
