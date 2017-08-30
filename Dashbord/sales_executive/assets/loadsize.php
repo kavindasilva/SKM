@@ -9,7 +9,7 @@ if(isset($_POST['brand'])&& isset($_POST['country'])){
 	}
 	else{
 	while($row=mysqli_fetch_array($result)){
-		echo $row['tire_size'];
+		echo $row['tire_size']." ";
 	}
 	}
 	

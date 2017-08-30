@@ -149,8 +149,6 @@
  	 <div class="col-xs-6">
  	<select class="form-control" id="tiresize" >
         <option value="" >Select</option>
-        <option value="165R16" >165R16</option>
-        174R98<option value="165R16" >174R98</option>
       </select></div></div></br>
        <div class="row">
  	 <div class="col-xs-6">Quantity</div>

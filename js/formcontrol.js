@@ -78,8 +78,12 @@ function showsize(){
 				url:"assets/loadsize.php",
 				data:({brand:b,country:c}),
 				success:function(data){	
-				$('#tiresize').append("<option value=\""+data+"\">"+data+"</option>");
-				}	
+					var result=data.split(" ");
+					for(i in result){	
+					$('#tiresize').append("<option value=\""+result[i]+"\">"+result[i]+"</option>");
+					}
+				}
+					
 			});
 }
 $('#brand').on('change',showsize);
