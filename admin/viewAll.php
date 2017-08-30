@@ -42,7 +42,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-//include '../php/dbcon2.php';
+include_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -212,7 +212,9 @@ $_SESSION['user']="Test1";
    <script type="text/javascript" src="adminFun.js"></script>
 	<B>admin control panel</b> <br/>
 	
-	
+	<?php
+	viewAll2();
+	?>
 	
 <!--form method="get" action="">
 <input ty />
@@ -270,11 +272,13 @@ $_SESSION['user']="Test1";
 <?php
 //view all users
 function viewAll2(){
-	$sqlq = "select * from users;"; //sql query, users list
-	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
+	viewDealer();
 	
+	$sqlq = "select * from user where type='dealer' or type='cust' or type='suppl';"; //sql query, users list
+	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
+	/*
 	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
+		echo "<p>No external users in the system</p>";
 	
 	else {
 		echo "<table id='tblstd'>";
@@ -304,41 +308,41 @@ function viewAll2(){
 			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
-	}
+	}*/
 	
 }
 
 //view all dealers
 function viewDealer(){
-	$sqlq = "select * from users;"; //sql query, users list
+	$sqlq = "select u.user_name,u.email,u.address,d.shop_name,d.tel,d.d_id from user u, dealer d WHERE u.user_name=d.user_user_name ;"; //sql query, dealers list
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
 		echo "<p>No users in the system</p>";
 	
 	else {
-		echo "<table id='tblstd'>";
-		echo "<tr> <th>ID</th> <th></th> <th>First name</th> <th>Last name</th> <th>Birthday</th> <th>class</th>";
-		echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
+		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<tr> <th>dealer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
+		//echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
 		
 		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='funs1.php'>";
-			//echo "<form method='post' action='funs1.php' onsubmit='confirmD();'>";
-			//echo "<form method='post' action=''>"; //auto refreshing
+			echo "<form method='post' action='adminfuns2.php'>";
 			
-			echo "<tr><input type='text' name='sid' value='" . $row['sid'] . "' hidden/>"; //make teacher
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
+			echo "<tr><input type='text' name='did' value='" . $row['d_id'] . "' hidden/>"; //dealer ID
+			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //dealer ID
+			//echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
 			
-			echo "<td>" . $row['sid'] . "</td>";
-			echo "<td>" . $row['photo'] . "</td>";
-			echo "<td>" . $row['fname'] . "</td>";
-			echo "<td>" . $row['lname'] . "</td>";
-			echo "<td>" . $row['dob'] . "</td>";
-			echo "<td>" . $row['class'] . "</td>";
+			echo "<td>" . $row['d_id'] . "</td>";
+			echo "<td>" . $row['user_name'] . "</td>";
+			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['address'] . "</td>";
+			echo "<td>" . $row['tel'] . "</td>";
+			echo "<td>" . $row['shop_name'] . "</td>";
+			/*echo "<td>" . $row['class'] . "</td>";
 			echo "<td>" . $row['gender'] . "</td>";
 			echo "<td>" . $row['tel1'] . "</td>";
 			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";
+			echo "<td>" . $row['address'] . "</td>";*/
 			
 			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
 			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	

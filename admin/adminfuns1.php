@@ -12,11 +12,13 @@ $newUserType = $_POST['utype'];
 $fnm=$_POST['fname'];
 $lnm=$_POST['lname'];
 $username=$fnm.$lnm; //username eka unique, PK. 
+$fullName=$fnm." ".$lnm; //Full name. only for emp 
 
 $em=$_POST['eml'];
 $adr=$_POST['addr'];
 $phn=$_POST['telp']; //supplier phone eka ain karoth meka oni na
 //insertUser();
+
 
 //check if username taken <> flash window eka dammata passe meka oni na
 $sql="select * from user where user_name='$username'";
@@ -26,6 +28,8 @@ if(mysqli_num_rows($res)>0){
 	echo "<hr><a href=\"javascript:history.go(-1)\">GO BACK</a>";
 	return;
 }
+//----------------------------------------------------------------------
+
 
 $sql="insert into user values('$username', 'skm', '$em', '$adr', '$newUserType')";
 if(!mysqli_query($conn, $sql)){
@@ -42,21 +46,21 @@ switch ($newUserType) { //checks the user type to be inserted
 		customer($company, $phn, $username);
 		break;
 
-	case 'salex' :
-		salesEx();
-		break;
-
 	case 'dealer' :
-		dealer();
+		dealer($phn, $_POST['shopnm'], $username);
 		break;
 
 	case 'suppl' :
 		supplier($_POST['brnd'], $_POST['cont'], $username);
 		break;
-	case 'ks' :
+			
+	case 'salex' :
+		salesEx($fullName, $phn, $username);
 		break;
 
+
 	default :
+		echo "Wrong user type.... Unexpected error!!";
 		break;
 }
 
@@ -74,9 +78,6 @@ function customer($comp, $tel, $un) {
 	//header("Location: index.php");
 }
 
-function salesEx() {
-}
-
 function supplier($brnd, $coun, $un) {
 	$sqlq="insert into supplier values(null, '$brnd', '$coun', '$un');";
 	$res = mysqli_query($GLOBALS['conn'], $sqlq);
@@ -88,6 +89,54 @@ function supplier($brnd, $coun, $un) {
 	echo "<script>alert('Supplier insertion succesful');window.location.href = 'index.php';</script>";
 }
 
-function dealer() {
+function dealer($telp, $shop, $un) {
+	$sqlq="insert into dealer values(null, '$shop', '$telp', '$un');"; //check for int <-- telp
+	$res = mysqli_query($GLOBALS['conn'], $sqlq);
+	if(!$res){
+		echo "error inserting the dealer";
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	echo "<script>alert('Dealer insertion succesful');window.location.href = 'index.php';</script>";
 }
+
+function salesEx($fullN, $tel, $un) {
+	$sqlq="insert into employee values(null, '$fullN', '$tel', 'salex', '$un');"; //PK auto inc int
+	$res = mysqli_query($GLOBALS['conn'], $sqlq);
+	if(!$res){
+		echo "error inserting the employee";
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	
+	$sqlq="Select max(e_id) as lastemp from employee;"; //last inserted e_id
+	$res = mysqli_query($GLOBALS['conn'], $sqlq);
+	if(!$res){
+		echo "error getting the employee ID";
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	else{
+		if(mysqli_num_rows($res)==0){
+			echo "unexpected error. Employee ID not found";
+			echo mysqli_error($GLOBALS['conn']);
+			return;
+		}
+		
+		$row=mysqli_fetch_array($res); //there is only 1 row, since requesting the max ID
+		$empID=$row['lastemp']; //lastemp ID
+		
+		$sqlq="insert into sales_executive values($empID);";
+		$res = mysqli_query($GLOBALS['conn'], $sqlq);
+		if(!$res){
+			echo "error inserting the sales executive";
+			echo mysqli_error($GLOBALS['conn']);
+			return;
+		}
+		echo "<script>alert('Sales Executive insertion succesful');window.location.href = 'index.php';</script>";
+	}
+	
+}
+
+
 ?>
