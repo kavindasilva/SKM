@@ -247,20 +247,17 @@ require_once "../php/dbcon.php";
 require_once "editUserUI.php";
 
 if(isset($_POST['updatedealer'])){
-	//echo "updatedealer cal_days_in_month";
-	editDealerUI($_POST['did'], $_POST['uname']);
-}
-/*
-if(isset($_POST['updatedealer'])){
-	//echo "updatedealer cal_days_in_month";
 	editDealerUI($_POST['did'], $_POST['uname']);
 }
 
-if(isset($_POST['updatedealer'])){
-	//echo "updatedealer cal_days_in_month";
-	editDealerUI($_POST['did'], $_POST['uname']);
+if(isset($_POST['updatecust'])){
+	editCusUI($_POST['rid'], $_POST['uname']);
 }
-*/
+
+if(isset($_POST['updatesup'])){
+	editSupUI($_POST['sid'], $_POST['uname']);
+}
+
 
 
 ?>
