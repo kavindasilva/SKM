@@ -353,10 +353,10 @@ function viewSup(){
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editUser.php'>";
 			
-			echo "<tr><input type='text' name='sid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
+			echo "<input type='text' name='sid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
 			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //supplier user_name
 			
-			echo "<td>" . $row['s_id'] . "</td>";
+			echo "<tr><td>" . $row['s_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
 			echo "<td>" . $row['email'] . "</td>";
 			echo "<td>" . $row['address'] . "</td>";

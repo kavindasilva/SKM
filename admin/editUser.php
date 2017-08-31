@@ -242,7 +242,7 @@ $_SESSION['user']="Test1";
 <?php
 require_once "../php/dbcon.php";
 
-$empID1=$_POST['eid'];
+//$empID1=$_POST['eid'];
 
 //view manager details 
 if(isset($_POST['updatemgr'])){
@@ -341,7 +341,7 @@ function changeMgrUI($empID){
 //================ delete queries ================================================================================================
 //deletesup
 if(isset($_POST['deletesup'])){
-	$sql1="delete from supplier where s_id=$_POST['sid'];";
+	$sql1="delete from supplier where s_id=".$_POST['sid'].";";
 	$sql2="delete from user where user_name='".$_POST['uname']."';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);
@@ -361,7 +361,7 @@ if(isset($_POST['deletesup'])){
 
 //deletecust
 if(isset($_POST['deletecust'])){
-	$sql1="delete from regular_customer where r_id=$_POST['rid'];";
+	$sql1="delete from regular_customer where r_id=".$_POST['rid'].";";
 	$sql2="delete from user where user_name='".$_POST['uname']."';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);
@@ -381,7 +381,7 @@ if(isset($_POST['deletecust'])){
 
 //deletedealer
 if(isset($_POST['deletedealer'])){
-	$sql1="delete from dealer where d_id=$_POST['did'];";
+	$sql1="delete from dealer where d_id=".$_POST['did'].";";
 	$sql2="delete from user where user_name='".$_POST['uname']."';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);
