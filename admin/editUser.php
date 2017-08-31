@@ -242,17 +242,25 @@ $_SESSION['user']="Test1";
 <?php
 require_once "../php/dbcon.php";
 
-//$empID1=$_POST['eid'];
+//============= update queries ======================================================================================================
 
-//view manager details 
-if(isset($_POST['updatemgr'])){
-	changeMgrUI($empID1);
+require_once "editUserUI.php";
+
+if(isset($_POST['updatedealer'])){
+	//echo "updatedealer cal_days_in_month";
+	editDealerUI($_POST['did'], $_POST['uname']);
+}
+/*
+if(isset($_POST['updatedealer'])){
+	//echo "updatedealer cal_days_in_month";
+	editDealerUI($_POST['did'], $_POST['uname']);
 }
 
-//edit manager details 
-if(isset($_POST['setupdate'])){
-	changeMgrSQL();
+if(isset($_POST['updatedealer'])){
+	//echo "updatedealer cal_days_in_month";
+	editDealerUI($_POST['did'], $_POST['uname']);
 }
+*/
 
 
 ?>
@@ -302,6 +310,9 @@ if(isset($_POST['setupdate'])){
 </html>
 
 <?php
+
+
+
 function changeMgrUI($empID){
 	$sql1="select * from employee where e_id=".$empID; //name, tel
 	$sql2="select * from user where user_name=(select user_user_name from employee where e_id=$empID);"; //get user table details - email, address
@@ -346,8 +357,7 @@ if(isset($_POST['deletesup'])){
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);
 	if(!$res){
-		echo mysqli_error($GLOBALS['conn']);
-		echo "<script>alert('supplier delete failed');window.location.href = 'index.php';</script>";
+		echo "<script>alert('".mysqli_error($GLOBALS['conn'])." supplier delete failed');window.location.href = 'index.php';</script>";
 		return;
 	}
 	$res=mysqli_query($GLOBALS['conn'],$sql2);
@@ -366,8 +376,8 @@ if(isset($_POST['deletecust'])){
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);
 	if(!$res){
-		echo mysqli_error($GLOBALS['conn']);
-		echo "<script>alert('customer delete failed');window.location.href = 'index.php';</script>";
+		//echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('".mysqli_error($GLOBALS['conn'])." customer delete failed');window.location.href = 'index.php';</script>";
 		return;
 	}
 	$res=mysqli_query($GLOBALS['conn'],$sql2);

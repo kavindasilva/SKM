@@ -1,3 +1,8 @@
+<?php
+	/**
+	this file contains the code of viewing all dealers, customer, supplier
+	*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +47,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include_once '../php/dbcon.php';
+require_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -215,14 +220,11 @@ include_once '../php/dbcon.php';
 	<?php
 	viewAll2();
 	?>
-	
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
+
+    <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
-      </ol>
+    </ol>
     </section>
 
     <!-- Main content -->
