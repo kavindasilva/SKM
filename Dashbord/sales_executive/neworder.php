@@ -9,7 +9,8 @@
 <body>
 <?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
-<?php include '../../assets/outofstock.php'?>     
+<?php include '../../assets/outofstock.php'?>
+<?php include '../../assets/noowner.php'?>        
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>

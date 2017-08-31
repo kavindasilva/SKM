@@ -75,6 +75,16 @@ function prceedanyway(){
 		var tot=document.getElementById('subtotal').textContent;
 		var shopname=document.getElementById('shopname').value;
 		var comname=document.getElementById('companyname').value;
+		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
+		if(shopname==""&&comname==""){
+			$('.modal-danger').modal('show');
+		}
+		else if(rows==0){
+			
+			$('#modal-noowner').modal('show');
+		}
+		else{
+		
 	
 	  $.ajax({
 		  type:"post",
@@ -84,6 +94,7 @@ function prceedanyway(){
 			  alert(data);
 		  }
 	  });
+		}
 	}//);
 	
 	$('#discount').on('change',function(){
