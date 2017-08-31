@@ -2,8 +2,8 @@
 
 /**
 this file contains:
- edit manager UI+sql
- manager password reset UI+sql
+ dealer, customer, supplier UI+sql
+ dealer, customer, supplier password reset UI+sql
 */
 //session maintainence // kavindasilva
 session_start();
@@ -19,7 +19,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include_once '../php/dbcon2.php';
+require_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -364,6 +364,21 @@ function changeMgrSQL(){
 		echo "<script>alert('Manager details updated succesfully');window.location.href = 'index.php';</script>";
 	}
 	
+}
+
+//reset user password
+if(isset($_POST['resetusr'])){
+	$user=$_POST['uname'];
+	$sql="update user set password='skmreset' where user_name='$user';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	else{
+		echo "<script>alert('User password reset succesfully');window.location.href = 'index.php';</script>";
+	}
 }	
 	
 ?>
