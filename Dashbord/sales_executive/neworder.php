@@ -4,6 +4,7 @@
    <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+   <script src="../../js/formcontrol.js?2"></script>
 </head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
@@ -42,7 +43,7 @@
       		 </select>
 		 </div>
 		 <strong class="col-xs-1">or </strong>
-		 <strong class="col-xs-2">Customer Company Name </strong>
+		 <strong class="col-xs-2" >Customer Company Name </strong>
       	
       	<div class="col-xs-2">
  		<select class="form-control" id="companyname" >
@@ -162,6 +163,6 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js"></script>
+
 </body>
 </html>
