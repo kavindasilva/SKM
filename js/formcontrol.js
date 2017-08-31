@@ -84,8 +84,6 @@ function prceedanyway(){
 			$('#modal-noowner').modal('show');
 		}
 		else{
-		
-	
 	  $.ajax({
 		  type:"post",
 		  url:"controler/cusordercontroler.php",
