@@ -1,3 +1,8 @@
+<?php
+	/**
+	this file contains the code of viewing all dealers, customer, supplier
+	*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +47,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include_once '../php/dbcon.php';
+require_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -215,14 +220,11 @@ include_once '../php/dbcon.php';
 	<?php
 	viewAll2();
 	?>
-	
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
+
+    <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
-      </ol>
+    </ol>
     </section>
 
     <!-- Main content -->
@@ -274,44 +276,7 @@ include_once '../php/dbcon.php';
 function viewAll2(){
 	viewDealer();
 	viewCus();
-	viewSup();
-	
-	$sqlq = "select * from user where type='dealer' or type='cust' or type='suppl';"; //sql query, users list
-	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
-	/*
-	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No external users in the system</p>";
-	
-	else {
-		echo "<table id='tblstd'>";
-		echo "<tr> <th>ID</th> <th></th> <th>First name</th> <th>Last name</th> <th>Birthday</th> <th>class</th>";
-		echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
-		
-		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='funs1.php'>";
-			//echo "<form method='post' action='funs1.php' onsubmit='confirmD();'>";
-			//echo "<form method='post' action=''>"; //auto refreshing
-			
-			echo "<tr><input type='text' name='sid' value='" . $row['sid'] . "' hidden/>"; //make teacher
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
-			
-			echo "<td>" . $row['sid'] . "</td>";
-			echo "<td>" . $row['photo'] . "</td>";
-			echo "<td>" . $row['fname'] . "</td>";
-			echo "<td>" . $row['lname'] . "</td>";
-			echo "<td>" . $row['dob'] . "</td>";
-			echo "<td>" . $row['class'] . "</td>";
-			echo "<td>" . $row['gender'] . "</td>";
-			echo "<td>" . $row['tel1'] . "</td>";
-			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";
-			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
-		}
-		echo "</table>";
-	}*/
-	
+	viewSup();	
 }
 
 //view all dealers
@@ -382,18 +347,18 @@ function viewSup(){
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No customer in the system</p>";
+		echo "<p>No supplier in the system</p>";
 	
 	else {
 		echo "<table id='tblstd'  class='table table-condensed'>";
-		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
+		echo "<tr> <th>Supplier ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Brand</th> <th>Country</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editUser.php'>";
 			
-			echo "<tr><input type='text' name='rid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
+			echo "<input type='text' name='sid' value='" . $row['s_id'] . "' hidden/>"; //supplier ID
 			echo "<input type='text' name='uname' value='" . $row['user_name'] . "' hidden/>"; //supplier user_name
 			
-			echo "<td>" . $row['s_id'] . "</td>";
+			echo "<tr><td>" . $row['s_id'] . "</td>";
 			echo "<td>" . $row['user_name'] . "</td>";
 			echo "<td>" . $row['email'] . "</td>";
 			echo "<td>" . $row['address'] . "</td>";
