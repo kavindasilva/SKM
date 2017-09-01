@@ -20,6 +20,7 @@
 
     <!-- Main content -->
     <div class="container">
+     <form action="Controller/new_requisiotion_controller.php" method="post">
       <div class="box">
         </div>
         <div class="row">
@@ -41,7 +42,7 @@
 			  <option value="">Thaiwan</option>
           </select>
           </div>
-          <button class="col-xs-1 btn btn-success" type="button">Go</button>
+          <button class="col-xs-1 btn btn-success" type="submit" name="goBtn" value="go">Go</button>
           </div>
           <div class="row">
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
@@ -60,10 +61,12 @@
                       </tr>
                     </thead>
                     <tbody>
+<!--
                       <td>dj1801</td>
                       <td>18</td>
                       <td>4</td>
                       <td>checked</td>
+-->
                     </tbody>
                   </table>
                 </div>
@@ -115,11 +118,13 @@
   <div class="col-xs-3"><button type="button" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
     </div>
+</form>
 
     </div>
 
-
-
+<!-- jQuery 3.1.1 -->
+<script src="../../js/jquery-3.1.1.min.js"></script>
+<script src="../../js/table.js"></script>
 </body>
 
 
