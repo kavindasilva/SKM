@@ -113,7 +113,7 @@
             
             	<div class="row">	
             	<div class="col-md-3">
-            	<button type="button" class="btn btn-warning" onClick="" style="width: 153px" >Remove Selected</button>
+            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
             	</div>
 				</div></br>
             	<div class="row">	
