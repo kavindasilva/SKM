@@ -4,9 +4,14 @@
    <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+   <script src="../../js/formcontrol.js?2"></script>
 </head>
 <body>
+<?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
+<?php include '../../assets/outofstock.php'?>
+<?php include '../../assets/noowner.php'?>
+<?php include '../../assets/success.php'?>           
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
@@ -24,21 +29,35 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2">Dealer Shop Name </strong>
+      		<strong class="col-xs-2" >Dealer Shop Name </strong>
       	
       	<div class="col-xs-2">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
-        <option value="Yamuna Motors" >Yamuna Motors</option>
+       <?php
+	$query="select shop_name from dealer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
+	}
+	
+	?>
       		 </select>
 		 </div>
 		 <strong class="col-xs-1">or </strong>
-		 <strong class="col-xs-2">Customer Company Name </strong>
+		 <strong class="col-xs-2" >Customer Company Name </strong>
       	
       	<div class="col-xs-2">
  		<select class="form-control" id="companyname" >
         <option value="" >Select</option>
-        <option value="ICTA" >ICTA</option>
+       <?php
+	$query="select company_name from customer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['company_name']."\" >".$row['company_name']."</option>";
+	}
+	
+	?>
       		 </select>
 		 </div>
 		 
@@ -72,6 +91,7 @@
                   <th>Unit Price(Rs.)</th>
                   <th>Quantity</th>
                   <th>Total Amount</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>                 
@@ -98,7 +118,7 @@
 				</div></br>
             	<div class="row">	
             	<div class="col-md-3">
-            	<button type="button" class="btn btn-primary" onClick="a();" style="width: 153px" >Place Order</button>
+            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" >Place Order</button>
             	</div>
 				</div>
             	</div>
@@ -134,8 +154,6 @@
  	 <div class="col-xs-6">
  	<select class="form-control" id="tiresize" >
         <option value="" >Select</option>
-        <option value="165R16" >165R16</option>
-        174R98<option value="165R16" >174R98</option>
       </select></div></div></br>
        <div class="row">
  	 <div class="col-xs-6">Quantity</div>
@@ -148,6 +166,6 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js"></script>
+
 </body>
 </html>

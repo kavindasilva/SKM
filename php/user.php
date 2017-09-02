@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				header('Location: ./admin/admin.php');
 				}
 			elseif($usrtype=='se')
-				header('Location: ../dashbord/sales_executive/navigation.php');		
+				header('Location: ../dashbord/sales_executive/index.php');		
 			elseif($usrtype=='ch')
 				header('Location: ../dashbord/cheif_manager/navigation.php');	
 			elseif($usrtype=='im')

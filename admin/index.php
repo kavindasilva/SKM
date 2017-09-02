@@ -77,7 +77,7 @@ $_SESSION['user']="Test1";
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce <?php echo $_SESSION['user']; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -126,7 +126,7 @@ $_SESSION['user']="Test1";
           <img src="../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce<?php echo $_SESSION['user']; ?></p>
+          <p><?php echo $_SESSION['user']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -219,12 +219,7 @@ $_SESSION['user']="Test1";
 	<a href="adduser.php?type=dealer"><button class="list-group-item" name="" value="">Dealer</button></a> 
 	
 	<a href="adduser.php?type=suppl"><button class="list-group-item" name="" value="">Supplier</button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a> <br />
-	
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a>
-	<a href="adduser.php?type="><button class="" name="" value="" hidden></button></a> <br />
-	
+
 </div>
 <!--form method="get" action="">
 <input ty />

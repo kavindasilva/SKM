@@ -1,0 +1,2 @@
+type of the date field of DB changed to varchar
+change the name sales_order_sord_no of order_item table to sord_no

@@ -2,8 +2,9 @@
 
 /**
 this file contains:
- edit manager UI+sql
- manager password reset UI+sql
+ dealer, customer, supplier edit UI
+ dealer, customer, supplier delete sql
+ dealer, customer, supplier password reset sql
 */
 //session maintainence // kavindasilva
 session_start();
@@ -19,7 +20,7 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include_once '../php/dbcon2.php';
+require_once '../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
@@ -241,17 +242,22 @@ $_SESSION['user']="Test1";
 <?php
 require_once "../php/dbcon.php";
 
-$empID1=$_POST['eid'];
+//============= update queries ======================================================================================================
 
-//view manager details 
-if(isset($_POST['updatemgr'])){
-	changeMgrUI($empID1);
+require_once "editUserUI.php";
+
+if(isset($_POST['updatedealer'])){
+	editDealerUI($_POST['did'], $_POST['uname']);
 }
 
-//edit manager details 
-if(isset($_POST['setupdate'])){
-	changeMgrSQL();
+if(isset($_POST['updatecust'])){
+	editCusUI($_POST['rid'], $_POST['uname']);
 }
+
+if(isset($_POST['updatesup'])){
+	editSupUI($_POST['sid'], $_POST['uname']);
+}
+
 
 
 ?>
@@ -301,6 +307,9 @@ if(isset($_POST['setupdate'])){
 </html>
 
 <?php
+
+
+
 function changeMgrUI($empID){
 	$sql1="select * from employee where e_id=".$empID; //name, tel
 	$sql2="select * from user where user_name=(select user_user_name from employee where e_id=$empID);"; //get user table details - email, address
@@ -337,33 +346,79 @@ function changeMgrUI($empID){
 	echo "<input type='button' value='cancel'></a></td></tr>";
 	echo"</table></form>";
 }
-
-function changeMgrSQL(){
-	$userName=$_POST['uname'];
-	$Empid=$_POST['eid'];
+//================ delete queries ================================================================================================
+//deletesup
+if(isset($_POST['deletesup'])){
+	$sql1="delete from supplier where s_id=".$_POST['sid'].";";
+	$sql2="delete from user where user_name='".$_POST['uname']."';";
 	
-	$newName=$_POST['nam'];
-	$newTel=$_POST['telp'];
-	$newEmail=$_POST['eml'];
-	$newAddr=$_POST['addr'];
-	
-	$sql1="update user set email='$newEmail', address='$newAddr' where user_name='$userName';";
-	$sql2="update employee set name='$newName', tel='$newTel' where e_id='$Empid';";
-	
-	$res1=mysqli_query($GLOBALS['conn'],$sql1);
-	if(!$res1){
-		echo mysqli_error($GLOBALS['conn']);
+	$res=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res){
+		echo "<script>alert('".mysqli_error($GLOBALS['conn'])." supplier delete failed');window.location.href = 'index.php';</script>";
 		return;
 	}
-	$res2=mysqli_query($GLOBALS['conn'],$sql2);
-	if(!$res2){
+	$res=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('supplier delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	echo "<script>alert('supplier deleted succesfully');window.location.href = 'index.php';</script>";
+}
+
+//deletecust
+if(isset($_POST['deletecust'])){
+	$sql1="delete from regular_customer where r_id=".$_POST['rid'].";";
+	$sql2="delete from user where user_name='".$_POST['uname']."';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res){
+		//echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('".mysqli_error($GLOBALS['conn'])." customer delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	$res=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('customer delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	echo "<script>alert('customer deleted succesfully');window.location.href = 'index.php';</script>";
+}
+
+//deletedealer
+if(isset($_POST['deletedealer'])){
+	$sql1="delete from dealer where d_id=".$_POST['did'].";";
+	$sql2="delete from user where user_name='".$_POST['uname']."';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('dealer delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	$res=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('dealer delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	echo "<script>alert('dealer deleted succesfully');window.location.href = 'index.php';</script>";
+}
+
+//reset user password ============================================================================================================
+if(isset($_POST['resetusr'])){
+	$user=$_POST['uname'];
+	$sql="update user set password='skmreset' where user_name='$user';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql);
+	if(!$res){
 		echo mysqli_error($GLOBALS['conn']);
 		return;
 	}
 	else{
-		echo "<script>alert('Manager details updated succesfully');window.location.href = 'index.php';</script>";
+		echo "<script>alert('User password reset succesfully');window.location.href = 'index.php';</script>";
 	}
-	
 }	
 	
 ?>

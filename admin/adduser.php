@@ -77,7 +77,7 @@ $_SESSION['user']="Test1";
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce <?php echo $_SESSION['user']; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -126,7 +126,7 @@ $_SESSION['user']="Test1";
           <img src="../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce<?php echo $_SESSION['user']; ?></p>
+          <p><?php echo $_SESSION['user']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -161,7 +161,7 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="index.php"><i class="fa fa-circle-o"></i> New user</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Edit details</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Reset password</a></li>
@@ -387,6 +387,7 @@ function supplier(){
 }
 
 function dealer(){
+	echo "<tr><td>Shop name</td>		<td><input type='text' name='shopnm' required/>";
 	echo "<tr><td>User type</td>		<td><input type='text' name='utype0' value='Dealer' disabled/>";
 }
 
