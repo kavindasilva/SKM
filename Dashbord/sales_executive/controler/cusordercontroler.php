@@ -34,7 +34,7 @@ else{
 else	
 $cid="null";
 
-$query="INSERT INTO sales_order VALUES(null,$tot,'n','$date',$did,$cid);";
+$query="INSERT INTO sales_order VALUES(null,$tot,'incomplete','$date',$did,$cid);";
 
 		if (mysqli_query( $GLOBALS['conn'], $query)) {
 			

@@ -4,7 +4,7 @@
    <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-   <script src="../../js/formcontrol.js?2"></script>
+   
 </head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
@@ -166,6 +166,6 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-
+<script src="../../js/formcontrol.js?2"></script>
 </body>
 </html>

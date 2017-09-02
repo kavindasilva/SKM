@@ -189,7 +189,7 @@ session_start();
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Find Order</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i> Find Order</a></li>
            </ul>
         </li>
         <li class="treeview">
