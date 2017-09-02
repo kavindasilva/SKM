@@ -1,36 +1,18 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SKMM| Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../../icon/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../css/mystyle.css">
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
-
-  
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <h1>New Requision</h1>
-   
       <ol class="breadcrumb">
-        <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="navigation.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#"><i class="fa"></i> Purchase Requisition</a></li>
         <li class="active">New Requisition</li>
       </ol>
@@ -38,6 +20,7 @@
 
     <!-- Main content -->
     <div class="container">
+     <form action="Controller/new_requisiotion_controller.php" method="post">
       <div class="box">
         </div>
         <div class="row">
@@ -59,7 +42,7 @@
 			  <option value="">Thaiwan</option>
           </select>
           </div>
-          <button class="col-xs-1 btn btn-success" type="button">Go</button>
+          <button class="col-xs-1 btn btn-success" type="submit" name="goBtn" value="go">Go</button>
           </div>
           <div class="row">
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
@@ -78,10 +61,12 @@
                       </tr>
                     </thead>
                     <tbody>
+<!--
                       <td>dj1801</td>
                       <td>18</td>
                       <td>4</td>
                       <td>checked</td>
+-->
                     </tbody>
                   </table>
                 </div>
@@ -133,22 +118,13 @@
   <div class="col-xs-3"><button type="button" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
     </div>
+</form>
 
     </div>
 
-    
-
 <!-- jQuery 3.1.1 -->
 <script src="../../js/jquery-3.1.1.min.js"></script>
-<!-- Bootstrap no need 3.3.7 -->
-<script src="../../js/bootstrap.min.js"></script>
-<!-- FastClick no need -->
-<script src="../../js/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../js/demo.js"></script>
-
+<script src="../../js/table.js"></script>
 </body>
 
 

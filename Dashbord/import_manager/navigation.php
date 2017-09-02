@@ -18,7 +18,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="../../js/navigation_controler.js">
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -149,7 +148,7 @@
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Isuru Jayasinghe</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -166,10 +165,10 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
-          <a href="#">
+          <a href="dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            
           </a>
@@ -177,16 +176,16 @@
         </li>
        
         <li class="treeview">
-                <li class="treeview">
-          <a href="#">
+        	<li class="treeview">
+          	<a href="#">
             <i class="fa fa-edit"></i> <span>Purchase Requisitions</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a  href="#" name="newrequisition"> <i class="fa fa-circle-o"></i> New Requisition</a></li>
-            <li><a href="#" name="pendingrequisition"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
+            <li><a href="#" name="new_requisition"><i class="fa fa-circle-o"></i> New Requisition</a></li>
+            <li><a href="#" name="pending_requision"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
            </ul>
         </li>
         <li class="treeview">
@@ -232,7 +231,8 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="content-wrapper">
+    <!-- content will be load -->
     
   </div>
   <!-- /.content-wrapper -->
@@ -258,6 +258,7 @@
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+  
 
 </div>
 
@@ -271,6 +272,7 @@
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
+<script src="../../js/navigation_controler.js"></script>
 
 </body>
 
