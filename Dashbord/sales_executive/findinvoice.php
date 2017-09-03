@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="../../css/datepicker3.css">
 </head>
 <body >
     <!-- Content Header (Page header) -->
@@ -43,13 +44,27 @@
       		<strong>From Date</strong>
       	</div>
       	<div class="col-sm-2">
-		 	<?php include '../../assets/datetimepicker.php';?>		
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>	
 		 	</div>
 		 	<div class="col-sm-2" style="margin-left:162px;">
       		<strong>To Date</strong>
       	</div>
       	<div class="col-sm-2">
-		 	<?php include '../../assets/datetimepicker.php';?>		
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>		
 		 	</div>	 	 
 		 </div>
 		  </div>
@@ -125,4 +140,13 @@
   <!-- /.content-wrapper -->
 </div>
 </body>
+<script src="../../js/bootstrap-datepicker.js"></script>
+<script>
+  $(function () {
+    //Date picker
+    $('.datepicker').datepicker({
+      autoclose: true
+    });
+  });
+</script>
 </html>
