@@ -150,18 +150,21 @@ include_once "/php/tireDetails.php";
                 <thead>
                 <tr>
                   <th>Tire Size</th>
-                  <th>Japan</th>
-                  <th>Thailand</th>
-                  <th>Indonesia</th>
+                  <th>Brand</th>
+                  <th>Price</th>
+                  <th>Country</th>
+				  <th>Vehicle type</th>
                 </tr>
                 </thead>
                 <tbody>
-                	<?php viewTire('Dunlop'); ?>                 
+                	<?php //viewTire('Dunlop'); ?>                 
+                	<?php viewTire(); ?>                 
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
+<!--->		  
 <!--google map location of SKM-->          
           <div id="map" class="pull-right col-md-5" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.346597921569!2d79.87071012246584!3d6.880222420451064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3e5718eafe129f4!2sS.+K.+Munasinghe+Motors!5e0!3m2!1sen!2s!4v1503665177210" width="550" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
           </div>
@@ -178,9 +181,10 @@ include_once "/php/tireDetails.php";
                 <thead>
                 <tr>
                   <th>Tire Size</th>
-                  <th>Japan</th>
-                  <th>Thailand</th>
-                  <th>Indonesia</th>
+                  <th>Brand</th>
+                  <th>Country</th>
+                  <th>Country</th>
+				  <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>    

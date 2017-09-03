@@ -243,17 +243,30 @@ require_once "../php/dbcon.php";
 
 $empID1=$_POST['eid'];
 
-//view manager details 
+//view manager details HTML
 if(isset($_POST['updatemgr'])){
 	changeMgrUI($empID1);
 }
 
-//edit manager details 
+//edit manager details SQL+PHP
 if(isset($_POST['setupdate'])){
 	changeMgrSQL();
 }
 
-
+//reset manager password
+if(isset($_POST['resetmgr'])){
+	$user=$_POST['uname'];
+	$sql="update user set password='skmreset' where user_name='$user';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		return;
+	}
+	else{
+		echo "<script>alert('Employee password reset succesfully');window.location.href = 'index.php';</script>";
+	}
+}	
 ?>
 
 	</section>
