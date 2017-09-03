@@ -21,6 +21,7 @@ include_once "/php/tireDetails.php";
 	<link href="css/aos.css" rel="stylesheet">
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
+	<script src="js/tableFilter.js"></script>	
 	<link rel="stylesheet" href="fonts/font-awesome.min.css">		
   </head>	
   
@@ -131,13 +132,13 @@ include_once "/php/tireDetails.php";
   </div>
  	<div id="pricelist">
     	<div class="tab">
-  			<button class="tablinks" onclick="openCity(event, 'London')">Passenger Car Tyres</button>
- 			<button class="tablinks" onclick="openCity(event, 'Paris')">4x4 (RV/4WD) Tyres</button>
-  			<button class="tablinks" onclick="openCity(event, 'Tokyo')">Truck Tyres
-    & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'car','orderitems');">Passenger Car Tyres</button>
+ 			<button class="tablinks" onclick="searchRows2(4,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
 		</div>
  		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
-			<input type="text" id="myInput" onkeyup="" placeholder="Search for tire size.."></div></br>
+			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."></div></br>
 <!-- dunlop tires price list table-->			
 			<div class="row">
   		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
