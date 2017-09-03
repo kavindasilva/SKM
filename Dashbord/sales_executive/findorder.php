@@ -23,7 +23,7 @@
     	<div class="box">
       	</div>
       	<!--filters devision-->
-      	<div class="filters" style="padding-bottom: 20px;" >
+      	<div class="filters"  >
 			<strong ><h4><i class="fa fa-filter"  aria-hidden="true">   Filters</i></h4></strong></br>
      	<!--selecting a buyer row-->
       	<div class="row margin" >

@@ -20,6 +20,7 @@ session_start();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../css/mystyle.css">
 
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -27,7 +28,7 @@ session_start();
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header" id="mainhead">
 
     <!-- Logo -->
     <a href="index2.html" class="logo">
