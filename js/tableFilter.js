@@ -42,7 +42,6 @@ function searchRows(trindex, eleid, tableid) {//tr index, element id
 function searchRows2(trindex, keyval, tableid) {//tr index, key value
 	var input,filter,table,tr,td,i,tindex;
 
-	//input = document.getElementById(eleid);
 	input = keyval;
 	filter = input.toUpperCase();
 
@@ -61,20 +60,3 @@ function searchRows2(trindex, keyval, tableid) {//tr index, key value
 	}
 }
 
-function clearAllCus() {
-	document.getElementById("search1").value = "";
-	document.getElementById("search2").value = "";
-	//document.getElementById("search3").value = "";
-	//document.getElementById("search4").value = "";
-
-	searchRows(0, 'search1', 'tblcus');
-}
-
-function clearAllTch() {
-	document.getElementById("search11").value = "";
-	document.getElementById("search12").value = "";
-	document.getElementById("search13").value = "";
-	document.getElementById("search14").value = "";
-
-	searchRows(0, 'search11', 'tbltch');
-}
