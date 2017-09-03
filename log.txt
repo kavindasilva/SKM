@@ -13,4 +13,4 @@ completed:this means invoice generated for that item
 status of sales_order table
 
 completed:all the sales order items in the order is supplied
-incomplete:all sales order items are not supplied
+pending:all sales order items are not supplied

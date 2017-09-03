@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!--toggal button-->
   <link rel="stylesheet" href="../../assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
+  <link rel="stylesheet" href="../../css/datepicker3.css">
 </head>
 <body >
     <!-- Content Header (Page header) -->
@@ -21,8 +22,10 @@
     <div class="container">
     	<div class="box">
       	</div>
+      	<!--filters devision-->
       	<div class="filters" style="padding-bottom: 20px;" >
 			<strong ><h4><i class="fa fa-filter"  aria-hidden="true">   Filters</i></h4></strong></br>
+     	<!--selecting a buyer row-->
       	<div class="row margin" >
       		<strong class="col-xs-2">Dealer Shop Name </strong>  	
       	<div class="col-xs-2" style="width: 250px;">
@@ -37,36 +40,52 @@
         <option value="" >Select</option>
       		 </select>
 		 </div>
+		 <!-- by clicking on this button orders will show accroding to filters-->
 		 <button class="col-xs-1 btn btn-success" type="button"><i class="fa fa-search" aria-hidden="true"></i>
- Search</button>
+ 			Search</button>
 		 </div>
+
+<!--picking a date range picker,we can choos to date of from date or both at once-->
 		 <div class="row margin">
 		 <div class="col-sm-2">
       		<strong>From Date</strong>
-      	</div>
+      	 </div>
       	<div class="col-sm-2">
-		 	<?php include '../../assets/datetimepicker.php';?>		
-		 	</div>
-		 	<div class="col-sm-2" style="margin-left:162px;">
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>
+		 </div>
+		 <div class="col-sm-2" style="margin-left:162px;">
       		<strong>To Date</strong>
       	</div>
       	<div class="col-sm-2">
-		 	<?php include '../../assets/datetimepicker.php';?>		
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>
 		 	</div>	 	 
 		 </div>
-		 <label class="checkbox-inline">
-  			Show Completed<input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success">
-		</label>
-		<label class="checkbox-inline">
-  			Show Incompleted<input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success">
-		</label>
-		 <!--<div class="row margin checkbox" style="padding-left: 15px;">
-		 	<strong>Status</strong>
-		 	<strong style="padding-left: 135px;">Completed</strong><input type="checkbox" style="margin-left: 15px; height: 16px; width: 16px;" value="c">
-		 	<strong style="padding-left: 55px;">Incomplete</strong><input type="checkbox" style="margin-left: 15px; height: 16px; width: 16px;" value="i">
-		 </div>-->
+<!-- these toggal buttons are used to show completed orders and pending orders-->		 
+		 <div style=" padding-left: 25px;">
+		 <strong>
+  			Show Completed Orders<input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
+		</strong>
+		<strong style="padding-left: 50px;" >
+  			Show Pending Orders<input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success">
+		</strong>
+	  </div>
 		  </div>
 	  </br>
+  <!-- found order details are shown in this table-->	  
 		 <div class="row">
 		  <div  class="col-xs-12" style="width: auto; margin-left: 72px">
           <div class="box" >
@@ -101,6 +120,7 @@
 			 </div>
 						 
 	  </br>
+  <!-- when clicking on a row of found orders table the items of the selected order will be showing on this table -->	  
 		  <div class="row">
         <div  class="col-xs-12" style="width:auto; margin-left: 72px">
           <div class="box" >
@@ -142,4 +162,13 @@
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
 <script src="../../js/formcontrol.js?2"></script> 
+<script src="../../js/bootstrap-datepicker.js"></script>
+<script>
+  $(function () {
+    //Date picker
+    $('.datepicker').datepicker({
+      autoclose: true
+    });
+  });
+</script>
 </html>
