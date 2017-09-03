@@ -5,6 +5,7 @@ this file contains:
  dealer, customer, supplier edit UI
  dealer, customer, supplier delete sql
  dealer, customer, supplier password reset sql
+ ++++++++++++++++++ "editUserUI.php" should be required +++++++++++++++++++++++
 */
 //session maintainence // kavindasilva
 session_start();
@@ -55,22 +56,6 @@ require_once '../php/dbcon.php';
 
 <div class="wrapper">
 <?php
-//session maintainence // kavindasilva
-session_start();
-$_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="adm") {
-     echo "not an admin";
-	 //header('Location:../login.html');
- }
-
-/**/
-//include '../php/dbcon2.php';
-//include  //header files & css,JS
 
 ?>
   <header class="main-header">
@@ -237,6 +222,7 @@ $_SESSION['user']="Test1";
     <!-- Content Header (Page header) -->
     <section class="content-header">
 	<script type="text/javascript" src="adminFun.js"></script>
+	<script type="text/javascript" src="adminValidate.js"></script>
 	<B>admin control panel</b> <br/>
 
 <?php

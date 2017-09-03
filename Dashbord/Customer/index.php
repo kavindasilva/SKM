@@ -1,3 +1,22 @@
+<?php
+//session maintainence // kavindasilva
+session_start();
+$_SESSION['user']="Test1";
+/**
+ if(!isset($_SESSION['user'])){
+	echo "user not set";
+	//header('Location:../login.html');
+ }
+ elseif ($_SESSION['utype']!="regcus") {
+     echo "not a customer";
+	 //header('Location:../login.html');
+ }
+
+/**/
+require_once '../../php/dbcon2.php';
+//include  //header files & css,JS
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,25 +46,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
-<?php
-//session maintainence // kavindasilva
-session_start();
-$_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="adm") {
-     echo "not an admin";
-	 //header('Location:../login.html');
- }
 
-/**/
-include '../../php/dbcon2.php';
-//include  //header files & css,JS
-
-?>
   <header class="main-header">
     <!-- Logo -->
     <a href="../../index.php" class="logo">
@@ -143,7 +144,7 @@ include '../../php/dbcon2.php';
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
           <a href="index.php">
@@ -162,8 +163,8 @@ include '../../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> New quotation</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> New quotation</a></li>
+            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i> View all</a></li>
             <li><a href="#"><i class="fa fa-circle-o" style="color: #ee0000"></i> Remove quotation</a></li>
            </ul>
         </li>
@@ -206,25 +207,8 @@ include '../../php/dbcon2.php';
   
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-   <script type="text/javascript" src="adminFun.js"></script>
-	<B>Customer dashboard</b> <br/>
-	<br/>
-<div class="">
-	
-	
-	
-</div>
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
 
     <!-- Main content -->
     
@@ -266,49 +250,13 @@ include '../../php/dbcon2.php';
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
+<script src="../../js/navigation_controler.js"></script>
 
 </body>
 </html>
 
 <?php
-//view all users
-function viewAll2(){
-	$sqlq = "select * from users;"; //sql query, users list
-	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
-	
-	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
-	
-	else {
-		echo "<table id='tblstd'>";
-		echo "<tr> <th>ID</th> <th></th> <th>First name</th> <th>Last name</th> <th>Birthday</th> <th>class</th>";
-		echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
-		
-		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='funs1.php'>";
-			//echo "<form method='post' action='funs1.php' onsubmit='confirmD();'>";
-			//echo "<form method='post' action=''>"; //auto refreshing
-			
-			echo "<tr><input type='text' name='sid' value='" . $row['sid'] . "' hidden/>"; //make teacher
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
-			
-			echo "<td>" . $row['sid'] . "</td>";
-			echo "<td>" . $row['photo'] . "</td>";
-			echo "<td>" . $row['fname'] . "</td>";
-			echo "<td>" . $row['lname'] . "</td>";
-			echo "<td>" . $row['dob'] . "</td>";
-			echo "<td>" . $row['class'] . "</td>";
-			echo "<td>" . $row['gender'] . "</td>";
-			echo "<td>" . $row['tel1'] . "</td>";
-			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";
-			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
-		}
-		echo "</table>";
-	}
-	
-}
+
+
 
 ?>
