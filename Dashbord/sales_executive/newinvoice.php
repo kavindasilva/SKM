@@ -2,7 +2,6 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -21,24 +20,54 @@
     <div class="container">
     	<div class="box">
       	</div>
-      	<div class="row">
-      		<strong class="col-xs-2">Dealer Shop Name </strong>
-      	
-      	<div class="col-xs-2">
+      		<div class="filters" style="padding-bottom: 20px;" >
+			<strong ><h4><b>Select order to invoice</b></h4></strong></br>
+      	<div class="row margin" >
+      		<strong class="col-xs-2">Dealer Shop Name </strong>  	
+      	<div class="col-xs-2" style="width: 250px;">
  	<select class="form-control" >
         <option value="" >Select</option>
       		 </select>
 		 </div>
 		 <strong class="col-xs-1">or </strong>
 		 <strong class="col-xs-2">Regular Customer Company Name </strong>
-      	
-      	<div class="col-xs-2">
+      	<div class="col-xs-2 " style="width: 250px;">
  	<select class="form-control" >
         <option value="" >Select</option>
       		 </select>
 		 </div>
-		 <button class="col-xs-1 btn btn-success" type="button">Go</button>
+		 <button class="col-xs-1 btn btn-success" type="button"><i class="fa fa-search" aria-hidden="true"></i>
+ Search</button>
 		 </div>
+		 <div class="row margin">
+		 <div class="col-sm-2">
+      		<strong>From Date</strong>
+      	</div>
+      	<div class="col-sm-2">
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>	
+		 	</div>
+		 	<div class="col-sm-2" style="margin-left:162px;">
+      		<strong>To Date</strong>
+      	</div>
+      	<div class="col-sm-2">
+		 	<div class="form-group">
+				<div class="input-group date " style="width: 220px;">
+					 <div class="input-group-addon">
+					   <i class="fa fa-calendar"></i>
+					 </div>
+					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+				</div>
+			</div>		
+		 	</div>	 	 
+		 </div>
+		  </div>
 		 <div class="row">
 		  <div  class="col-xs-12" style="width: auto; margin-left: 72px">
           <div class="box" >
@@ -164,6 +193,7 @@
             		<select class="form-control" id="discount">
             			<option value=".1">10%</option>
             			<option value=".15">15%</option>
+            			<option value=".20">20%</option>
             		</select>
             	</div>
            

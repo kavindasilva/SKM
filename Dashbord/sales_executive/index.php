@@ -20,6 +20,7 @@ session_start();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../css/mystyle.css">
 
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -27,7 +28,7 @@ session_start();
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header" id="mainhead">
 
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -174,13 +175,12 @@ session_start();
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li  id="dd" class="active treeview menu-open">
-          <a href="dashbord">
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
        
         <li class="treeview">
-          <li class="treeview">
          	<a href="#">
             	<i class="fa fa-edit"></i> <span>Order</span>
             	<span class="pull-right-container">
@@ -189,7 +189,7 @@ session_start();
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Find Order</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i> Find Order</a></li>
            </ul>
         </li>
         <li class="treeview">
@@ -276,7 +276,7 @@ session_start();
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js"></script>
+<script src="../../js/navigation_controler.js?2"></script>
 
 </body>
 
