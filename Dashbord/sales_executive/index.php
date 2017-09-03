@@ -174,7 +174,7 @@ session_start();
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="db" class="active treeview menu-open">
+        <li  id="dd" class="active treeview menu-open">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
