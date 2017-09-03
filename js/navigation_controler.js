@@ -16,3 +16,9 @@ $('#dd').click(function(){
 	$(this).addClass("active");
 	$('#content-wrapper').load('dashbord.php');
 });
+
+// dashbord control
+function dashbordcontrol(page){
+	$('ul#sidebar-menu li').removeClass("active");
+	$('#content-wrapper').load(page+'.php');
+}
