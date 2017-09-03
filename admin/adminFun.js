@@ -1,4 +1,13 @@
 //admin functions
+/**
+	Table filter function
+	Confirm delete
+	Confirm update
+	Confirm insert
+	
+	Clear search boxes
+*/
+
 //document.write("JS is ok<BR>");
 function searchRows(trindex, eleid, tableid) {//tr index, element id
 	//alert(trindex); working
@@ -65,13 +74,13 @@ function redirectMain(){
 	window.location="index.php";
 }
 
-function clearAllStd() {
+function clearAllCus() {
 	document.getElementById("search1").value = "";
 	document.getElementById("search2").value = "";
-	document.getElementById("search3").value = "";
-	document.getElementById("search4").value = "";
+	//document.getElementById("search3").value = "";
+	//document.getElementById("search4").value = "";
 
-	searchRows(0, 'search1', 'tblstd');
+	searchRows(0, 'search1', 'tblcus');
 }
 
 function clearAllTch() {

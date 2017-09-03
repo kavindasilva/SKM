@@ -218,8 +218,28 @@ require_once '../php/dbcon.php';
 	<B>admin control panel</b> <br/>
 	
 	<?php
-	viewAll2();
+	//viewAll2();
 	?>
+		<div class="panel panel-default" >
+            <div class="panel-heading">
+              <span class="panel-title"> <B>Customers </B>
+			  <input type="text" id="search2" onkeyup="searchRows(1,this.id, 'tblcus');"  placeholder="user name"/>
+			  <input type="text" name="skey" id="search1" onkeyup="searchRows(4,this.id, 'tblcus');" placeholder="Telephone" />
+			  <input type="button" onclick="clearAllCus()" value="clear search"/>
+			  </span>
+            </div>
+            <div class="panel-body" style="height:160px; overflow-y:auto; overflow-x: scroll">
+              <?php viewCus(); ?>
+            </div>
+        </div>
+		
+		<div class="">
+		<?php viewSup(); ?>
+		</div>
+		
+		<div class="">
+		<?php viewDealer(); ?>
+		</div>
 
     <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -273,11 +293,13 @@ require_once '../php/dbcon.php';
 
 <?php
 //view all users
+/*
 function viewAll2(){
 	viewDealer();
 	viewCus();
 	viewSup();	
 }
+*/
 
 //view all dealers
 function viewDealer(){
@@ -288,7 +310,7 @@ function viewDealer(){
 		echo "<p>No dealers in the system</p>";
 	
 	else {
-		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<table id='tbldealer'  class='table table-condensed'>";
 		echo "<tr> <th>dealer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th> <th>Shop name</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editUser.php'>";
@@ -319,7 +341,7 @@ function viewCus(){
 		echo "<p>No customer in the system</p>";
 	
 	else {
-		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<table id='tblcus'  class='table table-condensed'>";
 		echo "<tr> <th>Customer ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Telephone</th></tr>";//" <th>Shop name</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editUser.php'>";
@@ -350,7 +372,7 @@ function viewSup(){
 		echo "<p>No supplier in the system</p>";
 	
 	else {
-		echo "<table id='tblstd'  class='table table-condensed'>";
+		echo "<table id='tblsup'  class='table table-condensed'>";
 		echo "<tr> <th>Supplier ID</th> <th>User name</th> <th>Email</th> <th>Address</th> <th>Brand</th> <th>Country</th></tr>";
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editUser.php'>";

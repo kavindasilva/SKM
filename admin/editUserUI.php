@@ -3,7 +3,7 @@
 /**
 	This file contains the UI to edit dealer, customer, supplier
 	This file contains the SQL queries to edit dealer, customer, supplier
-	This file should be required in "editUser.php"
+	+++++++++++++ This file should be required in "editUser.php" +++++++++++++++++++++
 */
 require_once '../php/dbcon.php';
 
