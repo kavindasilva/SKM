@@ -174,14 +174,13 @@ session_start();
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd" class="active treeview menu-open">
-          <a href="dashbord">
+        <li  id="db" class="active treeview menu-open">
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
        
         <li class="treeview">
-          <li class="treeview">
          	<a href="#">
             	<i class="fa fa-edit"></i> <span>Order</span>
             	<span class="pull-right-container">
@@ -277,7 +276,7 @@ session_start();
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js"></script>
+<script src="../../js/navigation_controler.js?2"></script>
 
 </body>
 
