@@ -4,13 +4,14 @@
    <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-   <script src="../../js/formcontrol.js?2"></script>
+   
 </head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
 <?php include '../../assets/outofstock.php'?>
-<?php include '../../assets/noowner.php'?>        
+<?php include '../../assets/noowner.php'?>
+<?php include '../../assets/success.php'?>           
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
@@ -28,7 +29,7 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2">Dealer Shop Name </strong>
+      		<strong class="col-xs-2" >Dealer Shop Name </strong>
       	
       	<div class="col-xs-2">
  	<select class="form-control" id="shopname" >
@@ -90,6 +91,7 @@
                   <th>Unit Price(Rs.)</th>
                   <th>Quantity</th>
                   <th>Total Amount</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>                 
@@ -111,12 +113,12 @@
             
             	<div class="row">	
             	<div class="col-md-3">
-            	<button type="button" class="btn btn-warning" onClick="" style="width: 153px" >Remove Selected</button>
+            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
             	</div>
 				</div></br>
             	<div class="row">	
             	<div class="col-md-3">
-            	<button type="button" class="btn btn-primary" onClick="a();" style="width: 153px" >Place Order</button>
+            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" >Place Order</button>
             	</div>
 				</div>
             	</div>
@@ -164,6 +166,6 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-
+<script src="../../js/formcontrol.js?2"></script>
 </body>
 </html>
