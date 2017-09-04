@@ -116,7 +116,7 @@ div.tab button {
     border: thin;
     outline:double#F1F1F1;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 2%; /* changed from 14px 16px */
     transition: 0.3s;
 }
 

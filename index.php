@@ -21,6 +21,7 @@ include_once "/php/tireDetails.php";
 	<link href="css/aos.css" rel="stylesheet">
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
+	<script src="js/tableFilter.js"></script>	
 	<link rel="stylesheet" href="fonts/font-awesome.min.css">		
   </head>	
   
@@ -131,13 +132,13 @@ include_once "/php/tireDetails.php";
   </div>
  	<div id="pricelist">
     	<div class="tab">
-  			<button class="tablinks" onclick="openCity(event, 'London')">Passenger Car Tyres</button>
- 			<button class="tablinks" onclick="openCity(event, 'Paris')">4x4 (RV/4WD) Tyres</button>
-  			<button class="tablinks" onclick="openCity(event, 'Tokyo')">Truck Tyres
-    & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'car','orderitems');">Passenger Car Tyres</button>
+ 			<button class="tablinks" onclick="searchRows2(4,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
 		</div>
  		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
-			<input type="text" id="myInput" onkeyup="" placeholder="Search for tire size.."></div></br>
+			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."></div></br>
 <!-- dunlop tires price list table-->			
 			<div class="row">
   		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
@@ -150,18 +151,21 @@ include_once "/php/tireDetails.php";
                 <thead>
                 <tr>
                   <th>Tire Size</th>
-                  <th>Japan</th>
-                  <th>Thailand</th>
-                  <th>Indonesia</th>
+                  <th>Brand</th>
+                  <th>Price</th>
+                  <th>Country</th>
+				  <th>Vehicle type</th>
                 </tr>
                 </thead>
                 <tbody>
-                	<?php viewTire('Dunlop'); ?>                 
+                	<?php //viewTire('Dunlop'); ?>                 
+                	<?php viewTire(); ?>                 
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
+<!--->		  
 <!--google map location of SKM-->          
           <div id="map" class="pull-right col-md-5" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.346597921569!2d79.87071012246584!3d6.880222420451064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3e5718eafe129f4!2sS.+K.+Munasinghe+Motors!5e0!3m2!1sen!2s!4v1503665177210" width="550" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
           </div>
@@ -178,9 +182,10 @@ include_once "/php/tireDetails.php";
                 <thead>
                 <tr>
                   <th>Tire Size</th>
-                  <th>Japan</th>
-                  <th>Thailand</th>
-                  <th>Indonesia</th>
+                  <th>Brand</th>
+                  <th>Country</th>
+                  <th>Country</th>
+				  <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>    

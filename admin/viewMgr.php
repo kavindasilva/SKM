@@ -291,7 +291,7 @@ function viewAllMgr(){
 			echo "<form method='post' action='editMgr.php'>";
 			
 			echo "<tr><input type='text' name='eid' value='" . $row['e_id'] . "' hidden/>"; //to track the employee id
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
+			echo "<input type='text' name='uname' value='".$row['user_user_name']."' hidden/>"; //user_user_name
 			
 			echo "<td>" . $row['e_id'] . "</td>";
 			echo "<td>" . $row['name'] . "</td>";
