@@ -32,3 +32,9 @@
 #content-wrapper{
 	margin-top: 50px;
 }
+.info-box-content span{
+	padding: 30px 0px 0px 5px;
+}
+.dashbordbtn:hover{
+	background-color:#BAABC8;
+}

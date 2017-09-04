@@ -26,23 +26,23 @@
         <div class="row">
           <strong class="col-xs-2">Tire Brand</strong>
           <div class="col-xs-2">
-            <select class="form-control" >
-            <option value="">Select</option>
-             <option value="" >Dunlop</option>
-             <option value="" >Kaizen</option>
+            <select class="form-control" id="brand" name="brand" >
+            <option value="--">Select</option>
+             <option value="Dunlop" >Dunlop</option>
+             <option value="Kaizen" >Kaizen</option>
            </select>
           </div>
           
           <strong class="col-xs-2">Country</strong>
         
           <div class="col-xs-2">
-          <select class="form-control" >
+          <select class="form-control" id="country" name="country">
              <option value="" >Select</option>
              <option value="" >Japan</option>
 			  <option value="">Thaiwan</option>
           </select>
           </div>
-          <button class="col-xs-1 btn btn-success" type="submit" name="goBtn" value="go">Go</button>
+          <button class="col-xs-1 btn btn-success" type="button" name="goBtn" value="go" onClick="filter()">Go</button>
           </div>
           <div class="row">
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
@@ -55,12 +55,36 @@
                     <thead>
                       <tr>
                         <th>Tire ID</th>
+                        <th>Brand</th>
+                        <th>Country</th>
                         <th>Size</th>
                         <th>Available Qty</th>
                         <th>Status</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+						require_once('../../php/dbcon.php');
+						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire";
+						$result = $conn->query($sql);
+						while($row=$result->fetch_assoc()){
+						?>
+						
+						<tr>
+			
+						<td><?php echo $row['t_id']?></td>
+						<td><?php echo $row['brand_name']?></td>
+						<td><?php echo $row['country']?></td>
+						<td><?php echo $row['tire_size']?></td>
+						<td><?php echo $row['quantity']?></td>
+						<td><?php echo $row['status']?></td>
+						</tr>
+					
+						
+					<?php
+							}
+						$conn->close();
+						?>
 <!--
                       <td>dj1801</td>
                       <td>18</td>
@@ -124,7 +148,8 @@
 
 <!-- jQuery 3.1.1 -->
 <script src="../../js/jquery-3.1.1.min.js"></script>
-<script src="../../js/table.js"></script>
+<script src="../../js/ava_tire_filterjs.js"></script>
+<!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
 
 
