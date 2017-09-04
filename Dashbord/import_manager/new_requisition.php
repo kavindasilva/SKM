@@ -23,16 +23,21 @@
      <form action="Controller/new_requisiotion_controller.php" method="post">
       <div class="box">
         </div>
-        <div class="row">
-          <strong class="col-xs-2">Tire Brand</strong>
+        <div class="row" style="width: auto; margin-left: 72px">
+          <strong class="col-xs-2">Tire Brand & Country</strong>
           <div class="col-xs-2">
             <select class="form-control" id="brand" name="brand" >
             <option value="--">Select</option>
-             <option value="Dunlop" >Dunlop</option>
-             <option value="Kaizen" >Kaizen</option>
+             <option value="Dunlop-Japan" >Dunlop-Japan</option>
+             <option value="Dunlop-Thaiwan" >Dunlop-Thaiwan</option>
+             <option value="Dunlop-Indonesian" >Dunlop-Indonesian</option>
+             <option value="Kaizen-Japan" >Kaizen-Japan</option>
+             <option value="Kaizen-Thaiwan" >Kaizen-Thaiwan</option>
+             <option value="Kaizen-Indonesian" >Kaizen-Indonesian</option>
            </select>
           </div>
           
+<!--
           <strong class="col-xs-2">Country</strong>
         
           <div class="col-xs-2">
@@ -42,8 +47,10 @@
 			  <option value="">Thaiwan</option>
           </select>
           </div>
-          <button class="col-xs-1 btn btn-success" type="button" name="goBtn" value="go" onClick="filter()">Go</button>
+          
+-->
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
               <div class="box">
