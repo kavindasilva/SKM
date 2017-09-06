@@ -28,23 +28,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$usrtype=$r['type'];
 			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
 						
-			if($usrtype=='ad')
+			if($usrtype=='adm')
 			{	
 				header('Location: ./admin/admin.php');
 				}
-			elseif($usrtype=='se')
+			elseif($usrtype=='salex')
 				header('Location: ../dashbord/sales_executive/index.php');		
-			elseif($usrtype=='ch')
+			elseif($usrtype=='chiefmgr')
 				header('Location: ../dashbord/cheif_manager/navigation.php');	
-			elseif($usrtype=='im')
+			elseif($usrtype=='impmgr')
 				header('Location: ../dashbord/import_manager/navigation.php');
-			elseif($usrtype=='de')
+			elseif($usrtype=='dealer')
 				header('Location: ../dashbord/dealer1/navigation.php');
-			elseif($usrtype=='sm')
+			elseif($usrtype=='stockmgr')
 				header('Location: ../dashbord/Stock_Manager/navigation.php');
-			elseif($usrtype=='su')
+			elseif($usrtype=='suppl')
 				header('Location: ../dashbord/supplier/navigation.php');
-			else
+			elseif($usertype=='cust')
 				header('Location: ../dashbord/Customer/navigation.php');
 				
 			
