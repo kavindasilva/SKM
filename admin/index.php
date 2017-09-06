@@ -24,13 +24,15 @@
 	
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 
 <div class="wrapper">
 <?php
 //session maintainence // kavindasilva
 session_start();
 $_SESSION['user']="Test1";
+require_once '../php/dbcon.php';	
+include '../php/dbcon2.php';	
 /**
  if(!isset($_SESSION['user'])){
 	echo "user not set";
@@ -162,11 +164,8 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.php" ><i class="fa fa-circle-o"></i> New user</a></li>
-            <li><a href="viewAll.php" ><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Edit details</a></li>
-            <li><a href="viewAll.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
-            <li><a href="viewAll.php"><i class="fa fa-circle-o" style="color:#ee0000"></i> Remove user</a></li>
+            <li><a href="#" name="dashbord"><i class="fa fa-circle-o"></i> New user</a></li>
+            <li><a href="#" name="viewAll" ><i class="fa fa-circle-o"></i> Manage users</a></li>
            </ul>
         </li>
 		
@@ -179,9 +178,7 @@ $_SESSION['user']="Test1";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="viewMgr.php" name="viewMgr"><i class="fa fa-circle-o"></i> Edit details</a></li>
-            <li><a href="viewMgr.php"><i class="fa fa-circle-o"></i> Reset password</a></li>
+            <li><a href="#" name="viewMgr"><i class="fa fa-circle-o"></i>Manage</a></li>
            </ul>
         </li>
 		
@@ -203,34 +200,9 @@ $_SESSION['user']="Test1";
     </section>
     <!-- /.sidebar -->
   </aside>
-  
-  
-  
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-   <script type="text/javascript" src="adminFun.js"></script>
-	<B>admin control panel</b> <br/>
-	Select a user type to insert<br/>
-<div class="">
-	<a href="adduser.php?type=cust"><button class="list-group-item" name="" value="">Customer</button></a>
-	<a href="adduser.php?type=salex"><button class="list-group-item" name="" value="">Sales Executive</button></a>
-	<a href="adduser.php?type=dealer"><button class="list-group-item" name="" value="">Dealer</button></a> 
-	
-	<a href="adduser.php?type=suppl"><button class="list-group-item" name="" value="">Supplier</button></a>
-
-</div>
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
     
   </div>
   <!-- /.content-wrapper -->
