@@ -30,22 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						
 			if($usrtype=='adm')
 			{	
-				header('Location: ./admin/admin.php');
+				header('Location: ./admin/index.php');
 				}
 			elseif($usrtype=='salex')
 				header('Location: ../dashbord/sales_executive/index.php');		
 			elseif($usrtype=='chiefmgr')
-				header('Location: ../dashbord/cheif_manager/navigation.php');	
+				header('Location: ../dashbord/cheif_manager/index.php');	
 			elseif($usrtype=='impmgr')
-				header('Location: ../dashbord/import_manager/navigation.php');
+				header('Location: ../dashbord/import_manager/index.php');
 			elseif($usrtype=='dealer')
-				header('Location: ../dashbord/dealer1/navigation.php');
+				header('Location: ../dashbord/dealer1/index.php');
 			elseif($usrtype=='stockmgr')
-				header('Location: ../dashbord/Stock_Manager/navigation.php');
+				header('Location: ../dashbord/Stock_Manager/index.php');
 			elseif($usrtype=='suppl')
-				header('Location: ../dashbord/supplier/navigation.php');
+				header('Location: ../dashbord/supplier/index.php');
 			elseif($usrtype=='cust')
-				header('Location: ../dashbord/Customer/navigation.php');
+				header('Location: ../dashbord/Customer/index.php');
 				
 			
 		}
