@@ -17,11 +17,11 @@ $obj=mysqli_fetch_object($result);
 $sordno=$obj->maxsno;
 
 $query="INSERT INTO order_item VALUES($tid,$sordno,$qty,'$status')";
-
 if(mysqli_query($conn,$query)){
 	echo "success";
 }
 else
 	echo mysqli_error($conn);
+
 mysqli_close($conn);	
 ?>

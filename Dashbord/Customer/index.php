@@ -22,16 +22,17 @@ session_start();
        folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
 
-    <!-- Google Font ->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"-->
+    <!-- Google Font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<link rel="stylesheet" href="../../css/mystyle.css">
 	
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header" id="mainhead">
     <!-- Logo -->
     <a href="../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -147,9 +148,8 @@ session_start();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> New quotation</a></li>
-            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#"><i class="fa fa-circle-o" style="color: #ee0000"></i> Remove quotation</a></li>
+            <li><a href="#" name="newquotationreq"><i class="fa fa-circle-o"></i> New quotation Request</a></li>
+            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i>Recived Quotations</a></li> 
            </ul>
         </li>
 		
@@ -162,11 +162,10 @@ session_start();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=".php"><i class="fa fa-circle-o"></i> New orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> Edit orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o" style="color: #ee0000"></i> Cancel</a></li>
-           </ul>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Place A New order</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Manage Yor Orders</a></li>
+            
+          </ul>
         </li>
 		
         <li class="treeview">
