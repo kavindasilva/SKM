@@ -45,6 +45,13 @@ require_once "../php/dbcon2.php";
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../css/mystyle.css">
+  
+  <!--admin panel speacial effects-->
+  <style>
+	.panel-body .btn{
+		width:100%;
+	}
+  </style>
 
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -217,7 +224,10 @@ require_once "../php/dbcon2.php";
           </a>
           <ul class="treeview-menu">
             <li><a href="adduserType.php"><i class="fa fa-circle-o"></i>Add new user</a></li>
-            <li><a href="viewAll.php" name="findorder"><i class="fa fa-circle-o"></i>View Users</a></li>
+            <li><a href="viewAll.php" name="findorder"><i class="fa fa-circle-o"></i>View All Users</a></li>
+            <li><a href="viewAll.php?type=cus" name="findorder"><i class="fa fa-circle-o"></i>View Customers</a></li>
+            <li><a href="viewAll.php?type=deal" name="findorder"><i class="fa fa-circle-o"></i>View Dealers</a></li>
+            <li><a href="viewAll.php?type=sup" name="findorder"><i class="fa fa-circle-o"></i>View Suppliers</a></li>
            </ul>
         </li>
         <li class="treeview">
@@ -229,7 +239,8 @@ require_once "../php/dbcon2.php";
           </a>
           <ul class="treeview-menu">
             <li><a href="viewMgr.php?empT=mgr"><i class="fa fa-circle-o"></i>View managers</a></li>
-            <li><a href="viewMgr.php?empT=sales"><i class="fa fa-circle-o"></i>Sales-Executive</a></li>
+            <li><a href="adduser.php?type=salex"><i class="fa fa-circle-o"></i>Add new sales-Executive</a></li>
+            <li><a href="viewMgr.php?empT=sales"><i class="fa fa-circle-o"></i>View sales-Executive</a></li>
           </ul>
         </li>
     
