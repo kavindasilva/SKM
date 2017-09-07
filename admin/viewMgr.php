@@ -17,12 +17,16 @@ require_once "head.php";
 	
 	<input type='text' class="" id="srch1" onkeyup="searchRows(1,this.id,'tblMgr');" placeholder="search by name"/><br/>
 	
-	<?php viewAllMgr(); ?>
+	<?php
+		if(!isset($_GET['empT'])){
+			header("Location: index.php");
+		}
+		$empType=$_GET['empT'];
+		//if($empType=="mgr")
+		viewEmp($empType); 
+	?>
 	
-	
-<!--form method="get" action="">
-<input ty />
-</form-->
+
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
@@ -37,9 +41,15 @@ require_once "foot.php";
 ?>    
 
 <?php
+
+
 //view all users
-function viewAllMgr(){
-	$sqlq = "select * from employee;"; //sql query, users list
+function viewEmp($type2){
+	if($type2=="mgr")
+		$sqlq = "select * from employee where type!='salex';"; //sql query, users list except sales x
+	elseif($type2=="sales")
+		$sqlq = "select * from employee where type='salex';"; //sql query, users list only sales x
+		
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
@@ -48,7 +58,6 @@ function viewAllMgr(){
 	else {
 		echo "<table id='tblMgr' class='table table-condensed'>";
 		echo "<tr> <th>ID</th> <th>Name</th> <th>Telephone</th> <th>User type</th> <th>Username</th></tr>";
-		//echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
 		
 		while ($row = mysqli_fetch_array($res)) {
 			echo "<form method='post' action='editMgr.php'>";
@@ -63,13 +72,16 @@ function viewAllMgr(){
 			echo "<td>" . $row['user_user_name'] . "</td>";
 
 			
-			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";//"</td>";
-			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/></form></td></tr>";//"</td>";
-			//echo "<input type='submit' name='deletemgr' onclick='return confirmD()' value='DELETE' style='color:red'/>";	
+			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";
+			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/>";
+			
+			if($type2=="sales")
+				echo "<input type='submit' name='deletex' onclick='return confirmD()' value='Delete'/>";
+			
+			echo "</form></td></tr>";
 		}
 		echo "</table>";
 	}
-	
 }
 
 ?>
