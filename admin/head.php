@@ -219,14 +219,14 @@ require_once "../php/dbcon2.php";
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Invoice</span>
+            <i class="fa fa-table"></i> <span>Employees</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i> New Invoice</a></li>
-            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
+            <li><a href="viewMgr.php"<i class="fa fa-circle-o"></i> View managers</a></li>
+            <li><a href="view" ><i class="fa fa-circle-o"></i>Sales-Executive</a></li>
           </ul>
         </li>
     
