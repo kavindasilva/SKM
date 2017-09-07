@@ -125,7 +125,7 @@ session_start();
                 </div>
 				 
                 <div class="pull-right">
-                  <a href="../../index.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
