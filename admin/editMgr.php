@@ -18,17 +18,22 @@ require_once "../php/dbcon.php";
 
 $empID1=$_POST['eid'];
 
-//view manager details HTML
+//delete sales executive
+if(isset($_POST['deletex'])){
+	deleteSaleX($empID1,$_POST['uname']);
+}
+
+//view employee details HTML
 if(isset($_POST['updatemgr'])){
 	changeMgrUI($empID1);
 }
 
-//edit manager details SQL+PHP
+//edit employee details SQL+PHP
 if(isset($_POST['setupdate'])){
 	changeMgrSQL();
 }
 
-//reset manager password
+//reset employee password
 if(isset($_POST['resetmgr'])){
 	$user=$_POST['uname'];
 	$sql="update user set password='skmreset' where user_name='$user';";
@@ -85,8 +90,8 @@ function changeMgrUI($empID){
 	echo"<tr><td>Email</td> <td><input type='text' value='".$r2['email']."' name='eml'/></td></tr>";
 	echo"<tr><td>Address</td> <td><textarea name='addr'>".$r2['address']."</textarea></td></tr>";
 	
-	echo"<tr><td><input type='submit' onclick='return confirmU()' name='setupdate' value='OK'></td> <td><a href='viewMgr.php'>";
-	echo "<input type='button' value='cancel'></a></td></tr>";
+	echo"<tr><td><input type='submit' onclick='return confirmU()' name='setupdate' value='OK'></td>";
+	echo "<td><input type='button' value='cancel' onclick='window.history.back()'></td></tr>";
 	echo"</table></form>";
 }
 
@@ -113,9 +118,35 @@ function changeMgrSQL(){
 		return;
 	}
 	else{
-		echo "<script>alert('Manager details updated succesfully');window.location.href = 'index.php';</script>";
+		echo "<script>alert('Employee details updated succesfully');window.location.href = 'index.php';</script>";
 	}
 	
+}
+
+//delete sales executive
+function deleteSaleX($empID, $user){
+	$sql1="delete from sales_executive where employee_e_id=".$empID.";";
+	$sql2="delete from employee where e_id=".$empID.";";
+	$sql3="delete from user where user_name='".$user."';";
+	
+	$res=mysqli_query($GLOBALS['conn'],$sql1);
+	if(!$res){
+		echo "<script>alert('".mysqli_error($GLOBALS['conn'])." Sales executive delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	$res=mysqli_query($GLOBALS['conn'],$sql2);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('Sales executive employee delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	$res=mysqli_query($GLOBALS['conn'],$sql3);
+	if(!$res){
+		echo mysqli_error($GLOBALS['conn']);
+		echo "<script>alert('Sales executive user name delete failed');window.location.href = 'index.php';</script>";
+		return;
+	}
+	echo "<script>alert('Sales executive deleted succesfully');window.location.href = 'index.php';</script>";
 }	
 	
 ?>

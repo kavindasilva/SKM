@@ -17,7 +17,14 @@ require_once "head.php";
 	
 	<input type='text' class="" id="srch1" onkeyup="searchRows(1,this.id,'tblMgr');" placeholder="search by name"/><br/>
 	
-	<?php viewAllMgr(); ?>
+	<?php
+		if(!isset($_GET['empT'])){
+			header("Location: index.php");
+		}
+		$empType=$_GET['empT'];
+		//if($empType=="mgr")
+		viewEmp($empType); 
+	?>
 	
 
       <ol class="breadcrumb">
@@ -37,8 +44,12 @@ require_once "foot.php";
 
 
 //view all users
-function viewAllMgr(){
-	$sqlq = "select * from employee where type!='salex';"; //sql query, users list except sales x
+function viewEmp($type2){
+	if($type2=="mgr")
+		$sqlq = "select * from employee where type!='salex';"; //sql query, users list except sales x
+	elseif($type2=="sales")
+		$sqlq = "select * from employee where type='salex';"; //sql query, users list only sales x
+		
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
@@ -62,7 +73,12 @@ function viewAllMgr(){
 
 			
 			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";
-			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/></form></td></tr>";
+			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/>";
+			
+			if($type2=="sales")
+				echo "<input type='submit' name='deletex' onclick='return confirmD()' value='Delete'/>";
+			
+			echo "</form></td></tr>";
 		}
 		echo "</table>";
 	}

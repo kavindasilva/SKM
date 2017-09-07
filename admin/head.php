@@ -228,8 +228,8 @@ require_once "../php/dbcon2.php";
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="viewMgr.php"<i class="fa fa-circle-o"></i> View managers</a></li>
-            <li><a href="view" ><i class="fa fa-circle-o"></i>Sales-Executive</a></li>
+            <li><a href="viewMgr.php?empT=mgr"><i class="fa fa-circle-o"></i>View managers</a></li>
+            <li><a href="viewMgr.php?empT=sales"><i class="fa fa-circle-o"></i>Sales-Executive</a></li>
           </ul>
         </li>
     
