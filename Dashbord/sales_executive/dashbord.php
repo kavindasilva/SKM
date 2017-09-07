@@ -12,7 +12,7 @@
    
 <!--main menu item goes here-->    
    <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
 
@@ -23,9 +23,11 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+          <button class="form-control dashbordbtn" onClick="dashbordcontrol('neworder');">New order</button>
+		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findorder');" >Find order</button>
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="fa fa-table"></i></span>
 
@@ -36,9 +38,11 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+          <button class="form-control dashbordbtn" onClick="dashbordcontrol('newinvoice');">New Invoice</button>
+		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findinvoice');">Find Invoice</button>
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-yellow"><i class="fa fa-envelope-o"></i></span>
 
@@ -49,9 +53,10 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+          <button class="form-control dashbordbtn" name="neworder">Inbox</button>
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
 
@@ -62,29 +67,12 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+          <button class="form-control dashbordbtn" name="neworder">Monthly sales Report</button>
+		<button class="form-control dashbordbtn" name="neworder">Outstandings Report</button>
         </div>
         <!-- /.col -->
       </div>
 <!--main menu item concludes here-->  
-<div class="row">
-	<div class="col-md-3 col-sm-6 col-xs-12">
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('neworder');">New order</button></br>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findorder');" >Find order</button>
-	</div>
-	<div class="col-md-3 col-sm-6 col-xs-12">
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('newinvoice');">New Invoice</button></br>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findinvoice');">Find Invoice</button>
-	</div>
-	<div class="col-md-3 col-sm-6 col-xs-12">
-		<button class="form-control dashbordbtn" name="neworder">Inbox</button></br>
-		
-	</div>
-	<div class="col-md-3 col-sm-6 col-xs-12">
-		<button class="form-control dashbordbtn" name="neworder">Monthly sales Report</button></br>
-		<button class="form-control dashbordbtn" name="neworder">Outstandings Report</button>
-	</div>
-</div>
-</br>
 <div class="row">
 	<!-- Area CHART -->
 	<div class="col-md-6 col-xs-12">
@@ -133,12 +121,7 @@
 <script src="../../js/Chart.min.js"></script>	
 <script>
   $(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
-
-    //--------------
+      //--------------
     //- AREA CHART -
     //--------------
 

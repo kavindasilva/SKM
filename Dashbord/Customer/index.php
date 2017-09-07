@@ -1,21 +1,5 @@
 <?php
-//session maintainence // kavindasilva
 session_start();
-$_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="regcus") {
-     echo "not a customer";
-	 //header('Location:../login.html');
- }
-
-/**/
-require_once '../../php/dbcon2.php';
-//include  //header files & css,JS
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,7 +62,7 @@ require_once '../../php/dbcon2.php';
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['currentuser']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -127,7 +111,7 @@ require_once '../../php/dbcon2.php';
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['user']; ?></p>
+          <p><?php echo $_SESSION['currentuser']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
