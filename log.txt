@@ -14,3 +14,8 @@ status of sales_order table
 
 completed:all the sales order items in the order is supplied
 pending:all sales order items are not supplied
+
+removed qty,date from quotations and added status
+status of qoutations is
+notreplied
+replied

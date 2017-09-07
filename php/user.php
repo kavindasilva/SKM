@@ -30,11 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						
 			if($usrtype=='adm')
 			{	
-<<<<<<< HEAD
+
 				header('Location: ../admin/index.php');
-=======
-				header('Location: ./admin/index.php');
->>>>>>> e79af9ad2034d903bc536dd14733c5e5139639ce
+
 				}
 			elseif($usrtype=='salex')
 				header('Location: ../dashbord/sales_executive/index.php');		
