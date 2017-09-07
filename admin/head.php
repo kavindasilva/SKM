@@ -1,29 +1,28 @@
 
 <?php
 /**
-	this file contains the head part above the main content.
-	******This file should be include( or require) at begining of every .php file containing UI in the admin folder
-	foot.php contains the footer part, which is below the main content
-*/
+ this file contains the head part above the main content.
+ ******This file should be include( or require) at begining of every .php file containing UI in the admin folder
+ foot.php contains the footer part, which is below the main content
+ */
 
-//session maintainence 
+//session maintainence
 session_start();
-$_SESSION['user']="Test1";
+$_SESSION['user'] = "Test1";
 require_once "../php/dbcon2.php";
 /**
  if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
+ echo "user not set";
+ //header('Location:../login.html');
  }
  elseif ($_SESSION['utype']!="adm") {
-     echo "not an admin";
-	 //header('Location:../login.html');
+ echo "not an admin";
+ //header('Location:../login.html');
  }
 
-/**/
+ /**/
 //include '../php/dbcon2.php';
 //include  //header files & css,JS
-
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +128,7 @@ require_once "../php/dbcon2.php";
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../images/user8-128x128.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php
-				  echo $_SESSION['user'];
+			echo $_SESSION['user'];
 				  ?></span>
             </a>
             <ul class="dropdown-menu">
@@ -179,7 +178,7 @@ require_once "../php/dbcon2.php";
         </div>
         <div class="pull-left info">
           <p><?php
-				  echo $_SESSION['user'];
+		echo $_SESSION['user'];
 				  ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -199,11 +198,15 @@ require_once "../php/dbcon2.php";
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd" class="active treeview menu-open">
+		
+        <!--li  class="active treeview menu-open">
           <a href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
-        </li>
+        </li-->
+		
+        <li><a href="index.php"><i class="fa fa-circle-o"></i>Dashboard</a></li>
+        
        
         <li class="treeview">
          	<a href="#">
@@ -213,7 +216,7 @@ require_once "../php/dbcon2.php";
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="adduserType.php"><i class="fa fa-circle-o"></i> Add new user</a></li>
+            <li><a href="adduserType.php"><i class="fa fa-circle-o"></i>Add new user</a></li>
             <li><a href="viewAll.php" name="findorder"><i class="fa fa-circle-o"></i>View Users</a></li>
            </ul>
         </li>
@@ -252,7 +255,8 @@ require_once "../php/dbcon2.php";
             <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
             <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
+			</ul>
+        </li>
            
       </ul>
     </section>
