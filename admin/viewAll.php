@@ -94,27 +94,33 @@ function viewMenu(){
 //=========================== view search bar and table title ================================================================
 function viewDealerSearch(){
 	echo "<span class='panel-title'> <B>Dealers </B>";
-	echo "<input type='text' id='search5' onkeyup='searchRows(1,this.id, \"tbldealer\");'  placeholder='user name'/>";
+	echo "<input type='text' id='search2' onkeyup='searchRows(1,this.id, \"tbldealer\");'  placeholder='user name'/>";
 	echo "<input type='text' id='search4' onkeyup='searchRows(2,this.id, \"tbldealer\");'  placeholder='Email'/>";
 	echo "<input type='text' id='search3' onkeyup='searchRows(5,this.id, \"tbldealer\");'  placeholder='Shop name'/>";
 	echo "<input type='text' name='skey' id='search1' onkeyup='searchRows(4,this.id, \"tbldealer\");' placeholder='Telephone' />";
-	echo "<input type='button' onclick='clearAllCus()' value='clear search'/>";
+	echo "<input type='button' onclick='clearAll(\"tbldealer\")' value='clear search'/>";
 	echo "</span>";
 }
 
 function viewCusSearch(){
 	echo "<span class='panel-title'> <B>Customers </B>";
 	echo "<input type='text' id='search2' onkeyup='searchRows(1,this.id, \"tblcus\");'  placeholder='user name'/>";
+	echo "<input type='text' id='search3' onkeyup='searchRows(2,this.id, \"tblcus\");'  placeholder='Email'/>";
 	echo "<input type='text' name='skey' id='search1' onkeyup='searchRows(4,this.id, \"tblcus\");' placeholder='Telephone' />";
-	echo "<input type='button' onclick='clearAllCus()' value='clear search'/>";
+	
+	//for execution of JS. only the id is needed
+	echo "<input type='text' name='skey' id='search4' onkeyup='searchRows(4,this.id, \"tblcus\");' placeholder='Telephone' hidden/>";
+	echo "<input type='button' onclick='clearAll(\"tblcus\")' value='clear search'/>";
 	echo "</span>";
 }
 
 function viewSupSearch(){
 	echo "<span class='panel-title'> <B>Suppliers </B>";
 	echo "<input type='text' id='search2' onkeyup='searchRows(1,this.id, \"tblsup\");'  placeholder='user name'/>";
-	echo "<input type='text' name='skey' id='search1' onkeyup='searchRows(4,this.id, \"tblsup\");' placeholder='Telephone' />";
-	echo "<input type='button' onclick='clearAllCus()' value='clear search'/>";
+	echo "<input type='text' id='search3' onkeyup='searchRows(2,this.id, \"tblsup\");'  placeholder='Email'/>";
+	echo "<input type='text' id='search4' onkeyup='searchRows(4,this.id, \"tblsup\");'  placeholder='Brand'/>";
+	echo "<input type='text' name='skey' id='search1' onkeyup='searchRows(5,this.id, \"tblsup\");' placeholder='Country' />";
+	echo "<input type='button' onclick='clearAll(\"tblsup\")' value='clear search'/>";
 	echo "</span>";
 }
 
@@ -148,6 +154,9 @@ function viewDealer(){
 			echo "<input type='submit' name='deletedealer' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
 		}
 		echo "</table>";
+		
+		//for the correct execution of JS function
+		//echo "<table id='tblcus'></table>";
 	}
 }
 
