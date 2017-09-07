@@ -1,3 +1,12 @@
+<?php
+/**
+	view Employees (mgr)
+*/
+
+//header
+require_once "head.php";
+?>
+
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -21,9 +30,12 @@
     </section>
 
     <!-- Main content -->
-    
 
-  <!-- /.content-wrapper -->
+<?php
+//footer
+require_once "foot.php";
+?>    
+
 <?php
 //view all users
 function viewAllMgr(){

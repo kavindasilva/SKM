@@ -1,3 +1,16 @@
+<?php
+
+/**
+this file contains:
+ dealer, customer, supplier edit UI
+ dealer, customer, supplier delete sql
+ dealer, customer, supplier password reset sql
+ ++++++++++++++++++ "editUserUI.php" should be required +++++++++++++++++++++++
+*/
+
+//header
+require_once "head.php";
+?>
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,9 +42,12 @@ if(isset($_POST['updatesup'])){
 ?>
 
 	</section>
+    <!-- Main content -->
+
 
 <?php
-
+//footer
+require_once "foot.php";
 
 
 function changeMgrUI($empID){

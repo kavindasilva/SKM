@@ -1,3 +1,8 @@
+<?php
+//header
+require_once "head.php";
+?>
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
 <?php
@@ -15,7 +20,7 @@
  }
 
 /**/
-include '../php/dbcon2.php';
+//include '../php/dbcon2.php';
 //include  //header files & css,JS
 
 
@@ -76,62 +81,13 @@ $newUserType=$_GET['type'];
         <li class="active">Dashboard</li>
       </ol>
     </section>
-
-    <!-- Main content -->
-    
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-  
-  <div class="modal fade" id="myModal">
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 style="color: black;font-style: italic;font-weight:500">Login</h3>
-         
-          </div>
-          <div class="modal-body">
-            <form method="post" action="php/user.php" name="login_form">
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="text" class="span3" name="euname" id="username" placeholder="UserName" required></p>
-              <p><input  style="color: black;font-style: italic;font-weight:500" type="password" class="span3" name="passwd" placeholder="Password" required></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a  style="color: black;font-style: italic;font-weight:500" href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">Not Registerd? <a href="#" class="btn btn-primary">Register</a></div>
-        </div>
-
-
-</div>
-
-<!-- jQuery 3.1.1 -->
-<script src="../js/jquery-3.1.1.min.js"></script>
-<!-- Bootstrap no need 3.3.7 -->
-<script src="../js/bootstrap.min.js"></script>
-<!-- FastClick no need -->
-<script src="../js/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../js/demo.js"></script>
-
-</body>
-</html>
-
-
+	
+<?php
+//footer
+require_once "foot.php";
+?>
 
 <?php
- 
- /*
-$newUserType = $_POST['utype'];
-$fnm=$_POST['fname'];
-$lnm=$_POST['lname'];
-$username=$fnm.$lnm; //username eka unique, PK. 
-
-$em=$_POST['eml'];
-$adr=$_POST['addr'];
-$phn=$_POST['telp'];*/
 
 //in case of redirection
 function fillForm($field){ //field == text box name

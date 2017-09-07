@@ -1,3 +1,12 @@
+<?php
+	/**
+	this file contains the code of viewing all dealers, customer, supplier
+	*/
+	
+//header
+require_once "head.php";
+?>
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <script type="text/javascript" src="adminFun.js"></script>
@@ -35,10 +44,11 @@
 
     <!-- Main content -->
     
+<?php
+//footer
+require_once "foot.php";
+?>
 
-  <!-- /.content-wrapper -->
-
-  
 <?php
 //view all users
 /*

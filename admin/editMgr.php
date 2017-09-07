@@ -1,4 +1,14 @@
-  <!-- Content Header (Page header) -->
+<?php
+/**
+	edit Employee (mgr) UI
+*/
+
+//header
+require_once "head.php";
+?>
+
+
+    <!-- Content Header (Page header) -->
     <section class="content-header">
 	<script type="text/javascript" src="adminFun.js"></script>
 	<B>admin control panel</b> <br/>
@@ -36,6 +46,12 @@ if(isset($_POST['resetmgr'])){
 
 	</section>
     <!-- Main content -->
+
+<?php
+//footer
+require_once "foot.php";
+?>
+
 <?php
 function changeMgrUI($empID){
 	$sql1="select * from employee where e_id=".$empID; //name, tel
