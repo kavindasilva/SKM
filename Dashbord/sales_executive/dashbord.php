@@ -48,12 +48,12 @@
 
             <div class="info-box-content">
               
-              <span class="info-box-text">MailBox</span>
+              <span class="info-box-text">Quotation Requests</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">Inbox</button>
+          <button class="form-control dashbordbtn" name="neworder">New Quotation Requests</button>
         </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
