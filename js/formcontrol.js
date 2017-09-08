@@ -216,7 +216,13 @@ function customerplaceorder(){
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status}),
 				  success:function(data){
 					 
-					   $('#modal-success').modal('show');
+					  alert(data);
+			 
+		  							}
+	  });
+				
+			}
+			 			$('#modal-success').modal('show');
 					   $(".table-bordered  .removable").remove();
 					   document.getElementById("shopname").selectedIndex = "0";
 					   document.getElementById("companyname").selectedIndex = "0";
@@ -226,11 +232,6 @@ function customerplaceorder(){
 					   document.getElementById('quantity').value="";
 					   validate.sum=0;
 					   updatedata();
-			 
-		  							}
-	  });
-				
-			}
 		}
 	
 }
@@ -253,4 +254,57 @@ function validatequotation(){
 
 function sendRequesition(){
 	
+		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
+		if(rows==0){
+			
+			$('#modal-noowner').modal('show');
+		}
+		else{
+	  $.ajax({
+		  type:"post",
+		  url:"controler/quotationheadercontroler.php",
+		  success:function(data){
+			alert(data);
+			 
+		  }
+	  });
+			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+			for(var i=0;i<rows;i++){
+				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
+				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
+				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
+				qty=rowarray[i].getElementsByTagName('td')[4].innerHTML;
+				
+			$.ajax({
+				  type:"post",
+				  url:"controler/quotationdetailcontroler.php",
+				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty}),
+				  success:function(data){
+					  // alert(data);
+			 
+		  							}
+	  });
+				
+			}
+					   $('#modal-success').modal('show');
+					   $(".table-bordered  .removable").remove();
+					   document.getElementById('brand').selectedIndex=0;
+					   document.getElementById('country').selectedIndex=0;
+					   document.getElementById('tiresize').selectedIndex=0;
+					   document.getElementById('quantity').value="";
+		}
 }
+//this handls the action button control of the low stock table
+$('#tablebody table tbody tr td :first-child').click(function(){
+	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
+	var row=$(this).parent().parent();
+	row.removeClass("backred");
+	row.addClass("backgreen");
+	
+});
+//this handls the action button order details control of the low stock table
+$('#tablebody table tbody tr td :last-child').click(function(){
+	//var row=$(this).parent().parent();
+	
+	$('#orderdetailsmodal').modal('show');
+});

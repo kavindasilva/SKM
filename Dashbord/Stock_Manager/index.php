@@ -33,7 +33,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="../../css/mystyle.css">
+  <link rel="stylesheet" href="../../css/mystyle.css?v=1">
 
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -78,9 +78,10 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
+<!-- loading the main header notifications-->                
 <?php 
 					
-				while($row=mysqli_fetch_array($result)){
+				while($row=mysqli_fetch_array($result)){//show details about low stock item
 				echo("
                   <li>
                     <a href=\"#\">
@@ -89,6 +90,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
                   </li>");
 					  
 				}
+					//show details about out of stock order items
 				while($row=mysqli_fetch_array($result2)){
 					$query3="SELECT * FROM tire WHERE t_id=".$row['tire_t_id'];
 					$resultinside=mysqli_query($conn,$query3);
@@ -216,8 +218,8 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i>Low Stock Levels</a></li>
-            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i>Out Of Stock Orders</a></li>
+            <li><a href="#" name="lowstock"><i class="fa fa-circle-o"></i>Low Stock Levels</a></li>
+            <li><a href="#" name="outofstockorders"><i class="fa fa-circle-o"></i>Out Of Stock Orders</a></li>
           </ul>
         </li>   
       </ul>
@@ -267,7 +269,8 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js?2"></script>
+<script src="../../js/navigation_controler.js?v=2"></script>
+
 
 </body>
 
