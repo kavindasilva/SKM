@@ -19,7 +19,7 @@ $qno=$obj->maxqno;
 $query="INSERT INTO quotation_item VALUES($tid,$qno,$qty)";
 
 if(mysqli_query($conn,$query)){
-	echo "success";
+	//echo "success";
 }
 else
 	echo mysqli_error($conn);

@@ -99,10 +99,14 @@
       </select></div></div></br>
 <button type="button" class="btn btn-success" style="width: 70px" onClick="validatequotation();">Add</button>
 </br></br>
- </div>
+</div></br>
+ <div class="form-group " style="margin-left: 15px;">
+  <label for="comment">Quotation Note:</label>
+  <textarea class="form-control" rows="5" id="qnote"></textarea>
+</div>
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js?2"></script>
+<script src="../../js/formcontrol.js?v=4"></script>
 </body>
 </html>

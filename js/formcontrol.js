@@ -253,7 +253,8 @@ function validatequotation(){
 	}
 
 function sendRequesition(){
-	
+		var note = document.getElementById('qnote').value;
+		
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
 		if(rows==0){
 			
@@ -263,6 +264,7 @@ function sendRequesition(){
 	  $.ajax({
 		  type:"post",
 		  url:"controler/quotationheadercontroler.php",
+		  data:({note:note}),
 		  success:function(data){
 			alert(data);
 			 
@@ -292,6 +294,7 @@ function sendRequesition(){
 					   document.getElementById('country').selectedIndex=0;
 					   document.getElementById('tiresize').selectedIndex=0;
 					   document.getElementById('quantity').value="";
+					   document.getElementById('qnote').value="";
 		}
 }
 //this handls the action button control of the low stock table
