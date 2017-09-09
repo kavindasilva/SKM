@@ -64,12 +64,12 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">
+              
            		<?php
 				   if($_SESSION['notificationcount']>0)
-					   echo $_SESSION['notificationcount'];
+					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
-              </span>
+             
             </a>
             <ul class="dropdown-menu">
               <li class="header" style="background-color: #DAE0FF">You have <?php

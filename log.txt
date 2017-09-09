@@ -1,5 +1,6 @@
-Chnged done to database
+Changes done to database
 
+rename regular_customer to customer
 type of the date field of DB changed to varchar
 
 change the name sales_order_sord_no of order_item table to sord_no
@@ -16,7 +17,7 @@ completed:all the sales order items in the order is supplied
 pending:all sales order items are not supplied
 
 rename table quatation to quotation and quatation_item to quotation_item
-removed qty,date from quotations and added status
+removed qty,date from quotations and added status,quotation_note
 
 status of qoutations is
 notreplied
