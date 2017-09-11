@@ -1,5 +1,5 @@
 <?php
-include_once "/php/tireDetails.php";
+include_once "php/tireDetails.php";
 
 ?>
 
