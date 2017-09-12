@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				header('Location: ../dashbord/Stock_Manager/navigation.php');
 			elseif($usrtype=='suppl')
 				header('Location: ../dashbord/supplier/navigation.php');
-			elseif($usertype=='cust')
+			elseif($usrtype=='cust')
 				header('Location: ../dashbord/Customer/navigation.php');
 				
 			
