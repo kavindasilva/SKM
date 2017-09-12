@@ -77,7 +77,7 @@
 						while($row=$result->fetch_assoc()){
 						?>
 						
-						<tr>
+						<tr class="clickable-row">
 			
 						<td><?php echo $row['t_id']?></td>
 						<td><?php echo $row['brand_name']?></td>
