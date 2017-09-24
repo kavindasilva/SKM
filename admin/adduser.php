@@ -6,37 +6,41 @@ require_once "head.php";
 <!-- code for jquery username availability checking -->
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript">
-
+var resp="";
 function disableBTN(){
-    $("#subk").attr("disabled","disabled");
+    //$("#subk").attr("disabled","disabled");
+    $("#subk").prop('disabled', true);
 }
 function enableBTN(){
-    //$("#subk").attr("disabled","disabled");
-    //$("#subk").attr("disabled","false");
-    $("#subk").removeAttr("disabled");
+    //$("#subk").removeAttr("disabled");
+    $("#subk").prop('disabled', false);
 }
 
-function checkname(){
- var name=document.getElementById( "prefuser" ).value;
+function checknamek(){
+ var namek=document.getElementById( "prefuser" ).value;
 	
- if(name)
+ if(namek)
  {
   $.ajax({
   type: 'post',
   url: 'chkUN.php',
   data: {
-   user_name:name,
+   user_name:namek,
   },
-  success: function (response) {
-   $( '#name_statusun' ).html(response);
-   if(response=="OK")	
+  success: function (responsek) {
+   $( '#name_statusun' ).html(responsek);
+  // if(responsek=="OK")	
+   if(resp=="100")	
    {
+	   //alert("DD");
     enableBTN();
 	return true;
 	
    }
    else
    {
+	  // alert(responsek);
+	   //alert(resp);
     disableBTN();
     return false;	
    }
@@ -83,6 +87,7 @@ $newUserType=$_GET['type'];
 <script type="text/javascript" src="adminFun.js"></script>
 
 <center>
+
 <div class="form-group">
 <form method="post" action="adminfuns1.php">
 <table>
@@ -93,10 +98,10 @@ $newUserType=$_GET['type'];
 	<tr><td>Email</td>		<td><input type="email" name="eml" class="form-control" autocomplete="off" required=""/></td></tr>
 	<tr><td>Address</td>	<td><textarea name="addr" class="form-control" autocomplete="off"></textarea></td></tr>
 	<tr><td>Phone</td>		<td><input type="text" name="telp" autocomplete="off" class="form-control" required=""/></td></tr>
-	<tr><td>Prefered username</td><td><input type="text" name="prefuser" id="prefuser" class="form-control" onkeyup="checkname();" autocomplete="off" /><span id="name_statusun"></span>
+	<tr><td>Prefered username</td><td><input type="text" name="prefusern" id="prefuser" class="form-control" onkeyup="checknamek();"  /><span id="name_statusun"><sup>Enter a user name</sup></span>
 									
 									</td></tr>
-	<!--sub>danata username eka validate karanne na. ekata UI ekak dala availability check karanna oni</sub-->
+
 	
 	<?php
 	switch ($newUserType) {
