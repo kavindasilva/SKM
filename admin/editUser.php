@@ -14,6 +14,7 @@ require_once "head.php";
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
+	<div class="form-group">
 	<script type="text/javascript" src="adminFun.js"></script>
 	<script type="text/javascript" src="adminValidate.js"></script>
 	<B>admin control panel</b> <br/>
@@ -40,7 +41,7 @@ if(isset($_POST['updatesup'])){
 
 
 ?>
-
+	</div>
 	</section>
     <!-- Main content -->
 

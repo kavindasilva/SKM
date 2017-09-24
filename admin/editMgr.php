@@ -82,16 +82,16 @@ function changeMgrUI($empID){
 	//echo"<tr><td></td> <td></td></tr>";
 	echo "<input type='text' name='eid' value='".$r1['e_id']."' hidden/>";
 	echo "<input type='text' name='uname' value='".$r2['user_name']."' hidden/>";
-	echo"<tr><td>Employee ID</td> <td><input type='text' value='".$r1['e_id']."' name='' disabled/></td></tr>";
-	echo"<tr><td>User name</td> <td><input type='text' value='".$r2['user_name']."' name='' disabled/></td></tr>";
+	echo"<tr><td>Employee ID</td> <td><input type='text' class='form-control' value='".$r1['e_id']."' name='' disabled/></td></tr>";
+	echo"<tr><td>User name</td> <td><input type='text' class='form-control' value='".$r2['user_name']."' name='' disabled/></td></tr>";
 	
-	echo"<tr><td>Name</td> <td><input type='text' value='".$r1['name']."' name='nam'/></td></tr>";
-	echo"<tr><td>Telephone</td> <td><input type='text' value='".$r1['tel']."' name='telp'/></td></tr>";
-	echo"<tr><td>Email</td> <td><input type='text' value='".$r2['email']."' name='eml'/></td></tr>";
-	echo"<tr><td>Address</td> <td><textarea name='addr'>".$r2['address']."</textarea></td></tr>";
+	echo"<tr><td>Name</td> <td><input type='text' class='form-control' value='".$r1['name']."' name='nam'/></td></tr>";
+	echo"<tr><td>Telephone</td> <td><input type='text' class='form-control' value='".$r1['tel']."' name='telp'/></td></tr>";
+	echo"<tr><td>Email</td> <td><input type='text' class='form-control' value='".$r2['email']."' name='eml'/></td></tr>";
+	echo"<tr><td>Address</td> <td><textarea class='form-control' name='addr'>".$r2['address']."</textarea></td></tr>";
 	
-	echo"<tr><td><input type='submit' onclick='return confirmU()' name='setupdate' value='OK'></td>";
-	echo "<td><input type='button' value='cancel' onclick='window.history.back()'></td></tr>";
+	echo"<tr><td><input type='submit' class='form-control' onclick='return confirmU()' name='setupdate' value='OK'></td>";
+	echo "<td><input type='button' value='cancel' class='form-control' onclick='window.history.back()'></td></tr>";
 	echo"</table></form>";
 }
 
