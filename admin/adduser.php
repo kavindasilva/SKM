@@ -3,6 +3,55 @@
 require_once "head.php";
 ?>
 
+<!-- code for jquery username availability checking -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+
+function disableBTN(){
+    $("#subk").attr("disabled","disabled");
+}
+function enableBTN(){
+    //$("#subk").attr("disabled","disabled");
+    //$("#subk").attr("disabled","false");
+    $("#subk").removeAttr("disabled");
+}
+
+function checkname(){
+ var name=document.getElementById( "prefuser" ).value;
+	
+ if(name)
+ {
+  $.ajax({
+  type: 'post',
+  url: 'chkUN.php',
+  data: {
+   user_name:name,
+  },
+  success: function (response) {
+   $( '#name_statusun' ).html(response);
+   if(response=="OK")	
+   {
+    enableBTN();
+	return true;
+	
+   }
+   else
+   {
+    disableBTN();
+    return false;	
+   }
+  }
+  });
+ }
+ else
+ {
+  $( '#name_statusun' ).html("");
+  enableBTN();
+  return false;
+ }
+}
+</script>
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
 <?php
@@ -44,8 +93,8 @@ $newUserType=$_GET['type'];
 	<tr><td>Email</td>		<td><input type="email" name="eml" class="form-control" autocomplete="off" required=""/></td></tr>
 	<tr><td>Address</td>	<td><textarea name="addr" class="form-control" autocomplete="off"></textarea></td></tr>
 	<tr><td>Phone</td>		<td><input type="text" name="telp" autocomplete="off" class="form-control" required=""/></td></tr>
-	<tr><td>Prefered username</td><td><input type="text" name="prefuser" class="form-control" autocomplete="off" />
-									<button  data-toggle="modal" class="btn btn-default" data-target="#myModal" >Check</button>
+	<tr><td>Prefered username</td><td><input type="text" name="prefuser" id="prefuser" class="form-control" onkeyup="checkname();" autocomplete="off" /><span id="name_statusun"></span>
+									
 									</td></tr>
 	<!--sub>danata username eka validate karanne na. ekata UI ekak dala availability check karanna oni</sub-->
 	
@@ -71,7 +120,7 @@ $newUserType=$_GET['type'];
 	?>
 	
 	
-	<tr><td><input type="submit" class="form-control" name="" value="OK" onclick="return confirmI();" /></td>	<td><input type="reset" value="Clear" class="form-control" /></td></tr>
+	<tr><td><input type="submit" class="form-control" name="submit_form" id="subk" value="OK" onclick="return confirmI();" /></td>	<td><input type="reset" value="Clear" class="form-control" /></td></tr>
 </table>
 </form>
 </div>
