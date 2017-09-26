@@ -1,5 +1,5 @@
 <?php
-include_once "/php/tireDetails.php";
+include_once "php/tireDetails.php";
 
 ?>
 
@@ -18,7 +18,8 @@ include_once "/php/tireDetails.php";
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<!--SKM file-->
 	<link href="css/home.css" rel="stylesheet">
-	<link href="css/aos.css" rel="stylesheet">
+<!--	<link href="css/aos.css" rel="stylesheet">-->
+<!--      <link href="css/footer.css" rel="stylesheet">-->
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
 	<script src="js/tableFilter.js"></script>	
@@ -138,12 +139,13 @@ include_once "/php/tireDetails.php";
   			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
 		</div>
  		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
-			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."></div></br>
+			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."/>
+			<input type="button" value="clear" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');"/></div></br>
 <!-- dunlop tires price list table-->			
 			<div class="row">
   		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h4 class="box-title">Dunlop tires price List</h3>
+              <h3 class="box-title">Dunlop tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -174,7 +176,7 @@ include_once "/php/tireDetails.php";
           <div class="row">
           	<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h4 class="box-title">Kaizen tires price List</h3>
+              <h3 class="box-title">Kaizen tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -207,12 +209,62 @@ include_once "/php/tireDetails.php";
     </div>
 <!-- fotter goes here-->    
     <div id="footterskm">
+
     <div class="col-md-3" id="footerheding">
-    	<label><strong>SKM</strong>unasinghe Motors</label>
+    	<label><strong>SKM</strong>unasinghe Motors <br>
+            <p style="color:gray;font-size: medium;margin-top: 10px;">sales@skmmlk.com
+            sales2@skmmlk.com
+            sktm@skmmlk.com
+            </p>
+        </label>
     </div>
-    	
+    <div class="col-md-3">
+        <h4 style="color: gray;margin-top: 30px;"><strong> call us on: <br>011 2589432 <br> 011 2590313 <br> 011 5231913
+            </strong>
+            <h4>
     </div>
-<!-- fotter concluds here-->  
+
+    <div class="col-md-3">
+        <h4 style="color: gray;margin-top: 30px;">
+            <strong>S.K.Munasinghe Motors,<br>
+                436,<br> Havelock Road,<br>
+                Colombo 06.<br>
+                Sri Lanka.
+            </strong>
+
+        </h4>
+    </div>
+    <div class="col-md-3">
+        <ul class="list-unstyled" style="margin-top: 10px; font-size: medium;margin-top: 30px">
+            <li>
+                <a class="white-text" href="#">
+                    <i class="small fa fa-facebook-square white-text"></i> Facebook
+                </a>
+            </li>
+            <li>
+                <a class="white-text" href="#">
+                    <i class="small fa fa-google-plus-square white-text"></i> Google+
+                </a>
+            </li>
+
+            <li>
+                <a class="white-text" href="#">
+                    <i class="small fa fa-twitter-square white-text"></i> Twitter
+                </a>
+            </li>
+            <li>
+                <a class="white-text" href="#">
+                    <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    </div>
+
+<!-- fotter concluds here-->
   </body>
   
   <script>

@@ -16,7 +16,13 @@ $('#dd').click(function(){
 	$(this).addClass("active");
 	$('#content-wrapper').load('dashbord.php');
 });
-
+//navigate to quotationrequests
+$('#quotationrequests').click(function(){
+	
+	$('ul#sidebar-menu li').removeClass("active");
+	$(this).addClass("active");
+	$('#content-wrapper').load('quotationrequests.php');
+});
 // dashbord control
 function dashbordcontrol(page){
 	$('ul#sidebar-menu li').removeClass("active");

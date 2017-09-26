@@ -74,13 +74,21 @@ function redirectMain(){
 	window.location="index.php";
 }
 
-function clearAllCus() {
+/*
+	This function is used to clear the search values
+	table ID is passed. then all the results are displayed in the relevant table, after clearing search boxes
+*/
+function clearAll(tblID) {
 	document.getElementById("search1").value = "";
 	document.getElementById("search2").value = "";
-	//document.getElementById("search3").value = "";
-	//document.getElementById("search4").value = "";
+	document.getElementById("search3").value = "";
+	document.getElementById("search4").value = "";
+	//document.getElementById("search5").value = "";
 
-	searchRows(0, 'search1', 'tblcus');
+	//searchRows(0, 'search1', 'tblcus');
+	searchRows(0, 'search1', tblID);
+	//searchRows(0, 'search1', 'tbldealer');
+	//searchRows(0, 'search1', 'tblsup');
 }
 
 function clearAllTch() {

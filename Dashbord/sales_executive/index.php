@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
 session_start();
+require_once('../../php/dbcon.php');
+$query="SELECT * FROM quotation WHERE status='notreplied';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$_SESSION['notificationcount']=mysqli_num_rows($result);
+}
 ?>
 <html>
 <head>
@@ -47,53 +53,37 @@ session_start();
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-        
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">10</span>
+             <?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				  ?>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
+                 <?php
+				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+					$resultinside=mysqli_query($conn,$query2);
+					$rowinside=mysqli_fetch_array($resultinside);
+				echo("
                   <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    <a href=\"#\">
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
                     </a>
-                  </li>
-                 
+                  </li>");
+					  
+				}
+                 ?>
                 </ul>
               </li>
               <li class="footer"><a href="#">View all</a></li>
@@ -125,7 +115,7 @@ session_start();
                 </div>
 				 
                 <div class="pull-right">
-                  <a href="../../index.php" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
@@ -205,13 +195,16 @@ session_start();
           </ul>
         </li>
     
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+        <li id="quotationrequests">
+          <a href="#">
+            <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
+              
+				<?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<small class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+				  ?>              	
+              
             </span>
           </a>
         </li>
@@ -276,7 +269,7 @@ session_start();
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js?2"></script>
+<script src="../../js/navigation_controler.js?v=3"></script>
 
 </body>
 

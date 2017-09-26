@@ -176,11 +176,16 @@ div.tab button:focus
 	width: 1265px;
 	margin-left: 40px;
 	height: 150px;
+	font-size: 22px;
+	color: red;
 }
 #footterskm #footerheding{
 	font-size: 22px;
 	color: aliceblue;
 }
+/*#footterskm #fff{*/
+	/*color:red;*/
+/*}*/
 #abouttext{
 	font-size: 16px;
 	/*opacity: 0.3;*/

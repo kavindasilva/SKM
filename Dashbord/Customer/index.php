@@ -1,21 +1,5 @@
 <?php
-//session maintainence // kavindasilva
 session_start();
-$_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="regcus") {
-     echo "not a customer";
-	 //header('Location:../login.html');
- }
-
-/**/
-require_once '../../php/dbcon2.php';
-//include  //header files & css,JS
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,16 +22,17 @@ require_once '../../php/dbcon2.php';
        folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
 
-    <!-- Google Font ->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"-->
+    <!-- Google Font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<link rel="stylesheet" href="../../css/mystyle.css">
 	
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini">
 
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header" id="mainhead">
     <!-- Logo -->
     <a href="../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -78,7 +63,7 @@ require_once '../../php/dbcon2.php';
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['currentuser']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -127,7 +112,7 @@ require_once '../../php/dbcon2.php';
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['user']; ?></p>
+          <p><?php echo $_SESSION['currentuser']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -163,9 +148,8 @@ require_once '../../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> New quotation</a></li>
-            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#"><i class="fa fa-circle-o" style="color: #ee0000"></i> Remove quotation</a></li>
+            <li><a href="#" name="newquotationreq"><i class="fa fa-circle-o"></i> New quotation Request</a></li>
+            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i>Recived Quotations</a></li> 
            </ul>
         </li>
 		
@@ -178,11 +162,10 @@ require_once '../../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=".php"><i class="fa fa-circle-o"></i> New orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> Edit orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o" style="color: #ee0000"></i> Cancel</a></li>
-           </ul>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Place A New order</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Manage Yor Orders</a></li>
+            
+          </ul>
         </li>
 		
         <li class="treeview">
