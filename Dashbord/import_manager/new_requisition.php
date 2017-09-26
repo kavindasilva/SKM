@@ -6,6 +6,15 @@
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <script>
+
+	  $(document).ready(function(){
+	  $('table#tire_ava tbody tr').click( function () {
+        alert('i am clicked');
+		  $('table#tire_ava tbody tr td').load('table#Requisition_itm_tbl tr td');
+        } );
+});
+</script>
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -74,10 +83,12 @@
 						require_once('../../php/dbcon.php');
 						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire";
 						$result = $conn->query($sql);
+						$tbl_rw_id=0;
 						while($row=$result->fetch_assoc()){
+						$tbl_rw_id=$tbl_rw_id+1;	
 						?>
 						
-						<tr class="clickable-row">
+						<tr class="clickable-row" id=$tbl_rw_id>
 			
 						<td><?php echo $row['t_id']?></td>
 						<td><?php echo $row['brand_name']?></td>
