@@ -64,21 +64,15 @@
             		<strong>Sub Total</strong>
 				</div>
           		
-           		<div class="col-md-3">
-            	<button type="button" class="btn btn-danger" onClick="removeall();" style="width: 153px" >Remove All items</button>
-            	</div>
 				</div></br>
             
-            	<div class="row">	
-            	<div class="col-md-3">
+            	<div class="col-md-3 ">
             	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
             	</div>
-				</div></br>
-            	<div class="row">	
+			
             	<div class="col-md-3">
             	<button type="button" class="btn btn-primary" onClick="customerplaceorder();" style="width: 153px" >Place Order</button>
             	</div>
-				</div>
             	</div>
             </div>
             <!-- /.box-body -->

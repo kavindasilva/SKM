@@ -29,7 +29,7 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2" >Dealer Shop Name </strong>
+      		<strong class="col-xs-2" >Dealer / Customer Name </strong>
       	
       	<div class="col-xs-2">
  	<select class="form-control" id="shopname" >
@@ -40,17 +40,6 @@
 	while($row=mysqli_fetch_array($result)){
 		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
 	}
-	
-	?>
-      		 </select>
-		 </div>
-		 <strong class="col-xs-1">or </strong>
-		 <strong class="col-xs-2" >Customer Company Name </strong>
-      	
-      	<div class="col-xs-2">
- 		<select class="form-control" id="companyname" >
-        <option value="" >Select</option>
-       <?php
 	$query="select company_name from customer";
 	$result=mysqli_query($conn,$query);
 	while($row=mysqli_fetch_array($result)){
@@ -62,7 +51,7 @@
 		 </div>
 		 
 	   <!-- display date-->
-		<div class="col-xs-2 control-label" style="margin-left: 10px;"><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" style="margin-left: 10px;"><label>Date : </label><label id="date"></label></div>
 	 </div>
 	  <script>
 		  n =  new Date();
@@ -99,28 +88,22 @@
               </table>
             <div class="box-footer">
             <div class="row">
-              	<div class="col-md-3 pull-right" id="subtotal">
-            		<label class="pricelabel" id="subtotal"></label>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Sub Total</strong>
+              	<div class="col-md-12 " id="subtotal">
+            		<label class="pricelabel pull-right" id="subtotal"></label>
+            	
+            		<strong class="pull-right" style="margin-right:5px; margin-top: 5px;">Sub Total</strong>
 				</div>
-          		
-           		<div class="col-md-3">
-            	<button type="button" class="btn btn-danger" onClick="removeall();" style="width: 153px" >Remove All items</button>
-            	</div>
-				</div></br>
-            
-            	<div class="row">	
-            	<div class="col-md-3">
+				</div>
+           		
+			
+            	<div class="col-md-3 ">
             	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
             	</div>
-				</div></br>
-            	<div class="row">	
+			
             	<div class="col-md-3">
             	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" >Place Order</button>
             	</div>
-				</div>
+			
             	</div>
             </div>
             <!-- /.box-body -->

@@ -82,7 +82,7 @@ function removeall(){
 		updatedata();
 	}
 
-function removeselected(){
+/*function removeselected(){
 	var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
 	for(var i=0;i<rows;i++){
 		var targetelement=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[i].getElementsByTagName('td')[0].firstChild;
@@ -94,7 +94,7 @@ function removeselected(){
 		}
 		updatedata();
 	}
-}
+}*/
 function placeorder(){
 	//$('#maininvoiceform').on('submit',function(){
 	
