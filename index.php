@@ -139,12 +139,13 @@ include_once "php/tireDetails.php";
   			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
 		</div>
  		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
-			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."></div></br>
+			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."/>
+			<input type="button" value="clear" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');"/></div></br>
 <!-- dunlop tires price list table-->			
 			<div class="row">
   		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h3> class="box-title">Dunlop tires price List</h3>
+              <h3 class="box-title">Dunlop tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -175,7 +176,7 @@ include_once "php/tireDetails.php";
           <div class="row">
           	<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h3> class="box-title">Kaizen tires price List</h3>
+              <h3 class="box-title">Kaizen tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
