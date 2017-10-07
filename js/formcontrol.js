@@ -266,7 +266,7 @@ function sendRequesition(){
 		  url:"controler/quotationheadercontroler.php",
 		  data:({note:note}),
 		  success:function(data){
-			alert(data);
+			//alert(data);
 			 
 		  }
 	  });

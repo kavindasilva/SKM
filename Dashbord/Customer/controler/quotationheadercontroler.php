@@ -2,7 +2,7 @@
 require_once '../../../php/dbcon.php';
 session_start();
 $qnote=$_POST['note'];
-$query1="select r_id from customer where user_user_name='".$_SESSION['currentuser']."'";
+$query1="select r_id from customer where user_user_name='".$_SESSION['currentuser']."';";
 $result=mysqli_query($conn,$query1);
 if (!($result)) 
 		{echo "Error in query";
@@ -12,7 +12,7 @@ else{
 	$row=mysqli_fetch_array($result);
 	$rid=$row['r_id'];	
 }
-$query1="INSERT INTO quotation VALUES(null,$rid,'notreplied','$qnote')";
+$query1="INSERT INTO quotation VALUES(null,$rid,'notreplied','$qnote');";
 if (mysqli_query( $conn, $query1)) {
 			
     		//echo "Request Success";
