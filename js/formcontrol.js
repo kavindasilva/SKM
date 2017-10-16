@@ -149,11 +149,11 @@ function placeorder(){
 $('#discount').on('change',function(){
 		updatedata();
 	});	
-$('#shopname').on('change',function(){
+/*$('#shopname').on('change',function(){
 if($('#shopname').value!=""){
 	document.getElementById("companyname").selectedIndex = "0";	
 }	
-		}); 	
+		}); */	
 
 $('#companyname').on('change',function(){
 if($('#companyname').value!=""){
@@ -306,4 +306,17 @@ $('#tablebody table tbody tr td :last-child').click(function(){
 	//var row=$(this).parent().parent();
 	
 	$('#orderdetailsmodal').modal('show');
+});
+$('#searchord').click(function(){
+
+	var dcname=document.getElementById('shopname').value;
+	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName['tr'];
+	alert(tbody1);
+	for(var i=0;i<tbody1.length;i++){
+		if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+	
 });

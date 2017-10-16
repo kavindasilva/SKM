@@ -58,7 +58,7 @@
 		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success"><br><br>
 	  
 		 <!-- by clicking on this button orders will show accroding to filters-->
-		 <button class="col-xs-6 col-md-3 btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i>
+		 <button class="col-xs-6 col-md-3 btn btn-primary" type="button" id="searchord"> <i class="fa fa-search" aria-hidden="true"></i>
  			Search</button>
 		 </div>
 
@@ -103,10 +103,11 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table class=" table-bordered table-hover" width="920" >
+              <table class=" table-bordered table-hover" id="foundorders"  width="920" >
                 <thead>
                 <tr>
                   <th>SOrdNo</th>
+                  <th>Dealer/Customer</th>
                   <th>Date</th>
                   <th>Total Amount(Rs.)</th>
                   <th>Status</th>
@@ -118,7 +119,20 @@
 					$query="SELECT * FROM sales_order";
 					$result=mysqli_query($conn,$query);
 					while($row=mysqli_fetch_array($result)){
-						echo("<tr><td>".$row['sord_no']."</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-success viewitems\">View Items</button></td></tr>");
+						if($row['dealer_d_id']==null){
+							$query2="SELECT * FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+							$result2=mysqli_query($conn,$query2);
+							$row2=mysqli_fetch_array($result2);
+							$dcname=$row2['company_name'];
+						}
+						else{
+							$query2="SELECT * FROM dealer WHERE d_id='".$row['dealer_d_id']."';";
+							$result2=mysqli_query($conn,$query2);
+							$row2=mysqli_fetch_array($result2);
+							$dcname=$row2['shop_name'];
+						}
+							
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-success viewitems\">View Items</button></td></tr>");
 					}
 					
 					?>
