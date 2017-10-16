@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['currentuser']=$name; //user name		
 			$usrtype=$r['type'];
 			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
-						
+			
 			if($usrtype=='adm')
 			{	
 				header('Location: ./admin/index.php');

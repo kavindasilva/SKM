@@ -29,10 +29,10 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2" >Dealer / Customer Name </strong>
+      		<strong class="col-xs-2 col-md-2" >Dealer / Customer Name </strong>
       	
-      	<div class="col-xs-2">
- 	<select class="form-control" id="shopname" >
+      	<div class="col-xs-5 col-md-3">
+ 	<select class="form-control" id="shopname">
         <option value="" >Select</option>
        <?php
 	$query="select shop_name from dealer";
@@ -87,10 +87,9 @@
                 </tbody>
               </table>
             <div class="box-footer">
-            <div class="row">
+            <div class="col-md-12 ">
               	<div class="col-md-12 " id="subtotal">
             		<label class="pricelabel pull-right" id="subtotal"></label>
-            	
             		<strong class="pull-right" style="margin-right:5px; margin-top: 5px;">Sub Total</strong>
 				</div>
 				</div>

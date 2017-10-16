@@ -4,6 +4,7 @@ require_once('../../php/dbcon.php');
 $query="SELECT * FROM quotation WHERE status='notreplied';";
 $result=mysqli_query($conn,$query);	
 ?>
+<?php include '../../assets/success.php'?> 
 <body>
 	<section class="content-header">
    <h1>
@@ -34,72 +35,29 @@ $result=mysqli_query($conn,$query);
                  ?>
 </ul>
 </div>
-<div class="col-md-9 col-sm-12" id="qrdetails">
-          <div class="box" >
-            <div class="box-header">
-              <h3 class="box-title">Quotation Items</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="quotationitems" class="table-bordered table-hover" width="100%" >
-                <thead>
-                <tr>
-                  <th>Brand</th>
-                  <th>Country</th>
-                  <th>Tire Size</th>
-                  <th>Quantity</th>
-                  <th>Discount</th>
-                </tr>
-                </thead>
-                <tbody>                 
-                </tbody>
-              </table>
-            <div class="box-footer">
-            <div class="row">
-          
-            		
-            	<div class="col-md-3 col-sm-3">
-            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
-            	</div>
-				
-              	<div class="col-md-3 col-sm-3">
-            	<button type="button" class="btn btn-primary" onClick="sendRequesition();" style="width: 153px" >Send Requesition</button>
-            	</div>
-				
-            	</div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-			</div>
-			<div class="form-group col-md-4 ">
-  				<label for="comment">Quotation Note:</label>
-  				<textarea class="form-control" rows="5" id="qnote" disabled></textarea>
-			</div>
+<div class="col-md-9 col-sm-12 " id="qrdetails">
+        <!-- quotation request item details will load here--> 
+        <center><h3 style="margin-top: 50px;">Select a quotation request to view detatils</h3></center>
 </div>   
 </body>
 <script>
+	
 	$('#quotationreqdiv ul a').click(function(){
 		
 		$.ajax({
 			type:"post",
-			data:({qno:this.firstChild.value,action:"qnote"}),
+			data:({qno:this.firstChild.value}),
 			url:"controler/loadquotation.php",
 			success:function(data){
-				document.getElementById('qnote').value=data;
 				
 			}
 		});
-		$.ajax({
-			type:"post",
-			data:({qno:this.firstChild.value,action:"qdetail"}),
-			url:"controler/loadquotation.php",
-			success:function(data){
-				$('.removable').remove();
-					$('#quotationitems').append(data);
-				
-			}
+		
+		$('#quotation a').removeClass("goingtorm");
+		$(this).addClass('goingtorm');
+		$('#qrdetails').load('quotationreqdetails.php')
+		
 		});
-	});
+
 </script>
 <script src="../../js/formcontrol.js?v=4"></script>

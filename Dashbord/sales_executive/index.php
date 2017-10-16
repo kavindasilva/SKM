@@ -60,7 +60,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               <i class="fa fa-bell-o"></i>
              <?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
             </a>
             <ul class="dropdown-menu">
@@ -202,7 +202,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               
 				<?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<small class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
 				  ?>              	
               
             </span>

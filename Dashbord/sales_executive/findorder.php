@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<?php require_once('../../php/dbcon.php')?>
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!--toggal button-->
@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../css/datepicker3.css">
 </head>
 <body >
+   
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>Find Order</h1>
@@ -23,36 +24,52 @@
     	<div class="box">
       	</div>
       	<!--filters devision-->
-      	<div class="filters"  >
+      	<div class="filters">
 			<strong ><h4><i class="fa fa-filter"  aria-hidden="true">   Filters</i></h4></strong></br>
      	<!--selecting a buyer row-->
-      	<div class="row margin" >
-      		<strong class="col-xs-2">Dealer Shop Name </strong>  	
-      	<div class="col-xs-2" style="width: 250px;">
+      	<div class="row margin col-md-6" >
+      		<strong >Dealer Shop Name </strong>  	
+      	
+		 <div  class="col-xs-7 col-md-7 pull-right" style="padding-right: 30px;">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
+       <?php
+	$query="select shop_name from dealer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
+	}
+	$query="select company_name from customer";
+	$result=mysqli_query($conn,$query);
+	while($row=mysqli_fetch_array($result)){
+		echo " <option value=\"".$row['company_name']."\" >".$row['company_name']."</option>";
+	}
+	
+	?>
       		 </select>
-		 </div>
-		 <strong class="col-xs-1">or </strong>
-		 <strong class="col-xs-2">Regular Customer Company Name </strong>
-      	<div class="col-xs-2 " style="width: 250px;">
- 	<select class="form-control"  id"companyname">
-        <option value="" >Select</option>
-      		 </select>
-		 </div>
+		 </div><br><br><br>
+		 <!-- these toggal buttons are used to show completed orders and pending orders-->		 
+		
+		 <strong style="margin-right: 20px;">
+  			Show Completed Orders
+		</strong><input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
+		<strong  style="margin-right: 20px; margin-left: 46px;" >
+  			Show Pending Orders
+		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success"><br><br>
+	  
 		 <!-- by clicking on this button orders will show accroding to filters-->
-		 <button class="col-xs-1 btn btn-success" type="button"><i class="fa fa-search" aria-hidden="true"></i>
+		 <button class="col-xs-6 col-md-3 btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i>
  			Search</button>
 		 </div>
 
 <!--picking a date range picker,we can choos to date of from date or both at once-->
-		 <div class="row margin">
-		 <div class="col-sm-2">
+		 <div class="row margin pull-right col-md-5">
+		 <div class="col-sm-2 col-md-4">
       		<strong>From Date</strong>
       	 </div>
-      	<div class="col-sm-2">
+      	<div class="col-sm-2 col-md-7">
 		 	<div class="form-group">
-				<div class="input-group date " style="width: 220px;">
+				<div class="input-group date " >
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
@@ -60,12 +77,12 @@
 				</div>
 			</div>
 		 </div>
-		 <div class="col-sm-2" style="margin-left:162px;">
+		 <div class="col-sm-2 col-md-4">
       		<strong>To Date</strong>
       	</div>
-      	<div class="col-sm-2">
+      	<div class="col-sm-2 col-md-7">
 		 	<div class="form-group">
-				<div class="input-group date " style="width: 220px;">
+				<div class="input-group date ">
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
@@ -74,15 +91,7 @@
 			</div>
 		 	</div>	 	 
 		 </div>
-<!-- these toggal buttons are used to show completed orders and pending orders-->		 
-		 <div style=" padding-left: 25px;">
-		 <strong>
-  			Show Completed Orders<input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
-		</strong>
-		<strong style="padding-left: 50px;" >
-  			Show Pending Orders<input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success">
-		</strong>
-	  </div>
+
 		  </div>
 	  </br>
   <!-- found order details are shown in this table-->	  
@@ -94,7 +103,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="orderitems" class=" table-bordered table-hover" width="920" >
+              <table class=" table-bordered table-hover" width="920" >
                 <thead>
                 <tr>
                   <th>SOrdNo</th>
@@ -105,10 +114,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>0152</td>
-                  <td>2017/6/28
-                  </td>
-                  <td>25000</td>
+                  <?php
+					$query="SELECT * FROM sales_order";
+					$result=mysqli_query($conn,$query);
+					while($row=mysqli_fetch_array($result)){
+						echo("<tr><td>".$row['sord_no']."</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-success viewitems\">View Items</button></td></tr>");
+					}
+					
+					?>
                 </tr>
                 </tbody>               
               </table>
@@ -142,12 +155,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Dunlop</td>
-                  <td>195R16
-                  </td>
-                  <td>20</td>
-                </tr>
+               
              </tbody>
              </table>
             </div>
@@ -170,5 +178,17 @@
       autoclose: true
     });
   });
+$('.viewitems').click(function(){
+	var sno=this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+	$("#orderitems .removable").remove();
+	$.ajax({
+		type:'post',
+		url:"model/loadorderitem.php",
+		data:{sno:sno},
+		success:function(data){
+			$('#orderitems').append(data);
+		}
+	});
+})	;
 </script>
 </html>
