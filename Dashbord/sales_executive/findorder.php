@@ -103,7 +103,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table class=" table-bordered table-hover" id="foundorders"  width="920" >
+              <table class=" table-bordered table-hover abc" id="foundorders"  width="920" >
                 <thead>
                 <tr>
                   <th>SOrdNo</th>
@@ -159,6 +159,7 @@
               <table id="orderitems" class=" table-bordered table-hover" width="920" >
                 <thead>
                 <tr>
+                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -183,7 +184,7 @@
 </div>
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
-<script src="../../js/formcontrol.js?2"></script> 
+<script src="../../js/formcontrol.js?6"></script> 
 <script src="../../js/bootstrap-datepicker.js"></script>
 <script>
   $(function () {

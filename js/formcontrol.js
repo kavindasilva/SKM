@@ -310,13 +310,14 @@ $('#tablebody table tbody tr td :last-child').click(function(){
 $('#searchord').click(function(){
 
 	var dcname=document.getElementById('shopname').value;
-	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName['tr'];
-	alert(tbody1);
+	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	
 	for(var i=0;i<tbody1.length;i++){
-		if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+		alert(tbody1[i].getElementsByTagName('td'));
+		/*if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
 			continue;
 		}
-		tbody1[i].style.display = "none";
+		tbody1[i].style.display = "none";*/
 	}
 	
 });

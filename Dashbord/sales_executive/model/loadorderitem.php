@@ -9,7 +9,7 @@ while($row=mysqli_fetch_array($result)){
 	$result2=mysqli_query($conn,$query2);
 	$rowinside=mysqli_fetch_array($result2);
 	$tot=(int)$rowinside['unit_price']*(int)$row['qty'];
-	echo("<tr class=\"removable\"><td>".$rowinside['brand_name']."</td><td>".$rowinside['country']."</td><td>".$rowinside['tire_size']."</td><td>".$rowinside['unit_price']."</td><td>".$row['qty']."</td><td>".$row['sord_no']."</td><td>".$tot."</td></tr>");
+	echo("<tr class=\"removable\"><td><input type=checkbox></td><td>".$rowinside['brand_name']."</td><td>".$rowinside['country']."</td><td>".$rowinside['tire_size']."</td><td>".$rowinside['unit_price']."</td><td>".$row['qty']."</td><td>$tot</td><td>".$row['status']."</td></tr>");
 	
 }
 

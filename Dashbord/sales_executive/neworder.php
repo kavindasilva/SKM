@@ -88,7 +88,7 @@
               </table>
             <div class="box-footer">
             <div class="col-md-12 ">
-              	<div class="col-md-12 " id="subtotal">
+              	<div class="col-md-12 ">
             		<label class="pricelabel pull-right" id="subtotal"></label>
             		<strong class="pull-right" style="margin-right:5px; margin-top: 5px;">Sub Total</strong>
 				</div>
