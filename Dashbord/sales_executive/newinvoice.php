@@ -24,7 +24,7 @@
     <div class="container">
     	<div class="box">
       	</div>
-      		<div class="filters" style="padding-bottom: 20px;" >
+      		<div class="filters col-md-11"  >
 			<strong ><h4><b>Select order to invoice</b></h4></strong></br>
       	     	<!--selecting a buyer row-->
       	<div class="row margin col-md-6" >
@@ -50,10 +50,10 @@
 		 </div><br><br><br>
 		 <!-- these toggal buttons are used to show completed orders and pending orders-->		 
 		
-		 <strong style="margin-right: 20px;">
+		 <strong style="margin-right: 10px;">
   			Show Completed Orders
 		</strong><input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
-		<strong  style="margin-right: 20px; margin-left: 46px;" >
+		<strong  style="margin-right: 10px; margin-left: 36px;" >
   			Show Pending Orders
 		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success"><br><br>
 	  
@@ -95,7 +95,7 @@
 		  </div>
 	  </br>
   <!-- found order details are shown in this table-->	  
-		 <div class="row">
+		 <div class="row" style="margin-top: 250px;">
 		  <div  class="col-xs-12 col-md-10" style="margin-left: 72px">
           <div class="box" >
             <div class="box-header">
@@ -132,7 +132,7 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\">View Items</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\">Select Order</button></td></tr>");
 					}
 					
 					?>
@@ -196,9 +196,15 @@
 
 			 
 		</div>
-	  </br>
-		 <div class="row">
-        <div  class="col-xs-12 col-md-10 pull-left" style=" margin-left: 72px">
+	  </br><div class="col-md-11" style="background-color:#e2e2e2; margin-left: 25px;">
+		 <div class="row"><br>
+      <div class="col-md-12">
+       <label class="col-md-2 col-md-offset-1" >Sales Order No</label><input id="sordnolable" class="col-md-2" disabled>
+       <label class="col-md-2 col-md-offset-1" >Order Date</label><input id="orddatelable" class="col-md-2" disabled><br><br>
+       <label class="col-md-2 col-md-offset-1" >Customer/Dealer</label><input id="dcnamelable" class="col-md-2" disabled>
+       <label class="col-md-2  col-md-offset-1" >Invoice Date</label><input id="invoicedatelable" class="col-md-2" disabled>
+       </div><br><br><br><br>
+        <div  class="col-xs-12 col-md-11 pull-left" style=" margin-left: 32px;">
          
           <div class="box" >
             <div class="box-header">
@@ -230,6 +236,7 @@
               </table>
             </div>
             <div class="box-footer">
+            <div class="col-md-8 pull-right">
             <div class="row">
             
             	<div class="col-md-3 pull-right">
@@ -260,8 +267,7 @@
             		<strong>Discount</strong>
             	</div>
             	</div>
-            	<div class="row"><div class="col-md-3">
-            	</div>
+            	<div class="row">
             		<div class="col-md-3 pull-right">
             		<label class="pricelabel" id="net"></label>
             	</div>
@@ -270,14 +276,18 @@
             	</div>
             	</div>
             	
-            	<div class="pull-right" style="margin-right: 60px;">
+            	<div class="pull-right" >
             		<button class="btn btn-primary" id="printinvoice">Print Invoice</button>
             		<button class="btn btn-warning" id="resetinvoice">Reset Invoice</button>
+            	</div></div>
+            	<div class="col-md-4">
+            		<textarea cols="60" rows="7" id="invoicenote"></textarea>
             	</div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+	  </div>
 	  </div>
 	  </div>
 			</form>
@@ -301,7 +311,12 @@
   });
 $('.viewitems').click(function(){
 	var sno=this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+	$('#sordnolable').val(sno);
+	$('#orddatelable').val(this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
+	$('#dcnamelable').val(this.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML);
+	
 	$("#orderitems .removable").remove();
+	
 	$.ajax({
 		type:'post',
 		url:"model/loadorderitem.php",
@@ -345,5 +360,11 @@ $('.viewitems').click(function(){
 	}
 	
 </script>
-
+ <script>
+		  n =  new Date();
+		  y = n.getFullYear();
+		  m = n.getMonth() + 1;
+		  d = n.getDate();
+		  document.getElementById("invoicedatelable").value = y + "/" + m + "/" + d;
+		</script>
 </html>
