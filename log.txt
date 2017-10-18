@@ -1,2 +1,8 @@
 added discount and discount_amount to quotationitem table
 quotation request table eke quotation item maaru wela watenne :-( hoyaganna ba
+
+invoice table sels ex id column changed to sales_executive_uname varchar 20
+change date into varchar in invoice table.
+
+added discount field to invoice_item table.
+renamed invoice_idinvoice_no column to invoice_no in invoice_item table

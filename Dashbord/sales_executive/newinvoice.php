@@ -2,7 +2,11 @@
 <html>
 
 <head>
-   <?php require_once('../../php/dbcon.php')?>
+   <?php require_once('../../php/dbcon.php');
+   include('../../assets/noinvoiceitem.php');
+ 
+	?>
+   
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <!--toggal button-->
@@ -201,9 +205,14 @@
       <div class="col-md-12">
        <label class="col-md-2 col-md-offset-1" >Sales Order No</label><input id="sordnolable" class="col-md-2" disabled>
        <label class="col-md-2 col-md-offset-1" >Order Date</label><input id="orddatelable" class="col-md-2" disabled><br><br>
-       <label class="col-md-2 col-md-offset-1" >Customer/Dealer</label><input id="dcnamelable" class="col-md-2" disabled>
-       <label class="col-md-2  col-md-offset-1" >Invoice Date</label><input id="invoicedatelable" class="col-md-2" disabled>
-       </div><br><br><br><br>
+       <label class="col-md-2 col-md-offset-1" >Customer/Dealer</label><input id="dcnamelable"  class="col-md-2" disabled>
+       <label class="col-md-2  col-md-offset-1" >Invoice Date</label><input id="invoicedatelable" class="col-md-2" disabled><br><br>
+        <label class="col-md-2 col-md-offset-1" >Invoice No</label><input id="invoicenolable" class="col-md-2" disabled>
+         <label class="col-md-2 col-md-offset-1" >Payment Method</label><select id="pmmethod" class="col-md-2 selectpicker">
+         	<option value="paid">On cash</option>
+         	<option value="notpaid">Credit</option>
+         </select>
+       </div><br><br><br><br><br><br>
         <div  class="col-xs-12 col-md-11 pull-left" style=" margin-left: 32px;">
          
           <div class="box" >
@@ -358,7 +367,67 @@ $('.viewitems').click(function(){
 		netamount+=prevdiscount;
 		update();
 	}
+	$('#invoicenolable').val(<?php
+			$var=0;																
+		   $query="SELECT MAX(invoice_no) AS invoiceno FROM invoice";
+		   $result=mysqli_query($conn,$query);
+			if(!$result){
+				 echo($var);
+			}
+			else{															
+		   $obj=mysqli_fetch_object($result);
+		   $invoiceno=$obj->invoiceno;
+			$var=$invoiceno+1;
+		   echo($var);}
+			
+		   ?>);
 	
+	$('#printinvoice').click(function(){
+		var rowarray = document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+		var rows=rowarray.length;
+		var invoiceno=document.getElementById('invoicenolable').value;
+		var netamount=document.getElementById('net').innerHTML;
+		var discount=document.getElementById('dis').innerHTML;
+		var invoicenote=document.getElementById('invoicenote').value;
+		var status=document.getElementById('pmmethod').value;
+		var sordno=document.getElementById('sordnolable').value;
+		var subtotal=document.getElementById('subtotal').innerHTML;
+		var date=document.getElementById('invoicedatelable').value;
+		
+		if(rows==0){
+			
+			$('#modal-noowner').modal('show');
+		}
+		else{
+			$.ajax({
+				type:"post",
+				url:"model/invoiceheader.php",
+				data:({invoiceno:invoiceno,netamount:netamount,discount:discount,invoicenote:invoicenote,status:status,sordno:sordno,subtotal:subtotal,date:date}),
+				success:function(data){
+					alert(data);
+				}
+			});
+			for(var i=0;i<rows;i++){
+				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
+				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
+				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
+				discount=rowarray[i].getElementsByTagName('td')[8].firstChild.value;
+				
+			$.ajax({
+				type:"post",
+				url:"model/invoiceitem.php",
+				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno}),
+				success:function(data){
+					alert(data);
+				}
+			});
+			}
+			
+			
+		}
+		
+		
+	});
 </script>
  <script>
 		  n =  new Date();
