@@ -1,5 +1,17 @@
 <?php
 session_start();
+require_once('../../php/dbcon.php');
+$query="SELECT r_id FROM customer WHERE user_user_name='".$_SESSION['currentuser']."';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$row=mysqli_fetch_array($result);
+$rid=$row['r_id'];
+}
+$query="SELECT * FROM quotation WHERE regular_customer_r_id='".$rid."' && status='replied';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$_SESSION['notificationcount']=mysqli_num_rows($result);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +53,7 @@ session_start();
       <span class="logo-lg" ><img src="../../images/skmlogo.jpg" style="height:50px;" alt="User Image"><b>Dunlop</b></span>
     </a>
 
-    <!-- Header Navbar: style can be found in header.less -->
+     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -50,20 +62,49 @@ session_start();
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-                        
-			
-          </li>
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
-            
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+             <?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				  ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                 <?php
+				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+					$resultinside=mysqli_query($conn,$query2);
+					$rowinside=mysqli_fetch_array($resultinside);
+				echo("
+                  <li>
+                    <a href=\"#\">
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
+                    </a>
+                  </li>");
+					  
+				}
+                 ?>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
           </li>
              <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $_SESSION['currentuser']; ?></span>
+              <span class="hidden-xs"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -71,23 +112,23 @@ session_start();
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Registered customer
+                  Customer
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
          
                      <!-- Menu Footer-->
               <li class="user-footer">
-                <!--div class="pull-left">
-                  <a href="settings.php" class="btn btn-default btn-flat">Profile</a>
-                </div-->
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
 				 
                 <div class="pull-right">
                   <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
-                  <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
                 </div>
               </li>
             </ul>
@@ -149,7 +190,14 @@ session_start();
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="newquotationreq"><i class="fa fa-circle-o"></i> New quotation Request</a></li>
-            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i>Recived Quotations</a></li> 
+            <li><a href="#" name="viewQuote"><i class="fa fa-circle-o"></i><span>Recived Quotations</span><span class="pull-right-container">
+              
+				<?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+				  ?>              	
+              
+            </span></a></li> 
            </ul>
         </li>
 		

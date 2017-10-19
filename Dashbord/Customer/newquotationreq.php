@@ -20,8 +20,8 @@
      <section class="content ">
   <form id="maininvoiceform">
    <!-- invoice items pannel starts here-->
-  <div class="row">
-        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;">
+
+        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 30px;">
           <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Quotation Items</h3>
@@ -43,31 +43,26 @@
               </table>
             <div class="box-footer">
             <div class="row">
-           		<div class="col-md-3">
-            	<button type="button" class="btn btn-danger" onClick="removeall();" style="width: 153px" >Remove All items</button>
-            	</div>
-				</div></br>
-            
-            	<div class="row">	
+          
+            		
             	<div class="col-md-3">
             	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
             	</div>
-				</div></br>
-            	<div class="row">	
-            	<div class="col-md-3">
+				
+              	<div class="col-md-3">
             	<button type="button" class="btn btn-primary" onClick="sendRequesition();" style="width: 153px" >Send Requesition</button>
             	</div>
-				</div>
+				
             	</div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-	  </div>
+			</div></div>
 			</form>
 			<!-- add tires to invoice pannel goes here-->
 <form id="addtiresform" action="#" method="post" class="pull-left">
- <div class="selectitempanal container" style="margin-left: 15px;">
+ <div class="selectitempanal container">
 	 <h4><strong>Add tires</strong></h3>
  	 <div class="row">
  	 <div class="col-xs-6">Brand</div>
@@ -100,7 +95,7 @@
 <button type="button" class="btn btn-success" style="width: 70px" onClick="validatequotation();">Add</button>
 </br></br>
 </div></br>
- <div class="form-group " style="margin-left: 15px;">
+ <div class="form-group ">
   <label for="comment">Quotation Note:</label>
   <textarea class="form-control" rows="5" id="qnote"></textarea>
 </div>

@@ -82,7 +82,7 @@ function removeall(){
 		updatedata();
 	}
 
-function removeselected(){
+/*function removeselected(){
 	var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
 	for(var i=0;i<rows;i++){
 		var targetelement=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[i].getElementsByTagName('td')[0].firstChild;
@@ -94,15 +94,16 @@ function removeselected(){
 		}
 		updatedata();
 	}
-}
+}*/
 function placeorder(){
 	//$('#maininvoiceform').on('submit',function(){
 	
 		var tot=document.getElementById('subtotal').textContent;
 		var shopname=document.getElementById('shopname').value;
-		var comname=document.getElementById('companyname').value;
+		
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
-		if(shopname==""&&comname==""){
+	
+		if(shopname==""){
 			$('#missingfieldmodal').modal('show');
 		}
 		else if(rows==0){
@@ -113,10 +114,10 @@ function placeorder(){
 	  $.ajax({
 		  type:"post",
 		  url:"controler/cusordercontroler.php",
-		  data:({total:tot,shopname:shopname,comname:comname}),
+		  data:({total:tot,shopname:shopname,comname:shopname}),
 		  success:function(data){
 			
-			 
+		
 		  }
 	  });
 			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
@@ -131,15 +132,10 @@ function placeorder(){
 				  url:"controler/cusorderitemcontroler.php",
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status}),
 				  success:function(data){
-					  
+					 document.getElementById('message').innerHTML="Your order successfully placed"
 					   $('#modal-success').modal('show');
 					   $(".table-bordered  .removable").remove();
-					   document.getElementById("shopname").selectedIndex = "0";
-					   document.getElementById("companyname").selectedIndex = "0";
-					   document.getElementById('brand').selectedIndex=0;
-					   document.getElementById('country').selectedIndex=0;
-					   document.getElementById('tiresize').selectedIndex=0;
-					   document.getElementById('quantity').value="";
+					   document.getElementById("shopname").selectedIndex =0;
 					   validate.sum=0;
 					   updatedata();
 			 
@@ -153,11 +149,11 @@ function placeorder(){
 $('#discount').on('change',function(){
 		updatedata();
 	});	
-$('#shopname').on('change',function(){
+/*$('#shopname').on('change',function(){
 if($('#shopname').value!=""){
 	document.getElementById("companyname").selectedIndex = "0";	
 }	
-		}); 	
+		}); */	
 
 $('#companyname').on('change',function(){
 if($('#companyname').value!=""){
@@ -252,7 +248,7 @@ function validatequotation(){
 		}
 	}
 
-function sendRequesition(){
+function sendRequesition(){//this handls the new quotation request data insertion
 		var note = document.getElementById('qnote').value;
 		
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
@@ -265,11 +261,7 @@ function sendRequesition(){
 		  type:"post",
 		  url:"controler/quotationheadercontroler.php",
 		  data:({note:note}),
-		  success:function(data){
-			alert(data);
-			 
-		  }
-	  });
+		  success:function(data1){
 			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 			for(var i=0;i<rows;i++){
 				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
@@ -282,12 +274,16 @@ function sendRequesition(){
 				  url:"controler/quotationdetailcontroler.php",
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty}),
 				  success:function(data){
-					  // alert(data);
+					   alert(data);
 			 
 		  							}
 	  });
 				
 			}
+			 
+		  }
+	  });
+						document.getElementById('message').innerHTML="Your Quotation request successfully sent. Our agent will reply you soon";
 					   $('#modal-success').modal('show');
 					   $(".table-bordered  .removable").remove();
 					   document.getElementById('brand').selectedIndex=0;
@@ -298,7 +294,7 @@ function sendRequesition(){
 		}
 }
 //this handls the action button control of the low stock table
-$('#tablebody table tbody tr td :first-child').click(function(){
+$('#tablebody table tbody tr td button').click(function(){
 	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
 	var row=$(this).parent().parent();
 	row.removeClass("backred");
@@ -310,4 +306,18 @@ $('#tablebody table tbody tr td :last-child').click(function(){
 	//var row=$(this).parent().parent();
 	
 	$('#orderdetailsmodal').modal('show');
+});
+$('#searchord').click(function(){
+
+	var dcname=document.getElementById('shopname').value;
+	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	
+	for(var i=0;i<tbody1.length;i++){
+		alert(tbody1[i].getElementsByTagName('td'));
+		/*if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+			continue;
+		}
+		tbody1[i].style.display = "none";*/
+	}
+	
 });

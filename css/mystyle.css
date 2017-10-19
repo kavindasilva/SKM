@@ -15,9 +15,10 @@
 }
 .filters{
 	background-color: #D2D2D2;
-	width: 1075px;
 	margin-left: 20px;
 	padding-bottom: 20px;
+	
+	height: 220px;
 }
 .margin{
 	margin-left: 10px;
@@ -47,3 +48,51 @@
 .backgreen{
 	background-color: #CDFFC9;
 }
+#quotationreqdiv{
+	
+	height: 500px;
+	border-right: 2px solid #C5C5C5;
+}
+#quotation{
+  list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#quotation a li{
+	text-decoration: none;
+	color: #000000;
+	padding-top: 12px;
+	padding-left: 8px;
+	width: 100%;
+	height: 50px;
+	background-color: #E9E9E9;
+	border-radius: 10px;
+	border: 1px solid #D4D4D4;
+	-webkit-transition: height .5s;
+}
+#quotation a li:hover{
+	
+	height: 60px;
+	background-color: #DCDCDC;
+}
+
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@keyframes fadeOut {
+    from {opacity:1;}
+    to {opacity:0;}
+}
+#quotation a li {
+    animation: fadeIn 1s;
+}
+/*.listitemremovefocus{
+	
+}
+.listitemremovefocus{
+	height: 60px;
+	background-color: #DCDCDC;
+}*/

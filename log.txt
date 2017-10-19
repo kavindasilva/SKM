@@ -1,26 +1,8 @@
-Changes done to database
+added discount and discount_amount to quotationitem table
+quotation request table eke quotation item maaru wela watenne :-( hoyaganna ba
 
-rename regular_customer to customer
-type of the date field of DB changed to varchar
+invoice table sels ex id column changed to sales_executive_uname varchar 20
+change date into varchar in invoice table.
 
-change the name sales_order_sord_no of order_item table to sord_no
-
-status of order_item table
-
-unavailable:required amount is not available
-available:required amount is available still not generated the invoice
-completed:this means invoice generated for that item
-requested:stock-manager requst import-manager to import required tires
-status of sales_order table
-
-completed:all the sales order items in the order is supplied
-pending:all sales order items are not supplied
-
-rename table quatation to quotation and quatation_item to quotation_item
-removed qty,date from quotations and added status,quotation_note
-
-status of qoutations is
-notreplied
-replied
-
-in quotation_item table removed quotation_q_no and added q_no and quantity fields
+added discount field to invoice_item table.
+renamed invoice_idinvoice_no column to invoice_no in invoice_item table
