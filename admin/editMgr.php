@@ -33,10 +33,11 @@ if(isset($_POST['setupdate'])){
 	changeMgrSQL();
 }
 
-//reset employee password
+//reset employee password====================================================
 if(isset($_POST['resetmgr'])){
 	$user=$_POST['uname'];
-	$sql="update user set password='skmreset' where user_name='$user';";
+	$skmreset=md5("skm");
+	$sql="update user set password='$skmreset' where user_name='$user';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql);
 	if(!$res){
