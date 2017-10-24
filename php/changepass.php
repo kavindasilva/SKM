@@ -8,6 +8,9 @@ $uname=$_SESSION['user'];
 $oldpw=$_POST['oldpass'];
 $newpw=$_POST['newpass'];
 
+$oldpw=md5($oldpw);
+$newpw=md5($newpw);
+
 $sql="select * from user where user_name='".$uname."';";
 $res=mysqli_query($conn, $sql);
 if(!$res){

@@ -6,6 +6,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = $_POST['euname'];
 	$password = $_POST['password'];
+	$password= md5($password) ;// make md5
 	
 	$checkName = "select * from user where user_name='$name'";
 	
