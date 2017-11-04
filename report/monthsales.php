@@ -56,9 +56,7 @@ function BasicTable($header,$data)
 
 
 $this->SetFillColor(255,255,205); //table header color
-//$this->SetDrawColor(255, 0, 0);
-//$w=array(25,20,30,20,20,55); //header cell size
-$w=array(10,20,50,15, 15,15,15,15,15, 15); //header cell size
+$w=array(15,30,25, 20, 25,30); //,15 ,15,15, 15); //header cell size
 	
 	
 	//table Header
@@ -68,24 +66,7 @@ $w=array(10,20,50,15, 15,15,15,15,15, 15); //header cell size
 		$this->Cell($w[$i],7,$header[$i],1,0,'L',true);
 	$this->Ln();/**/
 	
-	//$this->Image('logo.png',10,20,33,0); 	
 
-	//$this->Image(imagecreatefrompng('logo.png'),1,1,20,10, 0, 0, '', false,'');  
-	//$this->Image('logo.jpg',1,1,20,10, 0, 0, '', false,'');  
-		
-	//Image(5,5,0,0,'');
-	/**
-	//$result = mysqli_query($con, 'SELECT * FROM myTable');
-	//while ($property = mysqli_fetch_field($data)) {
-	for($i=0;$i<mysqli_num_fields($data)-1;$i++) {
-		$property= mysqli_fetch_field($data);
-		echo $property -> name;
-		
-		$this->Cell($w[$i],7,$property->name,1,0,'L',truE);
-		
-	}
-	$this->Ln();*/
-	
 	//Data
 	$tmpcnt=1;
 	$this->SetFont('Arial','',10);
@@ -93,25 +74,26 @@ $w=array(10,20,50,15, 15,15,15,15,15, 15); //header cell size
 	while ($eachResult=mysqli_fetch_assoc($data)) 
 	{ //width
 		$this->Cell(10);
-		$this->Cell(10,6,$tmpcnt,1);
+		//$this->Cell(10,6,$tmpcnt,1);
 		//$this->Cell(20,6,$eachResult["indexno"],1,0,0, true); //width height
-		$this->Cell(20,6,$eachResult["indexno"],1); //width height
-		$this->Cell(50,6,$eachResult["lname"],1);
+		$this->Cell(15,6,$eachResult["sord_no"],1); //width height
+		$this->Cell(30,6,$eachResult["shop_name"],1);
 		//$this->Cell(10,6,$eachResult["is2001"],1);
-		$this->ks_fillcell(15,6,$eachResult["is2001"],1);
+		//$this->ks_fillcell(15,6,$eachResult["is2001"],1);
 		
 		//$this->Cell(20,6,$eachResult["is1002"],1);
 		//$this->ks_fillcell(10,6,"-",1);
-		$this->ks_fillcell(15,6,$eachResult["is2003"],1);
-		$this->ks_fillcell(15,6,$eachResult["is2004"],1);
+		$this->ks_fillcell(25,6,$eachResult["tel"],1);
+		$this->ks_fillcell(20,6,$eachResult["status"],1);
 		
-		$this->ks_fillcell(15,6,$eachResult["is2005"],1);
-		$this->ks_fillcell(15,6,$eachResult["is2006"],1);
+		$this->ks_fillcell(25,6,$eachResult["date"],1);
+		$this->ks_fillcell(30,6,$eachResult["total_amount"],1);
 		
+		/*
 		$number=$eachResult["gpa"]/12.0;
 		$number=number_format((float)$number, 2, '.', '');
 		$this->ks_fillGPA(15,6,($number),1);
-
+*/
 
 		$this->Ln();
 		$tmpcnt++;
@@ -165,38 +147,24 @@ function ks_fillGPA($w,$h=0,$txt,$border=0,$ln=0,$align='',$fill=0,$link=''){
 
 
 $pdf=new PDF();
-$pdf->SetCreator("ape admin");
-$pdf->SetAuthor('testing 29');
+$pdf->SetCreator("youth builders");
+$pdf->SetAuthor('group 29');
 $pdf->SetTitle('Dunlop');
-$pdf->SetSubject('Sem results');
+$pdf->SetSubject('monthly sales report');
 $pdf->SetKeywords('');
 $pdf->AliasNbPages();
 	
 //table header
 //$header=array('Index','name','PRG','CS','ISM', 'APPlab','MGT','maths','econ'); //original place
 $header=array();
-$header=array('Rank','Index','Full name','SE1','MKT', 'web','stat','BPM','GPA');
+$header=array('order id','dealer name','tel. no','order status','order date', 'total amount(Rs)');//,'stat','BPM','GPA');
 
-
-//Data loading
-//*** Load MySQL Data ***//
-//$conn = mysqli_connect("localhost","root","","kss") or die("Error:Please check your database username & password");
-
-/**		DATABASE QUERY	*/
-//$strSQL = "Select * From sales_order where status='';";
-$strSQL = "Select * From sales_order;";
+$strSQL = "Select * From sales_order s, dealer d where s.dealer_d_id=d.d_id;";
 
 
 $objQuery = mysqli_query($conn,$strSQL); //result set
 $i=0;
 
-/*
-$resultData = array();
-for ($i=0;$i<mysqli_num_rows($objQuery);$i++) {
-	$result = mysqli_fetch_array($objQuery);
-	array_push($resultData,$result);
-}*/
-//************************//
 
 
 //*** Table 1 ***//
@@ -240,18 +208,11 @@ $pdf->AddPage();
 
 $pdf->Ln(0);
 $pdf->Cell(10);
-//$pdf->BasicTable($header,$resultData);
 $pdf->BasicTable($header,$objQuery);
 
-//forme();
-//$pdf->Output("$d.pdf","F");
-//$pdf->Output(); //thibba eka
-//$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
+
 $pdf->Output('tempfile.pdf'); //server eke save venne
 
-//echo "<script>window.history.back();</script>";
 
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/file:tempfile.pdf");
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/tempfile.pdf");
 
 ?>
