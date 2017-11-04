@@ -144,7 +144,7 @@ require_once "../php/dbcon.php";
                 <img src="../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Sales-Executive
+                  System Admin
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>

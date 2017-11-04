@@ -79,7 +79,7 @@ function changeMgrUI($empID){
 	echo"<tr><td>User name</td> <td><input type='text' value='".$r2['user_name']."' name='' disabled/></td></tr>";
 	
 	echo"<tr><td>Name</td> <td><input type='text' value='".$r1['name']."' name='nam'/></td></tr>";
-	echo"<tr><td>Telephone</td> <td><input type='text' value='".$r1['tel']."' name='telp'/></td></tr>";
+	echo"<tr><td>Telephone</td> <td><input type='text' id='telp' onkeyup='validateTel()' value='".$r1['tel']."' name='telp'/></td></tr>";
 	echo"<tr><td>Email</td> <td><input type='text' value='".$r2['email']."' name='eml'/></td></tr>";
 	echo"<tr><td>Address</td> <td><textarea name='addr'>".$r2['address']."</textarea></td></tr>";
 	
