@@ -6,3 +6,6 @@ change date into varchar in invoice table.
 
 added discount field to invoice_item table.
 renamed invoice_idinvoice_no column to invoice_no in invoice_item table
+
+tire table:
+added t_type field(car, bus, 4wd). varchar(5) null allowed
