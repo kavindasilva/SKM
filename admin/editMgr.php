@@ -33,10 +33,11 @@ if(isset($_POST['setupdate'])){
 	changeMgrSQL();
 }
 
-//reset employee password
+//reset employee password====================================================
 if(isset($_POST['resetmgr'])){
 	$user=$_POST['uname'];
-	$sql="update user set password='skmreset' where user_name='$user';";
+	$skmreset=md5("skm");
+	$sql="update user set password='$skmreset' where user_name='$user';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql);
 	if(!$res){
@@ -86,7 +87,7 @@ function changeMgrUI($empID){
 	echo"<tr><td>User name</td> <td><input type='text' class='form-control' value='".$r2['user_name']."' name='' disabled/></td></tr>";
 	
 	echo"<tr><td>Name</td> <td><input type='text' class='form-control' value='".$r1['name']."' name='nam'/></td></tr>";
-	echo"<tr><td>Telephone</td> <td><input type='text' class='form-control' value='".$r1['tel']."' name='telp'/></td></tr>";
+	echo"<tr><td>Telephone</td> <td><input type='text' id='telp' onkeyup='validateTel()' class='form-control' value='".$r1['tel']."' name='telp'/></td></tr>";
 	echo"<tr><td>Email</td> <td><input type='text' class='form-control' value='".$r2['email']."' name='eml'/></td></tr>";
 	echo"<tr><td>Address</td> <td><textarea class='form-control' name='addr'>".$r2['address']."</textarea></td></tr>";
 	

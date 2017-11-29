@@ -28,10 +28,10 @@ function editDealerUI($id, $un){ //user id, user_name
 		echo "<tr> <td>User Name</td> <td><input type='text' class='form-control' value='" . $row['user_name'] . "' disabled/></td></tr>";
 		echo "<tr> <td>Email</td> <td><input type='text' class='form-control' name='email' value='" . $row['email'] . "'required/></td></tr>";
 		echo "<tr> <td>Address</td> <td><textarea class='form-control' name='addr'>".$row['address']."</textarea> </td></tr>";
-		echo "<tr> <td>Telephone</td> <td><input type='text' class='form-control' name='tel' value='" . $row['tel'] . "'required/></td></tr>";
+		echo "<tr> <td>Telephone</td> <td><input type='text' class='form-control' id='telp' onkeyup='validateTel()' name='tel' value='" . $row['tel'] . "'required/></td></tr>";
 		echo "<tr> <td>Shop Name</td> <td><input type='text' class='form-control' name='shop' value='" . $row['shop_name'] . "'required/></td></tr>";
 		
-		echo "<tr><td><input type='submit' class='form-control' name='updatedealer2' onclick='return confirmU()' value='Update'/></td>";
+		echo "<tr><td><input type='submit' class='form-control' name='updatedealer2' onclick='return validateTel();return confirmU()' value='Update'/></td>";
 		echo "<td><a href='viewAll.php'><input type='button' class='form-control' value='cancel'></a></td></tr></form>";	
 		
 		echo "</table>";
@@ -58,10 +58,10 @@ function editCusUI($id, $un){ //user id, user_name
 		echo "<tr> <td>User Name</td> <td><input type='text' class='form-control' value='" . $row['user_name'] . "' disabled/></td></tr>";
 		echo "<tr> <td>Email</td> <td><input type='text' class='form-control' name='email' value='" . $row['email'] . "'required/></td></tr>";
 		echo "<tr> <td>Address</td> <td><textarea class='form-control' name='addr'>".$row['address']."</textarea> </td></tr>";
-		echo "<tr> <td>Telephone</td> <td><input type='text' class='form-control' name='tel' value='" . $row['tel'] . "'required/></td></tr>";
+		echo "<tr> <td>Telephone</td> <td><input type='text' class='form-control' id='telp' onkeyup='validateTel()' name='tel' value='" . $row['tel'] . "'required/></td></tr>";
 		//echo "<tr> <td>Shop Name</td> <td><input type='text' name='shop' value='" . $row['shop_name'] . "'required/></td></tr>";
 		
-		echo "<tr><td><input type='submit' class='form-control' name='updateCus2' onclick='return confirmU()' value='Update'/></td>";
+		echo "<tr><td><input type='submit' class='form-control' name='updateCus2' onclick='return validateTel();return confirmU()' value='Update'/></td>";
 		echo "<td><a href='viewAll.php'><input type='button' class='form-control' value='cancel'></a></td></tr></form>";	
 		
 		echo "</table>";
@@ -91,7 +91,7 @@ function editSupUI($id, $un){ //user id, user_name
 		echo "<tr> <td>Brand</td> <td><input type='text' class='form-control' name='brnd' value='" . $row['brand'] . "'required/></td></tr>";
 		echo "<tr> <td>Country</td> <td><input type='text' class='form-control' name='cont' value='" . $row['country'] . "'required/></td></tr>";
 		
-		echo "<tr><td><input type='submit' class='form-control' name='updatesup2' onclick='return confirmU()' value='Update'/></td>";
+		echo "<tr><td><input type='submit' class='form-control' name='updatesup2' onclick='return validateTel();return confirmU()' value='Update'/></td>";
 		echo "<td><a href='viewAll.php'><input type='button' class='form-control' value='cancel'></a></td></tr></form>";	
 		
 		echo "</table>";

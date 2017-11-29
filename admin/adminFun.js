@@ -5,6 +5,7 @@
 	Confirm update
 	Confirm insert
 	
+	check password matching(change password)
 	Clear search boxes
 */
 
@@ -72,6 +73,19 @@ function redirectMain(){
 	//window.open('index.php');
 	//window.location.href("index.php");
 	window.location="index.php";
+}
+
+function chkPass(){
+	var p1 = document.getElementById("pass1").value;
+	var p2 = document.getElementById("pass2").value;
+	
+	if(p1 ==p2)
+		return true;
+	else{
+		alert("password confirmation failed. Try again");
+		return false;
+	}
+	
 }
 
 /*

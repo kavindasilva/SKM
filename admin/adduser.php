@@ -62,7 +62,7 @@ function checknamek(){
 //session maintainence // kavindasilva
 /**
  * get method eken user type eka ganna. ekata adalawa fields display karanna
- 
+/* 
  if(!isset($_SESSION['user'])){
 	echo "user not set";
 	//header('Location:../login.html');
@@ -84,7 +84,9 @@ $newUserType=$_GET['type'];
 
 
 ?>
+
 <script type="text/javascript" src="adminFun.js"></script>
+<script type="text/javascript" src="adminValidate.js"></script>
 
 <center>
 
@@ -94,13 +96,12 @@ $newUserType=$_GET['type'];
 	<td><input type='text' name='utype' value="<?php echo $newUserType; ?>" hidden/>
 	
 	<tr><td>First name</td>	<td><input type="text" name="fname" class="form-control" autocomplete="off" required/></td></tr>
-	<tr><td>Last name</td>	<td><input type="text" name="lname" class="form-control" autocomplete="off" required=""/></td></tr>
-	<tr><td>Email</td>		<td><input type="email" name="eml" class="form-control" autocomplete="off" required=""/></td></tr>
+	<tr><td>Last name</td>	<td><input type="text" name="lname" class="form-control" autocomplete="off" required/></td></tr>
+	<tr><td>Email</td>		<td><input type="email" name="eml" class="form-control" autocomplete="off" required/></td></tr>
 	<tr><td>Address</td>	<td><textarea name="addr" class="form-control" autocomplete="off"></textarea></td></tr>
-	<tr><td>Phone</td>		<td><input type="text" name="telp" autocomplete="off" class="form-control" required=""/></td></tr>
+	<tr><td>Phone</td>		<td><input type="text" name="telp" id="telp" autocomplete="off" class="form-control" onkeyup="validateTel()" required/></td></tr>
 	<tr><td>Prefered username</td><td><input type="text" name="prefusern" id="prefuser" class="form-control" onkeyup="checknamek();"  /><span id="name_statusun"><sup>Enter a user name</sup></span>
-									
-									</td></tr>
+	</td></tr>
 
 	
 	<?php
@@ -125,7 +126,7 @@ $newUserType=$_GET['type'];
 	?>
 	
 	
-	<tr><td><input type="submit" class="form-control" name="submit_form" id="subk" value="OK" onclick="return confirmI();" /></td>	<td><input type="reset" value="Clear" class="form-control" /></td></tr>
+	<tr><td><input type="submit" class="form-control" name="submit_form" id="subk" value="OK" onclick="return validateTel();return confirmI();" /></td>	<td><input type="reset" value="Clear" class="form-control" /></td></tr>
 </table>
 </form>
 </div>
