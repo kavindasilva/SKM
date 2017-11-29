@@ -1,11 +1,13 @@
 <?php
 require_once "../php/dbcon.php";
 require_once('fpdf.php');
+include_once('template1.php');
 $d=date('d_m_Y');
 
 class PDF extends FPDF
 {
-
+	//include_once('template1.php');
+/*
 function Header()
 {
 	$this->Image('dun.jpg',60,10,90,0,'JPG');
@@ -29,7 +31,7 @@ function Footer()
 	$this->Cell(16,6,"Repeat",1);$this->SetFillColor(255,185,255);$this->Cell(10,6,"",1,'','',truE);$this->Cell(4,6,"",0,'','',faLse);
 	$this->Cell(16,6,"Low GPA",1);$this->SetFillColor(255,100,100);$this->Cell(10,6,"",1,'','',truE);$this->Cell(4,6,"",0,'','',faLse);
 	$this->Ln();
-	*/
+	*
 	$this->SetFont('Helvetica','',12);
 	
 	$this->Cell(0,10,'(c) youth builders',0,0,'C');
@@ -37,7 +39,7 @@ function Footer()
 	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 	$this->SetFontSize(20);
 }
-
+*/
 //Load data
 function LoadData($file)
 {
@@ -146,7 +148,8 @@ function ks_fillGPA($w,$h=0,$txt,$border=0,$ln=0,$align='',$fill=0,$link=''){
 
 
 
-$pdf=new PDF();
+//$pdf=new PDF();
+$pdf=new PDF('P','mm',array(210,297));  //a4 size paper
 $pdf->SetCreator("youth builders");
 $pdf->SetAuthor('group 29');
 $pdf->SetTitle('Dunlop');
@@ -171,15 +174,16 @@ $i=0;
 $pdf->AddPage();
 
 	//$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-	$pdf->SetFont('Helvetica','',14);
+	$pdf->SetFont('Helvetica','B',14);
 	//$pdf->Cell(68);
-	$pdf->Cell(0,10,'SK Motors',0,0,'C');
+	//$pdf->Cell(0,10,'SK Motors',0,0,'C');
+	$pdf->Cell(0,10,'Monthly Sales report',0,0,'C');
 	//$pdf->Write(10, 'UCSC 13th batch IS');
 	$pdf->Ln();
 	
 	$pdf->SetFont('Helvetica','',8);
 	//$pdf->Cell(88);
-	$pdf->Cell(0,8, 'monthly sales report',0,0,'C');
+	//$pdf->Cell(0,8, 'monthly sales report',0,0,'C');
 	
 	$pdf->Ln();
 	

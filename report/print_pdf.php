@@ -7,7 +7,7 @@ class PDF extends FPDF
 
 function Header()
 {
-	$this->Image('dun.jpg',60,10,90,0,'JPG');
+	$this->Image('img/skm-logo.jpg',60,10,90,0,'JPG');
     $this->SetFont('Helvetica','',25);
 	$this->SetFontSize(8);
 	//$this->Write(10, 'headS');

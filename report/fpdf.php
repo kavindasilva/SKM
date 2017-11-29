@@ -374,12 +374,48 @@ function AddPage($orientation='')
 
 function Header()
 {
-	//To be implemented in your own inherited class
+	//To be implemented in your own inherited class //i changed it
+	$this->Image('img/skm-logo.jpg',20,10,30,30,'JPG');
+	$this->Image('img/kaizenlogo.jpg',160,10,40,15,'JPG');
+	$this->Image('img/dunlop-logo.jpg',160,27,40,20,'JPG'); //tot width = 180
+	
+    $this->SetFont('Helvetica','B',25);
+	$this->Cell(50,10,'',0,0,'C'); 
+	$this->Cell(90,10,'S.K. Munasinghe Motors',0,0,'C'); $this->Ln();
+	
+	$this->SetFont('Helvetica','',14);
+	$this->Cell(50,10,'',0,0,'C');
+	$this->Cell(90,10,'No 436, Havelock Road, Colombo 6.',0,0,'C'); $this->Ln();
+	
+	$this->SetFont('Helvetica','',12);
+	$this->Cell(50,10,'',0,0,'C');
+	$this->Cell(90,10,'0112-589-432 , 0112-590-313',0,0,'C'); $this->Ln();
+	
+	$this->SetTextColor(0,0,200);
+	$this->SetFont('Helvetica','',12);
+	$this->Cell(50,10,'',0,0,'C');
+	$this->Cell(90,10,'www.dunlop.lk',0,0,'C',0,'http://www.dunlop.lk'); $this->Ln();
+	
+	
+	$this->SetTextColor(0,0,0);
+	$this->SetFontSize(8);
+    //Move to the right
+    $this->Cell(80);
+    //Line break
+    $this->Ln();
+	
 }
 
 function Footer()
 {
-	//To be implemented in your own inherited class
+	//To be implemented in your own inherited class //i changed it
+	$this->SetFont('Helvetica','',12);
+	
+	$this->Cell(0,10,'(c) youth builders',0,0,'C');
+	$this->Ln();
+	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+	//$this->SetFontSize(20);
+	
 }
 
 function PageNo()
