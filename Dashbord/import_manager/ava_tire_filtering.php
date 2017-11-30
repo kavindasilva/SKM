@@ -1,8 +1,30 @@
 <?php
-if($_POST['request']){
-	$request=$_POST['request'];
+if($_POST['request1']){
+	$brand=$_POST['request1'];
+	//$country=$_POST['country'];
 	require_once('../../php/dbcon.php');
-	$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='$request'";
+	if($brand=='--'){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire";
+		
+	}
+	elseif($brand=="Dunlop-Japan"){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Dunlop' AND country='Japan'";
+	}
+	elseif($brand=="Dunlop-Thaiwan"){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Dunlop' AND country='Thaiwan'";
+	}
+	elseif($brand=="Dunlop-Indonesian"){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Dunlop' AND country='Indonesian'";
+	}
+	elseif($brand=="Kaizen-Japan"){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Kaizen' AND country='Japan'";
+	}
+	elseif($brand=="Kaizen-Thaiwan"){
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Kaizen' AND country='Thaiwan'";
+	}
+	else{
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE brand_name='Kaizen' AND country='Indonesian'";
+	}
 	$result = $conn->query($sql);
 	while($row=$result->fetch_assoc()){
 		?>
@@ -21,5 +43,6 @@ if($_POST['request']){
 	$conn->close();
 	
 };
+
 
 ?>
