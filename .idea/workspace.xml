@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f21ac4c1-e5de-4ffa-9429-803993f4e7de" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dashbord/import_manager/dashbord.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/dashbord.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dashbord/import_manager/index.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/pending_requision.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,15 +50,15 @@
       <file leaf-file-name="new_requisition.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-646">
-              <caret line="95" column="64" lean-forward="true" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
+            <state relative-caret-position="450">
+              <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
               <folding>
-                <marker date="1512031029590" expanded="true" signature="3015:3081" ph="SELECT t_id,... tire" />
-                <marker date="1512031029590" expanded="true" signature="3015:3088" ph="SELECT t_id,... tire" />
-                <marker date="1512031029590" expanded="true" signature="3015:3105" ph="SELECT t_id,... tire" />
-                <marker date="1512031029590" expanded="true" signature="3756:3901" ph="..." />
-                <marker date="1512031029590" expanded="true" signature="4554:4847" ph="..." />
-                <marker date="1512031029590" expanded="true" signature="4577:4822" ph="..." />
+                <marker date="1512036563143" expanded="true" signature="3015:3081" ph="SELECT t_id,... tire" />
+                <marker date="1512036563143" expanded="true" signature="3015:3088" ph="SELECT t_id,... tire" />
+                <marker date="1512036563143" expanded="true" signature="3015:3105" ph="SELECT t_id,... tire" />
+                <marker date="1512036563143" expanded="true" signature="3756:3901" ph="..." />
+                <marker date="1512036563143" expanded="true" signature="4554:4847" ph="..." />
+                <marker date="1512036563143" expanded="true" signature="4577:4822" ph="..." />
               </folding>
             </state>
           </provider>
@@ -79,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/js/ava_tire_filterjs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+              <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -196,12 +195,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511967785063</updated>
       <workItem from="1511967808616" duration="219000" />
-      <workItem from="1512020919878" duration="9962000" />
+      <workItem from="1512020919878" duration="12477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13162000" />
+    <option name="totallyTimeSpent" value="15677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
@@ -369,7 +368,7 @@
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/pending_requision.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -377,7 +376,7 @@
     <entry file="file://$PROJECT_DIR$/js/ava_tire_filterjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -392,15 +391,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
-          <caret line="95" column="64" lean-forward="true" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
+        <state relative-caret-position="450">
+          <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
           <folding>
-            <marker date="1512031029590" expanded="true" signature="3015:3081" ph="SELECT t_id,... tire" />
-            <marker date="1512031029590" expanded="true" signature="3015:3088" ph="SELECT t_id,... tire" />
-            <marker date="1512031029590" expanded="true" signature="3015:3105" ph="SELECT t_id,... tire" />
-            <marker date="1512031029590" expanded="true" signature="3756:3901" ph="..." />
-            <marker date="1512031029590" expanded="true" signature="4554:4847" ph="..." />
-            <marker date="1512031029590" expanded="true" signature="4577:4822" ph="..." />
+            <marker date="1512036563143" expanded="true" signature="3015:3081" ph="SELECT t_id,... tire" />
+            <marker date="1512036563143" expanded="true" signature="3015:3088" ph="SELECT t_id,... tire" />
+            <marker date="1512036563143" expanded="true" signature="3015:3105" ph="SELECT t_id,... tire" />
+            <marker date="1512036563143" expanded="true" signature="3756:3901" ph="..." />
+            <marker date="1512036563143" expanded="true" signature="4554:4847" ph="..." />
+            <marker date="1512036563143" expanded="true" signature="4577:4822" ph="..." />
           </folding>
         </state>
       </provider>

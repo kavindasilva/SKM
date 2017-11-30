@@ -155,7 +155,10 @@
 
        <button type="button" class="btn btn-success" style="width: 160px; margin-left: 20px">Send Selected</button></div>
        
-    <div class="col-xs-3"><button type="button" class="btn btn-primary" style="width: 160px">Send All Items</button></div>
+    <div class="col-xs-3"><button type="button" class="btn btn-primary send_all_btn" style="width: 160px">Send All Items</button></div>
+           <?php
+
+           ?>
   <div class="col-xs-3"><button type="button" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
   <div class="col-xs-3"><button type="button" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
@@ -179,6 +182,15 @@
    $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
     });
 </script>
+
+<script>
+    $(".remove_all_btn").click(function () {
+        
+
+    })
+</script>
+
+
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
 
