@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			elseif($usrtype=='impmgr')
 				header('Location: ../dashbord/import_manager/index.php');
 			elseif($usrtype=='dealer')
-				header('Location: ../dashbord/dealer1/index.php');
+				header('Location: ../dashbord/Dealer/index.php');
 			elseif($usrtype=='stockmgr')
 				header('Location: ../dashbord/Stock_Manager/index.php');
 			elseif($usrtype=='suppl')
