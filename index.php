@@ -18,8 +18,8 @@ include_once "php/tireDetails.php";
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<!--SKM file-->
 	<link href="css/home.css" rel="stylesheet">
-<!--	<link href="css/aos.css" rel="stylesheet">-->
-<!--      <link href="css/footer.css" rel="stylesheet">-->
+	<link href="css/aos.css" rel="stylesheet">
+     <link href="css/footer.css" rel="stylesheet">
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
 	<script src="js/tableFilter.js"></script>	
@@ -117,7 +117,7 @@ include_once "php/tireDetails.php";
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
 	  </br></br></br></br></br>
     <div class="row">
-    <div class="col-md-5 pull-left" id="abouttext" style="color: aliceblue;" data-aos="fade-right">
+    <div class="col-md-5 pull-left" id="abouttext" style="color: aliceblue;" data-aos="zoom-out-right">
     <label > We are sole agents for Dunlop, Kaizen, Malhotra Tyres & Dong-Ah Tubes</label>
     <p>In 1888, John Boyd Dunlop, a Scottish Veterinarian invented the first practical pneumatic tyre.J.B. Dunlop experimented ways to ease the discomfort of his son's tricycle and eventually came up with the air-filled or pneumatic tyre. From there this remarkable new idea has made a great contribution to the development of contemporary automobile society.Since then, Dunlop flourished in the world for more than 123 years. </p>
     
@@ -126,7 +126,7 @@ include_once "php/tireDetails.php";
     	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-left">
     </div>
     <div id="kaizen" class="tire col-md-5" style="padding-top: 20px;">
-    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="fade-left">
+    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="zoom-out-left">
     </div>
     </div> 
     
@@ -198,10 +198,10 @@ include_once "php/tireDetails.php";
             <!-- /.box-body -->
           </div>
           <div class="col-md-5" style="margin-left: 80px;">
-          <img src="images/tires.png" data-aos="fade-up" class="topbotom">
-          <img src="images/cars.usnews.com.jpg" data-aos="fade-up" class="middlepic">
-          <img src="images/The-Fast-and-the-Furious-modern-renders-Mitsubishi-Eclipse-Cross.jpg" data-aos="fade-up" class="middlepic">
-          <img src="images/1379603518.jpg" data-aos="fade-up"  class="topbotom">
+          <img src="images/tires.png" data-aos="flip-right" class="topbotom">
+          <img src="images/cars.usnews.com.jpg" data-aos="flip-right" class="middlepic">
+          <img src="images/The-Fast-and-the-Furious-modern-renders-Mitsubishi-Eclipse-Cross.jpg" data-aos="flip-right" class="middlepic">
+          <img src="images/1379603518.jpg" data-aos="flip-right" class="topbotom">
 			  </div>
           </div>
 <!-- kaizen tires price list concludes here-->           
@@ -210,7 +210,7 @@ include_once "php/tireDetails.php";
 <!-- fotter goes here-->    
     <div id="footterskm">
 
-    <div class="col-md-3" id="footerheding">
+    <div class="col-md-3 col-sm-3" id="footerheding">
     	<label><strong>SKM</strong>unasinghe Motors <br>
             <p style="color:gray;font-size: medium;margin-top: 10px;">sales@skmmlk.com
             sales2@skmmlk.com
@@ -218,13 +218,13 @@ include_once "php/tireDetails.php";
             </p>
         </label>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
         <h4 style="color: gray;margin-top: 30px;"><strong> call us on: <br>011 2589432 <br> 011 2590313 <br> 011 5231913
             </strong>
             <h4>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
         <h4 style="color: gray;margin-top: 30px;">
             <strong>S.K.Munasinghe Motors,<br>
                 436,<br> Havelock Road,<br>
@@ -234,7 +234,7 @@ include_once "php/tireDetails.php";
 
         </h4>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
         <ul class="list-unstyled" style="margin-top: 10px; font-size: medium;margin-top: 30px">
             <li>
                 <a class="white-text" href="#">
