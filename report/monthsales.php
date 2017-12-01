@@ -6,40 +6,7 @@ $d=date('d_m_Y');
 
 class PDF extends FPDF
 {
-	//include_once('template1.php');
-/*
-function Header()
-{
-	$this->Image('dun.jpg',60,10,90,0,'JPG');
-    $this->SetFont('Helvetica','',25);
-	$this->SetFontSize(8);
-	//$this->Write(10, 'headS');
-	//$this->Cell(30,10,'SKM',1,0,'C');
-    //Move to the right
-    $this->Cell(80);
-    //Line break
-    $this->Ln(22);
-}
 
-//Page footer
-function Footer()
-{
-	
-	/** legend *
-	$this->Cell(20,6,'',0);
-	$this->Cell(16,6,"Absent",1);$this->SetFillColor(0,200,200);$this->Cell(10,6,"",1,'','',truE);$this->Cell(4,6,"",0,'','',faLse);
-	$this->Cell(16,6,"Repeat",1);$this->SetFillColor(255,185,255);$this->Cell(10,6,"",1,'','',truE);$this->Cell(4,6,"",0,'','',faLse);
-	$this->Cell(16,6,"Low GPA",1);$this->SetFillColor(255,100,100);$this->Cell(10,6,"",1,'','',truE);$this->Cell(4,6,"",0,'','',faLse);
-	$this->Ln();
-	*
-	$this->SetFont('Helvetica','',12);
-	
-	$this->Cell(0,10,'(c) youth builders',0,0,'C');
-	$this->Ln();
-	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-	$this->SetFontSize(20);
-}
-*/
 //Load data
 function LoadData($file)
 {
@@ -91,12 +58,6 @@ $w=array(15,30,25, 20, 25,30); //,15 ,15,15, 15); //header cell size
 		$this->ks_fillcell(25,6,$eachResult["date"],1);
 		$this->ks_fillcell(30,6,$eachResult["total_amount"],1);
 		
-		/*
-		$number=$eachResult["gpa"]/12.0;
-		$number=number_format((float)$number, 2, '.', '');
-		$this->ks_fillGPA(15,6,($number),1);
-*/
-
 		$this->Ln();
 		$tmpcnt++;
 		 	 	 	 	
@@ -105,45 +66,6 @@ $w=array(15,30,25, 20, 25,30); //,15 ,15,15, 15); //header cell size
 	
 }// end of function
 
-function ks_fillcell($w,$h=0,$txt,$border=0,$ln=0,$align='',$fill=0,$link=''){
-	
-	if($txt=="F"){// || $txt)
-		$this->SetFillColor(0,200,200);
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}
-	
-	elseif($txt=="E"||$txt=="D-"||$txt=="D"||$txt=="D+"||$txt=="C-"){// || $txt)
-		$this->SetFillColor(255,185,255);
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}/*
-	elseif($txt=="F"){// || $txt)
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}*/
-	else{
-		$this->Cell($w,$h,$txt,$border,$ln,$align,faLse,$link);
-	}
-}
-
-function ks_fillGPA($w,$h=0,$txt,$border=0,$ln=0,$align='',$fill=0,$link=''){
-	
-	if($txt<2.0){
-		$this->SetFillColor(0,100,100);
-		$this->SetFillColor(255,100,100);
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}
-	/*
-	elseif($txt=="F"){// || $txt)
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}
-	elseif($txt=="F"){// || $txt)
-		$this->Cell($w,$h,$txt,$border,$ln,$align,truE,$link);
-	}*/
-	else{
-		$this->Cell($w,$h,$txt,$border,$ln,$align,faLse,$link);
-	}
-}
-
-//Better table
 }//end of the class
 
 
