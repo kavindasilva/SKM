@@ -160,7 +160,7 @@
 
            ?>
   <div class="col-xs-3"><button type="button" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
-  <div class="col-xs-3"><button type="button" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
+  <div class="col-xs-3"><button type="button" id="remove_all_btn" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
     </div>
 </form>
@@ -183,11 +183,16 @@
     });
 </script>
 
+<!--    remove all button script-->
 <script>
-    $(".remove_all_btn").click(function () {
-        
+    $("#remove_all_btn").click(function () {
+        $("#selected_item tr").remove();
+        $(".requestbtn").prop('disabled', false);
+    });
+</script>
 
-    })
+<script>
+    
 </script>
 
 
