@@ -49,9 +49,25 @@
 	?>
       		 </select>
 		 </div>
+		 <div class="col-md-5">
+		 	<strong class="col-xs-6 col-md-4" >Salers Order No </strong>
+		 	<input id="sordnodisplay" disabled value="
+		 	
+		 	<?php
+				$query2="SELECT MAX(sord_no) AS maxsno FROM sales_order";
+				$result=mysqli_query($conn,$query2);
+				$sordno=0;									  
+				if($obj=mysqli_fetch_object($result)){
+				$sordno=$obj->maxsno;
+				$sordno++;	
+				}
+				echo($sordno);
+													  
+													  ?>">
+		 </div>
 		 
 	   <!-- display date-->
-		<div class="col-xs-2 control-label pull-right" style="margin-left: 10px;"><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" ><label>Date : </label><label id="date"></label></div>
 	 </div>
 	  <script>
 		  n =  new Date();
@@ -148,6 +164,6 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js?2"></script>
+<script src="../../js/formcontrol.js?5"></script>
 </body>
 </html>

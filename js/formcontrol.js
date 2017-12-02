@@ -100,6 +100,7 @@ function placeorder(){
 	
 		var tot=document.getElementById('subtotal').textContent;
 		var shopname=document.getElementById('shopname').value;
+		var sordno=$("#sordnodisplay").val();
 		
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
 	
@@ -114,7 +115,7 @@ function placeorder(){
 	  $.ajax({
 		  type:"post",
 		  url:"controler/cusordercontroler.php",
-		  data:({total:tot,shopname:shopname,comname:shopname}),
+		  data:({total:tot,shopname:shopname,comname:shopname,sordno:sordno}),
 		  success:function(data){
 			
 		
@@ -130,13 +131,14 @@ function placeorder(){
 			$.ajax({
 				  type:"post",
 				  url:"controler/cusorderitemcontroler.php",
-				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status}),
+				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status,sordno:sordno}),
 				  success:function(data){
-					 document.getElementById('message').innerHTML="Your order successfully placed"
+					   document.getElementById('message').innerHTML="Your order successfully placed"
 					   $('#modal-success').modal('show');
 					   $(".table-bordered  .removable").remove();
 					   document.getElementById("shopname").selectedIndex =0;
 					   validate.sum=0;
+					   $("#sordnodisplay").val(parseInt($("#sordnodisplay").val())+1);
 					   updatedata();
 			 
 		  							}
