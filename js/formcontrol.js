@@ -28,7 +28,7 @@ function validate(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
+				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td><a href=\"#\" onclick=\"showmodal();\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 							validate.sum+=data*q;
 							updatedata();
 							document.getElementById('brand').selectedIndex=0;
@@ -45,6 +45,14 @@ function validate(){
 			
 		}
 	}
+// this is not working check
+$('#orderitems tbody tr td a i').click(function(){
+	alert("fdf");
+});
+function showmodal(){
+	$('#newquantity').val("");
+	$('#updatequantitymodal').modal('show');
+}
 function prceedanyway(){
 		x=document.getElementById('brand').value;
 		y=document.getElementById('country').value;

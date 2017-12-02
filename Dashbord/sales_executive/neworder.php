@@ -11,7 +11,25 @@
 <?php include '../../assets/missingfield.php'?>
 <?php include '../../assets/outofstock.php'?>
 <?php include '../../assets/noowner.php'?>
-<?php include '../../assets/success.php'?>           
+<?php include '../../assets/success.php'?>    
+   <!-- Update quantity Modal -->
+  <div class="modal fade modal-warning" id="updatequantitymodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          
+			<h4>Enter your new quantity</h4><input value="" id="newquantity" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">Cancle</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="selectorder();">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>       
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
@@ -96,7 +114,7 @@
                   <th>Quantity</th>
                   <th>Total Amount</th>
                    <th>Status</th>
-				  <th><a href="#" data-toggle="tooltip" data-placement="top" title="Remove all items"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a></th>
+				  <th><a href="#" data-toggle="tooltip" data-placement="top" title="Remove all items" onClick="removeall();"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a></th>
                 </tr>
                 </thead>
                 <tbody>                 
