@@ -444,12 +444,13 @@ $('.viewitems').click(function(){
 				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
 				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
 				discount=rowarray[i].getElementsByTagName('td')[8].firstChild.value;
-				
+				qty=rowarray[i].getElementsByTagName('td')[5].innerHTML;
 			$.ajax({
 				type:"post",
 				url:"model/invoiceitem.php",
-				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno}),
+				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno,sordno:sordno,qty:qty}),
 				success:function(data){
+					
 					 document.getElementById('message').innerHTML="Invoice success";
 					   $('#modal-success').modal('show');
 				}

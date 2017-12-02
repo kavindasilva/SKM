@@ -1,3 +1,6 @@
+//bootstrap tool tip
+$('[data-toggle="tooltip"]').tooltip();   
+
 function validate(){
 		x=document.getElementById('brand').value;
 		y=document.getElementById('country').value;
@@ -25,7 +28,7 @@ function validate(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td></tr>");
+				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 							validate.sum+=data*q;
 							updatedata();
 							document.getElementById('brand').selectedIndex=0;
