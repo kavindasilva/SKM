@@ -6,7 +6,7 @@ function validate(){
 		y=document.getElementById('country').value;
 		z=document.getElementById('tiresize').value;
 		q=document.getElementById('quantity').value;
-		if(x=="" ||y==""||z==""||q=="")
+		if(x=="" || y=="" || z=="" || q=="")
 			{
 				$('#missingfieldmodal').modal('show');
 				 
@@ -134,11 +134,11 @@ function placeorder(){
 	  });
 			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 			for(var i=0;i<rows;i++){
-				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
-				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
-				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
-				qty=rowarray[i].getElementsByTagName('td')[5].innerHTML;
-				status=rowarray[i].getElementsByTagName('td')[7].innerHTML;
+				brand=rowarray[i].getElementsByTagName('td')[0].innerHTML;
+				country=rowarray[i].getElementsByTagName('td')[1].innerHTML;
+				tiresize=rowarray[i].getElementsByTagName('td')[2].innerHTML;
+				qty=rowarray[i].getElementsByTagName('td')[4].innerHTML;
+				status=rowarray[i].getElementsByTagName('td')[6].innerHTML;
 			$.ajax({
 				  type:"post",
 				  url:"controler/cusorderitemcontroler.php",

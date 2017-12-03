@@ -176,7 +176,7 @@
               <table id="orderitems2" class=" table table-bordered table-hover table-responsive">
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
+                 <th><input type=checkbox id="addall" data-toggle="tooltip" data-placement="top" title="Select all"></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -198,13 +198,9 @@
 	  <div class=" col-xs-12 col-md-2">
 			
 			 <div class=" col-md-12" style="margin-top: 17px;">
-			 <button type="button" class="btn btn-md btn-sm btn-primary" id="additems" onClick="additemstoinv();" style="width: 150px;" data-toggle="tooltip" data-placement="top" title="Add to invoce">Add Selected Items</button></div></br></br>
-			 
-	 
-	<div class="col-md-12" style="margin-top: 17px;"><button type="button" class="btn  btn-sm btn-warning" style="width: 150px">Remove Selected Items</button></div>
+			 <button type="button" class="btn btn-md btn-sm btn-success" id="additems" onClick="additemstoinv();" style="width: 150px;" data-toggle="tooltip" data-placement="top" title="Add to invoce">Add Selected Items</button></div></br></br>
 
-		
-		</div>
+	  </div>
 	  
 			</form>
 	  </section>
@@ -236,7 +232,7 @@
               <table id="invoiceitems" class="table-bordered table table-hover" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
+                 <th><input type="checkbox" id="removeall" data-toggle="tooltip" data-placement="top" title="Select all"></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -299,7 +295,8 @@
             	
             	<div class="pull-right" >
             		<button class="btn btn-primary" id="printinvoice">Print Invoice</button>
-            		<button class="btn btn-warning" id="resetinvoice">Reset Invoice</button>
+            		<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Remove selected items from invoice" id="removeselected">Remove Selected</button>
+            		<button class="btn btn-danger" id="resetinvoice">Reset Invoice</button>
             	</div></div>
             	<div class="col-md-4">
             		<textarea cols="60" rows="7" id="invoicenote"></textarea>
@@ -311,7 +308,7 @@
 	  </div>
 	  </div>
 	  </div>
-			</form>
+		
 	  </section>
   <!-- /.content-wrapper -->
   <!-- Control Sidebar -->
@@ -384,12 +381,13 @@ $('.viewitems').click(function(){
 				netamount+=parseInt(rows[i].childNodes[6].innerHTML);
 				rows[i].style.backgroundColor="#cdffc9";
 				
-				$('#invoiceitembody').append("<tr>"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
+				$('#invoiceitembody').append("<tr>"+rows[i].innerHTML.substr()+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
 				update();
 			}
 		}
 		
 	}
+	//updating the discount and net amount
 	function a(element){
 		prevdiscount=(parseInt(element.parentElement.parentElement.childNodes[6].innerHTML))-(parseInt(element.parentElement.parentElement.childNodes[9].innerHTML));
 		var discountedprice=(parseInt(element.parentElement.parentElement.childNodes[6].innerHTML))*((100-(element.value))/100);
@@ -467,8 +465,46 @@ $('.viewitems').click(function(){
 		
 		
 	});
-
-	
+	function removeallfrominvoice(){
+		$('#invoiceitems tbody tr').remove();
+	}
+	$('#removeselected').click(function(){
+		var rowarray = document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+		var rows=rowarray.length;
+		
+		for(var i=0;i<rows;i++){
+			var row=document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[i];
+			if(row.getElementsByTagName('td')[0].firstChild.checked){
+				subtot=subtot-parseInt(row.getElementsByTagName('td')[6].innerHTML);
+				netamount=netamount-parseInt(row.getElementsByTagName('td')[9].innerHTML);
+				row.remove();
+				i--;
+				rows--;
+				update();
+			}
+			
+		}
+		
+	});
+	$('#resetinvoice').click(function(){
+		$('#content-wrapper').load('newinvoice.php');
+	})
+	$('#addall').change(function(){
+		if(this.checked){
+			$('#orderitembody tr td input').prop("checked", true);
+		}
+		else{
+			$('#orderitembody tr td input').prop("checked", false);
+		}
+	});
+	$('#removeall').change(function(){
+		if(this.checked){
+			$('#invoiceitembody tr td input').prop("checked", true);
+		}
+		else{
+			$('#invoiceitembody tr td input').prop("checked", false);
+		}
+	});
 	
 		  n =  new Date();
 		  y = n.getFullYear();
@@ -476,4 +512,5 @@ $('.viewitems').click(function(){
 		  d = n.getDate();
 		  document.getElementById("invoicedatelable").value = y + "/" + m + "/" + d;
 		</script>
+	
 </html>

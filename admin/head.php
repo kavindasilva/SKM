@@ -45,7 +45,8 @@ require_once "../php/dbcon.php";
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../css/mystyle.css">
-  
+  <!-- tab icon-->
+	<link rel="icon" href="../images/skmlogo.jpg">	
   <!--admin panel speacial effects-->
   <style>
 	.panel-body .btn{
