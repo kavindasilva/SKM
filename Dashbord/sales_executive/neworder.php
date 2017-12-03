@@ -25,7 +25,7 @@
         </div>
         <div class="modal-footer">
           <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">Cancle</button>
-          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="selectorder();">Update</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="updatequan();">Update</button>
         </div>
       </div>
     </div>

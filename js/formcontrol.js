@@ -320,17 +320,58 @@ $('#tablebody table tbody tr td :last-child').click(function(){
 	
 	$('#orderdetailsmodal').modal('show');
 });
+//filter orders by name and date range 
 $('#searchord').click(function(){
 
 	var dcname=document.getElementById('shopname').value;
 	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	var dateFrom = $('#fromdate').val();
+	var dateTo = $('#todate').val();
+	$('#foundorders tbody tr').show();
 	
-	for(var i=0;i<tbody1.length;i++){
-		alert(tbody1[i].getElementsByTagName('td'));
-		/*if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+	if(dateFrom!=""){
+		var d1 = dateFrom.split("/");
+		
+		var from = new Date(d1[2], parseInt(d1[0])-1, d1[1]);  // -1 because months are from 0 to 1
+		
+		for(var i=0;i<tbody1.length;i++){
+		var dateCheck = tbody1[i].getElementsByTagName('td')[2].innerHTML;
+	    dateCheck = dateCheck.trim();	
+		var c = dateCheck.split("-");
+		var check = new Date(c[0], parseInt(c[1])-1, c[2]);
+		if(check >= from){
 			continue;
 		}
-		tbody1[i].style.display = "none";*/
+		tbody1[i].style.display = "none";
 	}
+
+	}
+	if(dateTo!=""){
+		var d2 = dateTo.split("/");
+		
+		var to = new Date(d2[2], parseInt(d2[0])-1, d2[1]);  // -1 because months are from 0 to 1
+		
+		for(var i=0;i<tbody1.length;i++){
+		var dateCheck = tbody1[i].getElementsByTagName('td')[2].innerHTML;
+		var c = dateCheck.split("-");
+		var check = new Date(c[0], parseInt(c[1])-1, c[2]);
+
+		if(check <= to){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+
+	}
+	if(dcname!=""){
+	for(var i=0;i<tbody1.length;i++){
+		
+		if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+	}
+	
 	
 });

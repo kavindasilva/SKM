@@ -73,7 +73,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="fromdate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 </div>
@@ -86,7 +86,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="todate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 	</div>	 	 
@@ -114,7 +114,7 @@
                  </tr>
                 </thead>
                 <tbody>
-                <tr>
+              
                   <?php
 					$query="SELECT * FROM sales_order";
 					$result=mysqli_query($conn,$query);
@@ -136,7 +136,7 @@
 					}
 					
 					?>
-                </tr>
+               
                 </tbody>               
               </table>
 			 </div>

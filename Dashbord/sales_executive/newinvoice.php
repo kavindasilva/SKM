@@ -89,7 +89,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="fromdate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 </div>
@@ -102,7 +102,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="todate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 	</div>	 	 
@@ -130,7 +130,7 @@
                  </tr>
                 </thead>
                 <tbody>
-                <tr>
+               
                   <?php
 					$query="SELECT * FROM sales_order where status='incomplete';";
 					$result=mysqli_query($conn,$query);
@@ -148,11 +148,11 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\">Select Order</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
 					}
 					
 					?>
-                </tr>
+           
                 </tbody>               
               </table>
 			 </div>
@@ -198,7 +198,7 @@
 	  <div class=" col-xs-12 col-md-2">
 			
 			 <div class=" col-md-12" style="margin-top: 17px;">
-			 <button type="button" class="btn btn-md btn-sm btn-primary" id="additems" onClick="additemstoinv();" style="width: 150px;">Add Selected Items</button></div></br></br>
+			 <button type="button" class="btn btn-md btn-sm btn-primary" id="additems" onClick="additemstoinv();" style="width: 150px;" data-toggle="tooltip" data-placement="top" title="Add to invoce">Add Selected Items</button></div></br></br>
 			 
 	 
 	<div class="col-md-12" style="margin-top: 17px;"><button type="button" class="btn  btn-sm btn-warning" style="width: 150px">Remove Selected Items</button></div>
@@ -318,7 +318,7 @@
 </div>
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
-<script src="../../js/formcontrol.js?4"></script> 
+<script src="../../js/formcontrol.js?7"></script> 
 <script src="../../js/bootstrap-datepicker.js"></script>
 <script>
 	var subtot=0;
@@ -467,8 +467,9 @@ $('.viewitems').click(function(){
 		
 		
 	});
-</script>
- <script>
+
+	
+	
 		  n =  new Date();
 		  y = n.getFullYear();
 		  m = n.getMonth() + 1;
