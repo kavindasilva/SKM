@@ -159,7 +159,7 @@
            <?php
 
            ?>
-  <div class="col-xs-3"><button type="button" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
+  <div class="col-xs-3"><button type="button" id="selected_remove_btn" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
   <div class="col-xs-3"><button type="button" id="remove_all_btn" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
     </div>
@@ -179,7 +179,7 @@
         var country= this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
         var size= this.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
         this.disabled=true;
-   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
+   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
     });
 </script>
 
@@ -191,13 +191,17 @@
     });
 </script>
 
+<!--    remove selected button script-->
 <script>
-    
+    $("#selected_remove_btn").click(function () {
+        var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        for(i=1;i<x;i++){
+            if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
+                document.getElementById("Requisition_itm_tbl").deleteRow(i);
+            }
+        }
+    });
 </script>
-
-
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
-
-
 </html>
