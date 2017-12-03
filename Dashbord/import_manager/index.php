@@ -19,6 +19,8 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../../css/mystyle.css">
+    <!-- tab icon-->
+	<link rel="icon" href="../../images/skmlogo.jpg">	
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>

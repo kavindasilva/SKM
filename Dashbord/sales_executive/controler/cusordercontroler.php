@@ -4,7 +4,7 @@ $date=date("Y-m-d");
 $shopname=$_POST['shopname'];
 $comname=$_POST['comname'];
 $tot=$_POST['total'];
-
+$sordno=$_POST['sordno'];
 $query1="select d_id from dealer where shop_name='$shopname'";
 $result=mysqli_query($conn,$query1);	
 if (!($result)) 
@@ -34,7 +34,7 @@ else{
 }
 
 
-$query="INSERT INTO sales_order VALUES(null,$tot,'incomplete','$date',$did,$cid);";
+$query="INSERT INTO sales_order VALUES($sordno,$tot,'incomplete','$date',$did,$cid);";
 
 		if (mysqli_query( $GLOBALS['conn'], $query)) {
 			

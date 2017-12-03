@@ -68,7 +68,7 @@ switch ($newUserType) { //checks the user type to be inserted
 
 
 function customer($comp, $tel, $un) {
-	$sqlq="insert into regular_customer values(null, '$comp', $tel, '$un');";
+	$sqlq="insert into customer values(null, '$comp', $tel, '$un');";
 	$res = mysqli_query($GLOBALS['conn'], $sqlq);
 	if(!$res){
 		echo "error inserting the customer";

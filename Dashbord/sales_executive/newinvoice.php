@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
-
+<!-- confirm Modal -->
+  <div class="modal fade modal-warning" id="confirmModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Current invoice is not complete</h4>
+        </div>
+        <div class="modal-body">
+          
+			<h4>Are you sure you want to select another order?</h4>
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">No</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="selectorder();">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <head>
    <?php require_once('../../php/dbcon.php');
    include('../../assets/noinvoiceitem.php');
@@ -12,6 +30,7 @@
   <!--toggal button-->
   <link rel="stylesheet" href="../../assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
   <link rel="stylesheet" href="../../css/datepicker3.css">
+  <?php include '../../assets/success.php'?> 
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -40,7 +59,7 @@
        <?php
 	$query="select shop_name from dealer";
 	$result=mysqli_query($conn,$query);
-	while($row=mysqli_fetch_array($result)){
+		while($row=mysqli_fetch_array($result)){
 		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
 	}
 	$query="select company_name from customer";
@@ -52,14 +71,7 @@
 	?>
       		 </select>
 		 </div><br><br><br>
-		 <!-- these toggal buttons are used to show completed orders and pending orders-->		 
-		
-		 <strong style="margin-right: 10px;">
-  			Show Completed Orders
-		</strong><input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
-		<strong  style="margin-right: 10px; margin-left: 36px;" >
-  			Show Pending Orders
-		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success"><br><br>
+	
 	  
 		 <!-- by clicking on this button orders will show accroding to filters-->
 		 <button class="col-xs-6 col-md-3 btn btn-primary" id="searchord" type="button"><i class="fa fa-search" aria-hidden="true"></i>
@@ -107,7 +119,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <table class=" table col-md-10 table-bordered table-hover" id="foundorders" >
+            <table class=" table col-md-10 table-bordered table-hover table-responsive" id="foundorders" >
                 <thead>
                 <tr>
                   <th>SOrdNo</th>
@@ -120,7 +132,7 @@
                 <tbody>
                 <tr>
                   <?php
-					$query="SELECT * FROM sales_order";
+					$query="SELECT * FROM sales_order where status='incomplete';";
 					$result=mysqli_query($conn,$query);
 					while($row=mysqli_fetch_array($result)){
 						if($row['dealer_d_id']==null){
@@ -161,7 +173,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="orderitems2" class=" table table-bordered table-hover">
+              <table id="orderitems2" class=" table table-bordered table-hover table-responsive">
                 <thead>
                 <tr>
                  <th><input type=checkbox></th>
@@ -312,6 +324,9 @@
 	var subtot=0;
 	var netamount=0;
 	var prevdiscount=0;
+	var gsno=0;
+	var gdcname="";
+	var gorderdate="";
   $(function () {
     //Date picker
     $('.datepicker').datepicker({
@@ -319,22 +334,39 @@
     });
   });
 $('.viewitems').click(function(){
-	var sno=this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
-	$('#sordnolable').val(sno);
-	$('#orddatelable').val(this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML);
-	$('#dcnamelable').val(this.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML);
+	gsno=this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+	gorderdate=this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
+	gdcname=this.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
+	var numrows=document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
+	if(numrows!=0){
+	$("#confirmModal").modal('show');
+	}
+	else{
+		selectorder();
+	}
 	
-	$("#orderitems .removable").remove();
-	
+})	;
+	function selectorder(){
+	$('#sordnolable').val(gsno);
+	$('#orddatelable').val(gorderdate);
+	$('#dcnamelable').val(gdcname);
+	$("#invoiceitembody tr").remove();
+	$(".removable").remove();
+	subtot=0;
+	netamount=0;
+	prevdiscount=0;
+	update();
 	$.ajax({
 		type:'post',
 		url:"model/loadorderitem.php",
-		data:{sno:sno},
+		data:{sno:gsno},
 		success:function(data){
 			$('#orderitembody').append(data);
 		}
-	});
-})	;
+	});	
+		
+	}
+
 	function update(){
 		
 		$('#subtotal').html(subtot);
@@ -412,17 +444,24 @@ $('.viewitems').click(function(){
 				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
 				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
 				discount=rowarray[i].getElementsByTagName('td')[8].firstChild.value;
-				
+				qty=rowarray[i].getElementsByTagName('td')[5].innerHTML;
 			$.ajax({
 				type:"post",
 				url:"model/invoiceitem.php",
-				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno}),
+				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno,sordno:sordno,qty:qty}),
 				success:function(data){
-					alert(data);
+					
+					 document.getElementById('message').innerHTML="Invoice success";
+					   $('#modal-success').modal('show');
 				}
 			});
 			}
-			
+			$('#invoicenolable').val(parseInt($('#invoicenolable').val())+1);
+			$('#sordnolable').val("");
+			$('#orddatelable').val("");
+			$('#dcnamelable').val("");
+			$("#invoiceitembody tr").remove();
+			$(".removable").remove();
 			
 		}
 		

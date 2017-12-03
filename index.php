@@ -23,7 +23,9 @@ include_once "php/tireDetails.php";
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>	
 	<script src="js/tableFilter.js"></script>	
-	<link rel="stylesheet" href="fonts/font-awesome.min.css">		
+	<link rel="stylesheet" href="fonts/font-awesome.min.css">	
+	<!-- tab icon-->
+	<link rel="icon" href="images/skmlogo.jpg">	
   </head>	
   
   <div class="modal fade" id="loginModal">
