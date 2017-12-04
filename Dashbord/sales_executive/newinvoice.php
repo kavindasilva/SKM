@@ -89,7 +89,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="fromdate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 </div>
@@ -102,7 +102,7 @@
 					 <div class="input-group-addon">
 					   <i class="fa fa-calendar"></i>
 					 </div>
-					   <input type="text" class="form-control pull-right datepicker"   placeholder="MM/DD/YYYY" >
+					   <input type="text" class="form-control pull-right datepicker" id="todate"  placeholder="MM/DD/YYYY" >
 				</div>
 			</div>
 		 	</div>	 	 
@@ -130,7 +130,7 @@
                  </tr>
                 </thead>
                 <tbody>
-                <tr>
+               
                   <?php
 					$query="SELECT * FROM sales_order where status='incomplete';";
 					$result=mysqli_query($conn,$query);
@@ -148,11 +148,11 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\">Select Order</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
 					}
 					
 					?>
-                </tr>
+           
                 </tbody>               
               </table>
 			 </div>
@@ -176,7 +176,7 @@
               <table id="orderitems2" class=" table table-bordered table-hover table-responsive">
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
+                 <th><input type=checkbox id="addall" data-toggle="tooltip" data-placement="top" title="Select all"></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -198,13 +198,9 @@
 	  <div class=" col-xs-12 col-md-2">
 			
 			 <div class=" col-md-12" style="margin-top: 17px;">
-			 <button type="button" class="btn btn-md btn-sm btn-primary" id="additems" onClick="additemstoinv();" style="width: 150px;">Add Selected Items</button></div></br></br>
-			 
-	 
-	<div class="col-md-12" style="margin-top: 17px;"><button type="button" class="btn  btn-sm btn-warning" style="width: 150px">Remove Selected Items</button></div>
+			 <button type="button" class="btn btn-md btn-sm btn-success" id="additems" onClick="additemstoinv();" style="width: 150px;" data-toggle="tooltip" data-placement="top" title="Add to invoce">Add Selected Items</button></div></br></br>
 
-		
-		</div>
+	  </div>
 	  
 			</form>
 	  </section>
@@ -236,7 +232,7 @@
               <table id="invoiceitems" class="table-bordered table table-hover" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
+                 <th><input type="checkbox" id="removeall" data-toggle="tooltip" data-placement="top" title="Select all"></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -299,7 +295,8 @@
             	
             	<div class="pull-right" >
             		<button class="btn btn-primary" id="printinvoice">Print Invoice</button>
-            		<button class="btn btn-warning" id="resetinvoice">Reset Invoice</button>
+            		<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Remove selected items from invoice" id="removeselected">Remove Selected</button>
+            		<button class="btn btn-danger" id="resetinvoice">Reset Invoice</button>
             	</div></div>
             	<div class="col-md-4">
             		<textarea cols="60" rows="7" id="invoicenote"></textarea>
@@ -311,14 +308,14 @@
 	  </div>
 	  </div>
 	  </div>
-			</form>
+		
 	  </section>
   <!-- /.content-wrapper -->
   <!-- Control Sidebar -->
 </div>
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
-<script src="../../js/formcontrol.js?4"></script> 
+<script src="../../js/formcontrol.js?7"></script> 
 <script src="../../js/bootstrap-datepicker.js"></script>
 <script>
 	var subtot=0;
@@ -378,18 +375,19 @@ $('.viewitems').click(function(){
 		var rows = document.getElementById('orderitems2').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 		
 		for(var i=0;i<rows.length;i++){
-			if(rows[i].firstChild.firstChild.checked==true){
+			if(rows[i].firstChild.firstChild.checked==true && rows[i].firstChild.firstChild.disabled==false){
 				subtot+=parseInt(rows[i].childNodes[6].innerHTML);
-				rows[i].style.backgroundColor="#cdffc9";
 				netamount+=parseInt(rows[i].childNodes[6].innerHTML);
-				rows[i].style.backgroundColor="#cdffc9";
-				
-				$('#invoiceitembody').append("<tr>"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
+				rows[i].classList.add("bg-success");
+				id=rows[i].getAttribute('id');
+				$('#invoiceitembody').append("<tr id=\""+id+"\">"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
 				update();
+				rows[i].firstChild.firstChild.disabled=true;
 			}
 		}
 		
 	}
+	//updating the discount and net amount
 	function a(element){
 		prevdiscount=(parseInt(element.parentElement.parentElement.childNodes[6].innerHTML))-(parseInt(element.parentElement.parentElement.childNodes[9].innerHTML));
 		var discountedprice=(parseInt(element.parentElement.parentElement.childNodes[6].innerHTML))*((100-(element.value))/100);
@@ -444,12 +442,13 @@ $('.viewitems').click(function(){
 				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
 				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
 				discount=rowarray[i].getElementsByTagName('td')[8].firstChild.value;
-				
+				qty=rowarray[i].getElementsByTagName('td')[5].innerHTML;
 			$.ajax({
 				type:"post",
 				url:"model/invoiceitem.php",
-				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno}),
+				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno,sordno:sordno,qty:qty}),
 				success:function(data){
+					
 					 document.getElementById('message').innerHTML="Invoice success";
 					   $('#modal-success').modal('show');
 				}
@@ -466,12 +465,55 @@ $('.viewitems').click(function(){
 		
 		
 	});
-</script>
- <script>
+	function removeallfrominvoice(){
+		$('#invoiceitems tbody tr').remove();
+	}
+	$('#removeselected').click(function(){
+		var rowarray = document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+		var rows=rowarray.length;
+		
+		for(var i=0;i<rows;i++){
+			var row=document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[i];
+			if(row.getElementsByTagName('td')[0].firstChild.checked){
+				subtot=subtot-parseInt(row.getElementsByTagName('td')[6].innerHTML);
+				netamount=netamount-parseInt(row.getElementsByTagName('td')[9].innerHTML);
+				row.remove();
+				i--;
+				rows--;
+				update();
+				var id=row.getAttribute('id');
+				$("#"+id).removeClass("bg-success");
+				$("#"+id+" td input").attr("disabled", false);
+			}
+			
+		}
+		
+	});
+	$('#resetinvoice').click(function(){
+		$('#content-wrapper').load('newinvoice.php');
+	})
+	$('#addall').change(function(){
+		if(this.checked){
+			$('#orderitembody tr td input').prop("checked", true);
+		}
+		else{
+			$('#orderitembody tr td input').prop("checked", false);
+		}
+	});
+	$('#removeall').change(function(){
+		if(this.checked){
+			$('#invoiceitembody tr td input').prop("checked", true);
+		}
+		else{
+			$('#invoiceitembody tr td input').prop("checked", false);
+		}
+	});
+	
 		  n =  new Date();
 		  y = n.getFullYear();
 		  m = n.getMonth() + 1;
 		  d = n.getDate();
 		  document.getElementById("invoicedatelable").value = y + "/" + m + "/" + d;
 		</script>
+	
 </html>

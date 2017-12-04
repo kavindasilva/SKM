@@ -1,3 +1,7 @@
+a{
+	text-decoration: none;
+	color: inherit;
+}
 .selectitempanal{
 	background-color: #D2D2D2;
 	width:300px;
@@ -96,3 +100,6 @@
 	height: 60px;
 	background-color: #DCDCDC;
 }*/
+.fa-trash:hover,.fa-minus-circle:hover{
+	color: red;
+}

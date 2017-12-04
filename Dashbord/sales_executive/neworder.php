@@ -11,7 +11,25 @@
 <?php include '../../assets/missingfield.php'?>
 <?php include '../../assets/outofstock.php'?>
 <?php include '../../assets/noowner.php'?>
-<?php include '../../assets/success.php'?>           
+<?php include '../../assets/success.php'?>    
+   <!-- Update quantity Modal -->
+  <div class="modal fade modal-warning" id="updatequantitymodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          
+			<h4>Enter your new quantity</h4><input value="" id="newquantity" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">Cancle</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="updatequan();">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>       
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
@@ -89,14 +107,14 @@
               <table id="orderitems" class="table-bordered table-hover" width="700" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
                   <th>Unit Price(Rs.)</th>
                   <th>Quantity</th>
                   <th>Total Amount</th>
-                  <th>Status</th>
+                   <th>Status</th>
+				  <th><a href="#" data-toggle="tooltip" data-placement="top" title="Remove all items" onClick="removeall();"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a></th>
                 </tr>
                 </thead>
                 <tbody>                 
@@ -109,14 +127,9 @@
             		<strong class="pull-right" style="margin-right:5px; margin-top: 5px;">Sub Total</strong>
 				</div>
 				</div>
-           		
-			
-            	<div class="col-md-3 ">
-            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
-            	</div>
 			
             	<div class="col-md-3">
-            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" >Place Order</button>
+            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" data-toggle="tooltip" data-placement="top" title="Complete the order" >Place Order</button>
             	</div>
 			
             	</div>
@@ -158,7 +171,7 @@
  	 <div class="col-xs-6">
  	<input id="quantity" type="text" placeholder="Quantity" required="" class="form-control input-md">
       </select></div></div></br>
-<button type="button" class="btn btn-success" style="width: 70px" onClick="validate();">Add</button>
+<button type="button" class="btn btn-success" style="width: 70px" onClick="validate();" data-toggle="tooltip" data-placement="top" title="Add item to order">Add</button>
 </br></br>
  </div>
  </form>

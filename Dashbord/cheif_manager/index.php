@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
 	<meta charset="utf-8">
@@ -50,6 +51,49 @@ include_once '../../php/dbcon2.php';
   <header class="main-header">
     <!-- Logo -->
     <a href="../../index.php" class="logo">
+=======
+<?php
+session_start();
+require_once('../../php/dbcon.php');
+$query="SELECT * FROM quotation WHERE status='notreplied';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$_SESSION['notificationcount']=mysqli_num_rows($result);
+}
+?>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SKMM| Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../icon/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../css/mystyle.css">
+  <!-- tab icon-->
+	<link rel="icon" href="../../images/skmlogo.jpg">	
+    <!-- Google Font -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header" id="mainhead">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="../../images/skmlogo.jpg" style="height:50px;" alt="User Image"></span>
       <!-- logo for regular state and mobile devices -->
@@ -65,6 +109,7 @@ include_once '../../php/dbcon2.php';
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
                         
@@ -73,12 +118,55 @@ include_once '../../php/dbcon2.php';
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             
+=======
+          
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+             <?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				  ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                 <?php
+				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+					$resultinside=mysqli_query($conn,$query2);
+					$rowinside=mysqli_fetch_array($resultinside);
+				echo("
+                  <li>
+                    <a href=\"#\">
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
+                    </a>
+                  </li>");
+					  
+				}
+                 ?>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
           </li>
              <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
+<<<<<<< HEAD
               <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
+=======
+              <span class="hidden-xs"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></span>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -86,23 +174,37 @@ include_once '../../php/dbcon2.php';
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
+<<<<<<< HEAD
                   Honorable chief manager
+=======
+                  Sales-Executive
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
          
                      <!-- Menu Footer-->
               <li class="user-footer">
+<<<<<<< HEAD
                 <!--div class="pull-left">
                   <a href="settings.php" class="btn btn-default btn-flat">Profile</a>
                 </div-->
+=======
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
 				 
                 <div class="pull-right">
                   <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
+<<<<<<< HEAD
                   <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+=======
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
                 </div>
               </li>
             </ul>
@@ -116,8 +218,12 @@ include_once '../../php/dbcon2.php';
 
     </nav>
   </header>
+<<<<<<< HEAD
   
     <!-- Left side column. contains the logo and sidebar -->
+=======
+  <!-- Left side column. contains the logo and sidebar -->
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -127,7 +233,13 @@ include_once '../../php/dbcon2.php';
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
+<<<<<<< HEAD
           <p><?php echo $_SESSION['user']; ?></p>
+=======
+          <p><?php
+				  echo $_SESSION['currentuser'];
+				  ?></p>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -144,6 +256,7 @@ include_once '../../php/dbcon2.php';
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
+<<<<<<< HEAD
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
@@ -188,21 +301,57 @@ include_once '../../php/dbcon2.php';
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Profile</span>
+=======
+      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li  id="dd" class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+       
+        <li class="treeview">
+         	<a href="#">
+            	<i class="fa fa-edit"></i> <span>Manage Dealers</span>
+            	<span class="pull-right-container">
+              	<i class="fa fa-angle-left pull-right"></i>
+           	 	</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Manage Outstandings</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Delete Dealer</a></li>
+           </ul>
+        </li>
+  
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Reports</span>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+<<<<<<< HEAD
             <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
             <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
     
                 
+=======
+            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                </li>
+           
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
+<<<<<<< HEAD
   
   
   
@@ -228,6 +377,13 @@ include_once '../../php/dbcon2.php';
     </section>
 
     <!-- Main content -->
+=======
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" id="content-wrapper" >
+    
+    <!-- content will be loaded here -->
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
     
   </div>
   <!-- /.content-wrapper -->
@@ -254,7 +410,10 @@ include_once '../../php/dbcon2.php';
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
 </div>
 
 <!-- jQuery 3.1.1 -->
@@ -267,6 +426,7 @@ include_once '../../php/dbcon2.php';
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
+<<<<<<< HEAD
 
 </body>
 </html>
@@ -313,3 +473,11 @@ function viewAll2(){
 }
 
 ?>
+=======
+<script src="../../js/navigation_controler.js?v=3"></script>
+
+</body>
+
+
+</html>
+>>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
