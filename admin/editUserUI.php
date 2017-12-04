@@ -39,7 +39,7 @@ function editDealerUI($id, $un){ //user id, user_name
 }
 
 function editCusUI($id, $un){ //user id, user_name
-	$sqlq = "select u.user_name,u.email,u.address,r.tel,r.r_id from user u, regular_customer r WHERE u.user_name=r.user_user_name AND r.r_id=$id;"; //sql query, customer list
+	$sqlq = "select u.user_name,u.email,u.address,r.tel,r.r_id from user u, customer r WHERE u.user_name=r.user_user_name AND r.r_id=$id;"; //sql query, customer list
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) != 1){ //check result. unpossible to be empty. there should be only one row
@@ -123,7 +123,7 @@ if(isset($_POST['updatedealer2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Dealer details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Dealer details updated succesfully');window.location.href = 'viewAll.php?type=deal';</script>";
 	}
 }
 
@@ -138,8 +138,8 @@ if(isset($_POST['updateCus2'])){
 	$newAddr=$_POST['addr'];
 	
 	$sql1="update user set email='$newEmail', address='$newAddr' where user_name='$userName';"; //user table
-	$sql2="update regular_customer set tel='$newTel' where r_id='$Cusid';";
-	//$sql2="update regular_customer set shop_name='$newShop', tel='$newTel' where r_id='$Cusid';";
+	$sql2="update customer set tel='$newTel' where r_id='$Cusid';";
+	//$sql2="update customer set shop_name='$newShop', tel='$newTel' where r_id='$Cusid';";
 	
 	$res1=mysqli_query($GLOBALS['conn'],$sql1);
 	if(!$res1){
@@ -152,7 +152,7 @@ if(isset($_POST['updateCus2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Customer details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Customer details updated succesfully');window.location.href = 'viewAll.php?type=cus';</script>";
 	}
 }
 
@@ -180,7 +180,7 @@ if(isset($_POST['updatesup2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Supplier details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Supplier details updated succesfully');window.location.href = 'viewAll.php?type=sup';</script>";
 	}
 }
 

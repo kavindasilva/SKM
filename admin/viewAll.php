@@ -161,7 +161,7 @@ function viewDealer(){
 }
 
 function viewCus(){
-	$sqlq = "select u.user_name,u.email,u.address,r.tel,r.r_id from user u, regular_customer r WHERE u.user_name=r.user_user_name ;"; //sql query, customer list
+	$sqlq = "select u.user_name,u.email,u.address,r.tel,r.r_id from user u, customer r WHERE u.user_name=r.user_user_name ;"; //sql query, customer list
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
 	if (mysqli_num_rows($res) == 0) //check result
