@@ -2,6 +2,7 @@
 
 /**
 this file contains:
+ change mgr UI
  dealer, customer, supplier edit UI
  dealer, customer, supplier delete sql
  dealer, customer, supplier password reset sql

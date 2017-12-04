@@ -123,7 +123,7 @@ if(isset($_POST['updatedealer2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Dealer details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Dealer details updated succesfully');window.location.href = 'viewAll.php?type=deal';</script>";
 	}
 }
 
@@ -152,7 +152,7 @@ if(isset($_POST['updateCus2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Customer details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Customer details updated succesfully');window.location.href = 'viewAll.php?type=cus';</script>";
 	}
 }
 
@@ -180,7 +180,7 @@ if(isset($_POST['updatesup2'])){
 		return;
 	}
 	else{
-		echo "<script>alert('Supplier details updated succesfully');window.location.href = 'viewAll.php';</script>";
+		echo "<script>alert('Supplier details updated succesfully');window.location.href = 'viewAll.php?type=sup';</script>";
 	}
 }
 

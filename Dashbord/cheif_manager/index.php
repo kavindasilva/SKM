@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html>
 <head>
 	<meta charset="utf-8">
@@ -51,15 +50,12 @@ include_once '../../php/dbcon2.php';
   <header class="main-header">
     <!-- Logo -->
     <a href="../../index.php" class="logo">
-=======
+
 <?php
 session_start();
 require_once('../../php/dbcon.php');
-$query="SELECT * FROM quotation WHERE status='notreplied';";
-$result=mysqli_query($conn,$query);	
-if($result){
-$_SESSION['notificationcount']=mysqli_num_rows($result);
-}
+
+
 ?>
 <html>
 <head>
@@ -93,7 +89,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 
     <!-- Logo -->
     <a href="index2.html" class="logo">
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="../../images/skmlogo.jpg" style="height:50px;" alt="User Image"></span>
       <!-- logo for regular state and mobile devices -->
@@ -109,7 +105,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-<<<<<<< HEAD
+
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
                         
@@ -118,7 +114,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             
-=======
+
           
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
@@ -126,12 +122,12 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               <i class="fa fa-bell-o"></i>
              <?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+					   //echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have <?php
-					   echo $_SESSION['notificationcount'];
+					  // echo $_SESSION['notificationcount'];
  				?>   notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
@@ -154,19 +150,19 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               </li>
               <li class="footer"><a href="#">View all</a></li>
             </ul>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
           </li>
              <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-<<<<<<< HEAD
+
               <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
-=======
+
               <span class="hidden-xs"><?php
 				  echo $_SESSION['currentuser'];
 				  ?></span>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -174,37 +170,34 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-<<<<<<< HEAD
+
                   Honorable chief manager
-=======
-                  Sales-Executive
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
          
                      <!-- Menu Footer-->
               <li class="user-footer">
-<<<<<<< HEAD
+
                 <!--div class="pull-left">
                   <a href="settings.php" class="btn btn-default btn-flat">Profile</a>
                 </div-->
-=======
+
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
 				 
                 <div class="pull-right">
                   <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
-<<<<<<< HEAD
+
                   <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
-=======
+
                   <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
                 </div>
               </li>
             </ul>
@@ -221,9 +214,9 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 <<<<<<< HEAD
   
     <!-- Left side column. contains the logo and sidebar -->
-=======
+
   <!-- Left side column. contains the logo and sidebar -->
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -233,13 +226,13 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-<<<<<<< HEAD
+
           <p><?php echo $_SESSION['user']; ?></p>
-=======
+
           <p><?php
 				  echo $_SESSION['currentuser'];
 				  ?></p>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -256,7 +249,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-<<<<<<< HEAD
+
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
@@ -301,7 +294,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Profile</span>
-=======
+
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li  id="dd" class="active treeview menu-open">
@@ -326,32 +319,32 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
         <li class="treeview">
           <a href="#">
             <i class="fa fa-bar-chart"></i> <span>Reports</span>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-<<<<<<< HEAD
+
             <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
             <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
     
                 
-=======
+
             <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
             <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
             <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
                 </li>
            
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-<<<<<<< HEAD
+
   
   
   
@@ -377,13 +370,13 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
     </section>
 
     <!-- Main content -->
-=======
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="content-wrapper" >
     
     <!-- content will be loaded here -->
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
     
   </div>
   <!-- /.content-wrapper -->
@@ -410,10 +403,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
 </div>
 
 <!-- jQuery 3.1.1 -->
@@ -473,11 +463,11 @@ function viewAll2(){
 }
 
 ?>
-=======
+
 <script src="../../js/navigation_controler.js?v=3"></script>
 
 </body>
 
 
 </html>
->>>>>>> d76af370df4003df15b4a3e75be7a65ed4672924
+
