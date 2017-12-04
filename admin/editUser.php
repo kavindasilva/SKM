@@ -109,7 +109,7 @@ if(isset($_POST['deletesup'])){
 
 //deletecust
 if(isset($_POST['deletecust'])){
-	$sql1="delete from regular_customer where r_id=".$_POST['rid'].";";
+	$sql1="delete from customer where r_id=".$_POST['rid'].";";
 	$sql2="delete from user where user_name='".$_POST['uname']."';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql1);

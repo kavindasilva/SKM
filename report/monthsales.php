@@ -52,11 +52,11 @@ $w=array(15,30,25, 20, 25,30); //,15 ,15,15, 15); //header cell size
 		
 		//$this->Cell(20,6,$eachResult["is1002"],1);
 		//$this->ks_fillcell(10,6,"-",1);
-		$this->ks_fillcell(25,6,$eachResult["tel"],1);
-		$this->ks_fillcell(20,6,$eachResult["status"],1);
+		$this->Cell(25,6,$eachResult["tel"],1);
+		$this->Cell(20,6,$eachResult["status"],1);
 		
-		$this->ks_fillcell(25,6,$eachResult["date"],1);
-		$this->ks_fillcell(30,6,$eachResult["total_amount"],1);
+		$this->Cell(25,6,$eachResult["date"],1);
+		$this->Cell(30,6,$eachResult["total_amount"],1);
 		
 		$this->Ln();
 		$tmpcnt++;
@@ -80,12 +80,12 @@ $pdf->SetKeywords('');
 $pdf->AliasNbPages();
 	
 //table header
-//$header=array('Index','name','PRG','CS','ISM', 'APPlab','MGT','maths','econ'); //original place
 $header=array();
-$header=array('order id','dealer name','tel. no','order status','order date', 'total amount(Rs)');//,'stat','BPM','GPA');
+$header=array('order id','dealer name','tel. no','order status','order date', 'total amount(Rs)');
 
 $strSQL = "Select * From sales_order s, dealer d where s.dealer_d_id=d.d_id;";
-
+$strSQL2= "Select * From sales_order s, customer c where (s.regular_customer_r_id=c.r_id and s.date like '%-10-%')";
+//Select * From sales_order s, dealer d, customer c where (s.dealer_d_id=d.d_id and s.date like '%-10-%') or (s.regular_customer_r_id=c.r_id and s.date like '%-10-%')
 
 $objQuery = mysqli_query($conn,$strSQL); //result set
 $i=0;
@@ -95,32 +95,23 @@ $i=0;
 //*** Table 1 ***//
 $pdf->AddPage();
 
-	//$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 	$pdf->SetFont('Helvetica','B',14);
-	//$pdf->Cell(68);
-	//$pdf->Cell(0,10,'SK Motors',0,0,'C');
 	$pdf->Cell(0,10,'Monthly Sales report',0,0,'C');
-	//$pdf->Write(10, 'UCSC 13th batch IS');
 	$pdf->Ln();
 	
 	$pdf->SetFont('Helvetica','',8);
-	//$pdf->Cell(88);
-	//$pdf->Cell(0,8, 'monthly sales report',0,0,'C');
-	
 	$pdf->Ln();
 	
 	$pdf->Cell(22);
 	$pdf->SetFontSize(8);
-	$pdf->Cell(57);
+	$pdf->Cell(37);
 	$result=mysqli_query($conn,"select date_format(now(), '%W, %M %d, %Y') as date");
 	while( $row=mysqli_fetch_array($result) )
 	{
-		$pdf->Write(5,$row['date']);
+		$pdf->Write(5,'Generated date: '.$row['date']);
 	}
 	$pdf->Ln();
 	
-	//count total numbers of visitors
-	//$result=mysql_query("Select * from sem3r") or die ("Database query failed: $query<hr>" . mysql_error());
 	$result=mysqli_query($conn,$strSQL) or die ("Database query failed: $strSQL<hr>" . mysqli_error($conn));
 	
 	
