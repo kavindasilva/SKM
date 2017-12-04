@@ -1,6 +1,6 @@
 //bootstrap tool tip
 $('[data-toggle="tooltip"]').tooltip();   
-
+var editingrow;
 function validate(){
 		x=document.getElementById('brand').value;
 		y=document.getElementById('country').value;
@@ -20,7 +20,7 @@ function validate(){
 				intq=parseInt(q);
 				qty=parseInt(qty);
 					if(intq>qty){
-						$('.modal-warning').modal('show');
+						$("#outofstock").modal('show');
 					}
 					else{
 						$.ajax({
@@ -28,7 +28,7 @@ function validate(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td><a href=\"#\" onclick=\"showmodal();\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
+				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td onclick=\"removeroderitem(this)\" ><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 							validate.sum+=data*q;
 							updatedata();
 							document.getElementById('brand').selectedIndex=0;
@@ -46,12 +46,25 @@ function validate(){
 		}
 	}
 // this is not working check
-$('#orderitems tbody tr td a i').click(function(){
-	alert("fdf");
-});
-function showmodal(){
+function removeroderitem(element){
+	
+	validate.sum=validate.sum-parseInt(element.parentElement.getElementsByTagName('td')[5].innerHTML);
+	element.parentElement.remove();
+	updatedata();
+}
+function showmodal(element){
 	$('#newquantity').val("");
+	editingrow=element;
 	$('#updatequantitymodal').modal('show');
+}
+function updatequan(){
+	$('#newquantity').val();
+	editingrow.parentElement.getElementsByTagName('td')[4].innerHTML=$('#newquantity').val();
+	validate.sum=validate.sum-parseInt(editingrow.parentElement.getElementsByTagName('td')[5].innerHTML);
+	editingrow.parentElement.getElementsByTagName('td')[5].innerHTML=parseInt($('#newquantity').val())*
+	parseInt(editingrow.parentElement.getElementsByTagName('td')[3].innerHTML);	
+	validate.sum=validate.sum+parseInt(editingrow.parentElement.getElementsByTagName('td')[5].innerHTML);
+	updatedata();
 }
 function prceedanyway(){
 		x=document.getElementById('brand').value;
@@ -64,7 +77,7 @@ function prceedanyway(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr style=\"background-color: #FFB2B3\" class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Unavailable</td></tr>");
+				 			$('#orderitems').append("<tr style=\"background-color: #FFB2B3\" class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Unavailable</td><td onclick=\"removeroderitem(this)\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 							validate.sum+=data*q;
 							updatedata();
 							document.getElementById('brand').selectedIndex=0;
@@ -375,3 +388,77 @@ $('#searchord').click(function(){
 	
 	
 });
+
+function togalbutton(){
+	var dcname=document.getElementById('shopname').value;
+	var tbody1=document.getElementById('foundorders').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	var dateFrom = $('#fromdate').val();
+	var dateTo = $('#todate').val();
+	$('#foundorders tbody tr').show();
+	
+	if(dateFrom!=""){
+		var d1 = dateFrom.split("/");
+		
+		var from = new Date(d1[2], parseInt(d1[0])-1, d1[1]);  // -1 because months are from 0 to 1
+		
+		for(var i=0;i<tbody1.length;i++){
+		var dateCheck = tbody1[i].getElementsByTagName('td')[2].innerHTML;
+	    dateCheck = dateCheck.trim();	
+		var c = dateCheck.split("-");
+		var check = new Date(c[0], parseInt(c[1])-1, c[2]);
+		if(check >= from){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+
+	}
+	if(dateTo!=""){
+		var d2 = dateTo.split("/");
+		
+		var to = new Date(d2[2], parseInt(d2[0])-1, d2[1]);  // -1 because months are from 0 to 1
+		
+		for(var i=0;i<tbody1.length;i++){
+		var dateCheck = tbody1[i].getElementsByTagName('td')[2].innerHTML;
+		var c = dateCheck.split("-");
+		var check = new Date(c[0], parseInt(c[1])-1, c[2]);
+
+		if(check <= to){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+
+	}
+	if(dcname!=""){
+	for(var i=0;i<tbody1.length;i++){
+		
+		if(tbody1[i].getElementsByTagName('td')[1].innerHTML==dcname){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+	}
+	
+	
+	if(!($('#completed'). prop("checked"))){
+		
+		for(var i=0;i<tbody1.length;i++){	
+		
+		if(tbody1[i].getElementsByTagName('td')[4].innerHTML=='incomplete'){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+	}
+	if(!($('#pending'). prop("checked"))){
+		for(var i=0;i<tbody1.length;i++){
+		
+		if(tbody1[i].getElementsByTagName('td')[4].innerHTML=='Completed'){
+			continue;
+		}
+		tbody1[i].style.display = "none";
+	}
+	}
+		
+	}

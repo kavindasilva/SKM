@@ -9,7 +9,9 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 }
 ?>
 <html>
+
 <head>
+ 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SKMM| Dashboard</title>
@@ -28,10 +30,13 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../../css/mystyle.css">
   <!-- tab icon-->
-	<link rel="icon" href="../../images/skmlogo.jpg">	
+  <link rel="icon" href="../../images/skmlogo.jpg">	
     <!-- Google Font -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!--bootstrap validation
+  <link rel="stylesheet" href="../../css/bootstrapValidator.css"/>
+  <script type="text/javascript" src="../../js/bootstrapValidator.js"></script>-->
+  <script src="../../js/bootstrap-confirmation.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -181,7 +186,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i> Find Order</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li>
            </ul>
         </li>
         <li class="treeview">

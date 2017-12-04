@@ -1,4 +1,4 @@
- <div class="modal modal-warning fade" id="modal-warning">
+ <div class="modal modal-warning fade" id="outofstock">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
