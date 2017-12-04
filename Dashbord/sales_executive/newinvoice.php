@@ -375,14 +375,14 @@ $('.viewitems').click(function(){
 		var rows = document.getElementById('orderitems2').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 		
 		for(var i=0;i<rows.length;i++){
-			if(rows[i].firstChild.firstChild.checked==true){
+			if(rows[i].firstChild.firstChild.checked==true && rows[i].firstChild.firstChild.disabled==false){
 				subtot+=parseInt(rows[i].childNodes[6].innerHTML);
-				rows[i].style.backgroundColor="#cdffc9";
 				netamount+=parseInt(rows[i].childNodes[6].innerHTML);
-				rows[i].style.backgroundColor="#cdffc9";
-				
-				$('#invoiceitembody').append("<tr>"+rows[i].innerHTML.substr()+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
+				rows[i].classList.add("bg-success");
+				id=rows[i].getAttribute('id');
+				$('#invoiceitembody').append("<tr id=\""+id+"\">"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
 				update();
+				rows[i].firstChild.firstChild.disabled=true;
 			}
 		}
 		
@@ -481,6 +481,9 @@ $('.viewitems').click(function(){
 				i--;
 				rows--;
 				update();
+				var id=row.getAttribute('id');
+				$("#"+id).removeClass("bg-success");
+				$("#"+id+" td input").attr("disabled", false);
 			}
 			
 		}
