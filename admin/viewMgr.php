@@ -13,9 +13,9 @@ require_once "head.php";
 	<script type="text/javascript" src="adminFun.js"></script>
 	<h2>admin control panel</h2> <br/>
 	
-	<!--searchRows(trindex, eleid, tableid)-->
+	<!--searchRows(trindex, eleid, tableid)->
 	
-	<input type='text' class="" id="srch1" onkeyup="searchRows(1,this.id,'tblMgr');" placeholder="search by name"/><br/>
+	<input type='text' class="" id="srch1" onkeyup="searchRows(1,this.id,'tblMgr');" placeholder="search by name"/><br/-->
 	
 	<?php
 		if(!isset($_GET['empT'])){
@@ -43,12 +43,14 @@ require_once "foot.php";
 <?php
 
 
-//view all users
+//view all employees
 function viewEmp($type2){
 	if($type2=="mgr")
 		$sqlq = "select * from employee where type!='salex';"; //sql query, users list except sales x
-	elseif($type2=="sales")
+	elseif($type2=="sales"){
 		$sqlq = "select * from employee where type='salex';"; //sql query, users list only sales x
+		empSearch();
+	}
 		
 	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
 	
@@ -83,5 +85,16 @@ function viewEmp($type2){
 		echo "</table>";
 	}
 }
+
+function empSearch(){
+	echo "<span class='panel-title'> <B>Dealers </B>";
+	echo "<input type='text' id='search2' onkeyup='searchRows(1,this.id, \"tblMgr\");'  placeholder='Name'/>";
+	echo "<input type='text' id='search4' onkeyup='searchRows(2,this.id, \"tblMgr\");'  placeholder='Telephone'/>";
+	echo "<input type='text' id='search3' onkeyup='searchRows(4,this.id, \"tblMgr\");'  placeholder='Username'/>";
+	echo "<input type='text' name='skey' id='search1' onkeyup='searchRows(4,this.id, \"tblMgr\");' placeholder='Telephone' hidden/>"; //no need. to work JS properly
+	echo "<input type='button' onclick='clearAll(\"tblMgr\")' value='clear search'/>";
+	echo "</span>";
+}
+
 
 ?>
