@@ -2,17 +2,10 @@
 <?php
 session_start();
 require_once('../../php/dbcon.php');
-$query="SELECT * FROM tire WHERE quantity<20;";
+$query="SELECT * FROM quotation WHERE status='notreplied';";
 $result=mysqli_query($conn,$query);	
 if($result){
 $_SESSION['notificationcount']=mysqli_num_rows($result);
-$_SESSION['lowstockitemscount']=mysqli_num_rows($result);
-}
-$query="SELECT * FROM order_item WHERE status='unavailable';";
-$result2=mysqli_query($conn,$query);
-if($result2){
-$_SESSION['notificationcount']+=mysqli_num_rows($result2);
-$_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);	
 }
 ?>
 <html>
@@ -33,11 +26,12 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="../../css/mystyle.css?v=1">
-   <!-- tab icon-->
+  <link rel="stylesheet" href="../../css/mystyle.css">
+  <!-- tab icon-->
 	<link rel="icon" href="../../images/skmlogo.jpg">	
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -61,53 +55,40 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              
-           		<?php
+             <?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
-             
             </a>
             <ul class="dropdown-menu">
-              <li class="header" style="background-color: #DAE0FF">You have <?php
-				  echo $_SESSION['notificationcount'];
-				  ?> notifications</li>
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-<!-- loading the main header notifications-->                
-<?php 
-					
-				while($row=mysqli_fetch_array($result)){//show details about low stock item
-				echo("
-                  <li>
-                    <a href=\"#\">
-                      <i class=\"fa fa-exclamation-circle text-warning\"></i>".$row['tire_size']." of ".$row['brand_name']." ".$row['country']." is in low stock
-                    </a>
-                  </li>");
-					  
-				}
-					//show details about out of stock order items
-				while($row=mysqli_fetch_array($result2)){
-					$query3="SELECT * FROM tire WHERE t_id=".$row['tire_t_id'];
-					$resultinside=mysqli_query($conn,$query3);
+                 <?php
+				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+					$resultinside=mysqli_query($conn,$query2);
 					$rowinside=mysqli_fetch_array($resultinside);
 				echo("
                   <li>
                     <a href=\"#\">
-                      <i class=\"fa fa-exclamation-triangle text-danger\"></i>".$rowinside['tire_size']." of ".$rowinside['brand_name']." ".$rowinside['country']." is insufficient
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
                     </a>
                   </li>");
 					  
-				}	
-?>                 
+				}
+                 ?>
                 </ul>
               </li>
-              <li class="footer" ><a href="#" style="background-color: #DAE0FF">View all</a></li>
+              <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
              <!-- User Account: style can be found in dropdown.less -->
@@ -185,44 +166,20 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd" class="active treeview menu-open">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
        
         <li class="treeview">
          	<a href="#">
-            	<i class="fa fa-edit"></i> <span>Stock</span>
+            	<i class="fa fa-edit"></i> <span>Sales</span>
             	<span class="pull-right-container">
               	<i class="fa fa-angle-left pull-right"></i>
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="viewstock"><i class="fa fa-circle-o"></i>View Stock</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Stock</a></li>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Purchase Requests</a></li>
+             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Send Shipment Details</a></li>
            </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Notifications</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-              <small class="label pull-right bg-green"><?php
-				  if($_SESSION['lowstockitemscount']>0){
-					  echo($_SESSION['lowstockitemscount']);
-				  }?></small>
-              <small class="label pull-right bg-red"><?php
-				  if($_SESSION['unavalableorderitemscount']>0){
-					  echo($_SESSION['unavalableorderitemscount']);
-				  }?></small>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#" name="lowstock"><i class="fa fa-circle-o"></i>Low Stock Levels</a></li>
-            <li><a href="#" name="outofstockorders"><i class="fa fa-circle-o"></i>Out Of Stock Orders</a></li>
-          </ul>
-        </li>   
+           
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -270,8 +227,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js?v=2"></script>
-
+<script src="../../js/navigation_controler.js?v=3"></script>
 
 </body>
 
