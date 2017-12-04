@@ -9,7 +9,7 @@
 //session maintainence
 session_start();
 $_SESSION['user'] = "Test1";
-require_once "../php/dbcon2.php";
+require_once "../php/dbcon.php";
 /**
  if(!isset($_SESSION['user'])){
  echo "user not set";
@@ -45,7 +45,8 @@ require_once "../php/dbcon2.php";
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../css/mystyle.css">
-  
+  <!-- tab icon-->
+	<link rel="icon" href="../images/skmlogo.jpg">	
   <!--admin panel speacial effects-->
   <style>
 	.panel-body .btn{
@@ -144,7 +145,7 @@ require_once "../php/dbcon2.php";
                 <img src="../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Sales-Executive
+                  System Admin
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
@@ -256,17 +257,15 @@ require_once "../php/dbcon2.php";
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-bar-chart"></i> <span>Reports</span>
+            <i class="fa fa-bar-chart"></i> <span>Settings</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-			</ul>
+            <li><a href="passchangeUI.php"><i class="fa fa-circle-o"></i>Change Password</a></li>
+            <li><a href="../php/logout.php"><i class="fa fa-circle-o"></i>Logout</a></li>
+            </ul>
         </li>
            
       </ul>

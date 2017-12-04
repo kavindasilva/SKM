@@ -15,8 +15,7 @@ $query2="SELECT MAX(q_no) AS maxqno FROM quotation";
 $result=mysqli_query($conn,$query2);
 $obj=mysqli_fetch_object($result);
 $qno=$obj->maxqno;
-
-$query="INSERT INTO quotation_item VALUES($tid,$qno,$qty)";
+$query="INSERT INTO quotation_item VALUES($tid,$qno,$qty,null,null)";
 
 if(mysqli_query($conn,$query)){
 	//echo "success";

@@ -11,7 +11,25 @@
 <?php include '../../assets/missingfield.php'?>
 <?php include '../../assets/outofstock.php'?>
 <?php include '../../assets/noowner.php'?>
-<?php include '../../assets/success.php'?>           
+<?php include '../../assets/success.php'?>    
+   <!-- Update quantity Modal -->
+  <div class="modal fade modal-warning" id="updatequantitymodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          
+			<h4>Enter your new quantity</h4><input value="" id="newquantity" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">Cancle</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="updatequan();">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>       
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
@@ -29,10 +47,10 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2" >Dealer Shop Name </strong>
+      		<strong class="col-xs-2 col-md-2" >Dealer / Customer Name </strong>
       	
-      	<div class="col-xs-2">
- 	<select class="form-control" id="shopname" >
+      	<div class="col-xs-5 col-md-3">
+ 	<select class="form-control" id="shopname">
         <option value="" >Select</option>
        <?php
 	$query="select shop_name from dealer";
@@ -40,17 +58,6 @@
 	while($row=mysqli_fetch_array($result)){
 		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
 	}
-	
-	?>
-      		 </select>
-		 </div>
-		 <strong class="col-xs-1">or </strong>
-		 <strong class="col-xs-2" >Customer Company Name </strong>
-      	
-      	<div class="col-xs-2">
- 		<select class="form-control" id="companyname" >
-        <option value="" >Select</option>
-       <?php
 	$query="select company_name from customer";
 	$result=mysqli_query($conn,$query);
 	while($row=mysqli_fetch_array($result)){
@@ -60,9 +67,25 @@
 	?>
       		 </select>
 		 </div>
+		 <div class="col-md-5">
+		 	<strong class="col-xs-6 col-md-4" >Salers Order No </strong>
+		 	<input id="sordnodisplay" disabled value="
+		 	
+		 	<?php
+				$query2="SELECT MAX(sord_no) AS maxsno FROM sales_order";
+				$result=mysqli_query($conn,$query2);
+				$sordno=0;									  
+				if($obj=mysqli_fetch_object($result)){
+				$sordno=$obj->maxsno;
+				$sordno++;	
+				}
+				echo($sordno);
+													  
+													  ?>">
+		 </div>
 		 
 	   <!-- display date-->
-		<div class="col-xs-2 control-label" style="margin-left: 10px;"><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" ><label>Date : </label><label id="date"></label></div>
 	 </div>
 	  <script>
 		  n =  new Date();
@@ -84,43 +107,31 @@
               <table id="orderitems" class="table-bordered table-hover" width="700" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
                   <th>Unit Price(Rs.)</th>
                   <th>Quantity</th>
                   <th>Total Amount</th>
-                  <th>Status</th>
+                   <th>Status</th>
+				  <th><a href="#" data-toggle="tooltip" data-placement="top" title="Remove all items" onClick="removeall();"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a></th>
                 </tr>
                 </thead>
                 <tbody>                 
                 </tbody>
               </table>
             <div class="box-footer">
-            <div class="row">
-              	<div class="col-md-3 pull-right" id="subtotal">
-            		<label class="pricelabel" id="subtotal"></label>
-            	</div>
-            	<div class="col-md-3 pull-right">
-            		<strong>Sub Total</strong>
+            <div class="col-md-12 ">
+              	<div class="col-md-12 ">
+            		<label class="pricelabel pull-right" id="subtotal"></label>
+            		<strong class="pull-right" style="margin-right:5px; margin-top: 5px;">Sub Total</strong>
 				</div>
-          		
-           		<div class="col-md-3">
-            	<button type="button" class="btn btn-danger" onClick="removeall();" style="width: 153px" >Remove All items</button>
-            	</div>
-				</div></br>
-            
-            	<div class="row">	
-            	<div class="col-md-3">
-            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
-            	</div>
-				</div></br>
-            	<div class="row">	
-            	<div class="col-md-3">
-            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" >Place Order</button>
-            	</div>
 				</div>
+			
+            	<div class="col-md-3">
+            	<button type="button" class="btn btn-primary" onClick="placeorder();" style="width: 153px" data-toggle="tooltip" data-placement="top" title="Complete the order" >Place Order</button>
+            	</div>
+			
             	</div>
             </div>
             <!-- /.box-body -->
@@ -160,12 +171,12 @@
  	 <div class="col-xs-6">
  	<input id="quantity" type="text" placeholder="Quantity" required="" class="form-control input-md">
       </select></div></div></br>
-<button type="button" class="btn btn-success" style="width: 70px" onClick="validate();">Add</button>
+<button type="button" class="btn btn-success" style="width: 70px" onClick="validate();" data-toggle="tooltip" data-placement="top" title="Add item to order">Add</button>
 </br></br>
  </div>
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js?2"></script>
+<script src="../../js/formcontrol.js?5"></script>
 </body>
 </html>

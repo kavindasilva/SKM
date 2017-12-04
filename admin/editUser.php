@@ -14,6 +14,7 @@ require_once "head.php";
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
+	<div class="form-group">
 	<script type="text/javascript" src="adminFun.js"></script>
 	<script type="text/javascript" src="adminValidate.js"></script>
 	<B>admin control panel</b> <br/>
@@ -40,7 +41,7 @@ if(isset($_POST['updatesup'])){
 
 
 ?>
-
+	</div>
 	</section>
     <!-- Main content -->
 
@@ -78,7 +79,7 @@ function changeMgrUI($empID){
 	echo"<tr><td>User name</td> <td><input type='text' value='".$r2['user_name']."' name='' disabled/></td></tr>";
 	
 	echo"<tr><td>Name</td> <td><input type='text' value='".$r1['name']."' name='nam'/></td></tr>";
-	echo"<tr><td>Telephone</td> <td><input type='text' value='".$r1['tel']."' name='telp'/></td></tr>";
+	echo"<tr><td>Telephone</td> <td><input type='text' id='telp' onkeyup='validateTel()' value='".$r1['tel']."' name='telp'/></td></tr>";
 	echo"<tr><td>Email</td> <td><input type='text' value='".$r2['email']."' name='eml'/></td></tr>";
 	echo"<tr><td>Address</td> <td><textarea name='addr'>".$r2['address']."</textarea></td></tr>";
 	
@@ -149,7 +150,8 @@ if(isset($_POST['deletedealer'])){
 //reset user password ============================================================================================================
 if(isset($_POST['resetusr'])){
 	$user=$_POST['uname'];
-	$sql="update user set password='skmreset' where user_name='$user';";
+	$skmreset=md5("skm");
+	$sql="update user set password='$skmreset' where user_name='$user';";
 	
 	$res=mysqli_query($GLOBALS['conn'],$sql);
 	if(!$res){

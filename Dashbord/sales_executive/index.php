@@ -27,9 +27,11 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../../css/mystyle.css">
-
+  <!-- tab icon-->
+	<link rel="icon" href="../../images/skmlogo.jpg">	
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -60,7 +62,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               <i class="fa fa-bell-o"></i>
              <?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
             </a>
             <ul class="dropdown-menu">
@@ -202,7 +204,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
               
 				<?php
 				   if($_SESSION['notificationcount']>0)
-					   echo "<small class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
 				  ?>              	
               
             </span>

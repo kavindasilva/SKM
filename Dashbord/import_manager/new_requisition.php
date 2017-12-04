@@ -6,6 +6,15 @@
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<!--  <script>-->
+<!---->
+<!--	  $(document).ready(function(){-->
+<!--	  $('table#tire_ava tbody tr').click( function () {-->
+<!--        alert('i am clicked');-->
+<!--		  $('table#tire_ava tbody tr td').load('table#Requisition_itm_tbl tr td');-->
+<!--        } );-->
+<!--});-->
+<!--</script>-->
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -20,19 +29,24 @@
 
     <!-- Main content -->
     <div class="container">
-     <form action="Controller/new_requisiotion_controller.php" method="post">
+     <form>
       <div class="box">
         </div>
-        <div class="row">
-          <strong class="col-xs-2">Tire Brand</strong>
+        <div class="row" style="width: auto; margin-left: 72px">
+          <strong class="col-xs-2">Tire Brand & Country</strong>
           <div class="col-xs-2">
             <select class="form-control" id="brand" name="brand" >
             <option value="--">Select</option>
-             <option value="Dunlop" >Dunlop</option>
-             <option value="Kaizen" >Kaizen</option>
+             <option value="Dunlop-Japan" >Dunlop-Japan</option>
+             <option value="Dunlop-Thaiwan" >Dunlop-Thaiwan</option>
+             <option value="Dunlop-Indonesian" >Dunlop-Indonesian</option>
+             <option value="Kaizen-Japan" >Kaizen-Japan</option>
+             <option value="Kaizen-Thaiwan" >Kaizen-Thaiwan</option>
+             <option value="Kaizen-Indonesian" >Kaizen-Indonesian</option>
            </select>
           </div>
           
+<!--
           <strong class="col-xs-2">Country</strong>
         
           <div class="col-xs-2">
@@ -42,8 +56,10 @@
 			  <option value="">Thaiwan</option>
           </select>
           </div>
-          <button class="col-xs-1 btn btn-success" type="button" name="goBtn" value="go" onClick="filter()">Go</button>
+          
+-->
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
               <div class="box">
@@ -63,14 +79,18 @@
                       </tr>
                     </thead>
                     <tbody>
+
+
                     <?php
 						require_once('../../php/dbcon.php');
-						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire";
+						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE status='required'";
 						$result = $conn->query($sql);
+						$tbl_rw_id=0;
 						while($row=$result->fetch_assoc()){
+						//$tbl_rw_id=$tbl_rw_id+1;
 						?>
 						
-						<tr>
+						<tr class="clickable-row" id="ava_tire_row">
 			
 						<td><?php echo $row['t_id']?></td>
 						<td><?php echo $row['brand_name']?></td>
@@ -78,6 +98,7 @@
 						<td><?php echo $row['tire_size']?></td>
 						<td><?php echo $row['quantity']?></td>
 						<td><?php echo $row['status']?></td>
+                        <td><button class="btn btn-success requestbtn">Add to Request</button></td>
 						</tr>
 					
 						
@@ -110,19 +131,16 @@
                 <table id="Requisition_itm_tbl" class="table-bordered table-hover" width="920">
                 <thead>
                   <tr>
-                  	<th>Select</th>
+                    <th>Select</th>
                     <th>Tire ID</th>
+                    <th>Brand</th>
+                    <th>Country</th>
                     <th>Size</th>
                     <th>Required Qty</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                  	<td><input type="checkbox" name="select_tire"></td>
-                    <td>dj1802</td>
-                    <td>18</td>
-                    <td><input type="name" name="qty"></td>
-                  </tr>
+                <tbody id="selected_item">
+
                 </tbody>
                 </table>
               </div>
@@ -137,9 +155,12 @@
 
        <button type="button" class="btn btn-success" style="width: 160px; margin-left: 20px">Send Selected</button></div>
        
-    <div class="col-xs-3"><button type="button" class="btn btn-primary" style="width: 160px">Send All Items</button></div>
-  <div class="col-xs-3"><button type="button" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
-  <div class="col-xs-3"><button type="button" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
+    <div class="col-xs-3"><button type="button" class="btn btn-primary send_all_btn" style="width: 160px">Send All Items</button></div>
+           <?php
+
+           ?>
+  <div class="col-xs-3"><button type="button" id="selected_remove_btn" class="btn btn-warning" style="width: 160px">Remove Selected Item</button></div>
+  <div class="col-xs-3"><button type="button" id="remove_all_btn" class="btn btn-danger" style="width: 160px">Remove All Items</button></div></br></br></br>
     </div>
     </div>
 </form>
@@ -149,8 +170,38 @@
 <!-- jQuery 3.1.1 -->
 <script src="../../js/jquery-3.1.1.min.js"></script>
 <script src="../../js/ava_tire_filterjs.js"></script>
+
+<!--    selected tire list table script-->
+<script>
+    $(".requestbtn").click(function () {
+        var tid= this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+        var brand= this.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
+        var country= this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
+        var size= this.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
+        this.disabled=true;
+   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
+    });
+</script>
+
+<!--    remove all button script-->
+<script>
+    $("#remove_all_btn").click(function () {
+        $("#selected_item tr").remove();
+        $(".requestbtn").prop('disabled', false);
+    });
+</script>
+
+<!--    remove selected button script-->
+<script>
+    $("#selected_remove_btn").click(function () {
+        var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        for(i=1;i<x;i++){
+            if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
+                document.getElementById("Requisition_itm_tbl").deleteRow(i);
+            }
+        }
+    });
+</script>
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
-
-
 </html>

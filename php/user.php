@@ -6,6 +6,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = $_POST['euname'];
 	$password = $_POST['password'];
+	$password= md5($password) ;// make md5
 	
 	$checkName = "select * from user where user_name='$name'";
 	
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['currentuser']=$name; //user name		
 			$usrtype=$r['type'];
 			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
-						
+			
 			if($usrtype=='adm')
 			{	
 				header('Location: ./admin/index.php');
@@ -39,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			elseif($usrtype=='impmgr')
 				header('Location: ../dashbord/import_manager/index.php');
 			elseif($usrtype=='dealer')
-				header('Location: ../dashbord/dealer1/index.php');
+				header('Location: ../dashbord/Dealer/index.php');
 			elseif($usrtype=='stockmgr')
 				header('Location: ../dashbord/Stock_Manager/index.php');
 			elseif($usrtype=='suppl')

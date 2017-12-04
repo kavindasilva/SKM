@@ -12,8 +12,9 @@ $newUserType = $_POST['utype'];
 $fnm=$_POST['fname'];
 $lnm=$_POST['lname'];
 $username=$fnm.$lnm; //username eka unique, PK. 
-$fullName=$fnm." ".$lnm; //Full name. only for emp 
+$username=$_POST['prefusern']; //username eka unique, PK. 
 
+$fullName=$fnm." ".$lnm; //Full name. only for emp 
 $em=$_POST['eml'];
 $adr=$_POST['addr'];
 $phn=$_POST['telp']; //supplier phone eka ain karoth meka oni na
@@ -24,7 +25,7 @@ $phn=$_POST['telp']; //supplier phone eka ain karoth meka oni na
 $sql="select * from user where user_name='$username'";
 $res=mysqli_query($conn, $sql);
 if(mysqli_num_rows($res)>0){
-	echo "User name already taken"; //JS aler passe damu
+	echo "User name already taken"; //impossible because user name validated
 	echo "<hr><a href=\"javascript:history.go(-1)\">GO BACK</a>";
 	return;
 }
@@ -67,7 +68,7 @@ switch ($newUserType) { //checks the user type to be inserted
 
 
 function customer($comp, $tel, $un) {
-	$sqlq="insert into regular_customer values(null, '$comp', $tel, '$un');";
+	$sqlq="insert into customer values(null, '$comp', $tel, '$un');";
 	$res = mysqli_query($GLOBALS['conn'], $sqlq);
 	if(!$res){
 		echo "error inserting the customer";
