@@ -98,7 +98,7 @@
 						<td><?php echo $row['tire_size']?></td>
 						<td><?php echo $row['quantity']?></td>
 						<td><?php echo $row['status']?></td>
-                        <td><button class="btn btn-success requestbtn">Add to Request</button></td>
+                        <td><button class="btn btn-success requestbtn">Add to Requests</button></td>
 						</tr>
 					
 						
