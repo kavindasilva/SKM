@@ -31,7 +31,7 @@
 <?php
 //session maintainence // kavindasilva
 session_start();
-$_SESSION['user']="Test1";
+$_SESSION['currentuser']="Test1";
 /**
  if(!isset($_SESSION['user'])){
 	echo "user not set";
@@ -52,7 +52,7 @@ include_once '../../php/dbcon2.php';
     <a href="../../index.php" class="logo">
 
 <?php
-session_start();
+
 require_once('../../php/dbcon.php');
 
 
@@ -120,32 +120,14 @@ require_once('../../php/dbcon.php');
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-             <?php
-				   if($_SESSION['notificationcount']>0)
-					   //echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
-				  ?>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have <?php
-					  // echo $_SESSION['notificationcount'];
- 				?>   notifications</li>
+              <li class="header">
+              	
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                 <?php
-				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
-					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
-					$resultinside=mysqli_query($conn,$query2);
-					$rowinside=mysqli_fetch_array($resultinside);
-				echo("
-                  <li>
-                    <a href=\"#\">
-                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
-                    </a>
-                  </li>");
-					  
-				}
-                 ?>
+                 
                 </ul>
               </li>
               <li class="footer"><a href="#">View all</a></li>
@@ -156,8 +138,6 @@ require_once('../../php/dbcon.php');
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-
-              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
 
               <span class="hidden-xs"><?php
 				  echo $_SESSION['currentuser'];
@@ -227,8 +207,6 @@ require_once('../../php/dbcon.php');
         </div>
         <div class="pull-left info">
 
-          <p><?php echo $_SESSION['user']; ?></p>
-
           <p><?php
 				  echo $_SESSION['currentuser'];
 				  ?></p>
@@ -296,52 +274,7 @@ require_once('../../php/dbcon.php');
           <a href="#">
             <i class="fa fa-table"></i> <span>Profile</span>
 
-      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd" class="active treeview menu-open">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-       
-        <li class="treeview">
-         	<a href="#">
-            	<i class="fa fa-edit"></i> <span>Manage Dealers</span>
-            	<span class="pull-right-container">
-              	<i class="fa fa-angle-left pull-right"></i>
-           	 	</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Manage Outstandings</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Delete Dealer</a></li>
-           </ul>
-        </li>
-  
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i> <span>Reports</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-
-            <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
-            <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
-          </ul>
-        </li>
-    
-                
-
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
-           
-
-      </ul>
+      
     </section>
     <!-- /.sidebar -->
   </aside>

@@ -2,7 +2,7 @@
 //alert("testing ok");
 
 function checkCur(eleId) { //check with current date
-	var dat=document.getElementById(eleId).value; alert(dat);
+	var dat=document.getElementById(eleId).value; //alert(dat);
 	var datsplit=dat.split('-');
 	var curDay=new Date();
 	//var curDaysplit=curDay.split('');

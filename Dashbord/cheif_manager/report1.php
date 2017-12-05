@@ -31,6 +31,14 @@ require_once '../../php/dbcon.php';
 
 <script type="text/javascript" src="chiefmgr.js">
 	
+	function loadReport(par1){
+	$('#content-wrapper').load(
+    	"report2.php", 
+    	{
+        	
+    	} 
+	);
+	}
 </script>
 
 Select the report want to generate<br/>
@@ -43,7 +51,7 @@ Outstanding report: From <input type="month" id="startm" onclick="checkDate()"> 
 <form method="post">
 	Monthly sales report<br/>
 	Select month: <input type="month" name="" id="rmonth" onchange="checkCur(this.id)"> <br/>
-	<input type="submit" name="" id="rmonthbtn" value="OK">
+	<input type="button" name="" id="rmonthbtn" value="OK" onclick="loadReport(document.getElementById('rmonth').value);">
 </form>
 <hr/>
 
