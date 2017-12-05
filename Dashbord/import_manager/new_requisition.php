@@ -212,8 +212,6 @@
                 // document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                alert(qty);
-                alert(tire_id);
                 $.ajax({
                     type:"post",
                     url:"quary.php",
