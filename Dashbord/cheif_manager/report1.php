@@ -1,6 +1,8 @@
 
 <?php
 /**
+	No session maintainence is done. included with jquery on index.php
+
 	This file contains the following report generation interfaces
 	1. Monthly sales details report
 	2.
@@ -8,10 +10,11 @@
 */
 
 //session maintainence // kavindasilva
+/*
 session_start();
 $_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
+
+if(!isset($_SESSION['user'])){
 	echo "user not set";
 	//header('Location:../login.html');
  }
@@ -21,11 +24,28 @@ $_SESSION['user']="Test1";
  }
 
 /**/
-include_once '../../php/dbcon2.php';
+require_once '../../php/dbcon.php';
 //include  //header files & css,JS
 
 ?>
 
+<script type="text/javascript" src="chiefmgr.js">
+	
+</script>
+
+Select the report want to generate<br/>
+
+Outstanding report: From <input type="month" id="startm" onclick="checkDate()"> To <input type="month" id="endm" onchange="checkDate()"> <br/>
+<input type="text" name="">
+
+<hr/>
+
+<form method="post">
+	Monthly sales report<br/>
+	Select month: <input type="month" name="" id="rmonth" onchange="checkCur(this.id)"> <br/>
+	<input type="submit" name="" id="rmonthbtn" value="OK">
+</form>
+<hr/>
 
 <?php
 
@@ -40,7 +60,9 @@ $repQuery="select";
 
 
 if(!isset($_GET['repType'])){ //unauthorized access
-	header("Location: index.php");
+	//header("Location: index.php");
+
+	echo "Select report";
 }
 
 $rType=$_GET['repType'];
@@ -61,6 +83,11 @@ switch($rType){
 	
 	default:
 		break;
+}
+
+
+function outstand(){
+
 }
 
 

@@ -199,14 +199,14 @@ require_once "../../php/dbcon.php";
         <li class="treeview">
         	<li class="treeview">
           	<a href="#">
-            <i class="fa fa-edit"></i> <span>Purchase Requisitions</span>
+            <i class="fa fa-edit"></i> <span>Report</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="new_requisition"><i class="fa fa-circle-o"></i> New Requisition</a></li>
-            <li><a href="#" name="pending_requision"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
+            <li><a href="#" name="report1"><i class="fa fa-circle-o"></i>Generate Report</a></li>
+            <!--li><a href="#" name="pending_requision"><i class="fa fa-circle-o"></i> Pending Requisition</a></li-->
            </ul>
         </li>
         <li class="treeview">
