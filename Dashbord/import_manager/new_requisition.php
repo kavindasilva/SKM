@@ -98,7 +98,7 @@
 						<td><?php echo $row['tire_size']?></td>
 						<td><?php echo $row['quantity']?></td>
 						<td><?php echo $row['status']?></td>
-                        <td><button class="btn btn-success requestbtn">Add to Request</button></td>
+                        <td><button class="btn btn-success requestbtn">Add to Requests</button></td>
 						</tr>
 					
 						
@@ -212,8 +212,6 @@
                 // document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                alert(qty);
-                alert(tire_id);
                 $.ajax({
                     type:"post",
                     url:"quary.php",

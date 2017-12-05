@@ -12,16 +12,20 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-         <div  class="col-xs-12 col-md-12" style="width: auto; margin-right: 50px;">
+         <div  class="col-xs-12 col-md-12" style="width: auto; margin-right: 10px;">
           <div class="box" >
            <div class="box-body" >
     <table class="table table-hover" id="studentsdetails">
 	<thead>
 		<tr>
 			<th>Index Nubmer</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Telephone Number</th>
+			<th>country</th>
+			<th>Tire Size</th>
+			<th>Brand Name</th>
+            <th>qty</th>
+            <th>unit price</th>
+            <th>status</th>
+            <th> </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,6 +33,9 @@
 		<td><input id="index" class="form-control" disabled></td>
 		<td><input id="fname"  class="form-control"></td>
 		<td><input id="lname"  class="form-control"></td>
+        <td><input id="fname"  class="form-control"></td>
+        <td><input id="fname"  class="form-control"></td>
+        <td><input id="fname"  class="form-control"></td>
 		<td><input id="tp"  class="form-control"></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>
@@ -41,6 +48,9 @@
 		echo"<tr><td>".$tire['t_id']."</td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['tire_size']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
+        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
+        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
+        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
 		}
 		

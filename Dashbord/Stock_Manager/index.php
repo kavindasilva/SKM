@@ -181,7 +181,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
               </span>
         </div>
       </form>
-      <!-- /.search form -->
+      <!-- /.search form  so-->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
