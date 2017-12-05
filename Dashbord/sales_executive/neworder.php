@@ -169,7 +169,7 @@
        <div class="row">
  	 <div class="col-xs-6">Quantity</div>
  	 <div class="col-xs-6">
- 	<input id="quantity" type="text" placeholder="Quantity" required="" class="form-control input-md">
+ 	<input id="quantity" type="number" placeholder="Quantity" required="" class="form-control input-md">
       </select></div></div></br>
 <button type="button" class="btn btn-success" style="width: 70px" onClick="validate();" data-toggle="tooltip" data-placement="top" title="Add item to order">Add</button>
 </br></br>
@@ -177,6 +177,9 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js?5"></script>
+<script src="../../js/formcontrol.js?6"></script>
+<script>
+$('#addtiresform').bootstrapValidator();
+</script>
 </body>
 </html>

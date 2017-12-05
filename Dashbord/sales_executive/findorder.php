@@ -52,14 +52,14 @@
 		
 		 <strong style="margin-right: 20px;">
   			Show Completed Orders
-		</strong><input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" >
+		</strong><input  checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" id="completed" >
 		<strong  style="margin-right: 20px; margin-left: 46px;" >
   			Show Pending Orders
-		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success"><br><br>
+		</strong><input checked data-toggle="toggle" data-size="small" type="checkbox" data-onstyle="success" id="pending"><br><br>
 	  
 		 <!-- by clicking on this button orders will show accroding to filters-->
-		 <button class="col-xs-6 col-md-3 btn btn-primary" type="button" id="searchord"> <i class="fa fa-search" aria-hidden="true"></i>
- 			Search</button>
+		 <button class="col-xs-6 col-md-3 btn btn-primary" type="button" onClick="togalbutton();"> <i class="fa fa-search" aria-hidden="true"></i>
+ 			Search</button> 
 		 </div>
 
 <!--picking a date range picker,we can choos to date of from date or both at once-->
@@ -132,7 +132,7 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-success viewitems\">View Items</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-success viewitems\">View Items</button></td><td data-singleton=\"true\" data-toggle=\"confirmation-singleton\" data-placement=\"top\" title=\"Delete this order?\"><a onclick=\"setelement(this);\" href=\"#\" ><i class=\"fa fa-trash \" aria-hidden=\"true\" data-singleton=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 					}
 					
 					?>
@@ -159,7 +159,6 @@
               <table id="orderitems" class=" table-bordered table-hover" width="920" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -184,7 +183,7 @@
 </div>
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
-<script src="../../js/formcontrol.js?6"></script> 
+<script src="../../js/formcontrol.js?7"></script> 
 <script src="../../js/bootstrap-datepicker.js"></script>
 <script>
   $(function () {
@@ -205,5 +204,26 @@ $('.viewitems').click(function(){
 		}
 	});
 })	;
+var deletingrow;	
+function deleteorder(){
+	var sordno=parseInt(deletingrow.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML);
+	$.ajax({
+		type:'post',
+		url:'model/deleteorder.php',
+		data:{sordno:sordno},
+		success:function(data){
+			deletingrow.parentElement.parentElement.remove();
+		}
+		
+	});
+	
+	
+}
+function setelement(element){
+	deletingrow=element;
+}
 </script>
+<script src="../../js/bootstrap-confirmation.min.js"></script>
+<script src="../../js/confirmation.js"></script>
+
 </html>

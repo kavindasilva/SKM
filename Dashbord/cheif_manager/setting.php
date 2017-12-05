@@ -1,54 +1,55 @@
-<?php
-
-//session maintainence
-session_start();
-$_SESSION['currentuser'] = "chief mgr testing";
-require_once "../../php/dbcon.php";
-/*
- if(!isset($_SESSION['user'])){
- echo "user not set";
- //header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="adm") {
- echo "not an admin";
- //header('Location:../login.html');
- }
- */
-?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SKMM| Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../../icon/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SKMM | Customer Panel</title>
+	
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.7 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="../../fonts/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="../../icon/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="../../css/AdminLTE.min.css">
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="../../css/mystyle.css">
-    <!-- tab icon-->
-	<link rel="icon" href="../../images/skmlogo.jpg">	
-    <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+
+    <!-- Google Font ->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"-->
+	
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+
 <div class="wrapper">
+<?php
+//session maintainence // kavindasilva
+session_start();
+$_SESSION['user']="Test1";
+/**
+ if(!isset($_SESSION['user'])){
+	echo "user not set";
+	//header('Location:../login.html');
+ }
+ elseif ($_SESSION['utype']!="adm") {
+     echo "not an admin";
+	 //header('Location:../login.html');
+ }
 
-  <header class="main-header" id="mainhead">
+/**/
+include_once '../../php/dbcon2.php';
+//include  //header files & css,JS
 
+?>
+  <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="../../images/skmlogo.jpg" style="height:50px;" alt="User Image"></span>
       <!-- logo for regular state and mobile devices -->
@@ -66,61 +67,18 @@ require_once "../../php/dbcon.php";
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-        
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
+                        
+			
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                 
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
+            
           </li>
              <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php  ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -128,17 +86,16 @@ require_once "../../php/dbcon.php";
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Honorable chief manager
+                  Registered customer
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
-
          
                      <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
+                <!--div class="pull-left">
+                  <a href="settings.php" class="btn btn-default btn-flat">Profile</a>
+                </div-->
 				 
                 <div class="pull-right">
                   <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -159,7 +116,8 @@ require_once "../../php/dbcon.php";
 
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
+  
+    <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -169,7 +127,7 @@ require_once "../../php/dbcon.php";
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['currentuser']; ?></p>
+          <p><?php echo $_SESSION['user']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -186,10 +144,10 @@ require_once "../../php/dbcon.php";
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">NAVIGATION</li>
         <li  id="dd"class="active treeview menu-open">
-          <a href="dashboard">
+          <a href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            
           </a>
@@ -197,63 +155,95 @@ require_once "../../php/dbcon.php";
         </li>
        
         <li class="treeview">
-        	<li class="treeview">
-          	<a href="#">
-            <i class="fa fa-edit"></i> <span>Purchase Requisitions</span>
+
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Quotations</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="new_requisition"><i class="fa fa-circle-o"></i> New Requisition</a></li>
-            <li><a href="#" name="pending_requision"><i class="fa fa-circle-o"></i> Pending Requisition</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> New quotation</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href="#"><i class="fa fa-circle-o" style="color: #ee0000"></i> Remove quotation</a></li>
            </ul>
         </li>
-        <li class="treeview">
+		
+		<li class="treeview">
+
           <a href="#">
-            <i class="fa fa-table"></i> <span>Purchase Confirmation</span>
+            <i class="fa fa-edit"></i> <span>Orders</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> New Invoice</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
+            <li><a href=".php"><i class="fa fa-circle-o"></i> New orders</a></li>
+            <li><a href=".php"><i class="fa fa-circle-o"></i> View all</a></li>
+            <li><a href=".php"><i class="fa fa-circle-o"></i> Edit orders</a></li>
+            <li><a href=".php"><i class="fa fa-circle-o" style="color: #ee0000"></i> Cancel</a></li>
+           </ul>
+        </li>
+		
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Profile</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
+            <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
     
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i> <span>Reports</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
-           
+                
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-
+  
+  
+  
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" id="content-wrapper">
-    <!-- content will be load -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+   <script type="text/javascript" src="adminFun.js"></script>
+	<B>Customer dashboard</b> <br/>
+	Select a user type to insert<br/>
+	<div class="jumbotron">
+        <h3>Change password</h3>
+		
+<DIV class="">		
+<?php
+if(isset($_POST['passconf'])){
+	//include the file required to change user password
+	include_once "../../php/changepass.php";
+}
+?>
+</div>
+		
+		<form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+		<table>
+			<tr><td>Current password</td><td><input type="password" name="oldpass"/></td></tr>
+			<tr><td>New password</td><td><input type="password" name="newpass1"/></td></tr>
+			<tr><td>Confirm new password</td><td><input type="password" name="newpass"/></td></tr>
+			<tr><td><input style="width:100%" type="submit" name="passconf" value="OK"/></td><td><input style="width:100%" type="reset" value="clear"/></td></tr>
+		</table>
+		</form>
+	</div>
+<!--form method="get" action="">
+<input ty />
+</form-->
+      <ol class="breadcrumb">
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
     
   </div>
   <!-- /.content-wrapper -->
@@ -279,7 +269,7 @@ require_once "../../php/dbcon.php";
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-  
+
 
 </div>
 
@@ -293,9 +283,14 @@ require_once "../../php/dbcon.php";
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js"></script>
 
 </body>
-
-
 </html>
+
+<?php
+//view all users
+function viewAll2(){
+
+}
+
+?>

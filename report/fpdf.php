@@ -394,7 +394,7 @@ function Header()
 	$this->SetTextColor(0,0,200);
 	$this->SetFont('Helvetica','',12);
 	$this->Cell(50,10,'',0,0,'C');
-	$this->Cell(90,10,'www.dunlop.lk',0,0,'C',0,'http://www.dunlop.lk'); $this->Ln();
+	$this->Cell(90,10,'www.dunlop.lk',0,0,'C',0,'http://www.skmm.lk'); $this->Ln();
 	
 	
 	$this->SetTextColor(0,0,0);
