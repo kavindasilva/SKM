@@ -1,7 +1,7 @@
 <?php
 require_once "../php/dbcon.php";
 require_once('fpdf.php');
-include_once('template1.php');
+//include_once('template1.php');
 $d=date('d_m_Y');
 
 class PDF extends FPDF
