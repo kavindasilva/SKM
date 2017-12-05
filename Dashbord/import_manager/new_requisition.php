@@ -153,7 +153,7 @@
        <div class="row" style="background-color:#D2D2D2; margin-left:70px; margin-right: 130px; ">
        </br><div class="col-xs-3">
 
-       <button type="button" class="btn btn-success" style="width: 160px; margin-left: 20px">Send Selected</button></div>
+       <button type="button" class="btn btn-success" id="send_selected_btn" style="width: 160px; margin-left: 20px">Send Selected</button></div>
        
     <div class="col-xs-3"><button type="button" class="btn btn-primary send_all_btn" style="width: 160px">Send All Items</button></div>
            <?php
@@ -201,6 +201,33 @@
             }
         }
     });
+</script>
+
+<script>
+    $("#send_selected_btn").click(function () {
+        var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        for(i=1;i<x;i++){
+            if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
+                var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
+                // document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
+                var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
+                alert(qty);
+                alert(tire_id);
+                $.ajax({
+                    type:"post",
+                    url:"quary.php",
+                    data:{tire_id:tire_id,qty:qty},
+                    success:function (data) {
+                        alert(data);
+
+                    }
+
+                })
+            }
+        }
+
+    })
 </script>
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
