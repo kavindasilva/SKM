@@ -36,7 +36,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
   <!--bootstrap validation
   <link rel="stylesheet" href="../../css/bootstrapValidator.css"/>
   <script type="text/javascript" src="../../js/bootstrapValidator.js"></script>-->
-  <script src="../../js/bootstrap-confirmation.js"></script>
+  
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -277,7 +277,6 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
 <script src="../../js/navigation_controler.js?v=3"></script>
-
 </body>
 
 
