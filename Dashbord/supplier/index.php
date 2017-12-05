@@ -175,8 +175,8 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Purchase Requests</a></li>
-             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Send Shipment Details</a></li>
+            <li><a href="#" name="dashbord"><i class="fa fa-circle-o"></i> Purchase Requests</a></li>
+             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Purchase Confirmations</a></li>
            </ul>
         </li>
            
