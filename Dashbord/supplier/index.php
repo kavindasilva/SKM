@@ -9,9 +9,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 }
 ?>
 <html>
-
 <head>
- 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SKMM| Dashboard</title>
@@ -30,13 +28,10 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
   <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../../css/mystyle.css">
   <!-- tab icon-->
-  <link rel="icon" href="../../images/skmlogo.jpg">	
+	<link rel="icon" href="../../images/skmlogo.jpg">	
     <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <!--bootstrap validation
-  <link rel="stylesheet" href="../../css/bootstrapValidator.css"/>
-  <script type="text/javascript" src="../../js/bootstrapValidator.js"></script>-->
-  <script src="../../js/bootstrap-confirmation.js"></script>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
@@ -171,63 +166,19 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li  id="dd" class="active treeview menu-open">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
        
         <li class="treeview">
          	<a href="#">
-            	<i class="fa fa-edit"></i> <span>Order</span>
+            	<i class="fa fa-edit"></i> <span>Sales</span>
             	<span class="pull-right-container">
               	<i class="fa fa-angle-left pull-right"></i>
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Purchase Requests</a></li>
+             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> Send Shipment Details</a></li>
            </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Invoice</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i> New Invoice</a></li>
-            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
-          </ul>
-        </li>
-    
-        <li id="quotationrequests">
-          <a href="#">
-            <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
-            <span class="pull-right-container">
-              
-				<?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
-				  ?>              	
-              
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i> <span>Reports</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
            
       </ul>
     </section>

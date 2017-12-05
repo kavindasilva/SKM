@@ -53,7 +53,7 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">New Quotation Requests</button>
+          <button class="form-control dashbordbtn" name="neworder" onClick="dashbordcontrol('quotationrequests');">New Quotation Requests</button>
         </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">

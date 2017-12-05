@@ -100,6 +100,6 @@ a{
 	height: 60px;
 	background-color: #DCDCDC;
 }*/
-.fa-trash:hover{
+.fa-trash:hover,.fa-minus-circle:hover{
 	color: red;
 }
