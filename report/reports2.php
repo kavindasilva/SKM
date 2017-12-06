@@ -138,8 +138,9 @@ $pdf->BasicTable($header,$objQuery);
 
 //forme();
 //$pdf->Output("monthlyStockReport.pdf","F"); //save in  server
+$pdf->Output("monthlyStockReport.pdf","s"); 
 //$pdf->Output(); //thibba eka
-$pdf->Output("D","monthlyStockReport.pdf");
+//$pdf->Output("S","monthlyStockReport.pdf");
 //$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
 //$pdf->Output('tempfile.pdf'); //server eke save venne
 
