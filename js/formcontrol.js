@@ -316,20 +316,21 @@ function sendRequesition(){//this handls the new quotation request data insertio
 		  success:function(data1){
 			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 			for(var i=0;i<rows;i++){
-				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
-				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
-				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
-				qty=rowarray[i].getElementsByTagName('td')[4].innerHTML;
 				
+				brand=rowarray[0].getElementsByTagName('td')[1].innerHTML;
+				country=rowarray[0].getElementsByTagName('td')[2].innerHTML;
+				tiresize=rowarray[0].getElementsByTagName('td')[3].innerHTML;
+				qty=rowarray[0].getElementsByTagName('td')[4].innerHTML;
+				rowarray[0].remove();
 			$.ajax({
 				  type:"post",
 				  url:"controler/quotationdetailcontroler.php",
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty}),
 				  success:function(data){
-					   alert(data);
+					  // alert(data);
 			 
 		  							}
-	  });
+	  			});
 				
 			}
 			 
@@ -337,7 +338,7 @@ function sendRequesition(){//this handls the new quotation request data insertio
 	  });
 						document.getElementById('message').innerHTML="Your Quotation request successfully sent. Our agent will reply you soon";
 					   $('#modal-success').modal('show');
-					   $(".table-bordered  .removable").remove();
+					   //$(".table-bordered  .removable").remove();
 					   document.getElementById('brand').selectedIndex=0;
 					   document.getElementById('country').selectedIndex=0;
 					   document.getElementById('tiresize').selectedIndex=0;
