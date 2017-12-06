@@ -1,12 +1,12 @@
 <?php require_once('../../php/dbcon.php')?>
   <section class="content-header">
    <h1>
-        Low Stock Items
+        Manage Stock
       </h1>     
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-         <li><a href="#"><i class="fa"></i> Notifications</a></li>
-          <li class="active"><a href="#"><i class="fa"></i> Low stock items</a></li>       
+         <li><a href="#"><i class="fa"></i> Stock</a></li>
+          <li class="active"><a href="#"><i class="fa"></i> Manage Stock</a></li>
       </ol>
     </section>
 <div class="box">   		
@@ -36,7 +36,7 @@
         <td><input id="fname"  class="form-control"></td>
         <td><input id="fname"  class="form-control"></td>
         <td><input id="fname"  class="form-control"></td>
-		<td><input id="tp"  class="form-control"></td>
+		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>
 	<?php
@@ -45,13 +45,13 @@
 		if($tires){
 		while($tire=mysqli_fetch_array($tires)){	
 		
-		echo"<tr><td>".$tire['t_id']."</td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
+		echo"<tr id=\"".$tire['t_id']."\"><td>".$tire['t_id']."</td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['tire_size']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
+        <input id=\"textBox1\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
 		}
 		
 		}
@@ -96,7 +96,25 @@ $('#addbtn').click(function(){
 		
 	});  
 $('.Delete').click(function(){
-	alert("deletebutton");
+
+	var row=this.parentElement.parentElement;
+	var tid=parseInt(row.getAttribute('id'));
+	//alert(tid);
+		
+		$.ajax({
+			url: "modal/deletestock.php",
+			method: "POST",
+			data: ({tid:tid}),
+			success: function(data) {
+				//alert(data);
+				// body...
+				row.remove();
+			}
+			
+		});
+	
+	
+	
 	
 });
 $('.updatebtn').click(function(){
