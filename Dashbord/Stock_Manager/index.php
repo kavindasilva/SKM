@@ -199,8 +199,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="viewstock"><i class="fa fa-circle-o"></i>View Stock</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Stock</a></li>
+            <li><a href="#" name="viewstock"><i class="fa fa-circle-o"></i>Manage Stock</a></li>
            </ul>
         </li>
         <li class="treeview">
