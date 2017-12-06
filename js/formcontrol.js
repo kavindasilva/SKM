@@ -1,6 +1,7 @@
 //bootstrap tool tip
 $('[data-toggle="tooltip"]').tooltip();   
 var editingrow;
+var tiresintable=[];
 function validate(){
 		x=document.getElementById('brand').value;
 		y=document.getElementById('country').value;
@@ -20,6 +21,7 @@ function validate(){
 				intq=parseInt(q);
 				qty=parseInt(qty);
 					if(intq>qty){
+						document.getElementById('max').innerHTML="Maximum Quantity is "+qty+" units";
 						$("#outofstock").modal('show');
 					}
 					else{
@@ -28,14 +30,21 @@ function validate(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Available</td><td onclick=\"removeroderitem(this)\" ><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
-							validate.sum+=data*q;
-							updatedata();
-							document.getElementById('brand').selectedIndex=0;
-							document.getElementById('country').selectedIndex=0;
-							document.getElementById('tiresize').selectedIndex=0;
-							document.getElementById('quantity').value="";
-								
+							var data = $.parseJSON(data);
+							
+							if(tiresintable.includes(data['tid'])){
+								$('#allreadyin').modal('show');
+							}
+							else{	
+								$('#orderitems').append("<tr class=\"removable\" id=\""+data['tid']+"\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data['up'] + "</td><td name=\""+qty+"\">" + q + "</td><td>" + data['up']*q + "</td><td>Available</td><td onclick=\"removeroderitem(this)\" ><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
+								validate.sum+=data['up']*q;
+								updatedata();
+								document.getElementById('brand').selectedIndex=0;
+								document.getElementById('country').selectedIndex=0;
+								document.getElementById('tiresize').selectedIndex=0;
+								document.getElementById('quantity').value="";
+								tiresintable.push(data['tid']);	
+								}
 												}	
 							});
 						}
@@ -45,10 +54,13 @@ function validate(){
 			
 		}
 	}
-// this is not working check
 function removeroderitem(element){
 	
 	validate.sum=validate.sum-parseInt(element.parentElement.getElementsByTagName('td')[5].innerHTML);
+	var index = tiresintable.indexOf(element.parentElement.getAttribute('id'));
+	if (index > -1) {
+    	tiresintable.splice(index, 1);
+	}
 	element.parentElement.remove();
 	updatedata();
 }
@@ -58,12 +70,20 @@ function showmodal(element){
 	$('#updatequantitymodal').modal('show');
 }
 function updatequan(){
-	$('#newquantity').val();
+	//$('#newquantity').val();
 	editingrow.parentElement.getElementsByTagName('td')[4].innerHTML=$('#newquantity').val();
 	validate.sum=validate.sum-parseInt(editingrow.parentElement.getElementsByTagName('td')[5].innerHTML);
 	editingrow.parentElement.getElementsByTagName('td')[5].innerHTML=parseInt($('#newquantity').val())*
 	parseInt(editingrow.parentElement.getElementsByTagName('td')[3].innerHTML);	
 	validate.sum=validate.sum+parseInt(editingrow.parentElement.getElementsByTagName('td')[5].innerHTML);
+	if($('#newquantity').val()>parseInt(editingrow.parentElement.getElementsByTagName('td')[4].getAttribute('name'))){
+		editingrow.parentElement.classList.add('bg-danger');
+		editingrow.parentElement.getElementsByTagName('td')[6].innerHTML="Unavailable";
+	}
+	else{
+		editingrow.parentElement.classList.remove('bg-danger');
+		editingrow.parentElement.getElementsByTagName('td')[6].innerHTML="Available";
+	}
 	updatedata();
 }
 function prceedanyway(){
@@ -77,14 +97,20 @@ function prceedanyway(){
 							url:"assets/loadinvoiceitem.php",
 							data:({brand:x,country:y,tiresize:z}),
 							success:function(data){
-				 			$('#orderitems').append("<tr style=\"background-color: #FFB2B3\" class=\"removable\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data + "</td><td>" + q + "</td><td>" + data*q + "</td><td>Unavailable</td><td onclick=\"removeroderitem(this)\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
-							validate.sum+=data*q;
+							var data = $.parseJSON(data);
+							if(tiresintable.includes(data['tid'])){
+								$('#allreadyin').modal('show');
+							}
+							else{	
+				 			$('#orderitems').append("<tr class=\"removable bg-danger\" id=\""+data['tid']+"\"><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + data['tid'] + "</td><td>" + q + "</td><td>" + data['tid']*q + "</td><td>Unavailable</td><td onclick=\"removeroderitem(this)\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
+							validate.sum+=data['tid']*q;
 							updatedata();
 							document.getElementById('brand').selectedIndex=0;
 							document.getElementById('country').selectedIndex=0;
 							document.getElementById('tiresize').selectedIndex=0;
 							document.getElementById('quantity').value="";
-								
+							tiresintable.push(data['tid']);		
+								}
 												}	
 							});
 }
@@ -187,7 +213,7 @@ if($('#companyname').value!=""){
 }	
 		});
 
-function showsize(){
+function showsize(){//auto loading tire sizes
 	$('#tiresize').children('option:not(:first)').remove();
 	var b=document.getElementById('brand').value;
 	var c=document.getElementById('country').value;

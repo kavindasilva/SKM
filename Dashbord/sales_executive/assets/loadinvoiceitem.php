@@ -10,9 +10,12 @@ $result = mysqli_query($conn, $statement);
 $r = mysqli_fetch_array($result);
 $sid = $r['s_id'];
 $satatement="select unit_price from tire where supplier_s_id='$sid' && tire_size='$tiresize'";*/
-$satatement="select unit_price from tire where country='$country' and tire_size='$tiresize' and brand_name='$brand'";
+$satatement="select unit_price,t_id from tire where country='$country' and tire_size='$tiresize' and brand_name='$brand'";
 $result2 = mysqli_query($conn, $satatement);
 $r2 = mysqli_fetch_array($result2);
 $up = $r2['unit_price'];
-echo $up;
+$tid= $r2['t_id'];
+$returning['up']=$up;
+$returning['tid']=$tid;
+echo json_encode($returning);
 ?>

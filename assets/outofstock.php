@@ -7,7 +7,7 @@
                 <h3 class="modal-title">Warning Order Item Out Of Stock</h3>
               </div>
               <div class="modal-body">
-                <p style="font-size: 17px;">The amount you are expecting is out of stock please reselect the Quantity Or proceed anyway&hellip;</p>
+                <p style="font-size: 17px;">The amount you are expecting is out of stock please reselect the Quantity Or proceed anyway&hellip;</p><h4 id="max"></h4>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancle</button>
