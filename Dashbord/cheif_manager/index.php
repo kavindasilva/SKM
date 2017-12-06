@@ -1,55 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SKMM | Dealer Panel</title>
-	
-	<!-- Tell the browser to be responsive to screen width -->
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<!-- Bootstrap 3.3.7 -->
-	<link rel="stylesheet" href="../../css/bootstrap.min.css">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="../../fonts/font-awesome.min.css">
-	<!-- Ionicons -->
-	<link rel="stylesheet" href="../../icon/ionicons.min.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="../../css/AdminLTE.min.css">
-	<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-	<link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
-	 <!-- tab icon-->
-	<link rel="icon" href="../../images/skmlogo.jpg">	
-    <!-- Google Font ->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"-->
-	
-</head>
-
-<body class="hold-transition skin-blue sidebar-mini">
-
-<div class="wrapper">
 <?php
-//session maintainence // kavindasilva
 session_start();
-$_SESSION['user']="Test1";
-/**
- if(!isset($_SESSION['user'])){
-	echo "user not set";
-	//header('Location:../login.html');
- }
- elseif ($_SESSION['utype']!="adm") {
-     echo "not an admin";
-	 //header('Location:../login.html');
- }
-
-/**/
-include_once '../../php/dbcon2.php';
-//include  //header files & css,JS
-
+require_once('../../php/dbcon.php');
+$query="SELECT * FROM quotation WHERE status='notreplied';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$_SESSION['notificationcount']=mysqli_num_rows($result);
+}
 ?>
-  <header class="main-header">
+<html>
+
+<head>
+ 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SKMM| Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../icon/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../css/mystyle.css">
+  <!-- tab icon-->
+  <link rel="icon" href="../../images/skmlogo.jpg">	
+    <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!--bootstrap validation
+  <link rel="stylesheet" href="../../css/bootstrapValidator.css"/>
+  <script type="text/javascript" src="../../js/bootstrapValidator.js"></script>-->
+  
+</head>
+<body class="hold-transition skin-purple sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header" id="mainhead">
+
     <!-- Logo -->
-    <a href="../../index.php" class="logo">
+    <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="../../images/skmlogo.jpg" style="height:50px;" alt="User Image"></span>
       <!-- logo for regular state and mobile devices -->
@@ -65,20 +60,49 @@ include_once '../../php/dbcon2.php';
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-                        
-			
-          </li>
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
-            
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+             <?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				  ?>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                 <?php
+				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
+					$resultinside=mysqli_query($conn,$query2);
+					$rowinside=mysqli_fetch_array($resultinside);
+				echo("
+                  <li>
+                    <a href=\"#\">
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
+                    </a>
+                  </li>");
+					  
+				}
+                 ?>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
           </li>
              <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $_SESSION['user']; ?></span>
+              <span class="hidden-xs"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -86,23 +110,23 @@ include_once '../../php/dbcon2.php';
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Authorized dealer
+                  Sales-Executive
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
          
                      <!-- Menu Footer-->
               <li class="user-footer">
-                <!--div class="pull-left">
-                  <a href="settings.php" class="btn btn-default btn-flat">Profile</a>
-                </div-->
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
 				 
                 <div class="pull-right">
                   <a href="../../php/logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
 				
 				<div style="margin-left:77px;">
-                  <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
                 </div>
               </li>
             </ul>
@@ -116,8 +140,7 @@ include_once '../../php/dbcon2.php';
 
     </nav>
   </header>
-  
-    <!-- Left side column. contains the logo and sidebar -->
+  <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -127,7 +150,9 @@ include_once '../../php/dbcon2.php';
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['user']; ?></p>
+          <p><?php
+				  echo $_SESSION['currentuser'];
+				  ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -144,88 +169,75 @@ include_once '../../php/dbcon2.php';
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">NAVIGATION</li>
-        <li  id="dd"class="active treeview menu-open">
-          <a href="index.php">
+      <ul class="sidebar-menu" id="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li  id="dd" class="active treeview menu-open">
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-           
           </a>
-         
         </li>
        
         <li class="treeview">
-          <a href="#">
-              <i class="fa fa-edit"></i> <span>Reports</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+         	<a href="#">
+            	<i class="fa fa-edit"></i> <span>Order</span>
+            	<span class="pull-right-container">
+              	<i class="fa fa-angle-left pull-right"></i>
+           	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="" name="report2"><i class="fa fa-circle-o"></i>Generate reports</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Stock</a></li>
+            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li>
            </ul>
         </li>
-		
-		<li class="treeview">
-
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Orders</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=".php"><i class="fa fa-circle-o"></i> New orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o"></i> Edit orders</a></li>
-            <li><a href=".php"><i class="fa fa-circle-o" style="color: #ee0000"></i> Cancel</a></li>
-           </ul>
-        </li>
-		
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Profile</span>
+            <i class="fa fa-table"></i> <span>Invoice</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
-            <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
+            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i> New Invoice</a></li>
+            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
           </ul>
         </li>
     
-                
+        <li id="quotationrequests">
+          <a href="#">
+            <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
+            <span class="pull-right-container">
+              
+				<?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+				  ?>              	
+              
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                </li>
+           
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-  
-  
-  
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-   <script type="text/javascript" src="adminFun.js"></script>
-	<B>Dealer dashboard</b> <br/>
-	<br/>
-<div class="">
-	
-	
-	
-</div>
-<!--form method="get" action="">
-<input ty />
-</form-->
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
 
-    <!-- Main content -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" id="content-wrapper" >
+    
+    <!-- content will be loaded here -->
     
   </div>
   <!-- /.content-wrapper -->
@@ -252,7 +264,6 @@ include_once '../../php/dbcon2.php';
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 
-
 </div>
 
 <!-- jQuery 3.1.1 -->
@@ -265,12 +276,8 @@ include_once '../../php/dbcon2.php';
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-<script src="../../js/navigation_controler.js"></script>
-</html>
-
-
+<script src="../../js/navigation_controler.js?v=3"></script>
 </body>
 
 
 </html>
-
