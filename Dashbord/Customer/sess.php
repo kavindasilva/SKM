@@ -11,11 +11,11 @@
 
 if(!isset($_SESSION['currentuser'])){
 	echo "user not set";
-	header('Location:../../login.html');
+	header('Location:../../invalidlogin.html');
 }
 elseif ($_SESSION['usertype']!="cust") {
 	//echo "not an admin";
-	header('Location:../../login.html');
+	header('Location:../../invalidlogin.html');
 }
 
 ?>
