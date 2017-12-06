@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once('sess.php');
+
 require_once('../../php/dbcon.php');
 $query="SELECT r_id FROM customer WHERE user_user_name='".$_SESSION['currentuser']."';";
 $result=mysqli_query($conn,$query);	
