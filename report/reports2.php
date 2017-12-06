@@ -2,7 +2,7 @@
 
 /**
 	This file contains backend of:
-
+	Stock status report
 */
 /*
 if(!isset($_GET['rtype'])){
@@ -137,14 +137,11 @@ $pdf->Cell(10);
 $pdf->BasicTable($header,$objQuery);
 
 //forme();
-//$pdf->Output("$d.pdf","F");
+//$pdf->Output("monthlyStockReport.pdf","F"); //save in  server
 //$pdf->Output(); //thibba eka
+$pdf->Output("D","monthlyStockReport.pdf");
 //$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
-$pdf->Output('tempfile.pdf'); //server eke save venne
+//$pdf->Output('tempfile.pdf'); //server eke save venne
 
-//echo "<script>window.history.back();</script>";
-
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/file:tempfile.pdf");
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/tempfile.pdf");
 
 ?>
