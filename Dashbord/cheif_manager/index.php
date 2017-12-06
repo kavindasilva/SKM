@@ -155,17 +155,15 @@ include_once '../../php/dbcon2.php';
         </li>
        
         <li class="treeview">
-
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Quotations</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+              <i class="fa fa-edit"></i> <span>Reports</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> New quotation</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> View all</a></li>
-            <li><a href="#"><i class="fa fa-circle-o" style="color: #ee0000"></i> Remove quotation</a></li>
+            <li><a href="" name="report2"><i class="fa fa-circle-o"></i>Generate reports</a></li>
+            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Stock</a></li>
            </ul>
         </li>
 		
@@ -267,57 +265,9 @@ include_once '../../php/dbcon2.php';
 <script src="../../js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../js/demo.js"></script>
-
-</body>
+<script src="../../js/navigation_controler.js"></script>
 </html>
 
-
-
-
-<?php
-//view all users
-function viewAll2(){
-	$sqlq = "select * from users;"; //sql query, users list
-	$res = mysqli_query($GLOBALS['conn'] , $sqlq); //result
-	
-	if (mysqli_num_rows($res) == 0) //check result
-		echo "<p>No users in the system</p>";
-	
-	else {
-		echo "<table id='tblstd'>";
-		echo "<tr> <th>ID</th> <th></th> <th>First name</th> <th>Last name</th> <th>Birthday</th> <th>class</th>";
-		echo " <th>sex</th> <th>telephone1</th> <th>telephone2</th> <th>Address</th></tr>";
-		
-		while ($row = mysqli_fetch_array($res)) {
-			echo "<form method='post' action='funs1.php'>";
-			//echo "<form method='post' action='funs1.php' onsubmit='confirmD();'>";
-			//echo "<form method='post' action=''>"; //auto refreshing
-			
-			echo "<tr><input type='text' name='sid' value='" . $row['sid'] . "' hidden/>"; //make teacher
-			echo "<input type='text' name='actor' value='ss' hidden/>"; //set as student 
-			
-			echo "<td>" . $row['sid'] . "</td>";
-			echo "<td>" . $row['photo'] . "</td>";
-			echo "<td>" . $row['fname'] . "</td>";
-			echo "<td>" . $row['lname'] . "</td>";
-			echo "<td>" . $row['dob'] . "</td>";
-			echo "<td>" . $row['class'] . "</td>";
-			echo "<td>" . $row['gender'] . "</td>";
-			echo "<td>" . $row['tel1'] . "</td>";
-			echo "<td>" . $row['tel2'] . "</td>";
-			echo "<td>" . $row['address'] . "</td>";
-			
-			echo "<td><input type='submit' name='update' onclick='return confirmU()' value='Update'/></td>";
-			echo "<td><input type='submit' name='delete' onclick='return confirmD()' value='DELETE' style='color:red'/></td></tr></form>";	
-		}
-		echo "</table>";
-	}
-	
-}
-
-?>
-
-<script src="../../js/navigation_controler.js?v=3"></script>
 
 </body>
 
