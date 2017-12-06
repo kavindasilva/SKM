@@ -70,7 +70,7 @@ $query2="SELECT * FROM quotation_item WHERE q_no='".$row['q_no']."';";
             	<div id="demo" class="collapse">
             	<form class="form-inline">
 				  <div class="form-group">
-					<label for="subtotal">Sub Toatal</label>
+					<label for="subtotal">Sub Total</label>
 					<input  class="form-control" id="subtotal" disabled>
 				  </div>
 				  <div class="form-group">
