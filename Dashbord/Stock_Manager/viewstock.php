@@ -20,8 +20,8 @@
 		<tr>
 			<th>Index Nubmer</th>
 			<th>country</th>
-			<th>Tire Size</th>
-			<th>Brand Name</th>
+			<th>Brand name</th>
+			<th>tire size</th>
             <th>qty</th>
             <th>unit price</th>
             <th>status</th>
@@ -31,11 +31,23 @@
 	<tbody>
 	<tr>
 		<td><input id="index" class="form-control" disabled></td>
-		<td><input id="fname"  class="form-control"></td>
-		<td><input id="lname"  class="form-control"></td>
-        <td><input id="fname"  class="form-control"></td>
-        <td><input id="fname"  class="form-control"></td>
-        <td><input id="fname"  class="form-control"></td>
+		<td><select id = "country">
+
+				<option value="japan">Japan</option>
+				<option value="india">Indonesia</option>
+				<option value="malaysia">Thaiwan</option>
+			</select>
+		</td>
+
+        <td><select = "brand">
+				<option value="Dunlop">Dunlop</option>
+				<option value="Kaizen">Kaizen</option>
+
+			</select>
+		</td>
+		<td><input id="size"  class="form-control"></td>
+        <td><input id="qty"  class="form-control"></td>
+        <td><input id="price"  class="form-control"></td>
 		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>
@@ -46,12 +58,13 @@
 		while($tire=mysqli_fetch_array($tires)){	
 		
 		echo"<tr id=\"".$tire['t_id']."\"><td>".$tire['t_id']."</td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
+		<input id=\"textBox2\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['tire_size']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
-        <input id=\"textBox1\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
+
+        <input id=\"textBox3\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
+        <input id=\"textBox4\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
+        <input id=\"textBox5\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
+        <input id=\"textBox6\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
 		}
 		
 		}
@@ -92,6 +105,25 @@ $('.blur').blur(function () {
         
 });
 $('#addbtn').click(function(){
+    var brand=$('#brand').val();
+	var country=$('#country').val();
+	var size = $('#size').val();
+	var qty = $('#qty').val();
+	var price =$('#price').val();
+	//alert(tid);
+
+	$.ajax({
+		url: "modal/add.php",
+		method: "POST",
+		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:prize,}),
+		success: function(data) {
+			//alert(data);
+			// body...
+
+		}
+
+	});
+
 	alert("addbutton");
 		
 	});  
@@ -108,7 +140,7 @@ $('.Delete').click(function(){
 			success: function(data) {
 				//alert(data);
 				// body...
-				row.remove();
+				row.append;
 			}
 			
 		});
@@ -118,6 +150,7 @@ $('.Delete').click(function(){
 	
 });
 $('.updatebtn').click(function(){
+
 	alert("updatebtn");
 	
 });		
