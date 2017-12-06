@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+require_once('sess.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
 

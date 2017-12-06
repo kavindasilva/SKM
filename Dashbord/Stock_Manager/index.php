@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+require_once('sess.php');
 require_once('../../php/dbcon.php');
 $query="SELECT * FROM tire WHERE quantity<20;";
 $result=mysqli_query($conn,$query);	

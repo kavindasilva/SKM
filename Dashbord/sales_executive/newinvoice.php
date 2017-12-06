@@ -355,7 +355,7 @@ $('.viewitems').click(function(){
 	update();
 	$.ajax({
 		type:'post',
-		url:"model/loadorderitem.php",
+		url:"model/loadorderitemtoinvoice.php",
 		data:{sno:gsno},
 		success:function(data){
 			$('#orderitembody').append(data);
