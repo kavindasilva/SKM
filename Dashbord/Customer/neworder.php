@@ -1,3 +1,7 @@
+<head>
+	 <link href="../../css/aos.css" rel="stylesheet">
+    <script src="../../js/plugins.js"></script>
+</head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
@@ -21,7 +25,7 @@
   <form id="maininvoiceform">
 	<div class="form-group">
 	   <!-- display date-->
-		<div class="col-xs-2 control-label pull-right"><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" data-aos="zoom-out-left"><label>Date : </label><label id="date"></label></div>
 		  <script>
 		  n =  new Date();
 		  y = n.getFullYear();
@@ -32,7 +36,7 @@
 	  </div></br></br>
    <!-- invoice items pannel starts here-->
   <div class="row">
-        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;">
+        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;" data-aos="zoom-out-left">
           <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Order Items</h3>
@@ -81,7 +85,7 @@
 	  </div>
 			</form>
 			<!-- add tires to invoice pannel goes here-->
-<form id="addtiresform" action="#" method="post" class="pull-left">
+<form id="addtiresform" action="#" method="post" class="pull-left" data-aos="zoom-out-right">
  <div class="selectitempanal container" style="margin-left: 15px;">
 	 <h4><strong>Add tires</strong></h3>
  	 <div class="row">
@@ -119,5 +123,8 @@
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
 <script src="../../js/formcontrol.js?2"></script>
+<script>
+    AOS.init();
+ </script>
 </body>
 </html>

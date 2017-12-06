@@ -7,6 +7,8 @@
   <!--toggal button-->
   <link rel="stylesheet" href="../../assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
   <link rel="stylesheet" href="../../css/datepicker3.css">
+  <link href="../../css/aos.css" rel="stylesheet">
+  <script src="../../js/plugins.js"></script>
 </head>
 <body >
    
@@ -24,7 +26,7 @@
     	<div class="box">
       	</div>
       	<!--filters devision-->
-      	<div class="filters">
+      	<div class="filters" data-aos="flip-down">
 			<strong ><h4><i class="fa fa-filter"  aria-hidden="true">   Filters</i></h4></strong></br>
      	<!--selecting a buyer row-->
       	<div class="row margin col-md-6" >
@@ -96,7 +98,7 @@
 	  </br>
   <!-- found order details are shown in this table-->	  
 		 <div class="row">
-		  <div  class="col-xs-12" style="width: auto; margin-left: 72px">
+		  <div  class="col-xs-12" style="width: auto; margin-left: 72px" data-aos="flip-down">
           <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Orders Found</h3>
@@ -225,5 +227,7 @@ function setelement(element){
 </script>
 <script src="../../js/bootstrap-confirmation.min.js"></script>
 <script src="../../js/confirmation.js"></script>
-
+<script>
+    AOS.init();
+ </script>
 </html>
