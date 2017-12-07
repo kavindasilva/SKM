@@ -224,8 +224,8 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Charts</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Reports</a></li>
+            <li><a href="#" name="charts"><i class="fa fa-circle-o"></i> Charts</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Reports</a></li>
          </li>
            
       </ul>
