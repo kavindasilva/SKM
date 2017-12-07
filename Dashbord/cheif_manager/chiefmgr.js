@@ -1,5 +1,5 @@
 
-//alert("testing ok");
+alert("testing ok");
 
 function checkCur(eleId) { //check with current date
 	var dat=document.getElementById(eleId).value; //alert(dat);
@@ -51,4 +51,8 @@ function checkDate(){
     if(fromDate>toDate){
     	alert("invalid dates");
     }
+}
+
+function testAlert(){
+	alert("test pass");
 }

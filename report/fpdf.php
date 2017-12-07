@@ -389,7 +389,7 @@ function Header()
 	
 	$this->SetFont('Helvetica','',12);
 	$this->Cell(50,10,'',0,0,'C');
-	$this->Cell(90,10,'0112-589-432 , 0112-590-313',0,0,'C'); $this->Ln();
+	$this->Cell(90,10,'+94-112-589-432 , +94-112-590-313',0,0,'C'); $this->Ln();
 	
 	$this->SetTextColor(0,0,200);
 	$this->SetFont('Helvetica','',12);
@@ -410,7 +410,7 @@ function Footer()
 {
 	//To be implemented in your own inherited class //i changed it
 	$this->SetFont('Helvetica','',12);
-	
+	$this->Ln();
 	$this->Cell(80,10,'(c) youth builders',0,0,'C');
 	$this->Ln();
 	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
