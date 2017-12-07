@@ -85,7 +85,17 @@
   </div>
 <script>
     $(".delete_btn").click(function () {
-        
+        var tid= this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+        alert(tid);
+        $.ajax({
+            type:"post";
+            url:"delete_request_quary.php",
+            data:{tire_id:tid},
+            success:function (data) {
+            alert(data);
+
+        }
+        })
 
         
     })

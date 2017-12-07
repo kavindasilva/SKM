@@ -45,19 +45,25 @@
              <option value="Kaizen-Indonesian" >Kaizen-Indonesian</option>
            </select>
           </div>
-          
-<!--
-          <strong class="col-xs-2">Country</strong>
-        
-          <div class="col-xs-2">
-          <select class="form-control" id="country" name="country">
-             <option value="" >Select</option>
-             <option value="" >Japan</option>
-			  <option value="">Thaiwan</option>
-          </select>
+          <div class="pull-right" style="margin-right: 150px;">
+              <label class="form-group">Purchase requesition number</label>
+              <input id="pr_no" class="form-control"  value="
+<?php
+              require_once('../../php/dbcon.php');
+
+              $query="SELECT MAX(pr_no)  AS maxsno FROM purchase_requisition";
+              $result=mysqli_query($conn,$query);
+              $pr_no=0;
+              if($obj=mysqli_fetch_object($result)){
+                  $pr_no=$obj->maxsno;
+                  $pr_no++;
+              }
+              echo($pr_no);
+
+?>
+"disabled>
           </div>
-          
--->
+
           </div>
           <br>
           <div class="row">
@@ -98,7 +104,7 @@
 						<td><?php echo $row['tire_size']?></td>
 						<td><?php echo $row['quantity']?></td>
 						<td><?php echo $row['status']?></td>
-                        <td><button class="btn btn-success requestbtn">Add to Requests</button></td>
+                        <td><button class="btn btn-success requestbtn" onclick="requestbtn(this)" disabled>Add to Requests</button></td>
 						</tr>
 					
 						
@@ -173,14 +179,14 @@
 
 <!--    selected tire list table script-->
 <script>
-    $(".requestbtn").click(function () {
-        var tid= this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
-        var brand= this.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
-        var country= this.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
-        var size= this.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
-        this.disabled=true;
+  function requestbtn(element) {
+        var tid= element.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
+        var brand= element.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
+        var country= element.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
+        var size= element.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
+      element.disabled=true;
    $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
-    });
+    }
 </script>
 
 <!--    remove all button script-->
@@ -206,23 +212,45 @@
 <script>
     $("#send_selected_btn").click(function () {
         var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        var j=0;
         for(i=1;i<x;i++){
             if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
+                var pr_no=$('#pr_no').val();
+                alert(pr_no);
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 // document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
+                if(j==0){
+                    $.ajax({
+                        type:"post",
+                        url:"pr_quary.php",
+                        data:{tire_id:tire_id,pr_no:pr_no},
+                        success:function (data) {
+                            alert(data);
+
+                        }
+
+                    });
+                    j++;
+                }
                 $.ajax({
                     type:"post",
                     url:"quary.php",
-                    data:{tire_id:tire_id,qty:qty},
+                    data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                     success:function (data) {
                         alert(data);
 
                     }
 
-                })
+                });
+
+                //document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                i--;
+                x--;
             }
+
         }
 
     })

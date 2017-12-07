@@ -36,6 +36,21 @@ if($_POST['request1']){
 			<td><?php echo $row['tire_size']?></td>
 			<td><?php echo $row['quantity']?></td>
 			<td><?php echo $row['status']?></td>
+            <?php
+            if($brand=='--'){
+                ?>
+                <td><button class="btn btn-success requestbtn" onclick="requestbtn(this)" disabled>Add to Requests</button></td>
+                <?php
+
+            }
+            else{
+                ?>
+                <td><button class="btn btn-success requestbtn" onclick="requestbtn(this)">Add to Requests</button></td>
+                <?php
+
+            }
+            ?>
+
 		</tr>
 		
 	<?php

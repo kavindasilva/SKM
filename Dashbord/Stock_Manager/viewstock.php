@@ -19,12 +19,12 @@
 	<thead>
 		<tr>
 			<th>Index Nubmer</th>
-			<th>country</th>
+			<th>Country</th>
 			<th>Brand name</th>
 			<th>Tyre Size</th>
-            <th>qty</th>
-            <th>unit price</th>
-            <th>status</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Status</th>
             <th>Tyre Type</th>
             <th> </th>
 		</tr>
@@ -81,7 +81,6 @@
         <input id=\"textBox4\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
         <input id=\"textBox5\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
         <input id=\"textBox6\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['t_type']."</span>
-
         <input id=\"textBox7\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
 		}
 		
@@ -128,6 +127,7 @@ $('#addbtn').click(function(){
 	var size = $('#size').val();
 	var qty = $('#qty').val();
 	var price =$('#price').val();
+	var ttype = $('#ttype').val();
 	var tid = $('#index').val();
 	var ttype=$('#ttype').val();
 	//alert(tid);
