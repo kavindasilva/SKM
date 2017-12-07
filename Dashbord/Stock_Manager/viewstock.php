@@ -11,11 +11,11 @@
     </section>
 <div class="box">   		
     	</div>
-     <section class="content ">
-         <div  class="col-xs-12 col-md-12" style="width: auto; margin-right: 10px;">
-          <div class="box" >
-           <div class="box-body" >
-    <table class="table table-hover" id="studentsdetails">
+     <section class="content">
+         <div  class="col-xs-12 col-md-12" >
+          <div class="box">
+           <div class="box-body">
+    <table class="table table-hover" id="">
 	<thead>
 		<tr>
 			<th>Index Nubmer</th>
@@ -46,7 +46,7 @@
 													  ?>
 		
 		"></td>
-		<td><select id = "country">
+		<td><select id = "country" class="form-control" style="width: 100px;">
 
 				<option value="japan">Japan</option>
 				<option value="india">Indonesia</option>
@@ -54,7 +54,7 @@
 			</select>
 		</td>
 
-        <td><select id = "brand">
+        <td><select id = "brand" class="form-control" style="width: 100px;">
 				<option value="Dunlop">Dunlop</option>
 				<option value="Kaizen">Kaizen</option>
 
@@ -66,7 +66,7 @@
 		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
         <td><input id="ttype"  class="form-control"></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
-	</tr>
+	</tr>	
 	<?php
 		$gettires="SELECT * from tire";
 		$tires=mysqli_query($conn,$gettires);
@@ -76,12 +76,11 @@
 		echo"<tr id=\"".$tire['t_id']."\"><td><input value=".$tire['t_id']." style=\"text-align:center\" disabled class=\"form-control\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
 		<input id=\"textBox2\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['tire_size']."</span>
-
         <input id=\"textBox3\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
         <input id=\"textBox4\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
         <input id=\"textBox5\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
         <input id=\"textBox6\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['t_type']."</span>
-        <input id=\"textBox7\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
+        <input id=\"textBox7\" class=\"blur\"></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-singleton\" data-placement=\"top\" title=\"Delete this stock item?\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
 		}
 		
 		}
@@ -173,7 +172,7 @@ $('.updatebtn').click(function(){
 	var tel=this.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.innerHTML;
 	$.ajax({
 		type:"post",
-		url:"<?php echo base_url('Managestudent/updatestudent')?>",
+		url:"",
 		data:{index:index,fname:fname,lname:lname,tel:tel},
 		success:function(data){
 			if($('#alert')!=null){
@@ -199,4 +198,9 @@ $('.updatebtn').click(function(){
 		.blur{
 			display: none
 		}
+	.label-default{
+		font-size:14px;
+	}
 	</style>
+<script src="../../js/bootstrap-confirmation.min.js"></script>	
+<script src="../../js/confirmation.js"></script>	

@@ -1,81 +1,19 @@
-  <div style="padding: 7px;">
-  <section class="content-header">
-   <h1>Dashbord</h1>
+ <!-- Content Header (Page header) -->
+    <section class="content-header">
+   <h1>
+        New quotation request
+      </h1>     
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        
-          <li class="active"><a href="#"><i class="fa"></i>Dashbord</a></li>
+         <li><a href="#"><i class="fa"></i> Quotations</a></li>
+          <li class="active"><a href="#"><i class="fa"></i> New quotation request</a></li>       
       </ol>
     </section>
-     <div class="box">
-      	</div>
-   
-<!--main menu item goes here-->    
-   <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
-
-            <div class="info-box-content">
-            
-              <span class="info-box-text">Order</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" onClick="dashbordcontrol('neworder');">New order</button>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findorder');" >Find order</button>
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-table"></i></span>
-
-            <div class="info-box-content">
-        
-              <span class="info-box-text">Invoice</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" onClick="dashbordcontrol('newinvoice');">New Invoice</button>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findinvoice');">Find Invoice</button>
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-envelope-o"></i></span>
-
-            <div class="info-box-content">
-              
-              <span class="info-box-text">Quotation Requests</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder" onClick="dashbordcontrol('quotationrequests');">New Quotation Requests</button>
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
-
-            <div class="info-box-content">
-              
-              <span class="info-box-text">Reports</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">Monthly sales Report</button>
-		<button class="form-control dashbordbtn" name="neworder">Outstandings Report</button>
-        </div>
-        <!-- /.col -->
-      </div>
-<!--main menu item concludes here-->  
-<div class="row">
+<div class="box">   		
+    	</div>
+<div class="row container">
 	<!-- Area CHART -->
-	<div class="col-md-6 col-xs-12">
+	<div class="col-md-10 col-xs-12 col-md-offset-1">
 		<div class="box box-primary ">
             <div class="box-header with-border">
               <h3 class="box-title">Sales Progress Area Chart</h3>
@@ -95,7 +33,7 @@
           </div>
 	</div>
 <!-- BAR CHART -->
-         <div class="col-md-6 col-xs-12">
+         <div class="col-md-10 col-xs-12 col-md-offset-1">
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Sales Progress Bar Chart</h3>
@@ -117,7 +55,9 @@
          
 </div>
 	
-</div>
+
+
+
 <script src="../../js/Chart.min.js"></script>	
 <script>
   $(function () {
