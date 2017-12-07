@@ -161,7 +161,7 @@
 
        <button type="button" class="btn btn-success" id="send_selected_btn" style="width: 160px; margin-left: 20px">Send Selected</button></div>
        
-    <div class="col-xs-3"><button type="button" class="btn btn-primary send_all_btn" style="width: 160px">Send All Items</button></div>
+    <div class="col-xs-3"><button type="button" class="btn btn-primary" id="send_all_btn" style="width: 160px">Send All Items</button></div>
            <?php
 
            ?>
@@ -214,17 +214,16 @@
 <script>
     $("#send_selected_btn").click(function () {
         var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        //j for catching one pr_no
         var j=0;
         var pr_no=$('#pr_no').val();
         for(i=1;i<x;i++){
             if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
-
-                //alert(pr_no);
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 // document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                $('#pr_no').val()
+                //$('#pr_no').val();
                 if(j==0){
                     $.ajax({
                         type:"post",
@@ -243,13 +242,8 @@
                     url:"quary.php",
                     data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                     success:function (data) {
-                        //alert(data);
-
                     }
-
                 });
-
-                //document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 i--;
                 x--;
@@ -259,6 +253,49 @@
         //$('#content-wrapper').load('new_requesition.php');
     })
 </script>
+<script>
+    $("#send_all_btn").click(function () {
+        var x = document.getElementById("Requisition_itm_tbl").rows.length;
+        //j for catching one pr_no
+        var j=0;
+        var pr_no=$('#pr_no').val();
+        for(i=1;i<x;i++){
+                var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
+                // document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
+                var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
+                //$('#pr_no').val();
+                if(j==0){
+                    $.ajax({
+                        type:"post",
+                        url:"pr_quary.php",
+                        data:{tire_id:tire_id,pr_no:pr_no},
+                        success:function (data) {
+                            alert('Successfully Requested ');
+
+                        }
+
+                    });
+                    j++;
+                }
+                $.ajax({
+                    type:"post",
+                    url:"quary.php",
+                    data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
+                    success:function (data) {
+                    }
+                });
+                document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                i--;
+                x--;
+
+
+        }$('#pr_no').val(parseInt($('#pr_no').val())+1);
+        //$('#content-wrapper').load('new_requesition.php');
+
+
+    })
+</script>    
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
 </html>
