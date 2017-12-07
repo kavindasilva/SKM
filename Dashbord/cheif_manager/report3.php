@@ -6,18 +6,21 @@
 */
 require_once "../../php/dbcon.php";
 
-$date=$_POST['months'];
-$year=$_POST[''];
-$month=$_POST[''];
+//$date=$_POST['months'];
+//$year=$_POST[''];
+//$month=$_POST[''];
+$year='2017';
+$months='10';
 
 $strSQL = "Select * From tire;";
 //$strSQL="SELECT sum(o.qty) FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available'";
 
 //$strSQL="SELECT t.t_id, t.brand_name,t.country,t.tire_size,sum(o.qty) as totq FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available' GROUP by t.t_id";
 
-$strSQL="SELECT t.t_id, t.brand_name,t.country,t.tire_size,sum(o.qty) as totq FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available' and year(s.date)='2017' and month(s.date)='10'  GROUP by t.t_id";
+$strSQL="SELECT t.t_id, t.brand_name,t.country,t.tire_size,sum(o.qty) as totq FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available' and year(s.date)='$year' and month(s.date)='$months'  GROUP by t.t_id";
 
 $objQuery = mysqli_query($conn,$strSQL) or die ("Database query failed: $strSQL<hr>" . mysqli_error($conn)); //result set
+echo "Month = ".$year."/".$months."<BR/>";
 
 if(mysqli_num_rows($objQuery)==0){
 	echo "No data in system";
