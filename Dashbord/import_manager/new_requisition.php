@@ -6,15 +6,7 @@
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-<!--  <script>-->
-<!---->
-<!--	  $(document).ready(function(){-->
-<!--	  $('table#tire_ava tbody tr').click( function () {-->
-<!--        alert('i am clicked');-->
-<!--		  $('table#tire_ava tbody tr td').load('table#Requisition_itm_tbl tr td');-->
-<!--        } );-->
-<!--});-->
-<!--</script>-->
+
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -70,7 +62,7 @@
             <div class="col-xs-12" style="width: auto; margin-left: 72px">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Available Tires</h3>
+                  <h3 class="box-title">Required Tires</h3>
                 </div>
                 <div class="box-body">
                   <table id="tire_ava" class="table-bordered table-hover" width="920">

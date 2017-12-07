@@ -206,8 +206,8 @@ require_once('sess.php');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> New Invoice</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
+            <li><a href="#" name="received_requisition"><i class="fa fa-circle-o"></i> Received Requisition </a></li>
+            <li><a href="#" name="confirmed_requisition"><i class="fa fa-circle-o"></i> Confirmed Requisition</a></li>
           </ul>
         </li>
     
