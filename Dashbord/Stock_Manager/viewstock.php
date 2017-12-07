@@ -129,12 +129,12 @@ $('#addbtn').click(function(){
 	var qty = $('#qty').val();
 	var price =$('#price').val();
 	var tid = $('#index').val();
+	var ttype=$('#ttype').val();
 	//alert(tid);
-alert(country);
 	$.ajax({
 		url: "modal/add.php",
 		method: "POST",
-		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:price,tid:tid}),
+		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:price,tid:tid,ttype:ttype}),
 		success: function(data) {
 			alert(data);
 			// body...
