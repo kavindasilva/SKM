@@ -10,7 +10,7 @@ $(document).ready(function(){
 				},
 				success:function(data){
 					$("table#tire_ava tbody").html(data);
-				},
+				}
 			});
 		});
 //		$("select#country").on('change',function(){
