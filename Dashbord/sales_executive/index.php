@@ -224,11 +224,9 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
+            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Charts</a></li>
+            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Reports</a></li>
+         </li>
            
       </ul>
     </section>

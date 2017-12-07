@@ -58,6 +58,7 @@
 		 <div  class="col-xs-7 col-md-7 pull-right" style="padding-right: 30px;">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
+        <option value="guest" >Guest</option>
        <?php
 	$query="select shop_name from dealer";
 	$result=mysqli_query($conn,$query);
