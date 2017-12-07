@@ -131,7 +131,7 @@
     var areaChart = new Chart(areaChartCanvas);
 
     var areaChartData = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["June","July","Auguest", "September", "October", "November", "December"],
       datasets: [
         {
           label: "Kaizen",
@@ -141,7 +141,8 @@
           pointStrokeColor: "#c1c7d1",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [65, 59, 80, 81, 56, 55, 40]
+          data: <?php require_once('../../charts/monthlysales.php');  
+			getreport("Kaizen");?>
         },
         {
           label: "Dunlop",
@@ -151,7 +152,8 @@
           pointStrokeColor: "rgba(60,141,188,1)",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(60,141,188,1)",
-          data: [28, 48, 40, 19, 86, 27, 90]
+          data: <?php require_once('../../charts/monthlysales.php');  
+			getreport("Dunlop");?>
         }
       ]
     };
