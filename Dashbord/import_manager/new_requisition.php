@@ -204,6 +204,8 @@
         for(i=1;i<x;i++){
             if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
                 document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                i--;
+                x--;
             }
         }
     });
@@ -217,7 +219,7 @@
         for(i=1;i<x;i++){
             if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
 
-                alert(pr_no);
+                //alert(pr_no);
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 // document.getElementById("Requisition_itm_tbl").deleteRow(i);
                 //var tire_id =document.getElementById("Requisition_itm_tbl").rows[i].getElementsByTagName('td').[1].innerHTML;
@@ -229,7 +231,7 @@
                         url:"pr_quary.php",
                         data:{tire_id:tire_id,pr_no:pr_no},
                         success:function (data) {
-                            alert(data);
+                            alert('Successfully Requested ');
 
                         }
 
@@ -241,7 +243,7 @@
                     url:"quary.php",
                     data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                     success:function (data) {
-                        alert(data);
+                        //alert(data);
 
                     }
 
