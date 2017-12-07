@@ -15,7 +15,7 @@ $pr_item_del_quary="DELETE FROM `pr_item` WHERE `pr_item`.`tire_t_id` =$t_id";
 mysqli_query($conn,$pr_item_del_quary);
 //checking quary
 $tire_check_quary="SELECT tire_t_id FROM pr_item WHERE purchase_requisition_pr_no=$pr_no";
-if(!mysqli_query($conn,$pr_item_del_quary)){
+if(!mysqli_fetch_row(mysqli_query($conn,$tire_check_quary))[0]){
     //delete purchase requsition quary
     $req_del_quary="DELETE FROM `purchase_requisition` WHERE `purchase_requisition`.`pr_no` = $pr_no";
     mysqli_query($conn,$req_del_quary);
