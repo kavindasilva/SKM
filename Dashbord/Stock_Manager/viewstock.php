@@ -30,7 +30,21 @@
 	</thead>
 	<tbody>
 	<tr>
-		<td><input id="index" class="form-control" disabled></td>
+		<td><input id="index" class="form-control" disabled
+		value="
+		<?php
+				$query2="SELECT MAX(t_id) AS maxtid FROM tire";
+				$result=mysqli_query($conn,$query2);
+				$tid=0;									  
+				if($obj=mysqli_fetch_object($result)){
+				$tid=$obj->maxtid;
+				$tid++;	
+				}
+				echo($tid);
+													  
+													  ?>
+		
+		"></td>
 		<td><select id = "country">
 
 				<option value="japan">Japan</option>
@@ -39,7 +53,7 @@
 			</select>
 		</td>
 
-        <td><select = "brand">
+        <td><select id = "brand">
 				<option value="Dunlop">Dunlop</option>
 				<option value="Kaizen">Kaizen</option>
 
@@ -57,7 +71,7 @@
 		if($tires){
 		while($tire=mysqli_fetch_array($tires)){	
 		
-		echo"<tr id=\"".$tire['t_id']."\"><td>".$tire['t_id']."</td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
+		echo"<tr id=\"".$tire['t_id']."\"><td><input value=".$tire['t_id']." style=\"text-align:center\" disabled class=\"form-control\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['country']."</span>
 		<input id=\"textBox2\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['brand_name']."</span>
         <input id=\"textBox1\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['tire_size']."</span>
 
@@ -110,21 +124,20 @@ $('#addbtn').click(function(){
 	var size = $('#size').val();
 	var qty = $('#qty').val();
 	var price =$('#price').val();
+	var tid = $('#index').val();
 	//alert(tid);
-
+alert(country);
 	$.ajax({
 		url: "modal/add.php",
 		method: "POST",
-		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:prize,}),
+		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:price,tid:tid}),
 		success: function(data) {
-			//alert(data);
+			alert(data);
 			// body...
 
 		}
 
 	});
-
-	alert("addbutton");
 		
 	});  
 $('.Delete').click(function(){
@@ -138,9 +151,9 @@ $('.Delete').click(function(){
 			method: "POST",
 			data: ({tid:tid}),
 			success: function(data) {
-				//alert(data);
+				alert(data);
 				// body...
-				row.append;
+				//row.append;
 			}
 			
 		});
