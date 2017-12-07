@@ -167,8 +167,31 @@ $('.Delete').click(function(){
 	
 });
 $('.updatebtn').click(function(){
-
-	alert("updatebtn");
+	var index=this.parentNode.parentNode.firstChild.innerHTML;
+	var fname=this.parentNode.parentNode.firstChild.nextSibling.firstChild.innerHTML;
+	var lname=this.parentNode.parentNode.firstChild.nextSibling.nextSibling.firstChild.innerHTML;
+	var tel=this.parentNode.parentNode.firstChild.nextSibling.nextSibling.nextSibling.firstChild.innerHTML;
+	$.ajax({
+		type:"post",
+		url:"<?php echo base_url('Managestudent/updatestudent')?>",
+		data:{index:index,fname:fname,lname:lname,tel:tel},
+		success:function(data){
+			if($('#alert')!=null){
+							$('#alert').remove();
+						}
+						if(data=="success"){
+							$("<div id=\"alert\" class=\"alert alert-success col-md-10 col-md-offset-1\"><strong>Success!</strong>Student Successfully updated</div>").insertAfter('#tablehedding');
+							window.scrollTo(0,0);
+							
+						}
+						else{
+						$("<div id=\"alert\" class=\"alert alert-danger col-md-10 col-md-offset-1\"><strong>Error!</strong>"+data+"</div>").insertAfter('#tablehedding');
+							window.scrollTo(0,0);
+						}
+		
+	}
+		
+	});
 	
 });		
 </script>	
