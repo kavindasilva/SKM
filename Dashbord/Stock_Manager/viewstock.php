@@ -21,10 +21,11 @@
 			<th>Index Nubmer</th>
 			<th>country</th>
 			<th>Brand name</th>
-			<th>tire size</th>
+			<th>Tyre Size</th>
             <th>qty</th>
             <th>unit price</th>
             <th>status</th>
+            <th>Tyre Type</th>
             <th> </th>
 		</tr>
 	</thead>
@@ -63,6 +64,7 @@
         <td><input id="qty"  class="form-control"></td>
         <td><input id="price"  class="form-control"></td>
 		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
+        <td><input id="ttype"  class="form-control"></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>
 	<?php
@@ -78,7 +80,9 @@
         <input id=\"textBox3\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['quantity']."</span>
         <input id=\"textBox4\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
         <input id=\"textBox5\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
-        <input id=\"textBox6\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
+        <input id=\"textBox6\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['t_type']."</span>
+
+        <input id=\"textBox7\" class=\"blur\"></td><td><button class=\"btn btn-warning btn-sm updatebtn\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Update</button>&nbsp;&nbsp;<button data-id=\"".$tire['t_id']."\" class=\"btn btn-danger btn-sm Delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Delete</button></td></tr>";
 		}
 		
 		}
