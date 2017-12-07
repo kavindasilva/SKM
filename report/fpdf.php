@@ -411,7 +411,7 @@ function Footer()
 	//To be implemented in your own inherited class //i changed it
 	$this->SetFont('Helvetica','',12);
 	
-	$this->Cell(0,10,'(c) youth builders',0,0,'C');
+	$this->Cell(80,10,'(c) youth builders',0,0,'C');
 	$this->Ln();
 	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 	//$this->SetFontSize(20);
