@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="../../assets/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
   <link rel="stylesheet" href="../../css/datepicker3.css">
   <?php include '../../assets/success.php'?> 
+  <link href="../../css/aos.css" rel="stylesheet">
+  <script src="../../js/plugins.js"></script>
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -47,7 +49,7 @@
     <div class="container">
     	<div class="box">
       	</div>
-      		<div class="filters col-md-11"  >
+      		<div class="filters col-md-11"  data-aos="flip-down">
 			<strong ><h4><b>Select order to invoice</b></h4></strong></br>
       	     	<!--selecting a buyer row-->
       	<div class="row margin col-md-6" >
@@ -111,7 +113,7 @@
 		  </div>
 	  </br>
   <!-- found order details are shown in this table-->	  
-		 <div class="row" style="margin-top: 250px;">
+		 <div class="row" style="margin-top: 250px;" data-aos="flip-down">
 		  <div  class="col-xs-12 col-md-10" style="margin-left: 72px">
           <div class="box" >
             <div class="box-header">
@@ -355,7 +357,7 @@ $('.viewitems').click(function(){
 	update();
 	$.ajax({
 		type:'post',
-		url:"model/loadorderitem.php",
+		url:"model/loadorderitemtoinvoice.php",
 		data:{sno:gsno},
 		success:function(data){
 			$('#orderitembody').append(data);
@@ -515,5 +517,7 @@ $('.viewitems').click(function(){
 		  d = n.getDate();
 		  document.getElementById("invoicedatelable").value = y + "/" + m + "/" + d;
 		</script>
-	
+<script>
+    AOS.init();
+ </script>	
 </html>

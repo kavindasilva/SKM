@@ -128,8 +128,9 @@ $pdf->Cell(10);
 $pdf->BasicTable($header,$objQuery);
 
 
-$pdf->Output('tempfile.pdf'); //server eke save venne
-
+//$pdf->Output('tempfile.pdf'); //server eke save venne
+//$pdf->Output('s','/docs/tempfile');
+$pdf->Output();
 
 
 ?>

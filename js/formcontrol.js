@@ -295,7 +295,7 @@ function validatequotation(){
 				 
 			}
 		else{
-			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + q + "</td></tr>");
+			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + q + "</td><td onclick=\"removeroderitem(this)\" ><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 
 		}
 	}
@@ -316,20 +316,21 @@ function sendRequesition(){//this handls the new quotation request data insertio
 		  success:function(data1){
 			var rowarray=document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 			for(var i=0;i<rows;i++){
-				brand=rowarray[i].getElementsByTagName('td')[1].innerHTML;
-				country=rowarray[i].getElementsByTagName('td')[2].innerHTML;
-				tiresize=rowarray[i].getElementsByTagName('td')[3].innerHTML;
-				qty=rowarray[i].getElementsByTagName('td')[4].innerHTML;
 				
+				brand=rowarray[0].getElementsByTagName('td')[1].innerHTML;
+				country=rowarray[0].getElementsByTagName('td')[2].innerHTML;
+				tiresize=rowarray[0].getElementsByTagName('td')[3].innerHTML;
+				qty=rowarray[0].getElementsByTagName('td')[4].innerHTML;
+				rowarray[0].remove();
 			$.ajax({
 				  type:"post",
 				  url:"controler/quotationdetailcontroler.php",
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty}),
 				  success:function(data){
-					   alert(data);
+					  // alert(data);
 			 
 		  							}
-	  });
+	  			});
 				
 			}
 			 
@@ -337,7 +338,7 @@ function sendRequesition(){//this handls the new quotation request data insertio
 	  });
 						document.getElementById('message').innerHTML="Your Quotation request successfully sent. Our agent will reply you soon";
 					   $('#modal-success').modal('show');
-					   $(".table-bordered  .removable").remove();
+					   //$(".table-bordered  .removable").remove();
 					   document.getElementById('brand').selectedIndex=0;
 					   document.getElementById('country').selectedIndex=0;
 					   document.getElementById('tiresize').selectedIndex=0;

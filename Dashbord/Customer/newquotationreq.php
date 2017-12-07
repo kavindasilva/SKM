@@ -1,3 +1,7 @@
+<head>
+	<link href="../../css/aos.css" rel="stylesheet">
+    <script src="../../js/plugins.js"></script>
+</head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
@@ -21,7 +25,7 @@
   <form id="maininvoiceform">
    <!-- invoice items pannel starts here-->
 
-        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 30px;">
+        <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 30px;" data-aos="zoom-in-left">
           <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Quotation Items</h3>
@@ -36,6 +40,8 @@
                   <th>Country</th>
                   <th>Tire Size</th>
                   <th>Quantity</th>
+                  <th><a href="#" data-toggle="tooltip" data-placement="top" title="Remove all items" onClick="removeall();"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a>
+                  </th>
                 </tr>
                 </thead>
                 <tbody>                 
@@ -61,7 +67,7 @@
 			</div></div>
 			</form>
 			<!-- add tires to invoice pannel goes here-->
-<form id="addtiresform" action="#" method="post" class="pull-left">
+<form id="addtiresform" action="#" method="post" class="pull-left" data-aos="zoom-in-right">
  <div class="selectitempanal container">
 	 <h4><strong>Add tires</strong></h3>
  	 <div class="row">
@@ -90,7 +96,7 @@
        <div class="row">
  	 <div class="col-xs-6">Quantity</div>
  	 <div class="col-xs-6">
- 	<input id="quantity" type="text" placeholder="Quantity" required="" class="form-control input-md">
+ 	<input id="quantity" type="number" placeholder="Quantity" required="" class="form-control input-md">
       </select></div></div></br>
 <button type="button" class="btn btn-success" style="width: 70px" onClick="validatequotation();">Add</button>
 </br></br>
@@ -102,6 +108,9 @@
  </form>
  <!-- add tires to invoice pannel concludes here-->
 	  </section> 
-<script src="../../js/formcontrol.js?v=4"></script>
+<script src="../../js/formcontrol.js?v=5"></script>
 </body>
+ <script>
+    AOS.init();
+ </script>
 </html>

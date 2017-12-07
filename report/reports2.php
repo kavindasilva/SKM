@@ -1,25 +1,7 @@
 <?php
-
-/**
-	This file contains backend of:
-
-*/
-/*
-if(!isset($_GET['rtype'])){
-	echo "un authorized access";
-	exit();
-}*/
-
-require('fpdf.php');
-require_once "../php/dbcon.php";
+require_once('fpdf.php');
+require_once("../php/dbcon.php");
 $d=date('d_m_Y');
-
-/*
-if($_GET['rtype']=="stockstatus"){
-
-}*/
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class PDF extends FPDF
 {
 
@@ -86,7 +68,7 @@ $pdf=new PDF();
 $pdf->SetCreator("ape admin");
 $pdf->SetAuthor('testing 29');
 $pdf->SetTitle('Dunlop');
-$pdf->SetSubject('monthly stock report');
+$pdf->SetSubject('current stock report');
 $pdf->AliasNbPages();
 	
 //table header
@@ -108,7 +90,7 @@ $pdf->AddPage();
 
 	$pdf->SetFont('Helvetica','',14);
 	$pdf->Ln();
-	$pdf->Cell(0,10,'Stock status report',0,0,'C');
+	$pdf->Cell(0,10,'Stock status Report',0,0,'C');
 	$pdf->Ln();
 	
 	$pdf->Cell(22);
@@ -137,14 +119,11 @@ $pdf->Cell(10);
 $pdf->BasicTable($header,$objQuery);
 
 //forme();
-//$pdf->Output("$d.pdf","F");
+//$pdf->Output("monthlyStockReport.pdf","F"); //save in  server
+//$pdf->Output("monthlyStockReport.pdf","s"); 
 //$pdf->Output(); //thibba eka
+//$pdf->Output("S","monthlyStockReport.pdf");
 //$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
-$pdf->Output('tempfile.pdf'); //server eke save venne
-
-//echo "<script>window.history.back();</script>";
-
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/file:tempfile.pdf");
-//header("Location: chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/tempfile.pdf");
-
+$pdf->Output('docs/rep2.pdf'); //server eke save venne
+header("Location: docs/rep2.pdf");
 ?>

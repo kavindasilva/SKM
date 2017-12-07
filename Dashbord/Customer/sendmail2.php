@@ -1,0 +1,47 @@
+
+<?php
+
+//require('../../mail0/class.phpmailer.php');
+require('../../mail/src/PHPMailer.php');
+//require('../../mail0/class.smtp.php');
+require('../../mail/src/smtp.php');
+
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+//require_once 'vendor/autoload.php';
+
+$mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+	$mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
+	$mail->SMTPAuth = true;
+	$mail->Username = 'skmm.tesing@gmail.com';   //username
+	$mail->Password = 'dunloplk';   //password
+	$mail->SMTPSecure = 'ssl';
+	$mail->Port = 465;                    //smtp port
+
+    $mail->setFrom('noreply@artisansweb.net', 'Artisans Web');
+	$mail->addAddress('rdullmina@gmail.com', 'User Name');
+
+    //$mail->addAttachment(__DIR__ . '/attachment1.png');
+    //$mail->addAttachment(__DIR__ . '/attachment2.jpg');
+
+    $mail->isHTML(true);
+
+    $mail->Subject = 'Email Subject';
+    $mail->Body    = 'Email Body';
+
+    if (!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
+?>

@@ -4,7 +4,8 @@
    
     <!-- Google Font -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-   
+    <link href="../../css/aos.css" rel="stylesheet">
+    <script src="../../js/plugins.js"></script>
 </head>
 <body>
 <?php require_once('../../php/dbcon.php')?>
@@ -62,9 +63,9 @@
   <form id="maininvoiceform">
 	<div class="form-group">
  		 <div class="row">
-      		<strong class="col-xs-2 col-md-2" >Dealer / Customer Name </strong>
+      		<strong class="col-xs-2 col-md-2" data-aos="zoom-out-right" >Dealer / Customer Name </strong>
       	
-      	<div class="col-xs-5 col-md-3">
+      	<div class="col-xs-5 col-md-3" data-aos="zoom-out-right">
  			<select class="form-control" id="shopname">
         		<option value="" >Select</option>
        <?php
@@ -83,8 +84,8 @@
       		 </select>
 		 </div>
 		 <div class="col-md-5">
-		 	<strong class="col-xs-6 col-md-4" >Salers Order No </strong>
-		 	<input id="sordnodisplay" disabled value="
+		 	<strong class="col-xs-6 col-md-4" data-aos="zoom-out-left" >Salers Order No </strong>
+		 	<input id="sordnodisplay" data-aos="zoom-out-left" disabled value="
 		 	
 		 	<?php
 				$query2="SELECT MAX(sord_no) AS maxsno FROM sales_order";
@@ -100,7 +101,7 @@
 		 </div>
 		 
 	   <!-- display date-->
-		<div class="col-xs-2 control-label pull-right" ><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" data-aos="zoom-out-left" ><label>Date : </label><label id="date"></label></div>
 	 </div>
 	  <script>
 		  n =  new Date();
@@ -112,7 +113,7 @@
 	  </div></br></br>
    <!-- invoice items pannel starts here-->
 <div class="row">
-    <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;">
+    <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;" data-aos="zoom-out-left">
         <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Order Items</h3>
@@ -156,7 +157,7 @@
 	</div>
 </form>
 			<!-- add tires to invoice pannel goes here-->
-<form id="addtiresform" action="#" method="post" class="pull-left">
+<form id="addtiresform" action="#" method="post" class="pull-left" data-aos="zoom-out-right">
 <div class="selectitempanal container" style="margin-left: 15px;">
 	 <h4><strong>Add tires</strong></h3>
  	 <div class="row">
@@ -201,5 +202,8 @@
  <!-- add tires to invoice pannel concludes here-->
  </section> 
 <script src="../../js/formcontrol.js?8"></script>
+ <script>
+    AOS.init();
+ </script>
 </body>
 </html>
