@@ -295,7 +295,7 @@ function validatequotation(){
 				 
 			}
 		else{
-			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + q + "</td></tr>");
+			$('#orderitems').append("<tr class=\"removable\"><td><input type=checkbox></td><td>" + x+ "</td><td>" + y + "</td><td>" + z + "</td><td>" + q + "</td><td onclick=\"removeroderitem(this)\" ><a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Remove this item\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td><td onclick=\"showmodal(this);\"><a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Edit quantity\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i></a></td></tr>");
 
 		}
 	}
