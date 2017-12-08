@@ -15,7 +15,7 @@
         <li class="active">Received Requisition</li>
     </ol>
 </section>
-<div class="col-md-3" id="quotationreqdiv">
+<div class="col-md-3" id="received_requisition_div">
     <ul id="quotation">
 
         <?php
@@ -28,7 +28,7 @@
             $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_query));
             echo("
                   
-                    <a href=\"#\"><li value=\"".$row[1]."\">
+                    <a href=\"#\"><li value=\"".$row[0]."\">
                       <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Received requisition from ".$sup_name[0]."
                     </li></a>
                   ");
@@ -38,6 +38,27 @@
     </ul>
 </div>
 </body>
+<script>
+
+    $('#received_requisition_div ul a').click(function(){
+
+        $.ajax({
+            type:"post",
+            data:({pr_no:this.firstChild.value}),
+            url:"rr_quary.php",
+            success:function(data){
+                alert(data);
+
+            }
+        });
+
+        $('#quotation a').removeClass("goingtorm");
+        $(this).addClass('goingtorm');
+        $('#qrdetails').load('quotationreqdetails.php')
+
+    });
+
+</script>
 
 </html>
 
