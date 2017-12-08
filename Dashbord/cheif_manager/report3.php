@@ -10,7 +10,7 @@ require_once "../../php/dbcon.php";
 //$year=$_POST[''];
 //$month=$_POST[''];
 $year='2017';
-$months='10';
+$months='1';
 
 $strSQL = "Select * From tire;";
 //$strSQL="SELECT sum(o.qty) FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available'";

@@ -27,6 +27,11 @@ require_once "head.php";
             </div>
             <!-- /.info-box-content -->
           </div>
+			<a href="adduserType.php"><button class="form-control dashbordbtn" >New user</button></a>
+			<a href="viewAll.php" name="findorder"><button class="form-control dashbordbtn" >View All</button></a>
+			<a href="viewAll.php?type=cus" name="findorder"><button class="form-control dashbordbtn" >View customer</button></a>
+			<a href="viewAll.php?type=deal" name="findorder"><button class="form-control dashbordbtn" >View dealer</button></a>
+			<a href="viewAll.php?type=sup" name="findorder"><button class="form-control dashbordbtn" >View supplier</button></a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
@@ -43,7 +48,7 @@ require_once "head.php";
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <!--div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-yellow"><i class="fa fa-envelope-o"></i></span>
 
@@ -51,10 +56,12 @@ require_once "head.php";
               
               <span class="info-box-text">MailBox</span>
             </div>
-            <!-- /.info-box-content -->
+            <!-- /.info-box-content ->
           </div>
-          <!-- /.info-box -->
-        </div>
+          <!-- /.info-box ->
+        </div-->
+		
+		
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
