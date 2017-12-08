@@ -1,4 +1,5 @@
 <head>
+<?php include '../../assets/missing.php'?>  
 	<?php include '../../assets/success.php'?>  
 	<link href="../../css/aos.css" rel="stylesheet">
     <script src="../../js/plugins.js"></script>
@@ -244,8 +245,22 @@ $('#addbtn').click(function(){
 	var price =$('#price').val();
 	var ttype = $('#ttype').val();
 	var tid = $('#index').val();
-	var ttype=$('#ttype').val();
-	//alert(tid);
+	if(size==""){
+		document.getElementById('message').innerHTML="Please enter new tire size";
+					   $('#modal-missing').modal('show');
+
+	}
+	else if(price==""){
+		document.getElementById('message').innerHTML="Please enter new tire price";
+					   $('#modal-missing').modal('show');
+
+	}
+	else if(qty==""){
+		document.getElementById('message').innerHTML="Please enter new tire quantity";
+					   $('#modal-missing').modal('show');
+
+	}
+	else{
 	$.ajax({
 		url: "modal/add.php",
 		method: "POST",
@@ -258,7 +273,7 @@ $('#addbtn').click(function(){
 		}
 
 	});
-	$('#content-wrapper').load('viewstock.php');	
+	$('#content-wrapper').load('viewstock.php');	}
 	});  
 function deletestock(){
 
@@ -293,7 +308,31 @@ function updatestock(element){
 	var up=row[5].firstChild.innerHTML;
 	var status=row[6].firstChild.innerHTML;
 	var ttype=row[7].firstChild.innerHTML;
-	
+	if(tsize==""){
+		document.getElementById('message').innerHTML="Tire size cannot be null";
+					   $('#modal-missing').modal('show');
+		$('#content-wrapper').load('viewstock.php');
+
+	}
+	else if(up==""){
+		document.getElementById('message').innerHTML="Tire unit price cannot be null";
+					   $('#modal-missing').modal('show');
+		$('#content-wrapper').load('viewstock.php');
+
+	}
+	else if(qty==""){
+		document.getElementById('message').innerHTML="Tire quantity cannot be null";
+					   $('#modal-missing').modal('show');
+		$('#content-wrapper').load('viewstock.php');
+
+	}
+	else if(status==""){
+		document.getElementById('message').innerHTML="Tire status cannot be null";
+					   $('#modal-missing').modal('show');
+		$('#content-wrapper').load('viewstock.php');
+
+	}
+	else{
 	$.ajax({
 		type:"post",
 		url:"modal/updatestock.php",
@@ -303,7 +342,7 @@ function updatestock(element){
 					   $('#modal-success').modal('show');
 	}
 		
-	});
+	});}
 	
 }
 function showsize(){//auto loading tire sizes
