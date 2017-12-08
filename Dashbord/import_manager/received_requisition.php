@@ -80,7 +80,18 @@
 
 <script>
     function confirmbtn(eliment) {
-        alert("ss");
+        $.ajax({
+            type:"post",
+            data:({t_id:eliment.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML,
+                unitprice:eliment.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML,
+                sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+            url:"rr_confirm_quary.php",
+            success:function (data) {
+                alert(data);
+
+            }
+
+        })
 
     }
 </script>
