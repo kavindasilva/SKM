@@ -15,6 +15,28 @@
         <li class="active">Received Requisition</li>
     </ol>
 </section>
+<div class="col-md-3" id="quotationreqdiv">
+    <ul id="quotation">
+
+        <?php
+        require_once('../../php/dbcon.php');
+        $pr_no_quary="SELECT pr_no,supplier_s_id FROM purchase_requisition WHERE status='replied'";
+        $pr_no_result=mysqli_query($conn,$pr_no_quary);
+        while($row=mysqli_fetch_row($pr_no_result)){//show details about quotation requesition
+            $sup_name_query="SELECT user_user_name FROM supplier WHERE s_id='".$row[1]."';";
+            //$resultinside=mysqli_query($conn,$query2);
+            $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_query));
+            echo("
+                  
+                    <a href=\"#\"><li value=\"".$row[1]."\">
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Received requisition from ".$sup_name[0]."
+                    </li></a>
+                  ");
+
+        }
+        ?>
+    </ul>
+</div>
 </body>
 
 </html>
