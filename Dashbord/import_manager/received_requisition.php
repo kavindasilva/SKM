@@ -37,24 +37,39 @@
         ?>
     </ul>
 </div>
+<div class="col-md-9 col-sm-12 " id="rr_div">
+    <!-- quotation request item details will load here-->
+    <div class="box-body">
+        <table class="table-bordered table-hover" width="100%">
+            <thead>
+            <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th></tr>
+            </thead>
+            <tbody id="rr_table"></tbody>
+        </table>
+    </div>
+
+<!--    <center><h3 style="margin-top: 50px;">Select a received requisition</h3></center>-->
+</div>
 </body>
 <script>
 
     $('#received_requisition_div ul a').click(function(){
-
+        $('#rr_table').children('tr').remove();
         $.ajax({
             type:"post",
             data:({pr_no:this.firstChild.value}),
             url:"rr_quary.php",
             success:function(data){
-                alert(data);
+                $('#rr_table').append(data);
+                //alert(data);
+
 
             }
         });
 
-        $('#quotation a').removeClass("goingtorm");
-        $(this).addClass('goingtorm');
-        $('#qrdetails').load('quotationreqdetails.php')
+       // $('#quotation a').removeClass("goingtorm");
+        //$(this).addClass('goingtorm');
+        //$('#qrdetails').load('quotationreqdetails.php')
 
     });
 

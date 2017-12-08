@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
 session_start();
+//require_once "sess.php";
+$_SESSION['currentuser']="chief test";
 require_once('../../php/dbcon.php');
-$query="SELECT * FROM quotation WHERE status='notreplied';";
-$result=mysqli_query($conn,$query);	
-if($result){
-$_SESSION['notificationcount']=mysqli_num_rows($result);
-}
+
+
 ?>
 <html>
 
@@ -66,19 +65,19 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
              <?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				   //if($_SESSION['notificationcount']>0)
+					   //echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
 				  ?>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have <?php
-					   echo $_SESSION['notificationcount'];
+					  // echo $_SESSION['notificationcount'];
  				?>   notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                  <?php
-				while($row=mysqli_fetch_array($result)){//show details about quotation requesition
+				/*while($row=mysqli_fetch_array($result)){//show details about quotation requesition
 					$query2="SELECT user_user_name FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
 					$resultinside=mysqli_query($conn,$query2);
 					$rowinside=mysqli_fetch_array($resultinside);
@@ -89,7 +88,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
                     </a>
                   </li>");
 					  
-				}
+				}*/
                  ?>
                 </ul>
               </li>
@@ -179,13 +178,13 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
        
         <li class="treeview">
          	<a href="#">
-            	<i class="fa fa-edit"></i> <span>Order</span>
+            	<i class="fa fa-edit"></i> <span>Reports</span>
             	<span class="pull-right-container">
               	<i class="fa fa-angle-left pull-right"></i>
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i> New Order</a></li>
+            <li><a href="#" name="reportm"><i class="fa fa-circle-o"></i> New report</a></li>
             <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li>
            </ul>
         </li>
