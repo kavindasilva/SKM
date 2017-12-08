@@ -1,9 +1,10 @@
+<?php include '../../assets/missing.php'?>  
 <head>
 	<link href="../../css/aos.css" rel="stylesheet">
     <script src="../../js/plugins.js"></script>
 </head>
   <section class="content-header">
-   <h1>
+   	<h1>
         Low Stock Items
       </h1>     
       <ol class="breadcrumb">
@@ -15,8 +16,8 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-         <div  class="col-xs-10 col-md-10 col-md-offset-1" data-aos="zoom-out-right" >
-          <div class="box" >
+         <div  class="col-md-10 col-md-offset-1" data-aos="zoom-out-right" >
+          <div class="box" style="overflow-x:auto;" >
             <div class="box-body" id="tablebody">
               <table id="orderitems" class="table-bordered table-hover table" >
                 <thead>
@@ -36,7 +37,7 @@
 				$result=mysqli_query($conn,$query);	
 				if($result){
 					while($row=mysqli_fetch_array($result)){
-						echo "<tr class=\"backred\" id=\"".$row['t_id']."\"><td>".$row['brand_name']."</td><td>".$row['country']."</td><td>".$row['tire_size']."</td><td>".$row['quantity']."</td><td><input type=\"number\" style=\"width:110px;\"></td><td><button class=\"btn btn-success\" style=\"width:80px;\">Request</button></td></tr> ";
+						echo "<form><tr class=\"backred\" id=\"".$row['t_id']."\"><td>".$row['brand_name']."</td><td>".$row['country']."</td><td>".$row['tire_size']."</td><td>".$row['quantity']."</td><td><input type=\"number\" style=\"width:110px;\"></td><td><button class=\"btn btn-success\" >Request</button></td></tr> </form>";
 					}
 				}
 ?>					
@@ -54,12 +55,14 @@
  <script>
 	 //this handls the action button control of the low stock table
 $('#tablebody table tbody tr td button').click(function(){
+	var requiredamount=this.parentElement.previousSibling.firstChild.value;
+	if(requiredamount!=""){
 	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
 	$(this).prop('disabled', true);
 	var row=$(this).parent().parent();
 	row.removeClass("backred");
 	row.addClass("backgreen");
-	var requiredamount=this.parentElement.previousSibling.firstChild.value;
+	
 	var tid=$(this).parent().parent().attr('id');
 	$.ajax({
 		url: "modal/requesttire.php",
@@ -69,7 +72,12 @@ $('#tablebody table tbody tr td button').click(function(){
 			
 		}
 
-	});
+	});}
+	else{
+		document.getElementById('message').innerHTML="Please enter required quantity";
+					   $('#modal-missing').modal('show');
+
+	}
 	
 });
 //this handls the action button order details control of the low stock table
