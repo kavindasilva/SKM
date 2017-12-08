@@ -49,8 +49,8 @@
 		<td><select id = "country" class="form-control" style="width: 100px;">
 
 				<option value="japan">Japan</option>
-				<option value="india">Indonesia</option>
-				<option value="malaysia">Thaiwan</option>
+				<option value="indunesia">Indonesia</option>
+				<option value="Thaiwan">Thaiwan</option>
 			</select>
 		</td>
 
@@ -61,10 +61,15 @@
 			</select>
 		</td>
 		<td><input id="size"  class="form-control"></td>
-        <td><input id="qty"  class="form-control"></td>
-        <td><input id="price"  class="form-control"></td>
+        <td><input id="qty" type="number" class="form-control"></td>
+        <td><input id="price" type="number" class="form-control"></td>
 		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
-        <td><input id="ttype"  class="form-control"></td>
+		<td><select id="ttype"  class="form-control" style="width: 100px;">
+			<option value="car">car</option>
+			<option value="4wd">4WD</option>
+			<option value="bus">Bus</option>
+			<option value="other">Other</option>
+		</select></td>
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>	
 	<?php
@@ -80,7 +85,7 @@
         <input id=\"textBox4\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['unit_price']."</span>
         <input id=\"textBox5\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['status']."</span>
         <input id=\"textBox6\" class=\"blur\"></td><td class=\"clickMe\"><span class=\"label label-default \">".$tire['t_type']."</span>
-        <input id=\"textBox7\" class=\"blur\"></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-singleton\" data-placement=\"top\" title=\"Delete this stock item?\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
+        <input id=\"textBox7\" class=\"blur\"></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-popout\" data-placement=\"top\" title=\"Delete this stock item?\" onclick=\"setelement(this);\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
 		}
 		
 		}
@@ -98,6 +103,10 @@
 </section>
 <script src="../../js/formcontrol.js?v=2"></script>
 <script>
+var deletingrow; 
+function setelement(element){
+	deletingrow=element;
+}
 $('.clickMe').click(function () {
     "use strict";
     this.firstChild.style.display = "none";
@@ -141,11 +150,11 @@ $('#addbtn').click(function(){
 		}
 
 	});
-		
+	$('#content-wrapper').load('viewstock.php');	
 	});  
-$('.Delete').click(function(){
+function deletestock(){
 
-	var row=this.parentElement.parentElement;
+	var row=deletingrow.parentElement.parentElement;
 	var tid=parseInt(row.getAttribute('id'));
 	//alert(tid);
 		
@@ -154,17 +163,16 @@ $('.Delete').click(function(){
 			method: "POST",
 			data: ({tid:tid}),
 			success: function(data) {
-				alert(data);
-				// body...
-				//row.append;
+				//alert(data);
+				
 			}
 			
 		});
 	
+	$('#content-wrapper').load('viewstock.php');
 	
 	
-	
-});
+}
 $('.updatebtn').click(function(){
 	var index=this.parentNode.parentNode.firstChild.innerHTML;
 	var fname=this.parentNode.parentNode.firstChild.nextSibling.firstChild.innerHTML;
@@ -203,4 +211,4 @@ $('.updatebtn').click(function(){
 	}
 	</style>
 <script src="../../js/bootstrap-confirmation.min.js"></script>	
-<script src="../../js/confirmation.js"></script>	
+<script src="../../js/confirmation.js?v=2"></script>	

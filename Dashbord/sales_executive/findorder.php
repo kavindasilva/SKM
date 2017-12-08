@@ -206,7 +206,7 @@ $('.viewitems').click(function(){
 		}
 	});
 })	;
-var deletingrow;	
+	
 function deleteorder(){
 	var sordno=parseInt(deletingrow.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML);
 	$.ajax({
