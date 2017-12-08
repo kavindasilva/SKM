@@ -22,14 +22,17 @@
         require_once('../../php/dbcon.php');
         $pr_no_quary="SELECT pr_no,supplier_s_id FROM purchase_requisition WHERE status='replied'";
         $pr_no_result=mysqli_query($conn,$pr_no_quary);
-        while($row=mysqli_fetch_row($pr_no_result)){//show details about quotation requesition
+        while($row=mysqli_fetch_row($pr_no_result)){
+            //show details about suplier and pr
+            $pr_date_query="SELECT date FROM purchase_requisition WHERE pr_no='".$row[0]."';";
             $sup_name_query="SELECT user_user_name FROM supplier WHERE s_id='".$row[1]."';";
             //$resultinside=mysqli_query($conn,$query2);
+            $pr_date=mysqli_fetch_row(mysqli_query($conn,$pr_date_query));
             $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_query));
             echo("
                   
                     <a href=\"#\"><li value=\"".$row[0]."\">
-                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Received requisition from ".$sup_name[0]."
+                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Received requisition from ".$sup_name[0]." (".$pr_date[0].")
                     </li></a>
                   ");
 
@@ -42,7 +45,7 @@
     <div class="box-body">
         <table class="table-bordered table-hover" width="100%">
             <thead>
-            <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th></tr>
+            <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
             </thead>
             <tbody id="rr_table"></tbody>
         </table>
@@ -74,6 +77,8 @@
     });
 
 </script>
+<!-- jQuery 3.1.1 -->
+<script src="../../js/jquery-3.1.1.min.js"></script>
 
 </html>
 
