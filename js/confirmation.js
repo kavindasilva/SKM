@@ -15,7 +15,10 @@
   });
   $('[data-toggle=confirmation-popout]').confirmation({
     rootSelector: '[data-toggle=confirmation-popout]',
-    container: 'body'
+    container: 'body',
+	  onConfirm: function() {
+      deletestock();
+    }  
   });
 
   $('#confirmation-delegate').confirmation({
