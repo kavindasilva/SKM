@@ -1,8 +1,8 @@
 <?php
 require_once 'dbcon.php';
 session_start();
-//if(isset($_POST['log'])){
-	//echo "form login";
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = $_POST['euname'];
 	$password = $_POST['password'];
@@ -58,6 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			
 		}
 	}
+}
+else{
+	echo "you are in a page that is not supposed for direct access";
+	echo "<a href='../index.php'>Go to home page</a>";
 }
 	
 //}

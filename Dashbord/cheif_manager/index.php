@@ -190,13 +190,13 @@ require_once('../../php/dbcon.php');
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Invoice</span>
+            <i class="fa fa-table"></i> <span>Settings</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="newinvoice"><i class="fa fa-circle-o"></i> New Invoice</a></li>
+            <li><a href="#" name="passchangeUI"><i class="fa fa-circle-o"></i>Change password</a></li>
             <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
           </ul>
         </li>
@@ -207,8 +207,8 @@ require_once('../../php/dbcon.php');
             <span class="pull-right-container">
               
 				<?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+				   //if($_SESSION['notificationcount']>0)
+					//   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
 				  ?>              	
               
             </span>
