@@ -109,7 +109,7 @@ $pdf->AddPage();
 	$count = mysqli_num_rows($result);
 	$pdf->Cell(0);
 	$pdf->Write(5, 'Total Items: '.$count.''); $pdf->Ln();
-	$pdf->Write(5, "Month = ".$year."/".$months."");
+	$pdf->Write(5, "Month = ".$year."/".$months." ");
 	//$pdf->Ln();
 
 	$pdf->Ln(5);
