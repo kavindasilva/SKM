@@ -77,6 +77,13 @@
     });
 
 </script>
+
+<script>
+    function confirmbtn(eliment) {
+        alert("ss");
+
+    }
+</script>
 <!-- jQuery 3.1.1 -->
 <script src="../../js/jquery-3.1.1.min.js"></script>
 
