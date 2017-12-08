@@ -31,7 +31,7 @@
               <h3 class="box-title">Quotation Items</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" style="overflow-x:auto;">
               <table id="orderitems" class="table-bordered table-hover" width="700" >
                 <thead>
                 <tr>

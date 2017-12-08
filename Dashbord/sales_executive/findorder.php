@@ -104,7 +104,7 @@
               <h3 class="box-title">Orders Found</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" style="overflow-x:auto;">
               <table class=" table-bordered table-hover abc" id="foundorders"  width="920" >
                 <thead>
                 <tr>

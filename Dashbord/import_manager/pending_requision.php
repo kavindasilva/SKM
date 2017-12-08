@@ -24,7 +24,7 @@
     <!-- Main content -->
   <div class="container">
     <div class="box">
-    <div class="box-body">
+    <div class="box-body" style="overflow-x:auto;">
       <table id="tire_pending" class="table-boadered table-hover" width="1050">
         <thead>
           <tr>

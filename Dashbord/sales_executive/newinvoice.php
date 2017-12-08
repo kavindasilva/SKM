@@ -121,7 +121,7 @@
               <h3 class="box-title">Orders Found</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body style="overflow-x:auto;"">
             <table class=" table col-md-10 table-bordered table-hover table-responsive" id="foundorders" >
                 <thead>
                 <tr>
@@ -175,7 +175,7 @@
               <h3 class="box-title">Order Items</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" style="overflow-x:auto;">
               <table id="orderitems2" class=" table table-bordered table-hover table-responsive">
                 <thead>
                 <tr>
@@ -231,7 +231,7 @@
               <h3 class="box-title">Invoice Items</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" style="overflow-x:auto;">
               <table id="invoiceitems" class="table-bordered table table-hover" >
                 <thead>
                 <tr>

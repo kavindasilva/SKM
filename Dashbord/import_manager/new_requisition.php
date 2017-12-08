@@ -64,7 +64,7 @@
                 <div class="box-header">
                   <h3 class="box-title">Required Tires</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body" style="overflow-x:auto;">
                   <table id="tire_ava" class="table-bordered table-hover" width="920">
                     <thead>
                       <tr>
@@ -125,7 +125,7 @@
                 <h3 class="box-title">Requisition Item</h3></div>
               
               <!-- /.box-header -->
-              <div class="box-body">
+              <div class="box-body" style="overflow-x:auto;">
                 <table id="Requisition_itm_tbl" class="table-bordered table-hover" width="920">
                 <thead>
                   <tr>
