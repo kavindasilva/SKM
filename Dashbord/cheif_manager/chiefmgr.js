@@ -1,5 +1,5 @@
 
-alert("testing ok");
+//alert("testing ok");
 
 function checkCur(eleId) { //check with current date
 	var dat=document.getElementById(eleId).value; //alert(dat);
@@ -11,20 +11,24 @@ function checkCur(eleId) { //check with current date
 
 	//if(datsplit[0]>curDaysplit[0]){ //year checking
 	if(datsplit[0]>cyear){ //year checking
-		alert("report month should be smaller than current month");
+		alert("report month cannot be a future current month");
 		$("#"+eleId+"btn").prop('disabled', true);
+		$("#"+eleId+"btn2").prop('disabled', true);
 	}
 	else if(datsplit[0]==cyear){ //current year
 		if(datsplit[1]>cmonth){
 			alert("report month should be smaller than current month");
 			$("#"+eleId+"btn").prop('disabled', true);
+			$("#"+eleId+"btn2").prop('disabled', true);
 		}
 		else
 			$("#"+eleId+"btn").prop('disabled', false);
+			$("#"+eleId+"btn2").prop('disabled', false);
 	}
 	else{
-		alert("sdfsd");
+		//alert("sdfsd");
 		$("#"+eleId+"btn").prop('disabled', false);
+		$("#"+eleId+"btn2").prop('disabled', false);
 	}
 }
 

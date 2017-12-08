@@ -32,7 +32,8 @@ else{
 			return;
 		}
 		else{
-			echo "<script>alert('Password updated succesfully');window.location.href = 'index.php';</script>";
+			//echo "<script>alert('Password updated succesfully');window.location.href = 'index.php';</script>";
+			echo "<script>alert('Password updated succesfully');javascript:history.go(-2);</script>";
 		}
 	}
 }
