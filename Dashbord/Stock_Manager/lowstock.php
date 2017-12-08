@@ -1,4 +1,8 @@
-<section class="content-header">
+<head>
+	<link href="../../css/aos.css" rel="stylesheet">
+    <script src="../../js/plugins.js"></script>
+</head>
+  <section class="content-header">
    <h1>
         Low Stock Items
       </h1>     
@@ -11,10 +15,10 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-         <div  class="col-xs-12 col-md-12" style="width: auto; margin-right: 50px;">
+         <div  class="col-xs-10 col-md-10 col-md-offset-1" data-aos="zoom-out-right" >
           <div class="box" >
             <div class="box-body" id="tablebody">
-              <table id="orderitems" class="table-bordered table-hover" width="800" >
+              <table id="orderitems" class="table-bordered table-hover table" >
                 <thead>
                 <tr>
                   <th>Brand</th>
@@ -28,11 +32,11 @@
                 <tbody>
 <?php
 				require_once '../../php/dbcon.php';
-				$query="SELECT * FROM tire WHERE quantity<20;";
+				$query="SELECT * FROM tire WHERE quantity<20 and status='Available';";
 				$result=mysqli_query($conn,$query);	
 				if($result){
 					while($row=mysqli_fetch_array($result)){
-						echo "<tr class=\"backred\"><td>".$row['brand_name']."</td><td>".$row['country']."</td><td>".$row['tire_size']."</td><td>".$row['quantity']."</td><td><input type=\"text\" style=\"width:110px;\"></td><td><button class=\"btn btn-success\" style=\"width:80px;\">Request</button></td></tr> ";
+						echo "<tr class=\"backred\" id=\"".$row['t_id']."\"><td>".$row['brand_name']."</td><td>".$row['country']."</td><td>".$row['tire_size']."</td><td>".$row['quantity']."</td><td><input type=\"number\" style=\"width:110px;\"></td><td><button class=\"btn btn-success\" style=\"width:80px;\">Request</button></td></tr> ";
 					}
 				}
 ?>					
@@ -44,4 +48,35 @@
           <!-- /.box -->
 	  </div>
 </section>
+ <script>
+    AOS.init();
+ </script>
+ <script>
+	 //this handls the action button control of the low stock table
+$('#tablebody table tbody tr td button').click(function(){
+	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
+	$(this).prop('disabled', true);
+	var row=$(this).parent().parent();
+	row.removeClass("backred");
+	row.addClass("backgreen");
+	var requiredamount=this.parentElement.previousSibling.firstChild.value;
+	var tid=$(this).parent().parent().attr('id');
+	$.ajax({
+		url: "modal/requesttire.php",
+		method: "POST",
+		data: ({tid:tid,requiredamount:requiredamount}),
+		success: function(data) {
+			
+		}
+
+	});
+	
+});
+//this handls the action button order details control of the low stock table
+$('#tablebody table tbody tr td :last-child').click(function(){
+	//var row=$(this).parent().parent();
+	
+	$('#orderdetailsmodal').modal('show');
+});
+</script>
 <script src="../../js/formcontrol.js?v=2"></script>
