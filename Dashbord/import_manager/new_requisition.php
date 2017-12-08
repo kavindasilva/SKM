@@ -180,7 +180,7 @@
         var size= element.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
         var req_qty= element.parentElement.parentElement.getElementsByTagName('td')[6].innerHTML;
       element.disabled=true;
-   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text' class='req_qty' value=''></td></tr>");
+   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'  value='"+req_qty+"'></td></tr>");
       document.getElementsByClassName('req_qty').value = req_qty;
   }
 </script>
