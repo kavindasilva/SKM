@@ -346,20 +346,7 @@ function sendRequesition(){//this handls the new quotation request data insertio
 					   document.getElementById('qnote').value="";
 		}
 }
-//this handls the action button control of the low stock table
-$('#tablebody table tbody tr td button').click(function(){
-	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
-	var row=$(this).parent().parent();
-	row.removeClass("backred");
-	row.addClass("backgreen");
-	
-});
-//this handls the action button order details control of the low stock table
-$('#tablebody table tbody tr td :last-child').click(function(){
-	//var row=$(this).parent().parent();
-	
-	$('#orderdetailsmodal').modal('show');
-});
+
 //filter orders by name and date range 
 $('#searchord').click(function(){
 
