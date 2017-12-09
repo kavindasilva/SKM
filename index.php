@@ -147,7 +147,7 @@ include_once "php/tireDetails.php";
 			<div class="row">
   		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
             <div class="box-header">
-              <h3 class="box-title">Dunlop tires price List</h3>
+              <h3 class="box-title">Tires price List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
