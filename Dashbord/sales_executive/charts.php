@@ -1,12 +1,12 @@
  <!-- Content Header (Page header) -->
     <section class="content-header">
    <h1>
-        New quotation request
+        Sales Progress Charts
       </h1>     
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-         <li><a href="#"><i class="fa"></i> Quotations</a></li>
-          <li class="active"><a href="#"><i class="fa"></i> New quotation request</a></li>       
+         <li><a href="#"><i class="fa"></i> Reports</a></li>
+          <li class="active"><a href="#"><i class="fa"></i> Sales progress charts</a></li>       
       </ol>
     </section>
 <div class="box">   		

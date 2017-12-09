@@ -3,6 +3,40 @@
     <script src="../../js/plugins.js"></script>
 </head>
 <body>
+ <!--already in the order error-->
+   <div class="modal fade modal-danger" id="allreadyin" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+			<h4>This item is already in the order</h4>
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-warning" data-dismiss="modal" style="width: 70px;">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>      
+   <!-- Update quantity Modal -->
+  <div class="modal fade modal-warning" id="updatequantitymodal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          
+			<h4>Enter your new quantity</h4><input value="" id="newquantity" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button  class="btn btn-sm btn-default" data-dismiss="modal" style="width: 70px;">Cancle</button>
+          <button  class="btn btn-default pull-left btn-sm" data-dismiss="modal" style="width: 70px;" onClick="updatequan();">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>       
 <?php require_once('../../php/dbcon.php')?>
 <?php include '../../assets/missingfield.php'?>
 <?php include '../../assets/outofstock.php'?>
@@ -22,18 +56,34 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-  <form id="maininvoiceform">
+  <form id="maininvoiceform" class="form-inline">
+  <div class="form-group" data-aos="zoom-out-right">
+					<label for="sordno">Sales Order No</label>
+					<input  class="form-control" id="sordno" disabled value="
+		 	
+		 	<?php
+				$query2="SELECT MAX(sord_no) AS maxsno FROM sales_order";
+				$result=mysqli_query($conn,$query2);
+				$sordno=0;									  
+				if($obj=mysqli_fetch_object($result)){
+				$sordno=$obj->maxsno;
+				$sordno++;	
+				}
+				echo($sordno);
+													  
+													  ?>">
+				  </div>
 	<div class="form-group">
 	   <!-- display date-->
-		<div class="col-xs-2 control-label pull-right" data-aos="zoom-out-left"><label>Date : </label><label id="date"></label></div>
+		<div class="col-xs-2 control-label pull-right" data-aos="zoom-out-left"><label id="date"></label></div>
 		  <script>
 		  n =  new Date();
 		  y = n.getFullYear();
 		  m = n.getMonth() + 1;
 		  d = n.getDate();
-		  document.getElementById("date").innerHTML = y + "/" + m + "/" + d;
+		  document.getElementById("date").innerHTML ="Date:"+ y + "/" + m + "/" + d;
 		</script>
-	  </div></br></br>
+	  </div></form></br></br>
    <!-- invoice items pannel starts here-->
   <div class="row">
         <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;" data-aos="zoom-out-left">
@@ -46,7 +96,6 @@
               <table id="orderitems" class="table-bordered table-hover" width="700" >
                 <thead>
                 <tr>
-                 <th><input type=checkbox></th>
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
@@ -83,7 +132,7 @@
           </div>
           <!-- /.box -->
 	  </div>
-			</form>
+			
 			<!-- add tires to invoice pannel goes here-->
 <form id="addtiresform" action="#" method="post" class="pull-left" data-aos="zoom-out-right">
  <div class="selectitempanal container" style="margin-left: 15px;">

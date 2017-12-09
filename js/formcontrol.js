@@ -151,10 +151,12 @@ function placeorder(){
 		var tot=document.getElementById('subtotal').textContent;
 		var shopname=document.getElementById('shopname').value;
 		var sordno=$("#sordnodisplay").val();
-		
+		var guestname=$('#guestname').val();
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
-	
 		if(shopname==""){
+			$('#missingfieldmodal').modal('show');
+		}
+		else if(shopname=="guest" && guestname==""){
 			$('#missingfieldmodal').modal('show');
 		}
 		else if(rows==0){
@@ -165,7 +167,7 @@ function placeorder(){
 	  $.ajax({
 		  type:"post",
 		  url:"controler/cusordercontroler.php",
-		  data:({total:tot,shopname:shopname,comname:shopname,sordno:sordno}),
+		  data:({total:tot,shopname:shopname,comname:shopname,sordno:sordno,guestname:guestname}),
 		  success:function(data){
 			
 		
@@ -201,11 +203,7 @@ function placeorder(){
 $('#discount').on('change',function(){
 		updatedata();
 	});	
-/*$('#shopname').on('change',function(){
-if($('#shopname').value!=""){
-	document.getElementById("companyname").selectedIndex = "0";	
-}	
-		}); */	
+
 
 $('#companyname').on('change',function(){
 if($('#companyname').value!=""){
@@ -236,6 +234,7 @@ $('#country').on('change',showsize);
 function customerplaceorder(){
 	
 		var tot=document.getElementById('subtotal').textContent;
+	    var sordno=('#sordno').val();
 		var rows = document.getElementById('orderitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
 		if(rows==0){
 			
@@ -245,7 +244,7 @@ function customerplaceorder(){
 	  $.ajax({
 		  type:"post",
 		  url:"controler/cusorderbycuscontroler.php",
-		  data:({total:tot}),
+		  data:({total:tot,sordno:sordno}),
 		  success:function(data){
 			 
 			 
@@ -261,7 +260,7 @@ function customerplaceorder(){
 			$.ajax({
 				  type:"post",
 				  url:"controler/cusorderbycusitemcontroler.php",
-				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status}),
+				  data:({sordno:sordno,brand:brand,country:country,tiresize:tiresize,qty:qty,status:status}),
 				  success:function(data){
 					 
 					  alert(data);

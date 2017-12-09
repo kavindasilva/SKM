@@ -28,7 +28,7 @@ $query2="SELECT * FROM quotation_item WHERE q_no='".$_SESSION['qno']."';";
 		$innerquery="SELECT * FROM tire WHERE t_id='".$row2['tire_t_id']."';";
 		$innerresult=mysqli_query($conn,$innerquery);	
 		$innerrow=mysqli_fetch_array($innerresult);
-		echo "<tr class=\"removable \"><td>".$innerrow['brand_name']."</td><td>".$innerrow['country']."</td><td>".$innerrow['tire_size']."</td><td class=\"up\">".$innerrow['unit_price']."</td><td>".$row2['quantity']."</td><td class=\"disamount\">0</td><td><select class=\"selectdis\" style=\"width:100px;\"><option value=\"05\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></select></td></tr>";
+		echo "<tr class=\"removable \"><td>".$innerrow['brand_name']."</td><td>".$innerrow['country']."</td><td>".$innerrow['tire_size']."</td><td class=\"up\">".$innerrow['unit_price']."</td><td>".$row2['quantity']."</td><td class=\"disamount\">0</td><td><select class=\"selectdis\" style=\"width:100px;\"><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></select></td></tr>";
 	}
 
 

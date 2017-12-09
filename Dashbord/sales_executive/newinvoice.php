@@ -19,6 +19,7 @@
       </div>
     </div>
   </div>
+  
 <head>
    <?php require_once('../../php/dbcon.php');
    include('../../assets/noinvoiceitem.php');
@@ -53,12 +54,12 @@
 			<strong ><h4><b>Select order to invoice</b></h4></strong></br>
       	     	<!--selecting a buyer row-->
       	<div class="row margin col-md-6" >
-      		<strong >Dealer Shop Name </strong>  	
+      		<strong >Dealer /Customer Name </strong>  	
       	
 		 <div  class="col-xs-7 col-md-7 pull-right" style="padding-right: 30px;">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
-        <option value="guest" >Guest</option>
+        
        <?php
 	$query="select shop_name from dealer";
 	$result=mysqli_query($conn,$query);
@@ -138,7 +139,11 @@
 					$query="SELECT * FROM sales_order where status='incomplete';";
 					$result=mysqli_query($conn,$query);
 					while($row=mysqli_fetch_array($result)){
-						if($row['dealer_d_id']==null){
+						if($row['dealer_d_id']==null && $row['regular_customer_r_id']==null){
+							
+							$dcname=$row['guest_name'];
+						}
+						else if($row['dealer_d_id']==null){
 							$query2="SELECT * FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
 							$result2=mysqli_query($conn,$query2);
 							$row2=mysqli_fetch_array($result2);

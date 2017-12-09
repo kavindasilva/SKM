@@ -12,7 +12,7 @@ $result=mysqli_query($conn,$query);
 $row=mysqli_fetch_array($result);
 $tid=$row['t_id'];
 
-$query="INSERT INTO order_item VALUES($tid,$sordno,$qty,'$status')";
+$query="INSERT INTO order_item VALUES($tid,$sordno,$qty,'$status',null)";
 
 if(mysqli_query($conn,$query)){
 	echo "success";

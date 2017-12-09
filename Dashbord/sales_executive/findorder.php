@@ -121,7 +121,11 @@
 					$query="SELECT * FROM sales_order";
 					$result=mysqli_query($conn,$query);
 					while($row=mysqli_fetch_array($result)){
-						if($row['dealer_d_id']==null){
+						if($row['dealer_d_id']==null && $row['regular_customer_r_id']==null){
+							
+							$dcname=$row['guest_name'];
+						}
+						else if($row['dealer_d_id']==null){
 							$query2="SELECT * FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
 							$result2=mysqli_query($conn,$query2);
 							$row2=mysqli_fetch_array($result2);

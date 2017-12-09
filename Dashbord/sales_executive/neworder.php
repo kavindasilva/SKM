@@ -68,6 +68,7 @@
       	<div class="col-xs-5 col-md-3" data-aos="zoom-out-right">
  			<select class="form-control" id="shopname">
         		<option value="" >Select</option>
+        		<option value="guest" >Guest</option>
        <?php
 	$query="select shop_name from dealer";
 	$result=mysqli_query($conn,$query);
@@ -110,11 +111,20 @@
 		  d = n.getDate();
 		  document.getElementById("date").innerHTML = y + "/" + m + "/" + d;
 		</script>
-	  </div></br></br>
+	  </div>
+	  <div class="col-md-12 row" data-aos="zoom-out-right">
+	  
+	 
+		  <label for="guestname" style="width:185px;">Guest Name:</label>
+		  <input class="" name="guestname" id="guestname" placeholder="Enter guest name" style="width:255px;" disabled> 
+	 	  
+	 
+	  </div>
+	  </br></br></br>
    <!-- invoice items pannel starts here-->
 <div class="row">
     <div  class="col-xs-3 pull-right" style="width: auto; margin-right: 50px;" data-aos="zoom-out-left">
-        <div class="box" >
+        <div class="box" style="overflow-x:auto;" >
             <div class="box-header">
               <h3 class="box-title">Order Items</h3>
             </div>
@@ -201,8 +211,19 @@
 </form>
  <!-- add tires to invoice pannel concludes here-->
  </section> 
-<script src="../../js/formcontrol.js?8"></script>
+<script src="../../js/formcontrol.js?9"></script>
  <script>
+$('#shopname').on('change',function(){
+	
+	if($('#shopname').val()=="guest"){
+		$('#guestname').attr("disabled",false);
+	}
+	else{
+		$('#guestname').attr("disabled",true);
+		$('#guestname').val("");
+	}
+		}); 	
+	 
     AOS.init();
  </script>
 </body>
