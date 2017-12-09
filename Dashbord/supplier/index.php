@@ -170,18 +170,12 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
        
         <li class="treeview">
          	<a href="#">
-            	<i class="fa fa-edit"></i> <span>Sales</span>
-            	<span class="pull-right-container">
-              	<i class="fa fa-angle-left pull-right"></i>
+            	<i class="fa fa-edit"></i> <span>Tire Orders</span>
+<!--            	<span class="pull-right-container">-->
+<!--              	<i class="fa fa-angle-left pull-right"></i>-->
            	 	</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="#" name="dashbord"><i class="fa fa-circle-o"></i> Purchase Requests</a></li>
-             <li><a href="#" name="neworder"><i class="fa fa-circle-o"></i>Purchase Confirmations</a></li>
-           </ul>
-        </li>
-           
-      </ul>
+
     </section>
     <!-- /.sidebar -->
   </aside>

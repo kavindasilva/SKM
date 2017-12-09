@@ -21,25 +21,27 @@
     <div class="box-body">
         <table class="table-bordered table-hover" width="100%">
             <thead>
-            <tr><th>Date</th><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+            <tr><th>Date</th><th>Tire id</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
             </thead>
             <tbody>
-<!--            --><?php
-//            /**
-//             * Created by PhpStorm.
-//             * User: Isuru Jayasinghe
-//             * Date: 12/8/2017
-//             * Time: 10:02 AM
-//             */
-//            require_once('../../php/dbcon.php');
-//            $pr_item_tbl_quary="SELECT tire_t_id,qty,supplierble_qty,supplierble_unitprice FROM pr_item WHERE ";
-//            $pr_item_result=mysqli_query($conn,$pr_item_tbl_quary);
-//            while($pr_item_row=mysqli_fetch_row($pr_item_result)){
-//                $tot_price=$pr_item_row[2]*$pr_item_row[3];
-//                echo("<tr><td>$pr_item_row[0]</td><td>$pr_item_row[1]</td><td>$pr_item_row[2]</td><td>$pr_item_row[3]</td><td>$tot_price</td><td><button class=\"btn btn-success confirmbtn\" onclick='confirmbtn(this)'>Confirm</button><button class=\"btn btn-danger deletebtn\" onclick='deletebtn(this)'>Delete</button></td></tr>");
-//
-//            }
-//            ?><!--</tbody>-->
+            <?php
+            require_once('../../php/dbcon.php');
+
+            $pc_item_tbl_quary="SELECT tire_t_id,qty,unit_price,purchase_confirmation_pc_no FROM `pc_item`";
+            $pc_item_result=mysqli_query($conn,$pc_item_tbl_quary);
+            $i=0;
+            while($pc_item_row=mysqli_fetch_row($pc_item_result)){
+                $pc_no=$pc_item_row[3];
+                $date_quary="SELECT date FROM `purchase_confirmation` WHERE pc_no=$pc_no";
+                $date=mysqli_fetch_row(mysqli_query($conn,$date_quary))[0];
+                $tot_price=$pc_item_row[1]*$pc_item_row[2];
+                echo("<tr><td>$date</td><td>$pc_item_row[0]</td><td>$pc_item_row[1]</td><td>$pc_item_row[2]</td><td>$tot_price</td></tr>");
+                $i++;
+            }
+            if($i==0){
+                echo ("<tr><h3>There is not any confirmed requisition</h3></tr>");
+            }
+            ?></tbody>
         </table>
     </div>
 

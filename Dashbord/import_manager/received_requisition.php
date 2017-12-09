@@ -22,6 +22,7 @@
         require_once('../../php/dbcon.php');
         $pr_no_quary="SELECT pr_no,supplier_s_id FROM purchase_requisition WHERE status='replied'";
         $pr_no_result=mysqli_query($conn,$pr_no_quary);
+        $i=0;
         while($row=mysqli_fetch_row($pr_no_result)){
             //show details about suplier and pr
             $pr_date_query="SELECT date FROM purchase_requisition WHERE pr_no='".$row[0]."';";
@@ -29,6 +30,7 @@
             //$resultinside=mysqli_query($conn,$query2);
             $pr_date=mysqli_fetch_row(mysqli_query($conn,$pr_date_query));
             $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_query));
+            $i++;
             echo("
                   
                     <a href=\"#\"><li value=\"".$row[0]."\">
@@ -36,6 +38,13 @@
                     </li></a>
                   ");
 
+
+        }
+        if($i==0){
+            echo("
+            
+            <h3>There is not any new received requisition</h3>
+            ");
         }
         ?>
     </ul>

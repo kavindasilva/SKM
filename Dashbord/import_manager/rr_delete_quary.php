@@ -22,5 +22,3 @@ if(!mysqli_fetch_row(mysqli_query($conn,$tire_check_quary))[0]){
 }
 $tire_status_change="UPDATE `tire` SET `status` = 'required' WHERE `tire`.`t_id` = $t_id";
 mysqli_query($conn,$tire_status_change);
-
-echo ($t_id);
