@@ -14,7 +14,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
          
-          <li class="active"><a href="#"><i class="fa"></i>Qutation Requests</a></li>
+          <li class="active"><a href="index.php"><i class="fa"></i>Qutation Requests</a></li>
       </ol>
 </section></br>
 <div class="col-md-3" id="quotationreqdiv">
@@ -23,12 +23,14 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 
 <?php
 
-    $pr_no_quary="SELECT pr_no FROM purchase_requisition WHERE supplier_s_id=$sup_id";
+    $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id";
     $pr_no_result=mysqli_query($conn,$pr_no_quary);
+    $emp_name_quary="SELECT user_user_name FROM employee WHERE e_id=3";
+    $emp_name=mysqli_fetch_row(mysqli_query($conn,$emp_name_quary));
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
         echo ("
             <a href=\"#\"><li value=\"".$pr_no_row[0]."\">
-            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$pr_no_row[0]."
+            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$emp_name[0]." (".$pr_no_row[2].")
                     </li></a>
             ");
     }

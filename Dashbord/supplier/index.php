@@ -169,7 +169,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
         <li class="header">MAIN NAVIGATION</li>
        
         <li class="treeview">
-         	<a href="#">
+         	<a href="index.php">
             	<i class="fa fa-edit"></i> <span>Qutation Requests</span>
 <!--            	<span class="pull-right-container">-->
 <!--              	<i class="fa fa-angle-left pull-right"></i>-->
