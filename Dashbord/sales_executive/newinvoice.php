@@ -130,7 +130,7 @@
                   <th>Dealer/Customer</th>
                   <th>Date</th>
                   <th>Total Amount(Rs.)</th>
-                  <th>Status</th>
+                  
                  </tr>
                 </thead>
                 <tbody>
@@ -156,7 +156,7 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
 					}
 					
 					?>
@@ -391,6 +391,14 @@ $('.viewitems').click(function(){
 				$('#invoiceitembody').append("<tr id=\""+id+"\">"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
 				update();
 				rows[i].firstChild.firstChild.disabled=true;
+				if(rows[i].getAttribute('name')!=""){
+					var discount=rows[i].getAttribute('name').trim();
+					 var discountelement=document.getElementById('invoiceitembody').lastChild.getElementsByTagName('td')[8].firstChild;
+					discountelement.value=discount;
+					discountelement.disabled=true;
+			
+					
+				}
 			}
 		}
 		
