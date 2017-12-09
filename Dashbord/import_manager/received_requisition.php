@@ -77,6 +77,46 @@
     });
 
 </script>
+
+<script>
+    function confirmbtn(eliment) {
+        $.ajax({
+            type:"post",
+            data:({t_id:eliment.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML,
+                unitprice:eliment.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML,
+                sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+            url:"rr_confirm_quary.php",
+            success:function (data) {
+                alert(data);
+
+            }
+
+
+        });
+
+        eliment.parentElement.parentElement.remove();
+
+    }
+</script>
+
+<script>
+    function deletebtn(eliment) {
+        $.ajax({
+            type:"post",
+            data:({t_id:eliment.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML,
+                unitprice:eliment.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML,
+                sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
+            url:"rr_delete_quary.php",
+            success:function (data) {
+                alert(data);
+
+            }
+
+
+        });
+
+    }
+</script>
 <!-- jQuery 3.1.1 -->
 <script src="../../js/jquery-3.1.1.min.js"></script>
 

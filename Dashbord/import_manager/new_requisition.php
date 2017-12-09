@@ -74,6 +74,7 @@
                         <th>Size</th>
                         <th>Available Qty</th>
                         <th>Status</th>
+                        <th>Requested Qty</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -81,7 +82,7 @@
 
                     <?php
 						require_once('../../php/dbcon.php');
-						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE status='required' OR status='pending'";
+						$sql="SELECT t_id,brand_name,country,tire_size,quantity,status,requested_amount FROM tire WHERE status='required' OR status='pending'";
 						$result = $conn->query($sql);
 						$tbl_rw_id=0;
 						while($row=$result->fetch_assoc()){
@@ -96,6 +97,7 @@
 						<td><?php echo $row['tire_size']?></td>
 						<td><?php echo $row['quantity']?></td>
 						<td><?php echo $row['status']?></td>
+                        <td><?php echo $row['requested_amount']?></td>
                         <td><button class="btn btn-success requestbtn" onclick="requestbtn(this)" disabled>Add to Requests</button></td>
 						</tr>
 					
@@ -176,9 +178,11 @@
         var brand= element.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
         var country= element.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML;
         var size= element.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
+        var req_qty= element.parentElement.parentElement.getElementsByTagName('td')[6].innerHTML;
       element.disabled=true;
-   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'></td></tr>");
-    }
+   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'  value='"+req_qty+"'></td></tr>");
+      document.getElementsByClassName('req_qty').value = req_qty;
+  }
 </script>
 
 <!--    remove all button script-->
