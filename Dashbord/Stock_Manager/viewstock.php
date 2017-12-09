@@ -286,7 +286,7 @@ function deletestock(){
 			method: "POST",
 			data: ({tid:tid}),
 			success: function(data) {
-			document.getElementById('message').innerHTML="Stock item Deleted";
+			document.getElementById('message1').innerHTML="Stock item Deleted";
 					   $('#modal-success').modal('show');
 				
 			}
@@ -338,7 +338,7 @@ function updatestock(element){
 		url:"modal/updatestock.php",
 		data:{tid:tid,country:country,brand:brand,tsize:tsize,qty:qty,up:up,status:status,ttype:ttype},
 		success:function(data){
-			document.getElementById('message').innerHTML="Stock successfully updated";
+			document.getElementById('message1').innerHTML="Stock successfully updated";
 					   $('#modal-success').modal('show');
 	}
 		
