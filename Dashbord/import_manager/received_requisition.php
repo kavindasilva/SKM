@@ -114,6 +114,7 @@
 
 
         });
+        eliment.parentElement.parentElement.remove();
 
     }
 </script>
