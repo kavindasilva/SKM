@@ -5,7 +5,7 @@
 */
 require_once "../../php/dbcon.php";
 
-$strSQL = "Select * From tire;";
+$strSQL = "SELECT i.sales_order_sord_no, sum(i.net_amount), sum(i.discount) FROM invoice i, sales_order s where i.sales_order_sord_no=s.sord_no AND i.STATUS='paid' and year(i.date)='2017' and month(i.date)='12' GROUP by i.sales_order_sord_no ";
 $objQuery = mysqli_query($conn,$strSQL) or die ("Database query failed: $strSQL<hr>" . mysqli_error($conn)); //result set
 
 if(mysqli_num_rows($objQuery)==0){

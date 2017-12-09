@@ -75,7 +75,10 @@ $pdf->AliasNbPages();
 $header=array();
 $header=array('Tire ID','Brand','Country','Tire size', 'Quantity'); 
 
-$year='2017'; $months='10';
+//$year='2017';
+$year=$_GET['yr'];
+//$months='10';
+$months=$_GET['mnth'];
 //Data loading
 //*** Load MySQL Data ***//
 /**		DATABASE QUERY	*/

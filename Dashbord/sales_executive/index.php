@@ -37,6 +37,8 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
   <!--bootstrap validation
   <link rel="stylesheet" href="../../css/bootstrapValidator.css"/>
   <script type="text/javascript" src="../../js/bootstrapValidator.js"></script>-->
+  <!-- jQuery 3.1.1 -->
+<script src="../../js/jquery-3.1.1.min.js"></script>
  <script src="../../js/plugins.js"></script>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
@@ -85,7 +87,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 					$rowinside=mysqli_fetch_array($resultinside);
 				echo("
                   <li>
-                    <a href=\"#\">
+                    <a href=\"#\" onclick=loadquotationreq();>
                       <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i> Quotation request from ".$rowinside['user_user_name']."
                     </a>
                   </li>");
@@ -225,7 +227,6 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="charts"><i class="fa fa-circle-o"></i> Charts</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Reports</a></li>
          </li>
            
       </ul>
@@ -265,8 +266,7 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 
 </div>
 
-<!-- jQuery 3.1.1 -->
-<script src="../../js/jquery-3.1.1.min.js"></script>
+
 <!-- Bootstrap no need 3.3.7 -->
 <script src="../../js/bootstrap.min.js"></script>
 <!-- FastClick no need -->
@@ -280,3 +280,10 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 
 
 </html>
+<script>
+	
+function loadquotationreq(){
+	$('#content-wrapper').load('quotationrequests.php');
+}
+</script>
+

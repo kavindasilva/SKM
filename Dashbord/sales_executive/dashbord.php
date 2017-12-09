@@ -67,7 +67,7 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">Monthly sales Report</button>
+          <button class="form-control dashbordbtn" name="charts" onClick="dashbordcontrol('charts');">Sales Progress</button>
 		<button class="form-control dashbordbtn" name="neworder">Outstandings Report</button>
         </div>
         <!-- /.col -->

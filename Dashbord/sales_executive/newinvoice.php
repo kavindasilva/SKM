@@ -19,6 +19,7 @@
       </div>
     </div>
   </div>
+  
 <head>
    <?php require_once('../../php/dbcon.php');
    include('../../assets/noinvoiceitem.php');
@@ -53,12 +54,12 @@
 			<strong ><h4><b>Select order to invoice</b></h4></strong></br>
       	     	<!--selecting a buyer row-->
       	<div class="row margin col-md-6" >
-      		<strong >Dealer Shop Name </strong>  	
+      		<strong >Dealer /Customer Name </strong>  	
       	
 		 <div  class="col-xs-7 col-md-7 pull-right" style="padding-right: 30px;">
  	<select class="form-control" id="shopname" >
         <option value="" >Select</option>
-        <option value="guest" >Guest</option>
+        
        <?php
 	$query="select shop_name from dealer";
 	$result=mysqli_query($conn,$query);
@@ -129,7 +130,7 @@
                   <th>Dealer/Customer</th>
                   <th>Date</th>
                   <th>Total Amount(Rs.)</th>
-                  <th>Status</th>
+                  
                  </tr>
                 </thead>
                 <tbody>
@@ -138,7 +139,11 @@
 					$query="SELECT * FROM sales_order where status='incomplete';";
 					$result=mysqli_query($conn,$query);
 					while($row=mysqli_fetch_array($result)){
-						if($row['dealer_d_id']==null){
+						if($row['dealer_d_id']==null && $row['regular_customer_r_id']==null){
+							
+							$dcname=$row['guest_name'];
+						}
+						else if($row['dealer_d_id']==null){
 							$query2="SELECT * FROM customer WHERE r_id='".$row['regular_customer_r_id']."';";
 							$result2=mysqli_query($conn,$query2);
 							$row2=mysqli_fetch_array($result2);
@@ -151,7 +156,7 @@
 							$dcname=$row2['shop_name'];
 						}
 							
-						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td>".$row['status']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
+						echo("<tr><td>".$row['sord_no']."</td><td>$dcname</td><td>".$row['date']."</td><td>".$row['total_amount']."</td><td><button class=\"btn btn-primary viewitems\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Invoice this order\">Select Order</button></td></tr>");
 					}
 					
 					?>
@@ -386,6 +391,14 @@ $('.viewitems').click(function(){
 				$('#invoiceitembody').append("<tr id=\""+id+"\">"+rows[i].innerHTML+"<td><select onChange=\"a(this);\" style=\"width:100%;\"><option value=\"0\">0%</option><option value=\"5\">5%</option><option value=\"10\">10%</option><option value=\"15\">15%</option><option value=\"20\">20%</option></td><td>"+rows[i].childNodes[6].innerHTML+"</td></tr>");
 				update();
 				rows[i].firstChild.firstChild.disabled=true;
+				if(rows[i].getAttribute('name')!=""){
+					var discount=rows[i].getAttribute('name').trim();
+					 var discountelement=document.getElementById('invoiceitembody').lastChild.getElementsByTagName('td')[8].firstChild;
+					discountelement.value=discount;
+					discountelement.disabled=true;
+			
+					
+				}
 			}
 		}
 		

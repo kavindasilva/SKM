@@ -49,12 +49,6 @@
               </table>
             <div class="box-footer">
             <div class="row">
-          
-            		
-            	<div class="col-md-3">
-            	<button type="button" class="btn btn-warning" onClick="removeselected();" style="width: 153px" >Remove Selected</button>
-            	</div>
-				
               	<div class="col-md-3">
             	<button type="button" class="btn btn-primary" onClick="sendRequesition();" style="width: 153px" >Send Requesition</button>
             	</div>
