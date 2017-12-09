@@ -31,8 +31,8 @@ if(mysqli_num_rows($res)>0){
 }
 //----------------------------------------------------------------------
 
-
-$sql="insert into user values('$username', 'skm', '$em', '$adr', '$newUserType')";
+$md5pass=md5("skm");
+$sql="insert into user values('$username', '$md5pass', '$em', '$adr', '$newUserType')";
 if(!mysqli_query($conn, $sql)){
 	echo "user insertion error";
 	echo mysqli_error($conn);

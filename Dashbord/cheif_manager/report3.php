@@ -7,12 +7,12 @@
 require_once "../../php/dbcon.php";
 
 //$date=$_POST['months'];
-//$year=$_POST[''];
-//$month=$_POST[''];
-$year='2017';
-$months='1';
+$year=$_GET['yr'];
+$months=$_GET['mnth'];
+//$year='2017';
+//$months='1';
 
-$strSQL = "Select * From tire;";
+//$strSQL = "Select * From tire;";
 //$strSQL="SELECT sum(o.qty) FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available'";
 
 //$strSQL="SELECT t.t_id, t.brand_name,t.country,t.tire_size,sum(o.qty) as totq FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='available' GROUP by t.t_id";
