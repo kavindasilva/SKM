@@ -36,21 +36,21 @@
 	}
 </script>
 
-<!--current stock status report-->
+<!--current stock status report =  report2.php -->
 <a href="report2.php" target="frm1"><input type="button" value="view Current stock status report"  class="btn btn-sm btn-info"> </a>
 <input type="button" value="print Current stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')"/> 	<br/>
 
-<!--current month sales quantity report-->
+<!-- month sales quantity report = report3.php-->
 	<input type="month" name="months" id="months1" onchange="checkCur(this.id)"/>
 	<a href="report3.php" target="frm1">
 	<input type="button" id="months1btn" value="view Monthly sales quantity"  class="btn btn-sm btn-info"  disabled /> </a>
 	<input type="button" id="months1btn2" value="print Monthly sales quantity"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports3.php')" disabled  /> 	<br/>
 
-<!--creport-->
-	<input type="month" name="months2" id="months" onchange="checkCur('months')"/>
+<!--month sales report = report4.php -->
+	<input type="month" name="months2" id="months4" onchange="checkCur(this.id)"/>
 	<a href="report3.php" target="frm1">
-	<input type="button" id="months2btn" name="" value="view Monthly sales report"  class="btn btn-sm btn-info"  disabled  /> </a>
-	<input type="button" id="months2btn2" name="" value="print Monthly sales report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports3.php')" disabled   /> 	<br/>
+	<input type="button" id="months4btn" value="view Monthly sales report"  class="btn btn-sm btn-info"  disabled  /> </a>
+	<input type="button" id="months4btn2" value="print Monthly sales report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports3.php')" disabled   /> 	<br/>
 
 
 <input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>

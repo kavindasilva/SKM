@@ -12,12 +12,12 @@ $_SESSION['user'] = "Test1";
 require_once "../php/dbcon.php";
 /**
  if(!isset($_SESSION['user'])){
- echo "user not set";
- //header('Location:../login.html');
+	echo "user not set";
+	header('Location:../login.html');
  }
  elseif ($_SESSION['utype']!="adm") {
- echo "not an admin";
- //header('Location:../login.html');
+	echo "not an admin";
+	header('Location:../login.html');
  }
 
  /**/
@@ -83,10 +83,10 @@ require_once "../php/dbcon.php";
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <span class="label label-success">0</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
+              <li class="header">You have No messages</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -96,39 +96,39 @@ require_once "../php/dbcon.php";
                         <img src="../images/user8-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
-                        Support Team
+                        You have no messages
                         <small><i class="fa fa-clock-o"></i> 5 mins</small>
                       </h4>
-                      <p>Why not buy a new awesome theme?</p>
+                      <p>System admin currently cannot receive messages</p>
                     </a>
                   </li>
                   <!-- end message -->
         
                 </ul>
               </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
+              <li class="footer"><a href="#">Close</a></li>
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">10</span>
+              <span class="label label-danger">0</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have No notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <li>
                     <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <i class="fa fa-users text-aqua"></i> notification system is not integrated
                     </a>
                   </li>
                  
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
+              <li class="footer"><a href="#">Close</a></li>
             </ul>
           </li>
              <!-- User Account: style can be found in dropdown.less -->
@@ -225,10 +225,10 @@ require_once "../php/dbcon.php";
           </a>
           <ul class="treeview-menu">
             <li><a href="adduserType.php"><i class="fa fa-circle-o"></i>Add new user</a></li>
-            <li><a href="viewAll.php" name="findorder"><i class="fa fa-circle-o"></i>View All Users</a></li>
-            <li><a href="viewAll.php?type=cus" name="findorder"><i class="fa fa-circle-o"></i>View Customers</a></li>
-            <li><a href="viewAll.php?type=deal" name="findorder"><i class="fa fa-circle-o"></i>View Dealers</a></li>
-            <li><a href="viewAll.php?type=sup" name="findorder"><i class="fa fa-circle-o"></i>View Suppliers</a></li>
+            <li><a href="viewAll.php" ><i class="fa fa-circle-o"></i>View All Users</a></li>
+            <li><a href="viewAll.php?type=cus" ><i class="fa fa-circle-o"></i>View Customers</a></li>
+            <li><a href="viewAll.php?type=deal" ><i class="fa fa-circle-o"></i>View Dealers</a></li>
+            <li><a href="viewAll.php?type=sup" ><i class="fa fa-circle-o"></i>View Suppliers</a></li>
            </ul>
         </li>
         <li class="treeview">
@@ -245,7 +245,7 @@ require_once "../php/dbcon.php";
           </ul>
         </li>
     
-        <li>
+        <!--li>
           <a href="pages/mailbox/mailbox.html">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
             <span class="pull-right-container">
@@ -254,7 +254,9 @@ require_once "../php/dbcon.php";
               <small class="label pull-right bg-red">5</small>
             </span>
           </a>
-        </li>
+        </li-->
+		
+		
         <li class="treeview">
           <a href="#">
             <i class="fa fa-bar-chart"></i> <span>Settings</span>
