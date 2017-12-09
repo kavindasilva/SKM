@@ -11,7 +11,7 @@ function checkCur(eleId) { //check with current date
 
 	//if(datsplit[0]>curDaysplit[0]){ //year checking
 	if(datsplit[0]>cyear){ //year checking
-		alert("report month cannot be a future current month");
+		alert("report month cannot be a future month");
 		$("#"+eleId+"btn").prop('disabled', true);
 		$("#"+eleId+"btn2").prop('disabled', true);
 	}
