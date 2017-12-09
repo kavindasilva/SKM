@@ -45,6 +45,10 @@ require_once "head.php";
             </div>
             <!-- /.info-box-content -->
           </div>
+		  
+		  <a href="viewMgr.php?empT=mgr"><button class="form-control dashbordbtn" ></i>View managers</button></a>
+		  <a href="adduser.php?type=salex"><button class="form-control dashbordbtn" >Add new sales-Executive</button></a>
+		  <a href="viewMgr.php?empT=sales"><button class="form-control dashbordbtn" >View sales-Executive</button></a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
@@ -73,6 +77,7 @@ require_once "head.php";
             </div>
             <!-- /.info-box-content -->
           </div>
+		  <a href="viewMgr.php?empT=sales"><button class="form-control dashbordbtn" >Customers</button></a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
