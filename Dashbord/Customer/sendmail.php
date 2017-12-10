@@ -1,9 +1,18 @@
 
 <?php
+//+++++++++++++++ find recipient address ++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+//++++++++++ mail sending part +++++++++++++++++++++++++++++++
 require('../../mail0/class.phpmailer.php');
-//require('../../mail/src/PHPMailer.php');
 require('../../mail0/class.smtp.php');
-//require('../../mail/src/smtp.php');
 
 
 //original
