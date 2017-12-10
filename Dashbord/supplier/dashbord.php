@@ -45,9 +45,9 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     <div class="box-body">
         <table class="table-bordered table table-hover" width="100%">
             <thead>
-            <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+            <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
             </thead>
-            <tbody id="rr_table"></tbody>
+            <tbody id="sup_dash_table"></tbody>
         </table>
     </div>
 
@@ -56,23 +56,23 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 <script>
 
     $('#sup_dashbord_div ul a').click(function(){
-        $('#dash_tbl_div').children('tr').remove();
+        $('#sup_dash_table').children('tr').remove();
         $.ajax({
             type:"post",
             data:({pr_no:this.firstChild.value}),
             url:"dashbord_quary.php",
             success:function(data){
 
-                alert(data);
+                $('#sup_dash_table').append(data);
 
 
             }
         });
-
+    });
         // $('#quotation a').removeClass("goingtorm");
         //$(this).addClass('goingtorm');
         //$('#qrdetails').load('quotationreqdetails.php')
 
-    });
+
 
 </script>

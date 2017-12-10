@@ -122,7 +122,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12" style="width: auto; margin-left: 72px"  data-aos="zoom-out-left">
+            <div class="col-xs-12" style="width: auto; margin-left: 72px">
               <div class="box">
                 <div class="box-header">
                 <h3 class="box-title">Requisition Item</h3></div>

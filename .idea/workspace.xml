@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f21ac4c1-e5de-4ffa-9429-803993f4e7de" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Dashbord/supplier/dashbord_quary.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Dashbord/import_manager/dashbord_quary.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" />
       <change beforePath="$PROJECT_DIR$/Dashbord/supplier/dashbord.php" afterPath="$PROJECT_DIR$/Dashbord/supplier/dashbord.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +20,8 @@
       <file leaf-file-name="received_requisition.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/received_requisition.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+            <state relative-caret-position="428">
+              <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="44" />
               <folding>
                 <marker date="1512797597304" expanded="true" signature="780:855" ph="SELECT pr_no... purchase_requisition" />
                 <marker date="1512797597304" expanded="true" signature="1057:1120" ph="SELECT date " />
@@ -34,35 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashbord.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashbord.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dashbord/supplier/dashbord.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="26" column="51" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+            <state relative-caret-position="273">
+              <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding>
-                <marker date="1512900226840" expanded="true" signature="72:149" ph="SELECT s_id supplier" />
-                <marker date="1512900226840" expanded="true" signature="260:322" ph="SELECT * FRO... quotation" />
-                <marker date="1512900226840" expanded="true" signature="771:868" ph="SELECT pr_no... purchase_requisition" />
-                <marker date="1512900226840" expanded="true" signature="771:869" ph="SELECT pr_no... purchase_requisition" />
-                <marker date="1512900226840" expanded="true" signature="771:887" ph="SELECT pr_no... purchase_requisition" />
-                <marker date="1512900226840" expanded="true" signature="771:896" ph="SELECT pr_no... purchase_requisition" />
-                <marker date="1512900226840" expanded="true" signature="1032:1079" ph="SELECT user_... employee" />
-                <marker date="1512900226840" expanded="true" signature="1032:1080" ph="SELECT user_... employee" />
-                <marker date="1512900226840" expanded="true" signature="1209:1396" ph="..." />
-                <marker date="1512900226840" expanded="true" signature="1241:1331" ph="..." />
-                <marker date="1512900226840" expanded="true" signature="1241:1392" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashbord_quary.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/dashbord_quary.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-              <folding>
-                <element signature="e#6#100#0#PHP" expanded="false" />
+                <marker date="1512906759953" expanded="true" signature="72:149" ph="SELECT s_id supplier" />
+                <marker date="1512906759953" expanded="true" signature="260:322" ph="SELECT * FRO... quotation" />
+                <marker date="1512906759953" expanded="true" signature="771:868" ph="SELECT pr_no... purchase_requisition" />
+                <marker date="1512906759953" expanded="true" signature="771:869" ph="SELECT pr_no... purchase_requisition" />
+                <marker date="1512906759953" expanded="true" signature="771:887" ph="SELECT pr_no... purchase_requisition" />
+                <marker date="1512906759953" expanded="true" signature="771:896" ph="SELECT pr_no... purchase_requisition" />
+                <marker date="1512906759953" expanded="true" signature="1032:1079" ph="SELECT user_... employee" />
+                <marker date="1512906759953" expanded="true" signature="1032:1080" ph="SELECT user_... employee" />
+                <marker date="1512906759953" expanded="true" signature="1209:1396" ph="..." />
+                <marker date="1512906759953" expanded="true" signature="1241:1331" ph="..." />
+                <marker date="1512906759953" expanded="true" signature="1241:1392" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,10 +62,9 @@
       <file leaf-file-name="rr_confirm_quary.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_confirm_quary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="340">
+              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
               <folding>
-                <element signature="e#6#100#0#PHP" expanded="false" />
                 <marker date="1512763989640" expanded="true" signature="254:317" ph="SELECT purch... pr_item" />
                 <marker date="1512763989640" expanded="true" signature="254:318" ph="SELECT purch... pr_item" />
                 <marker date="1512763989640" expanded="true" signature="447:561" ph="INSERT INTO `purchase_confirmation`... " />
@@ -121,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/quary.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
               <folding>
                 <element signature="e#6#99#0#PHP" expanded="false" />
                 <marker date="1512639441301" expanded="true" signature="273:316" ph="SELECT MAX(p... purchase_requisition" />
@@ -146,6 +136,38 @@
                 <marker date="1512670280155" expanded="true" signature="536:599" ph="SELECT tire_... pr_item" />
                 <marker date="1512670280155" expanded="true" signature="732:806" ph="DELETE FROM `purchase_requisition`... " />
                 <marker date="1512670280155" expanded="true" signature="900:962" ph="UPDATE `tire`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashbord_quary.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dashbord/supplier/dashbord_quary.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#100#0#PHP" expanded="false" />
+                <marker date="1512907047881" expanded="true" signature="193:256" ph="SELECT tire_... pr_item" />
+                <marker date="1512907047881" expanded="true" signature="193:257" ph="SELECT tire_... pr_item" />
+                <marker date="1512907047881" expanded="true" signature="429:467" ph="SELECT tire_... tire" />
+                <marker date="1512907047881" expanded="true" signature="429:468" ph="SELECT tire_... tire" />
+                <marker date="1512907047881" expanded="true" signature="569:609" ph="SELECT qty F... pr_item" />
+                <marker date="1512907047881" expanded="true" signature="569:610" ph="SELECT qty F... pr_item" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rr_quary.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_quary.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="2" />
+              <folding>
+                <element signature="e#7#101#0#PHP" expanded="false" />
+                <marker date="1512766776542" expanded="true" signature="183:288" ph="SELECT tire_... pr_item" />
+                <marker date="1512766776542" expanded="true" signature="183:289" ph="SELECT tire_... pr_item" />
               </folding>
             </state>
           </provider>
@@ -176,14 +198,16 @@
         <option value="$PROJECT_DIR$/Dashbord/import_manager/delete_request_quary.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/index.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/ava_tire_filtering.php" />
-        <option value="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" />
-        <option value="$PROJECT_DIR$/Dashbord/import_manager/rr_confirm_quary.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/rr_quary.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/rr_delete_quary.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/received_requisition.php" />
         <option value="$PROJECT_DIR$/Dashbord/import_manager/confirmed_requisition.php" />
         <option value="$PROJECT_DIR$/Dashbord/supplier/index.php" />
+        <option value="$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php" />
+        <option value="$PROJECT_DIR$/Dashbord/import_manager/dashbord_quary.php" />
+        <option value="$PROJECT_DIR$/Dashbord/import_manager/rr_confirm_quary.php" />
         <option value="$PROJECT_DIR$/Dashbord/supplier/dashbord.php" />
+        <option value="$PROJECT_DIR$/Dashbord/supplier/dashbord_quary.php" />
       </list>
     </option>
   </component>
@@ -198,8 +222,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-35" />
-    <option name="y" value="138" />
+    <option name="x" value="-31" />
+    <option name="y" value="173" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
@@ -255,6 +279,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SKM\Dashbord\supplier" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -294,12 +323,12 @@
       <workItem from="1512701169762" duration="8890000" />
       <workItem from="1512723017266" duration="29616000" />
       <workItem from="1512787613753" duration="17617000" />
-      <workItem from="1512892741527" duration="2565000" />
+      <workItem from="1512892741527" duration="9104000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191926000" />
+    <option name="totallyTimeSpent" value="198465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
@@ -390,6 +419,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3298">
           <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding>
+            <marker date="1512901421987" expanded="true" signature="1926:1980" ph="SELECT MAX(p... purchase_requisition" />
+            <marker date="1512901421987" expanded="true" signature="3239:3366" ph="SELECT t_id,... tire" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -432,6 +465,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3196">
           <caret line="188" column="7" lean-forward="false" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="7" />
+          <folding>
+            <marker date="1512901421987" expanded="true" signature="1926:1980" ph="SELECT MAX(p... purchase_requisition" />
+            <marker date="1512901421987" expanded="true" signature="3239:3366" ph="SELECT t_id,... tire" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -509,6 +546,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -530,6 +568,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,13 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/dashbord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -624,20 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="236" column="32" lean-forward="false" selection-start-line="236" selection-start-column="32" selection-end-line="236" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_quary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/delete_request_quary.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -654,24 +672,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/quary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <element signature="e#6#99#0#PHP" expanded="false" />
-            <marker date="1512639441301" expanded="true" signature="273:316" ph="SELECT MAX(p... purchase_requisition" />
-            <marker date="1512639441301" expanded="true" signature="405:465" ph="UPDATE `tire`... " />
-            <marker date="1512639441301" expanded="true" signature="405:466" ph="UPDATE `tire`... " />
-            <marker date="1512639441301" expanded="true" signature="540:647" ph="INSERT INTO `pr_item`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_delete_quary.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="61" />
+          <folding>
+            <element signature="e#6#99#0#PHP" expanded="false" />
+            <marker date="1512791999838" expanded="true" signature="193:256" ph="SELECT purch... pr_item" />
+            <marker date="1512791999838" expanded="true" signature="376:479" ph="DELETE FROM `pr_item`... " />
+            <marker date="1512791999838" expanded="true" signature="376:480" ph="DELETE FROM `pr_item`... " />
+            <marker date="1512791999838" expanded="true" signature="572:635" ph="SELECT tire_... pr_item" />
+            <marker date="1512791999838" expanded="true" signature="768:842" ph="DELETE FROM `purchase_requisition`... " />
+            <marker date="1512791999838" expanded="true" signature="914:976" ph="UPDATE `tire`... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -704,12 +717,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_confirm_quary.php">
+    <entry file="file://$PROJECT_DIR$/Dashbord/supplier/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="208" column="60" lean-forward="true" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/quary.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <element signature="e#6#100#0#PHP" expanded="false" />
+            <element signature="e#6#99#0#PHP" expanded="false" />
+            <marker date="1512639441301" expanded="true" signature="273:316" ph="SELECT MAX(p... purchase_requisition" />
+            <marker date="1512639441301" expanded="true" signature="405:465" ph="UPDATE `tire`... " />
+            <marker date="1512639441301" expanded="true" signature="405:466" ph="UPDATE `tire`... " />
+            <marker date="1512639441301" expanded="true" signature="540:647" ph="INSERT INTO `pr_item`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/dashbord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_confirm_quary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
             <marker date="1512763989640" expanded="true" signature="254:317" ph="SELECT purch... pr_item" />
             <marker date="1512763989640" expanded="true" signature="254:318" ph="SELECT purch... pr_item" />
             <marker date="1512763989640" expanded="true" signature="447:561" ph="INSERT INTO `purchase_confirmation`... " />
@@ -725,27 +766,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/supplier/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="208" column="60" lean-forward="true" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/dashbord_quary.php">
+    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/new_requisition.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <caret line="124" column="73" lean-forward="false" selection-start-line="124" selection-start-column="73" selection-end-line="124" selection-end-column="73" />
           <folding>
-            <element signature="e#6#100#0#PHP" expanded="false" />
+            <marker date="1512901421987" expanded="true" signature="1926:1980" ph="SELECT MAX(p... purchase_requisition" />
+            <marker date="1512901421987" expanded="true" signature="3239:3366" ph="SELECT t_id,... tire" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/received_requisition.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+        <state relative-caret-position="428">
+          <caret line="74" column="16" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="44" />
           <folding>
             <marker date="1512797597304" expanded="true" signature="780:855" ph="SELECT pr_no... purchase_requisition" />
             <marker date="1512797597304" expanded="true" signature="1057:1120" ph="SELECT date " />
@@ -762,20 +797,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/supplier/dashbord.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="26" column="51" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="273">
+          <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
           <folding>
-            <marker date="1512900226840" expanded="true" signature="72:149" ph="SELECT s_id supplier" />
-            <marker date="1512900226840" expanded="true" signature="260:322" ph="SELECT * FRO... quotation" />
-            <marker date="1512900226840" expanded="true" signature="771:868" ph="SELECT pr_no... purchase_requisition" />
-            <marker date="1512900226840" expanded="true" signature="771:869" ph="SELECT pr_no... purchase_requisition" />
-            <marker date="1512900226840" expanded="true" signature="771:887" ph="SELECT pr_no... purchase_requisition" />
-            <marker date="1512900226840" expanded="true" signature="771:896" ph="SELECT pr_no... purchase_requisition" />
-            <marker date="1512900226840" expanded="true" signature="1032:1079" ph="SELECT user_... employee" />
-            <marker date="1512900226840" expanded="true" signature="1032:1080" ph="SELECT user_... employee" />
-            <marker date="1512900226840" expanded="true" signature="1209:1396" ph="..." />
-            <marker date="1512900226840" expanded="true" signature="1241:1331" ph="..." />
-            <marker date="1512900226840" expanded="true" signature="1241:1392" ph="..." />
+            <marker date="1512906759953" expanded="true" signature="72:149" ph="SELECT s_id supplier" />
+            <marker date="1512906759953" expanded="true" signature="260:322" ph="SELECT * FRO... quotation" />
+            <marker date="1512906759953" expanded="true" signature="771:868" ph="SELECT pr_no... purchase_requisition" />
+            <marker date="1512906759953" expanded="true" signature="771:869" ph="SELECT pr_no... purchase_requisition" />
+            <marker date="1512906759953" expanded="true" signature="771:887" ph="SELECT pr_no... purchase_requisition" />
+            <marker date="1512906759953" expanded="true" signature="771:896" ph="SELECT pr_no... purchase_requisition" />
+            <marker date="1512906759953" expanded="true" signature="1032:1079" ph="SELECT user_... employee" />
+            <marker date="1512906759953" expanded="true" signature="1032:1080" ph="SELECT user_... employee" />
+            <marker date="1512906759953" expanded="true" signature="1209:1396" ph="..." />
+            <marker date="1512906759953" expanded="true" signature="1241:1331" ph="..." />
+            <marker date="1512906759953" expanded="true" signature="1241:1392" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/rr_quary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="2" />
+          <folding>
+            <element signature="e#7#101#0#PHP" expanded="false" />
+            <marker date="1512766776542" expanded="true" signature="183:288" ph="SELECT tire_... pr_item" />
+            <marker date="1512766776542" expanded="true" signature="183:289" ph="SELECT tire_... pr_item" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dashbord/supplier/dashbord_quary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#100#0#PHP" expanded="false" />
+            <marker date="1512907047881" expanded="true" signature="193:256" ph="SELECT tire_... pr_item" />
+            <marker date="1512907047881" expanded="true" signature="193:257" ph="SELECT tire_... pr_item" />
+            <marker date="1512907047881" expanded="true" signature="429:467" ph="SELECT tire_... tire" />
+            <marker date="1512907047881" expanded="true" signature="429:468" ph="SELECT tire_... tire" />
+            <marker date="1512907047881" expanded="true" signature="569:609" ph="SELECT qty F... pr_item" />
+            <marker date="1512907047881" expanded="true" signature="569:610" ph="SELECT qty F... pr_item" />
           </folding>
         </state>
       </provider>
