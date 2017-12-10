@@ -17,7 +17,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
           <li class="active"><a href="index.php"><i class="fa"></i>Qutation Requests</a></li>
       </ol>
 </section></br>
-<div class="col-md-3" id="quotationreqdiv">
+<div class="col-md-3" id="sup_dashbord_div">
 <ul id="quotation">
 
 
@@ -35,14 +35,42 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             ");
     }
 
-//				while($pr_no=mysqli_fetch_row(mysqli_query($conn,$pr_no_quary))){//show details about purchase requesition
-//				echo("
-//                     <a href=\"#\"><li value=\"".$pr_no[0]."\">
-//                      <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$pr_no[0]."
-//                    </li></a>
-//                  ");
-//
-//				}
-//                 ?>
+               ?>
+    <div class="col-md-9 col-sm-12 " id="dash_tbl_div">
+        <!-- quotation request item details will load here-->
+        <div class="box-body">
+            <table class="table-bordered table-hover" width="100%">
+                <thead>
+                <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+                </thead>
+                <tbody id="rr_table"></tbody>
+            </table>
+        </div>
+
+        <!--    <center><h3 style="margin-top: 50px;">Select a received requisition</h3></center>-->
+    </div>
 </ul>
-</div>    
+</div>
+<script>
+
+    $('#sup_dashbord_div ul a').click(function(){
+        $('#dash_tbl_div').children('tr').remove();
+        $.ajax({
+            type:"post",
+            data:({pr_no:this.firstChild.value}),
+            url:"dashbord_quary.php",
+            success:function(data){
+
+                alert(data);
+
+
+            }
+        });
+
+        // $('#quotation a').removeClass("goingtorm");
+        //$(this).addClass('goingtorm');
+        //$('#qrdetails').load('quotationreqdetails.php')
+
+    });
+
+</script>
