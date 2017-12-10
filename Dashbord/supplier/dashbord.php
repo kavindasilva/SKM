@@ -23,11 +23,11 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 
 <?php
 
-    $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id";
+    $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id AND status='pending'";
     $pr_no_result=mysqli_query($conn,$pr_no_quary);
-    $emp_name_quary="SELECT user_user_name FROM employee WHERE e_id=3";
-    $emp_name=mysqli_fetch_row(mysqli_query($conn,$emp_name_quary));
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
+        $emp_name_quary="SELECT user_user_name FROM employee WHERE e_id=$pr_no_row[1]";
+        $emp_name=mysqli_fetch_row(mysqli_query($conn,$emp_name_quary));
         echo ("
             <a href=\"#\"><li value=\"".$pr_no_row[0]."\">
             <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$emp_name[0]." (".$pr_no_row[2].")
@@ -36,20 +36,22 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     }
 
                ?>
-    <div class="col-md-9 col-sm-12 " id="dash_tbl_div">
-        <!-- quotation request item details will load here-->
-        <div class="box-body">
-            <table class="table-bordered table-hover" width="100%">
-                <thead>
-                <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
-                </thead>
-                <tbody id="rr_table"></tbody>
-            </table>
-        </div>
 
-        <!--    <center><h3 style="margin-top: 50px;">Select a received requisition</h3></center>-->
-    </div>
 </ul>
+
+</div>
+<div class="col-md-9 col-sm-12 " id="dash_tbl_div">
+    <!-- quotation request item details will load here-->
+    <div class="box-body">
+        <table class="table-bordered table table-hover" width="100%">
+            <thead>
+            <tr><th>Tire id</th><th>Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+            </thead>
+            <tbody id="rr_table"></tbody>
+        </table>
+    </div>
+
+    <!--    <center><h3 style="margin-top: 50px;">Select a received requisition</h3></center>-->
 </div>
 <script>
 
