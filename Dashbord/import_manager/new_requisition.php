@@ -150,7 +150,7 @@
               <!-- /.box -->
             </div>
           </div>
-          <div class="additempanal" data-aos="zoom-out-right">
+          <div class="additempanal">
        <div class="row" style="background-color:#D2D2D2; margin-left:70px; margin-right: 130px; ">
        </br><div class="col-xs-3">
 
