@@ -199,7 +199,7 @@ $('#placeorder').click(function(){
 	  });
 				
 			}
-		document.getElementById('message').innerHTML="Your order successfull";
+		document.getElementById('message1').innerHTML="Your order successfull";
 		$('#modal-success').modal('show');
 	}
 });	

@@ -323,7 +323,7 @@
 </div>
 </body>
 <script src="../../assets/bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
-<script src="../../js/formcontrol.js?7"></script> 
+<script src="../../js/formcontrol.js?8"></script> 
 <script src="../../js/bootstrap-datepicker.js"></script>
 <script>
 	var subtot=0;
@@ -465,7 +465,7 @@ $('.viewitems').click(function(){
 				data:({brand:brand,country:country,tiresize:tiresize,discount:discount,invoiceno:invoiceno,sordno:sordno,qty:qty}),
 				success:function(data){
 					
-					 document.getElementById('message').innerHTML="Invoice success";
+					 document.getElementById('message1').innerHTML="Invoice success";
 					   $('#modal-success').modal('show');
 				}
 			});

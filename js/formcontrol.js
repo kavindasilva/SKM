@@ -185,7 +185,7 @@ function placeorder(){
 				  url:"controler/cusorderitemcontroler.php",
 				  data:({brand:brand,country:country,tiresize:tiresize,qty:qty,status:status,sordno:sordno}),
 				  success:function(data){
-					   document.getElementById('message').innerHTML="Your order successfully placed"
+					   document.getElementById('message1').innerHTML="Your order successfully placed"
 					   $('#modal-success').modal('show');
 					   $(".table-bordered  .removable").remove();
 					   document.getElementById("shopname").selectedIndex =0;
@@ -335,7 +335,7 @@ function sendRequesition(){//this handls the new quotation request data insertio
 			 
 		  }
 	  });
-						document.getElementById('message').innerHTML="Your Quotation request successfully sent. Our agent will reply you soon";
+						document.getElementById('message1').innerHTML="Your Quotation request successfully sent. Our agent will reply you soon";
 					   $('#modal-success').modal('show');
 					   //$(".table-bordered  .removable").remove();
 					   document.getElementById('brand').selectedIndex=0;

@@ -6,7 +6,8 @@
 
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+<link href="../../css/aos.css" rel="stylesheet">
+    <script src="../../js/plugins.js"></script>
 </head>
 <body>
     <!-- Content Header (Page header) -->
@@ -25,8 +26,8 @@
       <div class="box">
         </div>
         <div class="row" style="width: auto; margin-left: 72px">
-          <strong class="col-xs-2">Tire Brand & Country</strong>
-          <div class="col-xs-2">
+          <strong class="col-xs-2" data-aos="zoom-out-right">Tire Brand & Country</strong>
+          <div class="col-xs-2" data-aos="zoom-out-right">
             <select class="form-control" id="brand" name="brand" >
             <option value="--">Select</option>
              <option value="Dunlop-Japan" >Dunlop-Japan</option>
@@ -37,7 +38,7 @@
              <option value="Kaizen-Indonesian" >Kaizen-Indonesian</option>
            </select>
           </div>
-          <div class="pull-right" style="margin-right: 150px;">
+          <div class="pull-right" style="margin-right: 150px;" data-aos="zoom-out-left">
               <label class="form-group">Purchase requesition number</label>
               <input id="pr_no" class="form-control"  value="
 <?php
@@ -59,7 +60,7 @@
           </div>
           <br>
           <div class="row">
-            <div class="col-xs-12" style="width: auto; margin-left: 72px">
+            <div class="col-xs-12" style="width: auto; margin-left: 72px"  data-aos="zoom-out-right">
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Required Tires</h3>
@@ -121,7 +122,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12" style="width: auto; margin-left: 72px">
+            <div class="col-xs-12" style="width: auto; margin-left: 72px"  data-aos="zoom-out-left">
               <div class="box">
                 <div class="box-header">
                 <h3 class="box-title">Requisition Item</h3></div>
@@ -149,11 +150,11 @@
               <!-- /.box -->
             </div>
           </div>
-          <div class="additempanal">
+          <div class="additempanal" data-aos="zoom-out-right">
        <div class="row" style="background-color:#D2D2D2; margin-left:70px; margin-right: 130px; ">
        </br><div class="col-xs-3">
 
-       <button type="button" class="btn btn-success" id="send_selected_btn" style="width: 160px; margin-left: 20px">Send Selected</button></div>
+       <button type="button" class="btn btn-success" id="send_selected_btn" style="width: 160px;">Send Selected</button></div>
        
     <div class="col-xs-3"><button type="button" class="btn btn-primary" id="send_all_btn" style="width: 160px">Send All Items</button></div>
            <?php
@@ -290,7 +291,8 @@
         //$('#content-wrapper').load('new_requesition.php');
 
 
-    })
+    });
+	AOS.init();
 </script>    
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
