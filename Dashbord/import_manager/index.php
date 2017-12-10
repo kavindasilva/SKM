@@ -2,7 +2,13 @@
 
 session_start();
 require_once('sess.php');
+require_once('../../php/dbcon.php');
 
+$query="SELECT * FROM tire WHERE status='required';";
+$result=mysqli_query($conn,$query);	
+if($result){
+$_SESSION['notificationcount']=mysqli_num_rows($result);
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,53 +59,24 @@ require_once('sess.php');
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-        
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">10</span>
+             <?php
+				   if($_SESSION['notificationcount']>0)
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				  ?>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have <?php
+					   echo $_SESSION['notificationcount'];
+ 				?>   notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                 
+                
                 </ul>
               </li>
               <li class="footer"><a href="#">View all</a></li>
@@ -109,7 +86,9 @@ require_once('sess.php');
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../images/user8-128x128.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Isuru Jayasinghe</span>
+              <span class="hidden-xs"><?php
+				  echo $_SESSION['currentuser'];
+				  ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -117,11 +96,10 @@ require_once('sess.php');
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Import-Manager
+                  Import-manager
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
-
          
                      <!-- Menu Footer-->
               <li class="user-footer">
@@ -134,7 +112,7 @@ require_once('sess.php');
                 </div>
 				
 				<div style="margin-left:77px;">
-                  <a href="lockscreen.html" class="btn btn-default btn-flat">Lock Profile</a>
+                  <a href="lockscreen.php" class="btn btn-default btn-flat">Lock Profile</a>
                 </div>
               </li>
             </ul>
@@ -157,8 +135,8 @@ require_once('sess.php');
         <div class="pull-left image">
           <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
-          <p>Isuru Jayasinghe</p>
+       <div class="pull-left info">
+          <p><?php echo $_SESSION['currentuser']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -210,17 +188,6 @@ require_once('sess.php');
             <li><a href="#" name="confirmed_requisition"><i class="fa fa-circle-o"></i> Confirmed Requisition</a></li>
           </ul>
         </li>
-    
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-bar-chart"></i> <span>Reports</span>
@@ -230,9 +197,6 @@ require_once('sess.php');
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
                 </li>
            
       </ul>
