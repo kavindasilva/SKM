@@ -122,7 +122,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12" style="width: auto; margin-left: 72px"  data-aos="zoom-out-left">
+            <div class="col-xs-12" style="width: auto; margin-left: 72px">
               <div class="box">
                 <div class="box-header">
                 <h3 class="box-title">Requisition Item</h3></div>
@@ -150,7 +150,7 @@
               <!-- /.box -->
             </div>
           </div>
-          <div class="additempanal" data-aos="zoom-out-right">
+          <div class="additempanal">
        <div class="row" style="background-color:#D2D2D2; margin-left:70px; margin-right: 130px; ">
        </br><div class="col-xs-3">
 
