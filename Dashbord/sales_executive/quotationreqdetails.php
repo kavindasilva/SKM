@@ -96,7 +96,7 @@ $query2="SELECT * FROM quotation_item WHERE q_no='".$_SESSION['qno']."';";
 			data:{msg:'your quotation is reviewed', quoteno: "<?php echo $_SESSION['qno']; ?>" },
 			url:"sendmail.php",
 			success:function(data){
-				alert(data);
+				//alert(data);
 			}
 		});
        
