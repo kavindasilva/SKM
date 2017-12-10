@@ -83,13 +83,22 @@ $query2="SELECT * FROM quotation_item WHERE q_no='".$_SESSION['qno']."';";
 			}
 		});
 		}
-		   document.getElementById('message').innerHTML="Your Quotation reply successfully sent to the customer";
+		   document.getElementById('message1').innerHTML="Your Quotation reply successfully sent to the customer";
 		   $('#modal-success').modal('show');
            $('.goingtorm').remove(); 
 		 	document.getElementById('notificationc').innerHTML=parseInt(document.getElementById('notificationc').innerHTML)-1;
 		document.getElementById('notic').innerHTML=parseInt(document.getElementById('notic').innerHTML)-1;
 		document.getElementById('qrdetails').innerHTML="<center><h3 style=\"margin-top: 50px;\">Select a quotation request to view detatils</h3></center>";
 		
+		//send mail
+		$.ajax({//updating the stasus to replied in quotation table
+			type:"post",
+			data:{msg:'your quotation is reviewed', quoteno: "<?php echo $_SESSION['qno']; ?>" },
+			url:"sendmail.php",
+			success:function(data){
+				alert(data);
+			}
+		});
        
 	}
 	function markasread(){
