@@ -31,9 +31,19 @@
 		//window.open(url, '_blank');
 	}
 </script>
-
-<div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+<div style="padding: 7px;">
+  <section class="content-header">
+   <h1>Dashbord</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        
+          <li class="active"><a href="#"><i class="fa"></i>Dashbord</a></li>
+      </ol>
+    </section>
+     <div class="box">
+      	</div>
+<div class="row container col-md-10 col-md-offset-1">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
 
@@ -51,7 +61,7 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="fa fa-table"></i></span>
 
@@ -74,6 +84,7 @@
         <!-- /.col -->
         
         <!-- /.col -->
+</div>
 </div>
 	  
 	  

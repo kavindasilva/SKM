@@ -283,7 +283,8 @@ $('#addbtn').click(function(){
 
 	});
 	$('#content-wrapper').load('viewstock.php');	}
-	});  
+	
+});  
 function deletestock(){
 
 	var row=deletingrow.parentElement.parentElement;
