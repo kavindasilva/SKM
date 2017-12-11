@@ -2,7 +2,7 @@
 <?php
 session_start();
 //require_once "sess.php";
-$_SESSION['currentuser']="chief test";
+$_SESSION['currentuser']="era";
 require_once('../../php/dbcon.php');
 
 
@@ -109,7 +109,7 @@ require_once('../../php/dbcon.php');
                 <img src="../../images/user8-128x128.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Sales-Executive
+                  Honorable chief manager
                  <small>S.K.Munasinghe Motors</small>
                 </p>
               </li>
@@ -184,8 +184,8 @@ require_once('../../php/dbcon.php');
            	 	</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="reportm"><i class="fa fa-circle-o"></i> New report</a></li>
-            <li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li>
+            <li><a href="#" name="reportm"><i class="fa fa-circle-o"></i>New report</a></li>
+            <!--li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li-->
            </ul>
         </li>
         <li class="treeview">
@@ -197,38 +197,11 @@ require_once('../../php/dbcon.php');
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="passchangeUI"><i class="fa fa-circle-o"></i>Change password</a></li>
-            <li><a href="#" name="findinvoice"><i class="fa fa-circle-o"></i> Find Invoice</a></li>
+            <li><a href="../../php/logout.php" name="findinvoice"><i class="fa fa-circle-o"></i>Log out</a></li>
           </ul>
         </li>
     
-        <li id="quotationrequests">
-          <a href="#">
-            <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
-            <span class="pull-right-container">
-              
-				<?php
-				   //if($_SESSION['notificationcount']>0)
-					//   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
-				  ?>              	
-              
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i> <span>Reports</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                </li>
-           
-      </ul>
+          
     </section>
     <!-- /.sidebar -->
   </aside>

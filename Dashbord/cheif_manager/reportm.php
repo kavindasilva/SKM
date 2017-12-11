@@ -36,7 +36,7 @@
 		var phpY = datmsplit[0]; // year
 		
 		url=url+"?yr="+phpY+"&mnth="+phpM;
-		alert(url);
+		//alert(url);
 		
 		window.open(url, '_blank');
 	}
@@ -48,7 +48,7 @@
 		var phpY = datmsplit[0]; // year
 		
 		url=url+"?yr="+phpY+"&mnth="+phpM;
-		alert(url);
+		//alert(url);
 		document.getElementsByName('frm1')[0].src = url;
 		//return url;
 		//window.open(url, '_blank');

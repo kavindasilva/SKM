@@ -224,6 +224,19 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
           </ul>
         </li>   
       </ul>
+	  
+	  <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Settings</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#" name="passchangeUI"><i class="fa fa-circle-o"></i>Change password</a></li>
+            <li><a href="../../php/logout.php" name="findinvoice"><i class="fa fa-circle-o"></i>Log out</a></li>
+          </ul>
+        </li>
     </section>
     <!-- /.sidebar -->
   </aside>

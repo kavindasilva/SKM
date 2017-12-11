@@ -201,7 +201,7 @@ include_once '../../php/dbcon2.php';
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="setting.php"><i class="fa fa-circle-o"></i> Change password</a></li>
+            <li><a href="#" name="passchangeUI"><i class="fa fa-circle-o"></i>Change password</a></li>
             <li><a href="../../php/logout.php"><i class="fa fa-circle-o"></i> Sign out</a></li>
           </ul>
         </li>
