@@ -185,7 +185,7 @@ require_once('../../php/dbcon.php');
           </a>
           <ul class="treeview-menu">
             <li><a href="#" name="reportm"><i class="fa fa-circle-o"></i>New report</a></li>
-            <!--li><a href="#" name="findorder"><i class="fa fa-circle-o"></i>Manage Orders</a></li-->
+			  <li><a href="#" name="charts"><i class="fa fa-circle-o"></i>Charts</a></li>
            </ul>
         </li>
         <li class="treeview">

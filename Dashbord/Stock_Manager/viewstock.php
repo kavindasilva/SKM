@@ -276,14 +276,15 @@ $('#addbtn').click(function(){
 		data: ({country:country,brandname:brand,tyresize:size,qty:qty,unitprize:price,tid:tid,ttype:ttype}),
 		success: function(data) {
 			
-			document.getElementById('message').innerHTML="New stock item added successfully";
+			document.getElementById('message1').innerHTML="New stock item added successfully";
 					   $('#modal-success').modal('show');
 
 		}
 
 	});
 	$('#content-wrapper').load('viewstock.php');	}
-	});  
+	
+});  
 function deletestock(){
 
 	var row=deletingrow.parentElement.parentElement;
