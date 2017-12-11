@@ -8,18 +8,17 @@
 
 //session maintainence
 session_start();
-$_SESSION['user'] = "Test1";
-require_once "../php/dbcon.php";
-/**
+//$_SESSION['user'] = "Test1";
+/**/
  if(!isset($_SESSION['user'])){
 	echo "user not set";
 	header('Location:../login.html');
  }
  elseif ($_SESSION['utype']!="adm") {
 	echo "not an admin";
-	header('Location:../login.html');
+	header('Location:../invalidlogin.html');
  }
-
+require_once "../php/dbcon.php";
  /**/
 //include '../php/dbcon2.php';
 //include  //header files & css,JS

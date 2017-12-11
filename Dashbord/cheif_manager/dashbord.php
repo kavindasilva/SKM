@@ -73,11 +73,11 @@
 			
           </div>
 		  
-		  <input type="month" id="monthg" onchange="checkCur(this.id)" />
+		  Month: <input type="month" id="monthg" onchange="checkCur(this.id)" />
 		  
-		  <a href="#"><buttonclass="form-control dashbordbtn" ></i>Monthly sales</button></a>
+		  <a href="#"><button onclick="viewMonthReport('report4.php','monthg')" id="repbtn1" class="form-control dashbordbtn" ></i>Monthly sales</button></a>
 		  
-		  <a href="#"><button class="form-control dashbordbtn" >Monthly quantity</button></a>
+		  <a href="#"><button onclick="viewMonthReport('report3.php','monthg')" id="repbtn2" class="form-control dashbordbtn" >Monthly quantity</button></a>
 		  
           <!-- /.info-box -->
         </div>
@@ -87,6 +87,7 @@
 </div>
 </div>
 	  
-	  
-	  <iframe name="frm2"  width=600 height=400 style="" >
+	  <center>
+	  <iframe name="frm2"  width=600 height=400 style="overflow: scroll; border-color: #00AA00;" >
 	  </iframe>
+	  </center>

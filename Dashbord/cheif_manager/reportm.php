@@ -58,6 +58,8 @@
 <div class="skm-def1">
 </div>
 
+<center>
+
 <!--current stock status report =  report2.php -->
 <div class="skm-def1">
 	<a href="report2.php" target="frm1"><input type="button" value="view Current stock status report"  class="btn btn-sm btn-info"> </a>
@@ -77,7 +79,7 @@
 	<input type="month" name="months2" id="months4" onchange="checkCur(this.id)"/>
 	
 	<input type="button" id="months4btn" onclick="viewMonthReport('report4.php','months4')" value="view Monthly sales report"  class="btn btn-sm btn-info"  disabled  /> 
-	<input type="button" id="months4btn2" value="print Monthly sales report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports4.php')" disabled   /> 	<br/>
+	<input type="button" id="months4btn2" value="print Monthly sales report"  class="btn btn-sm btn-info" onclick="openTabMonth('../../report/reports4.php','months4')" disabled   /> 	<br/>
 </div>
 
 <!--low stock report = report5.php -->	
@@ -86,10 +88,13 @@
 	<input type="button" value="print low stock report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports5.php')"/> 	<br/>
 </div>
 
+</center>
 
 
-<iframe src="" name="frm1" id="frm1" width=800 height=500 style="" >
+<center>
+<iframe src="" name="frm1" id="frm1" width=800 height=500 style="overflow: scroll; border-color: #00AA00;" >
 </iframe>
+</center>
 
 </body>
 </html>
