@@ -14,6 +14,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 //$result=mysqli_query($conn,$query);
 ?>
   <section class="content-header">
+      <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
    <h1>
        Purchase Requests
       </h1>
@@ -52,9 +53,9 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 <div class="col-md-9 col-sm-12 " id="dash_tbl_div">
     <!-- quotation request item details will load here-->
     <div class="box-body" id="tbl_div">
-        <table class="table-bordered table table-hover" id="reply_tbl" width="100%">
+        <table class="table-bordered table table-hover" id="confirm_tbl" width="100%">
             <thead>
-            <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+            <tr><th>Tire size</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
             </thead>
             <tbody id="sup_dash_table"></tbody>
         </table>
@@ -72,10 +73,12 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     $('#sup_dashbord_div ul a').click(function(){
         $('#sup_dash_table').children('tr').remove();
         $('.sendbtn').remove();
-        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='sendbtn(this)'>&nbsp;&nbsp;Confirm&nbsp;&nbsp;</button>");
+        var pr_no=this.firstChild.value;
+        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' value=\""+pr_no+"\" onclick='confirmbtn(this)'>&nbsp;&nbsp;Confirm&nbsp;&nbsp;</button>");
+        //var pr_no=this.firstChild.value;
         $.ajax({
             type:"post",
-            data:({pr_no:this.firstChild.value}),
+            data:({pr_no:pr_no}),
             url:"confirm_purchase_quary.php",
             success:function(data){
 
@@ -89,28 +92,28 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 </script>
 
 <script>
-    function sendbtn(eliment) {
-        var x = document.getElementById("reply_tbl").rows.length;
+    function confirmbtn(eliment) {
+        var x = document.getElementById("confirm_tbl").rows.length;
         var i = 0;
         for(j=1;j<x;j++){
-            var pr_no= document.getElementById("pr_no_li").value;
-            var t_size = document.getElementById("reply_tbl").rows[j].cells[0].innerHTML;
-            var qty = document.getElementById("reply_tbl").rows[j].cells[1].innerHTML;
-            var sup_qty = document.getElementById("reply_tbl").rows[j].cells[2].firstChild.value;
-            var unitprice = document.getElementById("reply_tbl").rows[j].cells[3].firstChild.value;
+            var pr_no=eliment.value;
+            var sup_id= document.getElementById("sup_id").value;
+            var t_size = document.getElementById("confirm_tbl").rows[j].cells[0].innerHTML;
+            var sup_qty = document.getElementById("confirm_tbl").rows[j].cells[1].innerHTML;
+            var unitprice= document.getElementById("confirm_tbl").rows[j].cells[2].innerHTML;
 
             //alert(pr_no);
             $.ajax({
                 type: "post",
-                data: {pr_no: pr_no, t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
-                url: "sendbtn_quary.php",
+                data: {pr_no: pr_no,sup_id:sup_id, t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
+                url: "confirm_btn_quary.php",
                 success: function (data) {
                     alert(data);
-
                 }
             });
             i++;
         }
+        //alert("Confirmed successfully");
         eliment.parentElement.parentElement.remove();
 
     }

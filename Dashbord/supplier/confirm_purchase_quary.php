@@ -20,5 +20,6 @@ while($t_id_row=mysqli_fetch_row($t_id_result)){
     $sup_qty_row=mysqli_fetch_row($sup_qty_reault);
     $sup_qty=$sup_qty_row[0];
     $unit_price=$sup_qty_row[1];
-    echo ("<tr><td>$tire_size</td><td id='sup_qty' value=\"$sup_qty\">$sup_qty</td><td id='unit_price'>$unit_price</td></tr>");
+    $total=$sup_qty*$unit_price;
+    echo ("<tr><td>$tire_size</td><td id='sup_qty' value=\"$sup_qty\">$sup_qty</td><td id='unit_price'>$unit_price</td><td>$total</td></tr>");
 }
