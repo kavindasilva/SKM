@@ -87,6 +87,7 @@
 </div>
 </div>
 	  
-	  
-	  <iframe name="frm2"  width=600 height=400 style="" >
+	  <center>
+	  <iframe name="frm2"  width=600 height=400 style="overflow: scroll; border-color: #00AA00;" >
 	  </iframe>
+	  </center>
