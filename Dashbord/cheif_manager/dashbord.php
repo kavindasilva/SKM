@@ -64,6 +64,7 @@
           </div>
 		  
 		  <input type="month" id="monthg" onchange="checkCur(this.id)" />
+		  
 		  <a href="#"><button onclick="viewMonthReport('report4.php','monthg')" class="form-control dashbordbtn" ></i>Monthly sales</button></a>
 		  
 		  <a href="#"><button onclick="viewMonthReport('report3.php','monthg')"  class="form-control dashbordbtn" >Monthly quantity</button></a>
