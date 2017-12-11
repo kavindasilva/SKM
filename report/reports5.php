@@ -4,7 +4,7 @@ require_once("../php/dbcon.php");
 $d=date('d_m_Y');
 class PDF extends FPDF
 {
-
+//	Monthly sold items quantity
 //Load data
 function LoadData($file)
 {
@@ -20,7 +20,7 @@ function LoadData($file)
 function BasicTable($header,$data)
 { 
 $this->SetFillColor(200,255,205); //table header color
-$w=array(20,30,25,20, 35,30,15); //,15,15, 15); //header cell size
+$w=array(20,35,30,25, 25,);//30,15); //,15,15, 15); //header cell size
 	
 	$this->SetFont('Arial','B',9);
 	for($i=0;$i<count($header);$i++)
@@ -36,21 +36,17 @@ $w=array(20,30,25,20, 35,30,15); //,15,15, 15); //header cell size
 	while ($eachResult=mysqli_fetch_assoc($data)) 
 	{ //width
 		$this->Cell(10);
-		if($eachResult["quantity"]<=20){
+		/*if($eachResult["totq"]<=3){
 			$this->SetFillColor(200,100,100);
-		}
-		//$this->Cell(10,6,$tmpcnt,1);
+		}*/
+		//$this->Cell(10,6,'',1);
 
 		$this->Cell(20,6,$eachResult["t_id"],1,0,'',true); //width height
+		$this->Cell(35,6,$eachResult["tire_size"],1,0,'',true);
 		$this->Cell(30,6,$eachResult["brand_name"],1,0,'',true);
 		$this->Cell(25,6,$eachResult["country"],1,0,'',true);
-		
-		$this->Cell(20,6,$eachResult["t_type"],1,0,'',true);
-		$this->Cell(35,6,$eachResult["tire_size"],1,0,'',true);
-		$this->Cell(30,6,$eachResult["unit_price"],1,0,'',true);
-		
-		$this->Cell(15,6,$eachResult["quantity"],1,0,'',true);
-		$this->SetFillColor(100,100,100);
+		$this->Cell(25,6,$eachResult["totq"],1,0,'',true);
+		//$this->SetFillColor(100,100,100);
 		$this->Ln();
 		$tmpcnt++;
 		$this->SetFillColor(255,255,255);
@@ -68,18 +64,21 @@ $pdf=new PDF();
 $pdf->SetCreator("ape admin");
 $pdf->SetAuthor('testing 29');
 $pdf->SetTitle('Dunlop');
-$pdf->SetSubject('current stock report');
+$pdf->SetSubject('Monthly sold items quantity');
 $pdf->AliasNbPages();
 	
 //table header
 $header=array();
-$header=array('Tire ID','Brand','Country','Type','Tire size', 'Unit price','Quantity'); 
+$header=array('Tire ID','Tire size','Brand','Country', 'Stock quantity'); 
 
-
+//$year='2017';
+//$year=$_GET['yr'];
+//$months='10';
+//$months=$_GET['mnth'];
 //Data loading
 //*** Load MySQL Data ***//
 /**		DATABASE QUERY	*/
-$strSQL = "Select * From tire;";
+$strSQL="SELECT t_id, tire_size, brand_name, country, sum(quantity) as totq FROM tire where quantity<20 GROUP by t_id";
 
 
 $objQuery = mysqli_query($conn,$strSQL); //result set
@@ -90,7 +89,7 @@ $pdf->AddPage();
 
 	$pdf->SetFont('Helvetica','',14);
 	$pdf->Ln();
-	$pdf->Cell(0,10,'Stock status Report',0,0,'C');
+	$pdf->Cell(0,10,'Low stock quantity Report',0,0,'C');
 	$pdf->Ln();
 	
 	$pdf->Cell(22);
@@ -108,7 +107,8 @@ $pdf->AddPage();
 	
 	$count = mysqli_num_rows($result);
 	$pdf->Cell(0);
-	$pdf->Write(5, 'Total Items: '.$count.'');
+	$pdf->Write(5, 'Total Items: '.$count.''); $pdf->Ln();
+	//$pdf->Write(5, "Month = ".$year."/".$months." ");
 	//$pdf->Ln();
 
 	$pdf->Ln(5);
@@ -118,12 +118,7 @@ $pdf->Cell(10);
 //$pdf->BasicTable($header,$resultData);
 $pdf->BasicTable($header,$objQuery);
 
-//forme();
-//$pdf->Output("monthlyStockReport.pdf","F"); //save in  server
-//$pdf->Output("monthlyStockReport.pdf","s"); 
-//$pdf->Output(); //thibba eka
-//$pdf->Output("S","monthlyStockReport.pdf");
-//$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
-$pdf->Output('docs/stockstatus.pdf'); //server eke save venne
-header("Location: docs/stockstatus.pdf");
+
+$pdf->Output('docs/lowstock.pdf'); //server eke save venne
+header("Location: docs/lowstock.pdf");
 ?>
