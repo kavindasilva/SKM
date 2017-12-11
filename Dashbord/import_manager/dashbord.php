@@ -40,6 +40,19 @@
         <button class="form-control dashbordbtn" onClick="dashbordcontrol('received_requisition');">Received Requisition</button>
         <button class="form-control dashbordbtn" onClick="dashbordcontrol('confirmed_requisition');"> Confirmed Requisition</button>
     </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 dashbordsection">
+        <div class="info-box">
+            <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
+
+            <div class="info-box-content">
+
+                <span class="info-box-text">Good receive</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+        <button class="form-control dashbordbtn" onClick="dashbordcontrol('delivered_order');">Delivered orders</button>
+    </div>
 
 </div>
 <div class="row">

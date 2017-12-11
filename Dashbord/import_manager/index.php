@@ -187,6 +187,17 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
             <li><a href="#" name="confirmed_requisition"><i class="fa fa-circle-o"></i> Confirmed Requisition</a></li>
           </ul>
         </li>
+          <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-table"></i> <span>Good received</span>
+                  <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="#" name="delivered_order"><i class="fa fa-circle-o"></i>Delivered orders </a></li>
+              </ul>
+          </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-bar-chart"></i> <span>Reports</span>
