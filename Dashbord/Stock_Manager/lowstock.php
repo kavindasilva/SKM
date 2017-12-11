@@ -16,7 +16,7 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-         <div  class="col-md-10 col-md-offset-1">
+         <div  class="col-md-10 col-md-offset-1" data-aos="zoom-out-right" >
           <div class="box" style="overflow-x:auto;" >
             <div class="box-body" id="tablebody">
               <table id="orderitems" class="table-bordered table-hover table" >

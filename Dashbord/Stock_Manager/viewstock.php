@@ -248,16 +248,25 @@ $('#addbtn').click(function(){
 	if(size==""){
 		document.getElementById('message').innerHTML="Please enter new tire size";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else if(price==""){
 		document.getElementById('message').innerHTML="Please enter new tire price";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else if(qty==""){
 		document.getElementById('message').innerHTML="Please enter new tire quantity";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else{
@@ -311,25 +320,33 @@ function updatestock(element){
 	if(tsize==""){
 		document.getElementById('message').innerHTML="Tire size cannot be null";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
 		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else if(up==""){
 		document.getElementById('message').innerHTML="Tire unit price cannot be null";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
 		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else if(qty==""){
 		document.getElementById('message').innerHTML="Tire quantity cannot be null";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
 		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else if(status==""){
 		document.getElementById('message').innerHTML="Tire status cannot be null";
 					   $('#modal-missing').modal('show');
+		$('#modal-missing').on('hidden.bs.modal', function (e) {
 		$('#content-wrapper').load('viewstock.php');
+		});
 
 	}
 	else{
@@ -340,6 +357,13 @@ function updatestock(element){
 		success:function(data){
 			document.getElementById('message1').innerHTML="Stock successfully updated";
 					   $('#modal-success').modal('show');
+			$('#modal-success').on('hidden.bs.modal', function (e) {
+ 			if(data!=0){
+				document.getElementById('message1').innerHTML="You have "+data+"new supplierble order items";
+					   $('#modal-success').modal('show');
+				data=0;
+			}
+});
 	}
 		
 	});}

@@ -1,28 +1,30 @@
 <?php
-require_once('../php/dbcon.php');
-$tid=$_POST['tid'];
+//require_once('../php/dbcon.php');
+//$tid=$_POST['tid'];
+$supplierble_order_items=0;
 $getnewquantity="SELECT quantity FROM tire WHERE t_id=$tid;";//getting new updated quantity
-$result=mysqli_query($conn,$getnewquantity);	
-if($result){
+$result6=mysqli_query($conn,$getnewquantity);	
+if($result6){
 	
-$row=mysqli_fetch_array($result);
-$newqty=$row['quantity'];	
+$row6=mysqli_fetch_array($result6);
+$newqty=$row6['quantity'];	
 	//
 $getsordno="SELECT * from order_item WHERE tire_t_id=$tid and status='unavailable' and qty<=$newqty ORDER BY sord_no ASC;";//getting unavilable orders that can be changed to available order by sales order number because we have to prioratise the first placed orders
-$result2=mysqli_query($conn,$getsordno);
-if($result2){
+$result7=mysqli_query($conn,$getsordno);
+if($result7){
 	
-while($row2=mysqli_fetch_array($result2)){
-	if($row2[qty]<=$newqty){//checking whether if the next order item is also supplierble
-		$changestatus="UPDATE order_item SET status='Available' WHERE tire_t_id=$tid and status='unavailable' and qty<=$newqty and sord_no=".$row2['sord_no'].";";
+while($row7=mysqli_fetch_array($result7)){
+	if($row7['qty']<=$newqty){//checking whether if the next order item is also supplierble
+		$changestatus="UPDATE order_item SET status='Available' WHERE tire_t_id=$tid and status='unavailable' and qty<=$newqty and sord_no=".$row7['sord_no'].";";
 		mysqli_query($conn,$changestatus);
-		$newqty=$newqty-$row2['qty'];//updating the new available quantity of the stock
-		
+		$newqty=$newqty-$row7['qty'];//updating the new available quantity of the stock
+		$supplierble_order_items++;
 	}
 	$updatequantity="UPDATE tire SET quantity=$newqty WHERE t_id=$tid;";//updating to new quantity of tire
 	mysqli_query($conn,$updatequantity);
 	
 }
+	echo $supplierble_order_items;
 }
 	
 }

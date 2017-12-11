@@ -11,65 +11,38 @@
       	</div>
    
 <!--main menu item goes here-->    
-   <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
+   <div class="row col-md-10 col-md-offset-1">
+        <div class="col-md-6 col-sm-12 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
 
             <div class="info-box-content">
             
-              <span class="info-box-text">Order</span>
+              <span class="info-box-text">Stock</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <button class="form-control dashbordbtn" onClick="dashbordcontrol('neworder');">New order</button>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findorder');" >Find order</button>
+          <button class="form-control dashbordbtn" onClick="dashbordcontrol('viewstock');">Manage Stock</button>
+		
         </div>
+       
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-table"></i></span>
-
-            <div class="info-box-content">
-        
-              <span class="info-box-text">Invoice</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" onClick="dashbordcontrol('newinvoice');">New Invoice</button>
-		<button class="form-control dashbordbtn" onClick="dashbordcontrol('findinvoice');">Find Invoice</button>
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
+        <div class="col-md-6 col-sm-12 col-xs-12 dashbordsection">
           <div class="info-box">
             <span class="info-box-icon bg-yellow"><i class="fa fa-envelope-o"></i></span>
 
             <div class="info-box-content">
               
-              <span class="info-box-text">MailBox</span>
+              <span class="info-box-text">Notifications</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">Inbox</button>
+          <button class="form-control dashbordbtn" name="lowstock" onClick="dashbordcontrol('lowstock');">Low Stock Levels</button>
+          <button class="form-control dashbordbtn" name="outofstockorders" onClick="dashbordcontrol('outofstockorders');">Out of Stock Orders</button>
         </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12 dashbordsection">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
-
-            <div class="info-box-content">
-              
-              <span class="info-box-text">Reports</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          <button class="form-control dashbordbtn" name="neworder">Monthly sales Report</button>
-		<button class="form-control dashbordbtn" name="neworder">Outstandings Report</button>
-        </div>
+        
         <!-- /.col -->
       </div>
 <!--main menu item concludes here-->  
