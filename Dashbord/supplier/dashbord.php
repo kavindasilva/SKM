@@ -14,7 +14,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
          
-          <li class="active"><a href="index.php"><i class="fa"></i>Qutation Requests</a></li>
+          <li class="active"><a href="index.php"><i class="fa"></i>Purchase Requests</a></li>
       </ol>
 </section></br>
 <div class="col-md-3" id="sup_dashbord_div">
@@ -105,6 +105,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             });
             i++;
         }
+        $('#content-wrapper').load('dashbord.php');
         eliment.parentElement.parentElement.remove();
 
     }
