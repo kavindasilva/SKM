@@ -83,7 +83,7 @@ function openTab(url){
             </div>
             <!-- /.info-box-content -->
           </div>
-		  <a href=""><button class="form-control dashbordbtn" onclick="openTab('../report/reportsa.php')"  >Dealers</button></a>
+		  <a href="index.php"><button class="form-control dashbordbtn" onclick="openTab('../report/reportsa.php')"  >Dealers</button></a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->

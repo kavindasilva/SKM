@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
-//require_once "sess.php";
-$_SESSION['currentuser']="era";
+require_once "sess.php";
+//$_SESSION['currentuser']="era";
 require_once('../../php/dbcon.php');
 
 
