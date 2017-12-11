@@ -1,0 +1,13 @@
+delimiter//
+CREATE OR REPLACE TRIGGER updateorder
+before delete on order_item
+for each row 
+begin
+DECLARE up INT;
+select unit_price into up from tire where t_id=old.tire_t_id;
+update sales_order set total_amount=total_amount-up*old.qty where sord_no=old.sord_no;
+IF(old.status='Available') Then
+update tire set orderable_qty=orderable_qty+old.qty where t_id=old.tire_t_id;
+END IF;
+END//
+delimiter;

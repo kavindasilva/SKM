@@ -62,6 +62,9 @@ $query2="SELECT * FROM quotation_item WHERE q_no='".$_SESSION['qno']."';";
             	</div> 
             	
 <script>
+	$('#modal-success').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('quotationrequests.php');
+		});	
 	function sendquotation(){
 		$.ajax({//updating the stasus to replied in quotation table
 			type:"post",

@@ -428,6 +428,7 @@ $('.viewitems').click(function(){
 			
 		   ?>);
 	
+	
 	$('#printinvoice').click(function(){
 		var rowarray = document.getElementById('invoiceitems').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 		var rows=rowarray.length;
@@ -450,7 +451,7 @@ $('.viewitems').click(function(){
 				url:"model/invoiceheader.php",
 				data:({invoiceno:invoiceno,netamount:netamount,discount:discount,invoicenote:invoicenote,status:status,sordno:sordno,subtotal:subtotal,date:date}),
 				success:function(data){
-					alert(data);
+					
 				}
 			});
 			for(var i=0;i<rows;i++){

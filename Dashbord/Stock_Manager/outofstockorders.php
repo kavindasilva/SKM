@@ -1,9 +1,9 @@
-<?php include '../../assets/missing.php'?> 
-<head>
+<?php include '../../assets/missing.php'?><head>
 	<link href="../../css/aos.css" rel="stylesheet">
     <script src="../../js/plugins.js"></script>
 </head>
-  <section class="content-header">
+   
+<section class="content-header">
    <h1>
         Out of Stock Orders
       </h1>     
@@ -26,7 +26,7 @@
                   <th>Brand</th>
                   <th>Country</th>
                   <th>Tire Size</th>
-                  <th>Available Quantity</th>
+                  <th>Supplierble Quantity</th>
                   <th>Ordered Quantity</th>
                   <th>Suggested Request Amount</th>
                   <th >Action To perform</th>
@@ -43,8 +43,8 @@
 						$query3="SELECT * FROM tire WHERE t_id=".$row['tire_t_id'];
 						$resultinside=mysqli_query($conn,$query3);
 						$rowinside=mysqli_fetch_array($resultinside);
-						$suggestedqty=$row['qty']-$rowinside['quantity'];
-						echo "<tr class=\"backred\" id=\"".$rowinside['t_id']."\"><td>".$row['sord_no']."</td><td>".$rowinside['brand_name']."</td><td>".$rowinside['country']."</td><td>".$rowinside['tire_size']."</td><td>".$rowinside['quantity']."</td><td>".$row['qty']."</td><td><input type=\"text\" style=\"width:110px;\" value=\"$suggestedqty\"></td><td><button class=\"btn btn-success\" style=\"width:80px;\">Request</button></td></tr> ";
+						$suggestedqty=$row['qty']-$rowinside['orderable_qty'];
+						echo "<tr class=\"backred\" id=\"".$rowinside['t_id']."\"><td>".$row['sord_no']."</td><td>".$rowinside['brand_name']."</td><td>".$rowinside['country']."</td><td>".$rowinside['tire_size']."</td><td>".$rowinside['orderable_qty']."</td><td>".$row['qty']."</td><td><input type=\"text\" style=\"width:110px;\" value=\"$suggestedqty\"></td><td><button class=\"btn btn-success\" style=\"width:80px;\">Request</button></td></tr> ";
 					}
 				}
 ?>					
@@ -72,7 +72,7 @@
 		method: "POST",
 		data: ({tid:tid,requiredamount:requiredamount,sordno,sordno}),
 		success: function(data) {
-			alert(data);
+			
 		}
 
 	});}

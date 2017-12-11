@@ -248,7 +248,7 @@
       },
       {
         value:<?php require_once('../../charts/Stockstatuschart.php'); 
-		  getstockamount('Kaizen','Thaiwan'); ?>,
+		  getstockamount('Kaizen','Japan'); ?>,
         color: "#00c0ef",
         highlight: "#00c0ef",
         label: "Kaizen-Japan"
@@ -262,7 +262,7 @@
       },
       {
         value: <?php require_once('../../charts/Stockstatuschart.php'); 
-		  getstockamount('Kaizen','Thaiwan'); ?>,
+		  getstockamount('Kaizen','indunesia'); ?>,
         color: "#d2d6de",
         highlight: "#d2d6de",
         label: "Kaizen-Indunesia"

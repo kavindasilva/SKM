@@ -157,6 +157,9 @@ function  additem(element){
 		}
 	updatedata();
 }
+$('#modal-success').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewQuote.php');
+		});	
 $('#placeorder').click(function(){
 	var sordno=$('#sordno').val();
 	var qno=this.getAttribute('name');
