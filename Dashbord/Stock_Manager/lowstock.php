@@ -1,9 +1,9 @@
-<?php include '../../assets/missing.php'?>  
-<head>
+<?php include '../../assets/missing.php'?><head>
 	<link href="../../css/aos.css" rel="stylesheet">
     <script src="../../js/plugins.js"></script>
 </head>
-  <section class="content-header">
+    
+<section class="content-header">
    	<h1>
         Low Stock Items
       </h1>     
@@ -16,7 +16,7 @@
 <div class="box">   		
     	</div>
      <section class="content ">
-         <div  class="col-md-10 col-md-offset-1" data-aos="zoom-out-right" >
+         <div  class="col-md-10 col-md-offset-1">
           <div class="box" style="overflow-x:auto;" >
             <div class="box-body" id="tablebody">
               <table id="orderitems" class="table-bordered table-hover table" >

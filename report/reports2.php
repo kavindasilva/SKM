@@ -124,6 +124,6 @@ $pdf->BasicTable($header,$objQuery);
 //$pdf->Output(); //thibba eka
 //$pdf->Output("S","monthlyStockReport.pdf");
 //$pdf->Output('d','tempfile.pdf'); //chrome eken view karanna hadapu eka
-$pdf->Output('docs/rep2.pdf'); //server eke save venne
-header("Location: docs/rep2.pdf");
+$pdf->Output('docs/stockstatus.pdf'); //server eke save venne
+header("Location: docs/stockstatus.pdf");
 ?>

@@ -98,14 +98,14 @@
 	  </br>
   <!-- found order details are shown in this table-->	  
 		 <div class="row">
-		  <div  class="col-xs-12" style="width: auto; margin-left: 72px" data-aos="flip-down">
+		  <div  class="col-xs-11"  data-aos="flip-down" style="margin-left: 20px;">
           <div class="box" >
             <div class="box-header">
               <h3 class="box-title">Orders Found</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body" style="overflow-x:auto;">
-              <table class=" table-bordered table-hover abc" id="foundorders"  width="920" >
+              <table class="table table-bordered table-hover" id="foundorders">
                 <thead>
                 <tr>
                   <th>SOrdNo</th>

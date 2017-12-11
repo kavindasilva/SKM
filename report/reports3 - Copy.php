@@ -75,19 +75,14 @@ $pdf->AliasNbPages();
 $header=array();
 $header=array('Tire ID','Brand','Country','Tire size', 'Quantity'); 
 
-$year='2017';
-//$year=$_GET['yr'];
-$months='12';
-//$months=$_GET['mnth'];
+//$year='2017';
+$year=$_GET['yr'];
+//$months='10';
+$months=$_GET['mnth'];
 //Data loading
 //*** Load MySQL Data ***//
 /**		DATABASE QUERY	*/
-$strSQL = "SELECT i.sales_order_sord_no, t.t_id
-FROM invoice i, sales_order s, invoice_item it, tire t 
-where i.sales_order_sord_no=s.sord_no and it.invoice_no=i.invoice_no and it.tire_t_id=t.t_id
-AND i.STATUS='paid' 
-and year(i.date)='$year' and month(i.date)='$months'
-GROUP by t.t_id";
+$strSQL = "SELECT t.t_id, t.brand_name,t.country,t.tire_size,sum(o.qty) as totq FROM tire t, sales_order s, order_item o where o.tire_t_id=t.t_id and o.sord_no=s.sord_no and o.status='issued' and year(s.date)='$year' and month(s.date)='$months'  GROUP by t.t_id;";
 
 
 $objQuery = mysqli_query($conn,$strSQL); //result set

@@ -23,7 +23,11 @@ if($result=mysqli_query($GLOBALS['conn'],$getinvoce)){
 					$result3=mysqli_query($GLOBALS['conn'],$gettire);	
 					$tire=mysqli_fetch_array($result3);
 					if($tire['brand_name']==$brandtype){
-						$tcount+=$invoice_item['qty'];
+						$sordno=$invoice['sales_order_sord_no'];
+						$getqunatity="SELECT qty FROM order_item WHERE sord_no=$sordno and tire_t_id=$tid;";
+						$result4=mysqli_query($GLOBALS['conn'],$getqunatity);	
+						$tire=mysqli_fetch_array($result4);
+						$tcount+=$tire['qty'];
 					}
 					
 					

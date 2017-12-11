@@ -36,7 +36,7 @@ $w=array(20,30,25,35, 15,);//30,15); //,15,15, 15); //header cell size
 	while ($eachResult=mysqli_fetch_assoc($data)) 
 	{ //width
 		$this->Cell(10);
-		if($eachResult["totq"]<=20){
+		if($eachResult["totq"]<=3){
 			$this->SetFillColor(200,100,100);
 		}
 		//$this->Cell(10,6,$tmpcnt,1);
@@ -123,6 +123,6 @@ $pdf->Cell(10);
 $pdf->BasicTable($header,$objQuery);
 
 
-$pdf->Output('docs/monthQuan.pdf'); //server eke save venne
-header("Location: docs/monthQuan.pdf");
+$pdf->Output('docs/monthlyquantity.pdf'); //server eke save venne
+header("Location: docs/monthlyquantity.pdf");
 ?>
