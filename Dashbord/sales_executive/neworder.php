@@ -211,7 +211,7 @@
 </form>
  <!-- add tires to invoice pannel concludes here-->
  </section> 
-<script src="../../js/formcontrol.js?10"></script>
+<script src="../../js/formcontrol.js?13"></script>
  <script>
 $('#shopname').on('change',function(){
 	

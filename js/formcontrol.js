@@ -191,7 +191,9 @@ function placeorder(){
 					   document.getElementById("shopname").selectedIndex =0;
 					   validate.sum=0;
 					   $("#sordnodisplay").val(parseInt($("#sordnodisplay").val())+1);
+					  	tiresintable=[];
 					   updatedata();
+					  
 			 
 		  							}
 	  });

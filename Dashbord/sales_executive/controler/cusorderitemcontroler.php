@@ -14,10 +14,14 @@ $tid=$row['t_id'];
 
 $query="INSERT INTO order_item VALUES($tid,$sordno,$qty,'$status',null)";
 
-if(mysqli_query($conn,$query)){
+if(mysqli_query($conn,$query) && $status=="Available" ){
+	$updateorderable_qty="UPDATE tire SET  orderable_qty=orderable_qty-$qty where t_id=$tid;";
+	if(mysqli_query($conn,$updateorderable_qty)){
 	echo "success";
 }
 else
 	echo mysqli_error($conn);
+}
+
 mysqli_close($conn);	
 ?>

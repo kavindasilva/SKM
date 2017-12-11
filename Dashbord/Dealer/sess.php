@@ -14,7 +14,7 @@ if(!isset($_SESSION['currentuser'])){
 	header('Location:../../invalidlogin.html');
 }
 elseif ($_SESSION['usertype']!="dealer") {
-	echo "not an admin";
+	//echo "not an admin";
 	header('Location:../../invalidlogin.html');
 }
 

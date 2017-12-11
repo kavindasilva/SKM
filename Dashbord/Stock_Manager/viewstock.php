@@ -61,7 +61,7 @@
     <table class="table table-hover" id="stocktable">
 	<thead>
 		<tr>
-			<th>Index Nubmer</th>
+			<th>Tire Id</th>
 			<th>Country</th>
 			<th>Brand name</th>
 			<th>Tyre Size</th>
@@ -278,11 +278,14 @@ $('#addbtn').click(function(){
 			
 			document.getElementById('message1').innerHTML="New stock item added successfully";
 					   $('#modal-success').modal('show');
+			$('#modal-success').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewstock.php');
+		});
 
 		}
 
-	});
-	$('#content-wrapper').load('viewstock.php');	}
+	});}
+	
 	
 });  
 function deletestock(){
@@ -303,7 +306,9 @@ function deletestock(){
 			
 		});
 	
-	$('#content-wrapper').load('viewstock.php');
+		$('#modal-success').on('hidden.bs.modal', function (e) {
+		$('#content-wrapper').load('viewstock.php');
+		});
 	
 	
 }

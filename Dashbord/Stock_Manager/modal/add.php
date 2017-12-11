@@ -16,7 +16,7 @@ else{
     echo (mysqli_error($conn));
 }
 
-$addq="INSERT INTO tire VALUES (NULL, '$country', '$tyresize', '$brandname', $qty, $unitprize,'Available','$supid','$ttype',NULL);";
+$addq="INSERT INTO tire VALUES (NULL, '$country', '$tyresize', '$brandname', $qty,$qty, $unitprize,'Available','$supid','$ttype',NULL);";
 
 if(mysqli_query($conn,$addq)){
 	echo "success";
