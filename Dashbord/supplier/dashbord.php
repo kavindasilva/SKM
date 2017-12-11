@@ -58,8 +58,6 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
         </div>
 
     </div>
-
-    <!--    <center><h3 style="margin-top: 50px;">Select a received requisition</h3></center>-->
 </div>
 
 <!--loading requisted tire orders from import manager-->

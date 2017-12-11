@@ -42,3 +42,40 @@
                ?>
 
 </ul>
+</div>
+<div class="col-md-9 col-sm-12 " id="dash_tbl_div">
+    <!-- delivering order item details will load here-->
+    <div class="box-body" id="tbl_div">
+        <table class="table-bordered table table-hover" id="reply_tbl" width="100%">
+            <thead>
+            <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th></tr>
+            </thead>
+            <tbody id="sup_dash_table"></tbody>
+        </table>
+        <div id="tbl_btn_div" class="pull-right">
+
+        </div>
+
+    </div>
+</div>
+
+<!--loading delivering tire orders from supplier-->
+<script>
+    $('#sup_dashbord_div ul a').click(function(){
+        $('#sup_dash_table').children('tr').remove();
+        $('.sendbtn').remove();
+        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='receivedbtn(this)'>&nbsp;&nbsp;Received&nbsp;&nbsp;</button>");
+        $.ajax({
+            type:"post",
+            data:({pr_no:this.firstChild.value}),
+            url:"delivered_quary.php",
+            success:function(data){
+
+                $('#sup_dash_table').append(data);
+
+
+            }
+        });
+
+    });
+</script>
