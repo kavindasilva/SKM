@@ -29,6 +29,9 @@
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
         $pr_no=$pr_no_row[0];
         $sup_id=$pr_no_row[1];
+        ?>
+        <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
+        <?php
         $sup_name_quary="SELECT `user_user_name` FROM `supplier` WHERE `s_id`=$sup_id";
         $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_quary));
         echo ("
@@ -46,7 +49,7 @@
 <div class="col-md-9 col-sm-12 " id="dash_tbl_div">
     <!-- delivering order item details will load here-->
     <div class="box-body" id="tbl_div">
-        <table class="table-bordered table table-hover" id="reply_tbl" width="100%">
+        <table class="table-bordered table table-hover" id="confirm_tbl" width="100%">
             <thead>
             <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th></tr>
             </thead>
@@ -64,10 +67,11 @@
     $('#sup_dashbord_div ul a').click(function(){
         $('#sup_dash_table').children('tr').remove();
         $('.sendbtn').remove();
-        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='receivedbtn(this)'>&nbsp;&nbsp;Received&nbsp;&nbsp;</button>");
+        var pr_no=this.firstChild.value;
+        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn'value=\""+pr_no+"\"  onclick='receivedbtn(this)'>&nbsp;&nbsp;Received&nbsp;&nbsp;</button>");
         $.ajax({
             type:"post",
-            data:({pr_no:this.firstChild.value}),
+            data:({pr_no:pr_no}),
             url:"delivered_quary.php",
             success:function(data){
 
@@ -78,4 +82,33 @@
         });
 
     });
+</script>
+
+<!--confirm button function-->
+<script>
+    function receivedbtn(eliment) {
+        var x = document.getElementById("confirm_tbl").rows.length;
+        var i = 0;
+        for(j=1;j<x;j++){
+            var pr_no=eliment.value;
+            var sup_id= document.getElementById("sup_id").value;
+            var t_size = document.getElementById("confirm_tbl").rows[j].cells[0].innerHTML;
+            var sup_qty = document.getElementById("confirm_tbl").rows[j].cells[2].innerHTML;
+            var unitprice= document.getElementById("confirm_tbl").rows[j].cells[3].innerHTML;
+
+            //alert(pr_no);
+            $.ajax({
+                type: "post",
+                data: {pr_no: pr_no,sup_id: sup_id,t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
+                url: "received_order_btn_quary.php",
+                success: function (data) {
+                    alert(data);
+                }
+            });
+            i++;
+        }
+        //alert("Confirmed successfully");
+        eliment.parentElement.parentElement.remove();
+
+    }
 </script>

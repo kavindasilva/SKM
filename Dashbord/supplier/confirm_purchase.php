@@ -117,3 +117,4 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
         eliment.parentElement.parentElement.remove();
 
     }
+</script>
