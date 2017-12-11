@@ -86,13 +86,7 @@
 	<input type="button" value="print low stock report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports5.php')"/> 	<br/>
 </div>
 
-<div class="skm-def1">
-	<input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>
-</div>
 
-<div class="skm-def1">
-	<input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>
-</div>
 
 <iframe src="" name="frm1" id="frm1" width=800 height=500 style="" >
 </iframe>
