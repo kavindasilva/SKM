@@ -57,7 +57,7 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="areaChart" style="height:250px"></canvas>
+                <canvas id="areaChart1" style="height:250px"></canvas>
               </div>
             </div>
            
@@ -75,11 +75,11 @@
     //--------------
 
     // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+    var areaChartCanvas1 = $("#areaChart1").get(0).getContext("2d");
     // This will get the first returned node in the jQuery collection.
-    var areaChart = new Chart(areaChartCanvas);
+    var areaChart = new Chart(areaChartCanvas1);
 
-    var areaChartData = {
+    var areaChartData1 = {
       labels: ["January","February","March", "April", "May","June","July","Auguest", "September", "October", "November", "December"],
       datasets: [
         {
@@ -96,7 +96,7 @@
       ]
     };
 
-    var areaChartOptions = {
+    var areaChartOptions1 = {
       //Boolean - If we should show the scale at all
       showScale: true,
       //Boolean - Whether grid lines are shown across the chart
@@ -136,49 +136,9 @@
     };
 
     //Create the line chart
-    areaChart.Line(areaChartData, areaChartOptions);
+    areaChart.Line(areaChartData1, areaChartOptions1);
 
 
-	  
-
-    //-------------
-    //- BAR CHART -
-    //-------------
-    var barChartCanvas = $("#barChart").get(0).getContext("2d");
-    var barChart = new Chart(barChartCanvas);
-    var barChartData = areaChartData;
-    barChartData.datasets[1].fillColor = "#00a65a";
-    barChartData.datasets[1].strokeColor = "#00a65a";
-    barChartData.datasets[1].pointColor = "#00a65a";
-    var barChartOptions = {
-      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero: true,
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines: true,
-      //String - Colour of the grid lines
-      scaleGridLineColor: "rgba(0,0,0,.05)",
-      //Number - Width of the grid lines
-      scaleGridLineWidth: 1,
-      //Boolean - Whether to show horizontal lines (except X axis)
-      scaleShowHorizontalLines: true,
-      //Boolean - Whether to show vertical lines (except Y axis)
-      scaleShowVerticalLines: true,
-      //Boolean - If there is a stroke on each bar
-      barShowStroke: true,
-      //Number - Pixel width of the bar stroke
-      barStrokeWidth: 2,
-      //Number - Spacing between each of the X value sets
-      barValueSpacing: 5,
-      //Number - Spacing between data sets within X values
-      barDatasetSpacing: 1,
-      //String - A legend template
-      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-      //Boolean - whether to make the chart responsive
-      responsive: true,
-      maintainAspectRatio: true
-    };
-
-    barChartOptions.datasetFill = false;
-    barChart.Bar(barChartData, barChartOptions);
+	 
   });
 </script>

@@ -1,6 +1,6 @@
   <!DOCTYPE html>
 <html>
-
+<?php include '../../assets/success.php'?>  
 <head>
   <link rel="stylesheet" href="../../css/mystyle.css">
 
@@ -174,6 +174,9 @@
 
 <!--    selected tire list table script-->
 <script>
+	$('#brand').change(function(){
+		$('#selected_item').children().remove();
+	});
   function requestbtn(element) {
         var tid= element.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
         var brand= element.parentElement.parentElement.getElementsByTagName('td')[1].innerHTML;
@@ -181,7 +184,7 @@
         var size= element.parentElement.parentElement.getElementsByTagName('td')[3].innerHTML;
         var req_qty= element.parentElement.parentElement.getElementsByTagName('td')[6].innerHTML;
       element.disabled=true;
-   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='text'  value='"+req_qty+"'></td></tr>");
+   $("#selected_item").append("<tr class=\"clickable-row\"> <td><input type='checkbox' id='is_selected_tire'></td> <td>"+ tid+"</td> <td>"+brand+"</td> <td>"+country+"</td> <td>"+size+"</td> <td><input type='number'  value='"+req_qty+"'></td></tr>");
       document.getElementsByClassName('req_qty').value = req_qty;
   }
 </script>
@@ -227,7 +230,9 @@
                         url:"pr_quary.php",
                         data:{tire_id:tire_id,pr_no:pr_no},
                         success:function (data) {
-                            alert('Successfully Requested ');
+								document.getElementById('message1').innerHTML="Successfully Requested";
+					   $('#modal-success').modal('show');
+                           
 
                         }
 
@@ -268,7 +273,8 @@
                         url:"pr_quary.php",
                         data:{tire_id:tire_id,pr_no:pr_no},
                         success:function (data) {
-                            alert('Successfully Requested ');
+                         document.getElementById('message1').innerHTML="Successfully Requested";
+					   $('#modal-success').modal('show');
 
                         }
 
