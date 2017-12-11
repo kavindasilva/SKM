@@ -29,7 +29,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 
 <?php
 
-    $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id AND status='pending'";
+    $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id AND status='confirmed'";
     $pr_no_result=mysqli_query($conn,$pr_no_quary);
 
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
@@ -38,7 +38,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
         $emp_name=mysqli_fetch_row(mysqli_query($conn,$emp_name_quary));
         echo ("
             <a href=\"#\"><li id='pr_no_li' value=\"".$pr_no_row[0]."\">
-            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$emp_name[0]." (".$pr_no_row[2].")
+            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  Confirmed order from ".$emp_name[0]." (".$pr_no_row[2].")
                     </li></a>
             ");
     }
@@ -72,11 +72,11 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     $('#sup_dashbord_div ul a').click(function(){
         $('#sup_dash_table').children('tr').remove();
         $('.sendbtn').remove();
-        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='sendbtn(this)'>&nbsp;&nbsp;Send&nbsp;&nbsp;</button>");
+        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='sendbtn(this)'>&nbsp;&nbsp;Confirm&nbsp;&nbsp;</button>");
         $.ajax({
             type:"post",
             data:({pr_no:this.firstChild.value}),
-            url:"dashbord_quary.php",
+            url:"confirm_purchase_quary.php",
             success:function(data){
 
                 $('#sup_dash_table').append(data);
