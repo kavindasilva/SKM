@@ -180,14 +180,6 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
                   <li><a href="#" name="confirm_purchase"><i class="fa fa-circle-o"></i> Confirm Purchase</a></li>
               </ul>
           </li>
-       
-<!--        <li class="treeview">-->
-<!--         	<a href="index.php">-->
-<!--            	<i class="fa fa-edit"></i> <span>Purchase Requests</span>-->
-<!--<!--            	<span class="pull-right-container">-->-->
-<!--<!--              	<i class="fa fa-angle-left pull-right"></i>-->-->
-<!--           	 	</span>-->
-<!--          </a>-->
 
     </section>
     <!-- /.sidebar -->
