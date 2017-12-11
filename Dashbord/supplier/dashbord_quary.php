@@ -17,5 +17,5 @@ while($t_id_row=mysqli_fetch_row($t_id_result)){
     $tire_size=mysqli_fetch_row(mysqli_query($conn,$tire_size_quary))[0];
     $req_qty_quary="SELECT qty FROM pr_item WHERE tire_t_id=$t_id";
     $req_qty=mysqli_fetch_row(mysqli_query($conn,$req_qty_quary))[0];
-    echo ("<tr><td>$tire_size</td><td>$req_qty</td><td><input type='number' id='sup_qty' value=\"$req_qty\"></td><td><input type='number' id='unit_price'></td><td></td></tr>");
+    echo ("<tr><td>$tire_size</td><td>$req_qty</td><td><input type='number' id='sup_qty' value=\"$req_qty\"></td><td><input type='number' id='unit_price'></td></tr>");
 }

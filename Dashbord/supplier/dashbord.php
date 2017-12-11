@@ -49,7 +49,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     <div class="box-body" id="tbl_div">
         <table class="table-bordered table table-hover" id="reply_tbl" width="100%">
             <thead>
-            <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th><th>Total Price</th></tr>
+            <tr><th>Tire size</th><th>Requested Qty</th><th>Suppliable Qty</th><th>Suppliable unitprice</th></tr>
             </thead>
             <tbody id="sup_dash_table"></tbody>
         </table>
