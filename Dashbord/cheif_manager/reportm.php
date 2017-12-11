@@ -36,7 +36,7 @@
 		var phpY = datmsplit[0]; // year
 		
 		url=url+"?yr="+phpY+"&mnth="+phpM;
-		alert(url);
+		//alert(url);
 		
 		window.open(url, '_blank');
 	}
@@ -48,7 +48,7 @@
 		var phpY = datmsplit[0]; // year
 		
 		url=url+"?yr="+phpY+"&mnth="+phpM;
-		alert(url);
+		//alert(url);
 		document.getElementsByName('frm1')[0].src = url;
 		//return url;
 		//window.open(url, '_blank');
@@ -80,18 +80,13 @@
 	<input type="button" id="months4btn2" value="print Monthly sales report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports4.php')" disabled   /> 	<br/>
 </div>
 
-	
+<!--low stock report = report5.php -->	
 <div class="skm-def1">
-	<input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>
+	<a href="report5.php" target="frm1"><input type="button" value="view low stock report"  class="btn btn-sm btn-info"> </a>
+	<input type="button" value="print low stock report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports5.php')"/> 	<br/>
 </div>
 
-<div class="skm-def1">
-	<input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>
-</div>
 
-<div class="skm-def1">
-	<input type="button" name="" value="Monthly stock status report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports2.php')" /> 	<br/>
-</div>
 
 <iframe src="" name="frm1" id="frm1" width=800 height=500 style="" >
 </iframe>

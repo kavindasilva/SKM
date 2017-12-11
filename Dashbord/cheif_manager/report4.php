@@ -2,6 +2,7 @@
 <?php
 /**
 	This is the chief managers normal reports(without date limits) generation control class
+	monthly sales report
 */
 require_once "../../php/dbcon.php";
 

@@ -3,6 +3,12 @@
 require_once "head.php";
 ?>
 
+<script type="text/javascript">
+function openTab(url){
+		window.open(url, '_blank');
+	}
+</script>
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
    <script type="text/javascript" src="adminFun.js"></script>
@@ -77,7 +83,7 @@ require_once "head.php";
             </div>
             <!-- /.info-box-content -->
           </div>
-		  <a href="viewMgr.php?empT=sales"><button class="form-control dashbordbtn" >Customers</button></a>
+		  <a href=""><button class="form-control dashbordbtn" onclick="openTab('../report/reportsa.php')"  >Dealers</button></a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->

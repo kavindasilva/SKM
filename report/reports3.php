@@ -123,6 +123,6 @@ $pdf->Cell(10);
 $pdf->BasicTable($header,$objQuery);
 
 
-$pdf->Output('docs/monthQuan.pdf'); //server eke save venne
-header("Location: docs/monthQuan.pdf");
+$pdf->Output('docs/monthlyquantity.pdf'); //server eke save venne
+header("Location: docs/monthlyquantity.pdf");
 ?>
