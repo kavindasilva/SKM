@@ -7,14 +7,16 @@
  */
 require_once('../../php/dbcon.php');
 $pr_no=$_POST['pr_no'];
+$sup_id=$_POST['sup_id'];
+$t_size=$_POST['t_size'];
 $unitprice=$_POST['unitprice'];
 $sup_qty=$_POST['sup_qty'];
 $i=$_POST['i'];
 $qty=$_POST['qty'];
 //echo ($sup_qty);
 
-//getting t_id
-$t_id_quary="SELECT tire_t_id FROM pr_item WHERE purchase_requisition_pr_no=$pr_no and qty=$qty";
+//getting tire id
+$t_id_quary="SELECT t_id FROM tire WHERE `supplier_s_id`=$sup_id AND `tire_size`='$t_size'";
 $t_id_result=mysqli_query($conn,$t_id_quary);
 $t_id=mysqli_fetch_row($t_id_result)[0];
 //quantity and unit price entering pr table

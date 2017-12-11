@@ -8,6 +8,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
 //$result=mysqli_query($conn,$query);
 ?>
   <section class="content-header">
+      <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
    <h1>
        Purchase Requests
       </h1>
@@ -88,6 +89,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
         var i = 0;
         for(j=1;j<x;j++){
             var pr_no= document.getElementById("pr_no_li").value;
+            var sup_id= document.getElementById("sup_id").value;
             var t_size = document.getElementById("reply_tbl").rows[j].cells[0].innerHTML;
             var qty = document.getElementById("reply_tbl").rows[j].cells[1].innerHTML;
             var sup_qty = document.getElementById("reply_tbl").rows[j].cells[2].firstChild.value;
@@ -96,7 +98,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             //alert(pr_no);
             $.ajax({
                 type: "post",
-                data: {pr_no: pr_no, t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
+                data: {pr_no: pr_no,sup_id:sup_id ,t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "sendbtn_quary.php",
                 success: function (data) {
                     alert(data);
