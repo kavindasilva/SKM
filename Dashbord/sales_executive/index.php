@@ -67,10 +67,10 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
+              <i class="fa fa-bell-o shownotification "></i>
              <?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
+				   /*if($_SESSION['notificationcount']>0)
+					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";*/
 				  ?>
             </a>
             <ul class="dropdown-menu">
@@ -208,11 +208,11 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
         <li id="quotationrequests">
           <a href="#">
             <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
-            <span class="pull-right-container">
+            <span class="pull-right-container shownotification" >
               
 				<?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";
+				   /*if($_SESSION['notificationcount']>0)
+					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";*/
 				  ?>              	
               
             </span>
@@ -295,7 +295,21 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
 
 </html>
 <script>
-	
+function doSomething()
+{
+   $.ajax({//updating the stasus to replied in quotation table
+			type:"post",
+			url:"model/notification.php",
+			success:function(data){
+				if(data>0){
+					$('.shownotification').html("<small id=\"notic\" class=\"label pull-right bg-red\">"+data+"</small>");
+				}
+			}
+		});
+}
+
+
+setInterval(doSomething, 4*1000);	
 function loadquotationreq(){
 	$('#content-wrapper').load('quotationrequests.php');
 }
