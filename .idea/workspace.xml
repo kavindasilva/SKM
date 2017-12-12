@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f21ac4c1-e5de-4ffa-9429-803993f4e7de" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dashbord/import_manager/dashbord.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/dashbord.php" />
-      <change beforePath="$PROJECT_DIR$/Dashbord/import_manager/delivered_order.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/delivered_order.php" />
-      <change beforePath="$PROJECT_DIR$/Dashbord/import_manager/received_order_btn_quary.php" afterPath="$PROJECT_DIR$/Dashbord/import_manager/received_order_btn_quary.php" />
-      <change beforePath="$PROJECT_DIR$/Dashbord/supplier/confirm_purchase.php" afterPath="$PROJECT_DIR$/Dashbord/supplier/confirm_purchase.php" />
-      <change beforePath="$PROJECT_DIR$/Dashbord/supplier/dashbord.php" afterPath="$PROJECT_DIR$/Dashbord/supplier/dashbord.php" />
-    </list>
+    <list default="true" id="f21ac4c1-e5de-4ffa-9429-803993f4e7de" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,19 +14,19 @@
       <file leaf-file-name="delivered_order.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/delivered_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+            <state relative-caret-position="426">
+              <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
               <folding>
-                <marker date="1513060222711" expanded="true" signature="668:755" ph="SELECT pr_no... purchase_requisition" />
-                <marker date="1513060222711" expanded="true" signature="952:1005" ph="SELECT `user... supplier" />
-                <marker date="1513060222711" expanded="true" signature="1129:1332" ph="..." />
-                <marker date="1513060222711" expanded="true" signature="1130:1332" ph="..." />
-                <marker date="1513060222711" expanded="true" signature="1176:1267" ph="..." />
-                <marker date="1513060222711" expanded="true" signature="1176:1328" ph="..." />
-                <marker date="1513060222711" expanded="true" signature="2292:2298" ph=" " />
-                <marker date="1513060222711" expanded="true" signature="2298:2304" ph=" " />
-                <marker date="1513060222711" expanded="true" signature="2312:2318" ph=" " />
-                <marker date="1513060222711" expanded="true" signature="2318:2324" ph=" " />
+                <marker date="1513060695939" expanded="true" signature="668:755" ph="SELECT pr_no... purchase_requisition" />
+                <marker date="1513060695939" expanded="true" signature="952:1005" ph="SELECT `user... supplier" />
+                <marker date="1513060695939" expanded="true" signature="1129:1332" ph="..." />
+                <marker date="1513060695939" expanded="true" signature="1130:1332" ph="..." />
+                <marker date="1513060695939" expanded="true" signature="1176:1267" ph="..." />
+                <marker date="1513060695939" expanded="true" signature="1176:1328" ph="..." />
+                <marker date="1513060695939" expanded="true" signature="2292:2298" ph=" " />
+                <marker date="1513060695939" expanded="true" signature="2298:2304" ph=" " />
+                <marker date="1513060695939" expanded="true" signature="2312:2318" ph=" " />
+                <marker date="1513060695939" expanded="true" signature="2318:2324" ph=" " />
               </folding>
             </state>
           </provider>
@@ -367,12 +360,12 @@
       <workItem from="1512953441466" duration="20428000" />
       <workItem from="1512981806190" duration="8647000" />
       <workItem from="1512999380452" duration="32503000" />
-      <workItem from="1513050298135" duration="7404000" />
+      <workItem from="1513050298135" duration="7876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277225000" />
+    <option name="totallyTimeSpent" value="277697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
@@ -898,19 +891,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dashbord/import_manager/delivered_order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+        <state relative-caret-position="426">
+          <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
           <folding>
-            <marker date="1513060222711" expanded="true" signature="668:755" ph="SELECT pr_no... purchase_requisition" />
-            <marker date="1513060222711" expanded="true" signature="952:1005" ph="SELECT `user... supplier" />
-            <marker date="1513060222711" expanded="true" signature="1129:1332" ph="..." />
-            <marker date="1513060222711" expanded="true" signature="1130:1332" ph="..." />
-            <marker date="1513060222711" expanded="true" signature="1176:1267" ph="..." />
-            <marker date="1513060222711" expanded="true" signature="1176:1328" ph="..." />
-            <marker date="1513060222711" expanded="true" signature="2292:2298" ph=" " />
-            <marker date="1513060222711" expanded="true" signature="2298:2304" ph=" " />
-            <marker date="1513060222711" expanded="true" signature="2312:2318" ph=" " />
-            <marker date="1513060222711" expanded="true" signature="2318:2324" ph=" " />
+            <marker date="1513060695939" expanded="true" signature="668:755" ph="SELECT pr_no... purchase_requisition" />
+            <marker date="1513060695939" expanded="true" signature="952:1005" ph="SELECT `user... supplier" />
+            <marker date="1513060695939" expanded="true" signature="1129:1332" ph="..." />
+            <marker date="1513060695939" expanded="true" signature="1130:1332" ph="..." />
+            <marker date="1513060695939" expanded="true" signature="1176:1267" ph="..." />
+            <marker date="1513060695939" expanded="true" signature="1176:1328" ph="..." />
+            <marker date="1513060695939" expanded="true" signature="2292:2298" ph=" " />
+            <marker date="1513060695939" expanded="true" signature="2298:2304" ph=" " />
+            <marker date="1513060695939" expanded="true" signature="2312:2318" ph=" " />
+            <marker date="1513060695939" expanded="true" signature="2318:2324" ph=" " />
           </folding>
         </state>
       </provider>

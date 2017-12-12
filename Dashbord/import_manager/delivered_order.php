@@ -114,7 +114,7 @@
 
         });
             i++;
-            //alert("Stock update successfully");
+            alert("Stock update successfully");
             eliment.parentElement.parentElement.remove();
 
         }
