@@ -10,11 +10,11 @@
 session_start();
 //$_SESSION['user'] = "Test1";
 /**/
- if(!isset($_SESSION['user'])){
+ if(!isset($_SESSION['currentuser'])){
 	echo "user not set";
-	header('Location:../login.html');
+	header('Location:../invalidlogin.html');
  }
- elseif ($_SESSION['utype']!="adm") {
+ elseif ($_SESSION['usertype']!="adm") {
 	echo "not an admin";
 	header('Location:../invalidlogin.html');
  }
@@ -135,7 +135,7 @@ require_once "../php/dbcon.php";
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../images/user8-128x128.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php
-			echo $_SESSION['user'];
+			echo $_SESSION['currentuser'];
 				  ?></span>
             </a>
             <ul class="dropdown-menu">
@@ -185,7 +185,7 @@ require_once "../php/dbcon.php";
         </div>
         <div class="pull-left info">
           <p><?php
-		echo $_SESSION['user'];
+		echo $_SESSION['currentuser'];
 				  ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
