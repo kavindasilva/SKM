@@ -88,6 +88,14 @@
 	<input type="button" value="print low stock report"  class="btn btn-sm btn-info" onclick="openTab('../../report/reports5.php')"/> 	<br/>
 </div>
 
+<div class="skm-def1">	
+<!--month sales report = report6.php -->
+	<input type="month" name="months6" id="months6" onchange="checkCur(this.id)"/>
+	
+	<input type="button" id="months6btn" onclick="viewMonthReport('report6.php','months6')" value="view purchase requisitions report"  class="btn btn-sm btn-info"  disabled  /> 
+	<input type="button" id="months6btn2" value="print purchase requisitions report"  class="btn btn-sm btn-info" onclick="openTabMonth('../../report/reports6.php','months6')" disabled   /> 	<br/>
+</div>
+
 </center>
 
 
