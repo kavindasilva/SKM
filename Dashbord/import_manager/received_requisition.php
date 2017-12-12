@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php include '../../assets/success.php'?>  
 <head>
     <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
@@ -117,7 +118,8 @@
                 sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
             url:"rr_delete_quary.php",
             success:function (data) {
-                alert(data);
+               document.getElementById('message1').innerHTML=" deleted successfully";
+					   $('#modal-success').modal('show');
 
             }
 

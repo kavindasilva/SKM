@@ -70,7 +70,7 @@
 	$.ajax({
 		url: "modal/requesttire.php",
 		method: "POST",
-		data: ({tid:tid,requiredamount:requiredamount,sordno,sordno}),
+		data: ({tid:tid,requiredamount:requiredamount,sordno:sordno}),
 		success: function(data) {
 			
 		}
