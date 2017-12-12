@@ -25,18 +25,14 @@
     require_once('../../php/dbcon.php');
     $pr_no_quary="SELECT pr_no,`supplier_s_id`,`date` FROM purchase_requisition WHERE status='delivering'";
     $pr_no_result=mysqli_query($conn,$pr_no_quary);
-
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
         $pr_no=$pr_no_row[0];
         $sup_id=$pr_no_row[1];
-        ?>
-        <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
-        <?php
         $sup_name_quary="SELECT `user_user_name` FROM `supplier` WHERE `s_id`=$sup_id";
         $sup_name=mysqli_fetch_row(mysqli_query($conn,$sup_name_quary));
         echo ("
-            <a href=\"#\"><li id='pr_no_li' value=\"".$pr_no_row[0]."\">
-            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\"></i>  request from ".$sup_name[0]." (".$pr_no_row[2].")
+            <a href=\"#\" ><li id='pr_no_li' value=\"".$pr_no_row[0]."\">
+            <i class=\"fa fa-calendar-check-o\" aria-hidden=\"true\" ></i>  request from ".$sup_name[0]." (".$pr_no_row[2].")
                     </li></a>
             ");
     }
@@ -89,17 +85,18 @@
     function receivedbtn(eliment) {
         var x = document.getElementById("confirm_tbl").rows.length;
         var i = 0;
+        //var sup_id= document.getElementById("sup_id1").value;
         for(j=1;j<x;j++){
             var pr_no=eliment.value;
-            var sup_id= document.getElementById("sup_id").value;
+
             var t_size = document.getElementById("confirm_tbl").rows[j].cells[0].innerHTML;
             var sup_qty = document.getElementById("confirm_tbl").rows[j].cells[2].innerHTML;
             var unitprice= document.getElementById("confirm_tbl").rows[j].cells[3].innerHTML;
 
-            //alert(pr_no);
+            //alert(sup_id);
             $.ajax({
                 type: "post",
-                data: {pr_no: pr_no,sup_id: sup_id,t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
+                data: {pr_no: pr_no,t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "received_order_btn_quary.php",
                 success: function (data) {
                     alert(data);
