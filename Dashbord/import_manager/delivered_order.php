@@ -99,12 +99,11 @@
                 data: {pr_no: pr_no,t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "received_order_btn_quary.php",
                 success: function (data) {
-                    alert(data);
                 }
             });
             i++;
         }
-        //alert("Confirmed successfully");
+        alert("Stock update successfully");
         eliment.parentElement.parentElement.remove();
 
     }

@@ -25,7 +25,7 @@
   <div class="container">
     <div class="box">
     <div class="box-body" style="overflow-x:auto;">
-      <table id="tire_pending" class="table-boadered table-hover" width="1050">
+      <table id="tire_pending" class="table-boadered table-hover thead-inverse" width="1050">
         <thead>
           <tr>
             <th>Tire Id</th>
@@ -110,12 +110,13 @@
             url:"delete_request_quary.php",
             data:{t_id:t_id},
             success:function (data) {
-            alert(data);
+            //alert(data);
 
         }
 
         });
         this.parentElement.parentElement.remove();
+        alert("Requisition deleted successfully");
 
         
     })

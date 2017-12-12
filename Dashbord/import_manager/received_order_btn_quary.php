@@ -37,7 +37,6 @@ while ($sup_id_row=mysqli_fetch_row($sup_id_result)){
         //update tire stock and status
         $tire_update_quary="UPDATE `tire` SET `quantity` =$tot_qty, `status` = 'available' WHERE `tire`.`t_id` = $t_id";
         mysqli_query($conn,$tire_update_quary);
-        echo ($tot_qty);
     }
     $j++;
 }
