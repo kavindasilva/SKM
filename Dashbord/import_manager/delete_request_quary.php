@@ -1,10 +1,13 @@
 <?php
+//linked with pending_requisiion.php
 /**
  * Created by PhpStorm.
  * User: Isuru Jayasinghe
  * Date: 12/6/2017
  * Time: 11:06 AM
  */
+
+
 require_once('../../php/dbcon.php');
 $t_id=$_POST['t_id'];
 //pr_no for delete purchase requsition quary

@@ -3,9 +3,6 @@ session_start();
 require_once('../../php/dbcon.php');
 $sup_quary="SELECT s_id FROM supplier WHERE user_user_name='".$_SESSION['currentuser']."';";
 $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
-//$row=mysqli_fetch_array($result);
-//$query="SELECT * FROM quotation WHERE supplier_s_id='".$row['s_id']."';";
-//$result=mysqli_query($conn,$query);
 ?>
   <section class="content-header">
       <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
@@ -19,14 +16,12 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
       </ol>
 </section></br>
 <div class="col-md-3" id="sup_dashbord_div">
+<!--    showing purchase request messages-->
 <ul id="quotation">
-
-
 <?php
 
     $pr_no_quary="SELECT pr_no,`import_manager_employee_e_id`,`date` FROM purchase_requisition WHERE supplier_s_id=$sup_id AND status='pending'";
     $pr_no_result=mysqli_query($conn,$pr_no_quary);
-
     while ($pr_no_row=mysqli_fetch_row($pr_no_result)){
         $pr_no=$pr_no_row[0];
         $emp_name_quary="SELECT user_user_name FROM employee WHERE e_id=$pr_no_row[1]";
@@ -65,7 +60,6 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
     $('#sup_dashbord_div ul a').click(function(){
         $('#sup_dash_table').children('tr').remove();
         $('.sendbtn').remove();
-        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='sendbtn(this)'>&nbsp;&nbsp;Send&nbsp;&nbsp;</button>");
         $.ajax({
             type:"post",
             data:({pr_no:this.firstChild.value}),
@@ -73,11 +67,9 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             success:function(data){
 
                 $('#sup_dash_table').append(data);
-
-
             }
         });
-
+        $('#tbl_btn_div').append("<button class='btn btn-success sendbtn' onclick='sendbtn(this)'>&nbsp;&nbsp;Send&nbsp;&nbsp;</button>");
     });
 </script>
 
@@ -86,27 +78,23 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
         var x = document.getElementById("reply_tbl").rows.length;
         var i = 0;
         for(j=1;j<x;j++){
-            var pr_no= document.getElementById("pr_no_li").value;
             var sup_id= document.getElementById("sup_id").value;
             var t_size = document.getElementById("reply_tbl").rows[j].cells[0].innerHTML;
             var qty = document.getElementById("reply_tbl").rows[j].cells[1].innerHTML;
             var sup_qty = document.getElementById("reply_tbl").rows[j].cells[2].firstChild.value;
             var unitprice = document.getElementById("reply_tbl").rows[j].cells[3].firstChild.value;
-
-            //alert(pr_no);
             $.ajax({
                 type: "post",
-                data: {pr_no: pr_no,sup_id:sup_id ,t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
+                data: {sup_id:sup_id ,t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "sendbtn_quary.php",
                 success: function (data) {
-                    //alert(data);
-
                 }
             });
             i++;
         }
-        $('#content-wrapper').load('dashbord.php');
         eliment.parentElement.parentElement.remove();
+        $('#content-wrapper').load('dashbord.php');
+        alert("Successfully Send your quatation");
 
     }
 </script>
