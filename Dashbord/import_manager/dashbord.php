@@ -11,7 +11,7 @@
       	</div>
 <!--main menu item goes here-->
 <div class=" container col-md-10 col-md-offset-1">
-    <div class="col-md-6 col-sm-6 col-xs-12 dashbordsection">
+    <div class="col-md-4 col-sm-6 col-xs-12 dashbordsection">
         <div class="info-box">
             <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
 
@@ -26,7 +26,7 @@
         <button class="form-control dashbordbtn" onClick="dashbordcontrol('pending_requision');" >Pending Requisition</button>
     </div>
     <!-- /.col -->
-    <div class="col-md-6 col-sm-6 col-xs-12 dashbordsection">
+    <div class="col-md-4 col-sm-6 col-xs-12 dashbordsection">
         <div class="info-box">
             <span class="info-box-icon bg-green"><i class="fa fa-table"></i></span>
 
@@ -40,7 +40,7 @@
         <button class="form-control dashbordbtn" onClick="dashbordcontrol('received_requisition');">Received Requisition</button>
         <button class="form-control dashbordbtn" onClick="dashbordcontrol('confirmed_requisition');"> Confirmed Requisition</button>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12 dashbordsection">
+    <div class="col-md-4 col-sm-6 col-xs-12 dashbordsection">
         <div class="info-box">
             <span class="info-box-icon bg-purple"><i class="fa fa-edit"></i></span>
 

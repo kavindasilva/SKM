@@ -108,7 +108,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
                 data: {pr_no: pr_no,sup_id:sup_id, t_size: t_size, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "confirm_btn_quary.php",
                 success: function (data) {
-                    alert(data);
+                    //alert(data);
                 }
             });
             i++;

@@ -16,7 +16,7 @@ $i=$_POST['i'];
 //getting sup_id
 $sup_id_quary="SELECT `supplier_s_id` FROM purchase_requisition WHERE status='delivering' AND pr_no=$pr_no";
 $sup_id_result=mysqli_query($conn,$sup_id_quary);
-$j=0;
+//$j=0;
 while ($sup_id_row=mysqli_fetch_row($sup_id_result)){
     //pr tbl status change
     if($i==0){
@@ -25,7 +25,7 @@ while ($sup_id_row=mysqli_fetch_row($sup_id_result)){
 
     }
     $sup_id=$sup_id_row[0];
-    if($j==0){
+
         //getting tire id
         $t_id_quary="SELECT t_id FROM tire WHERE `supplier_s_id`=$sup_id AND `tire_size`='$t_size'";
         $t_id_result=mysqli_query($conn,$t_id_quary);
@@ -35,10 +35,11 @@ while ($sup_id_row=mysqli_fetch_row($sup_id_result)){
         $ava_tire_qty=mysqli_fetch_row(mysqli_query($conn,$ava_tire_qty_quary))[0];
         $tot_qty=$ava_tire_qty+$sup_qty;
         //update tire stock and status
-        $tire_update_quary="UPDATE `tire` SET `quantity` =$tot_qty, `status` = 'available' WHERE `tire`.`t_id` = $t_id";
+        $tire_update_quary="UPDATE `tire` SET `quantity` =$tot_qty, orderable_qty=orderable_qty+$sup_qty `status` = 'available' WHERE `tire`.`t_id` = $t_id";
         mysqli_query($conn,$tire_update_quary);
-    }
-    $j++;
+        $tid=$t_id;
+         require_once('../../assets/changeorderstatus.php');
+
 }
 
 
