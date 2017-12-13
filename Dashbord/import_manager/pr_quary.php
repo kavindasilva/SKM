@@ -7,7 +7,6 @@
  */
 require_once('../../php/dbcon.php');
 $tire_id=$_POST['tire_id'];
-//$tire_qty=$_POST['qty'];
 $pr_no=$_POST['pr_no'];
 
 //getting suplier id for insert purchase requisition table

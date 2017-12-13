@@ -5,7 +5,6 @@
   <title>SKMM| Purchase Requisition| Pending</title>
   
   <link rel="stylesheet" href="../../css/mystyle.css">
-
     <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -25,6 +24,7 @@
   <div class="container">
     <div class="box">
     <div class="box-body" style="overflow-x:auto;">
+<!--        pending tire table-->
       <table id="tire_pending" class="table-boadered table-hover thead-inverse" width="1050">
         <thead>
           <tr>
@@ -41,7 +41,6 @@
         require_once('../../php/dbcon.php');
         $tire_tbl_quary="SELECT t_id,brand_name,country,tire_size,quantity,status FROM tire WHERE status='pending'";
         $result = $conn->query($tire_tbl_quary);
-        //if($result->fetch_assoc()) {
         $i=0;
         while ($row = $result->fetch_assoc()) {
         //$tbl_rw_id=$tbl_rw_id+1;
@@ -80,21 +79,11 @@
         </tr>
 
         <?php
-
         }
         if($i==0){
             echo "<td>There is not pending requision</td>";
         }
-
-        //}
-//        else{
-//                echo "<td>There is not pending requision</td>";
-//
-//        }
-        //$conn->close();
         ?>
-
-
         </tbody>
       </table>
       
@@ -104,13 +93,11 @@
 <script>
     $(".delete_btn").click(function () {
         var t_id= this.parentElement.parentElement.getElementsByTagName('td')[0].innerHTML;
-        //alert(tid);
         $.ajax({
             type:"post",
             url:"delete_request_quary.php",
             data:{t_id:t_id},
             success:function (data) {
-            //alert(data);
 
         }
 
@@ -122,11 +109,6 @@
         
     })
 </script>
-
-
- 
-
-
 </body>
 
 

@@ -4,7 +4,7 @@ if($_POST['request1']){
 	//$country=$_POST['country'];
 	require_once('../../php/dbcon.php');
 	if($brand=='--'){
-		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status,requested_amount FROM tire";
+		$sql="SELECT t_id,brand_name,country,tire_size,quantity,status,requested_amount FROM tire  WHERE status='required' OR status='pending'";
 		
 	}
 	elseif($brand=="Dunlop-Japan"){
