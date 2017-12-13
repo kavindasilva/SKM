@@ -69,22 +69,22 @@
  			<select class="form-control" id="shopname">
         		<option value="" >Select</option>
         		<option value="guest" >Guest</option>
-       <?php
-	$query="select shop_name from dealer";
-	$result=mysqli_query($conn,$query);
-	while($row=mysqli_fetch_array($result)){
-		echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
-	}
-	$query="select company_name from customer";
-	$result=mysqli_query($conn,$query);
-	while($row=mysqli_fetch_array($result)){
-		echo " <option value=\"".$row['company_name']."\" >".$row['company_name']."</option>";
-	}
-	
-	?>
+				   <?php
+				$query="select shop_name from dealer";
+				$result=mysqli_query($conn,$query);
+				while($row=mysqli_fetch_array($result)){
+					echo " <option value=\"".$row['shop_name']."\" >".$row['shop_name']."</option>";
+				}
+				$query="select company_name from customer";
+				$result=mysqli_query($conn,$query);
+				while($row=mysqli_fetch_array($result)){
+					echo " <option value=\"".$row['company_name']."\" >".$row['company_name']."</option>";
+				}
+
+				?>
       		 </select>
 		 </div>
-		 <div class="col-md-5">
+		 <div class="col-md-5"><!--loading next sales order number to the interface-->
 		 	<strong class="col-xs-6 col-md-4" data-aos="zoom-out-left" >Salers Order No </strong>
 		 	<input id="sordnodisplay" data-aos="zoom-out-left" disabled value="
 		 	
@@ -213,7 +213,7 @@
  </section> 
 <script src="../../js/formcontrol.js?13"></script>
  <script>
-$('#shopname').on('change',function(){
+$('#shopname').on('change',function(){//enableing and diableing guest name field
 	
 	if($('#shopname').val()=="guest"){
 		$('#guestname').attr("disabled",false);
@@ -224,7 +224,7 @@ $('#shopname').on('change',function(){
 	}
 		}); 	
 	 
-    AOS.init();
+    AOS.init();//initialize animate on scrol library
  </script>
 </body>
 </html>

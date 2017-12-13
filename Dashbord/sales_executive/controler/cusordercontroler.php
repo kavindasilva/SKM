@@ -1,6 +1,6 @@
 <?php
 require_once '../../../php/dbcon.php';
-$date=date("Y-m-d");
+$date=date("Y-m-d");// getting the system date
 $shopname=$_POST['shopname'];
 $comname=$_POST['comname'];
 $tot=$_POST['total'];
@@ -13,7 +13,7 @@ if (!($result))
 		
 		}
 else{
-	if(mysqli_num_rows($result)){
+	if(mysqli_num_rows($result)){//if this is true that means order is placed to a dealer
 	$row=mysqli_fetch_array($result);
 	$did=$row['d_id'];	}
 	else
@@ -26,7 +26,7 @@ if (!($result))
 		{echo "Error in query";
 		
 		}
-else{
+else{//if this is true that means order is placed to a customer
 	if(mysqli_num_rows($result)){
 	$row=mysqli_fetch_array($result);
 	$cid=$row['r_id'];	}
@@ -36,7 +36,7 @@ else{
 
 
 $query="INSERT INTO sales_order VALUES($sordno,$tot,'incomplete','$date',$did,$cid,'$guestname');";
-
+//inserting data to database
 		if (mysqli_query( $GLOBALS['conn'], $query)) {
 			
     		echo "Order Success";
