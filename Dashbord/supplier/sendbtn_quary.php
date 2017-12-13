@@ -27,7 +27,7 @@ $pr_no=mysqli_fetch_row(mysqli_query($conn,$pr_no_quary))[0];
 $pr_item_tbl_quary = "UPDATE `pr_item` SET `supplierble_qty` = $sup_qty, `supplierble_unitprice` = '$unitprice' WHERE `pr_item`.`tire_t_id` = $t_id";
 mysqli_query($conn,$pr_item_tbl_quary);
 //pr tbl and tire tblstatus update
-echo($pr_no);
+//echo($pr_no);
 $pr_status_quary="UPDATE `purchase_requisition` SET `status` = 'replied' WHERE `purchase_requisition`.`pr_no` = $pr_no";
 mysqli_query($conn,$pr_status_quary);
 $tire_status_quary="UPDATE `tire` SET `status` = 'replied' WHERE `tire`.`t_id` = $t_id";

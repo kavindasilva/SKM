@@ -1,7 +1,7 @@
 <?php
 require_once('../../../php/dbcon.php');
 $tid=$_POST['tid'];
-$requiredamount=$_POST['requiredamount'];
+$requiredamount=$_POST['requiredamount'];//update the status and enter the required amount
 $update="UPDATE tire SET status='required',requested_amount=$requiredamount WHERE t_id=$tid;";
 if($result=mysqli_query($conn,$update)){
 echo "success";

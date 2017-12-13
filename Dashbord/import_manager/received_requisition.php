@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php include '../../assets/success.php'?>  
 <head>
     <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
@@ -17,7 +18,7 @@
 </section>
 <div class="col-md-3" id="received_requisition_div">
     <ul id="quotation">
-
+<!--supplier replied msg loading-->
         <?php
         require_once('../../php/dbcon.php');
         $pr_no_quary="SELECT pr_no,supplier_s_id FROM purchase_requisition WHERE status='replied'";
@@ -79,15 +80,12 @@
             }
         });
 
-       // $('#quotation a').removeClass("goingtorm");
-        //$(this).addClass('goingtorm');
-        //$('#qrdetails').load('quotationreqdetails.php')
-
     });
 
 </script>
 
 <script>
+    //confirmbtn in rr_quary.php with html tbl
     function confirmbtn(eliment) {
         $.ajax({
             type:"post",
@@ -104,7 +102,7 @@
         });
 
         eliment.parentElement.parentElement.remove();
-
+        alert("Successfully confirm tire orders");
     }
 </script>
 
@@ -117,7 +115,8 @@
                 sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
             url:"rr_delete_quary.php",
             success:function (data) {
-                alert(data);
+               document.getElementById('message1').innerHTML=" deleted successfully";
+					   $('#modal-success').modal('show');
 
             }
 

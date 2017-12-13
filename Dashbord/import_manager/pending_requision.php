@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<?php include '../../assets/success.php'?>  
 <head>
   <title>SKMM| Purchase Requisition| Pending</title>
   
@@ -103,7 +103,10 @@
 
         });
         this.parentElement.parentElement.remove();
-        alert("Requisition deleted successfully");
+       // alert("Requisition deleted successfully");
+ document.getElementById('message1').innerHTML="Requisition deleted successfully";
+					   $('#modal-success').modal('show');
+        
     })
 </script>
 </body>

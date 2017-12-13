@@ -213,30 +213,40 @@
             if(document.getElementById("Requisition_itm_tbl").rows[i].cells[0].children[0].checked){
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                if(j==0){
+                if(qty && qty>=0){
+
+                    //alert(qty);
+                    if(j==0){
+                        $.ajax({
+                            type:"post",
+                            url:"pr_quary.php",
+                            data:{tire_id:tire_id,pr_no:pr_no},
+                            success:function (data) {
+                                document.getElementById('message1').innerHTML="Successfully Requested";
+                                $('#modal-success').modal('show');
+                            }
+                        });
+                        j++;
+                    }
+                    //quary.php has pr_item tbl inserting and update tire tbl status as pending
                     $.ajax({
                         type:"post",
-                        url:"pr_quary.php",
-                        data:{tire_id:tire_id,pr_no:pr_no},
+                        url:"quary.php",
+                        data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                         success:function (data) {
                             document.getElementById('message1').innerHTML="Successfully Requested";
-					   $('#modal-success').modal('show');
                         }
                     });
-                    j++;
+                    document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                     i--;
+                     x--;
+
                 }
-                //quary.php has pr_item tbl inserting and update tire tbl status as pending
-                $.ajax({
-                    type:"post",
-                    url:"quary.php",
-                    data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
-                    success:function (data) {
-                        document.getElementById('message1').innerHTML="Successfully Requested";
-                    }
-                });
-                document.getElementById("Requisition_itm_tbl").deleteRow(i);
-                i--;
-                x--;
+                else{
+                    alert("There are null values or minus quantity");
+                    break;
+                }
+
             }
         //incrementing pr_no
         }$('#pr_no').val(parseInt($('#pr_no').val())+1);
@@ -253,30 +263,38 @@
         for(i=1;i<x;i++){
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                if(j==0){
+                if(qty && qty>=0){
+                    if(j==0){
+                        $.ajax({
+                            type:"post",
+                            url:"pr_quary.php",
+                            data:{tire_id:tire_id,pr_no:pr_no},
+                            success:function (data) {
+                                document.getElementById('message1').innerHTML="Successfully Requested";
+                                $('#modal-success').modal('show');
+
+                            }
+
+                        });
+                        j++;
+                    }
                     $.ajax({
                         type:"post",
-                        url:"pr_quary.php",
-                        data:{tire_id:tire_id,pr_no:pr_no},
+                        url:"quary.php",
+                        data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                         success:function (data) {
-                         document.getElementById('message1').innerHTML="Successfully Requested";
-					   $('#modal-success').modal('show');
-
                         }
-
                     });
-                    j++;
+                    document.getElementById("Requisition_itm_tbl").deleteRow(i);
+                    i--;
+                    x--;
+
                 }
-                $.ajax({
-                    type:"post",
-                    url:"quary.php",
-                    data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
-                    success:function (data) {
-                    }
-                });
-                document.getElementById("Requisition_itm_tbl").deleteRow(i);
-                i--;
-                x--;
+                else{
+                    alert("There are null values or minus quantity");
+                    break;
+                }
+
 
 
         }$('#pr_no').val(parseInt($('#pr_no').val())+1);

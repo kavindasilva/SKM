@@ -77,6 +77,7 @@
 		<td><input id="index" class="form-control" disabled
 		value="
 		<?php
+	//load the new tire id
 				$query2="SELECT MAX(t_id) AS maxtid FROM tire";
 				$result=mysqli_query($conn,$query2);
 				$tid=0;									  
@@ -104,7 +105,7 @@
 			</select>
 		</td>
 		<td><input id="size"  class="form-control"></td>
-        <td><input id="qty" type="number" class="form-control"></td>
+        <td><input id="qty" type="number" class="form-control" ></td>
         <td><input id="price" type="number" class="form-control"></td>
 		<td><input id="tp"  class="form-control" value"Available" placeholder="Available" disabled></td>
 		<td><select id="ttype"  class="form-control" style="width: 100px;">
@@ -116,6 +117,7 @@
 		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
 	</tr>	
 	<?php
+		//add new rows to stock table
 		$gettires="SELECT * from tire";
 		$tires=mysqli_query($conn,$gettires);
 		if($tires){
@@ -245,7 +247,7 @@ $('#addbtn').click(function(){
 	var price =$('#price').val();
 	var ttype = $('#ttype').val();
 	var tid = $('#index').val();
-	if(size==""){
+	if(size==""){//validations
 		document.getElementById('message').innerHTML="Please enter new tire size";
 					   $('#modal-missing').modal('show');
 		$('#modal-missing').on('hidden.bs.modal', function (e) {

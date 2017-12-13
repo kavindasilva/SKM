@@ -25,4 +25,4 @@ if($i==0){
 //update status tire tbl
 $tire_delever_update_quary="UPDATE `tire` SET `status` = 'delivering' WHERE `tire`.`t_id` =$t_id";
 mysqli_query($conn,$tire_delever_update_quary);
-echo ($t_id);
+//echo ($t_id);
