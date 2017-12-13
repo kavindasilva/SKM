@@ -1,6 +1,6 @@
  <!-- Content Header (Page header) -->
-    <section class="content-header">
-   <h1>
+<section class="content-header">
+   	  <h1>
         Sales Progress Charts
       </h1>     
       <ol class="breadcrumb">
@@ -8,7 +8,7 @@
          <li><a href="#"><i class="fa"></i> Reports</a></li>
           <li class="active"><a href="#"><i class="fa"></i> Sales progress charts</a></li>       
       </ol>
-    </section>
+</section>
 <div class="box">   		
     	</div>
 <div class="row container">

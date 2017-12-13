@@ -8,19 +8,19 @@
 </head>
 <body >
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<section class="content-header">
    <h1>Find Invoice</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#"><i class="fa"></i> Invoice</a></li>
           <li class="active"><a href="#"><i class="fa"></i>Find Invoice</a></li>
       </ol>
-    </section>
+</section>
     <!-- Main content -->
-    <div class="container">
-    	<div class="box">
+<div class="container">
+	<div class="box">
       	</div>
-      	<div class="filters" style="padding-bottom: 20px;" >
+    <div class="filters" style="padding-bottom: 20px;">
 			<strong ><h4><i class="fa fa-filter"  aria-hidden="true">   Filters</i></h4></strong></br>
       	<div class="row margin" >
       		<strong class="col-xs-2">Dealer Shop Name </strong>  	
@@ -67,7 +67,7 @@
 			</div>		
 		 	</div>	 	 
 		 </div>
-		  </div>
+	</div>
 	  </br>
 		 <div class="row">
 		  <div  class="col-xs-12" style="width: auto; margin-left: 72px">

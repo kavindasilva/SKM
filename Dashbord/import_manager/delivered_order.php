@@ -8,7 +8,6 @@
 ?>
 <?php include '../../assets/success.php'?>
 <section class="content-header">
-<!--      <input type="hidden" id="sup_id" value="--><?php //echo $sup_id; ?><!--">-->
    <h1>
        Delivering orders
       </h1>
