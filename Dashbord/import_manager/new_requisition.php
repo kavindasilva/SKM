@@ -1,6 +1,6 @@
   <!DOCTYPE html>
 <html>
-<?php include '../../assets/success.php'?>  
+<?php //include '../../assets/success.php'?><!--  -->
 <head>
   <link rel="stylesheet" href="../../css/mystyle.css">
 
@@ -222,8 +222,9 @@
                             url:"pr_quary.php",
                             data:{tire_id:tire_id,pr_no:pr_no},
                             success:function (data) {
-                                document.getElementById('message1').innerHTML="Successfully Requested";
-                                $('#modal-success').modal('show');
+                                alert("Successfully Requested");
+                                // document.getElementById('message1').innerHTML="Successfully Requested";
+                                // $('#modal-success').modal('show');
                             }
                         });
                         j++;
@@ -234,7 +235,8 @@
                         url:"quary.php",
                         data:{tire_id:tire_id,pr_no:pr_no,qty:qty},
                         success:function (data) {
-                            document.getElementById('message1').innerHTML="Successfully Requested";
+
+                            //document.getElementById('message1').innerHTML="Successfully Requested";
                         }
                     });
                     document.getElementById("Requisition_itm_tbl").deleteRow(i);
@@ -270,8 +272,9 @@
                             url:"pr_quary.php",
                             data:{tire_id:tire_id,pr_no:pr_no},
                             success:function (data) {
-                                document.getElementById('message1').innerHTML="Successfully Requested";
-                                $('#modal-success').modal('show');
+                                alert("Successfully Requested");
+                                //document.getElementById('message1').innerHTML="Successfully Requested";
+                                //$('#modal-success').modal('show');
 
                             }
 

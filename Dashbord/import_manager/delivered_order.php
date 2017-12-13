@@ -102,15 +102,15 @@
                     //alert(data);
 
 
-                    document.getElementById('message1').innerHTML = "Stock successfully updated";
-                    $('#modal-success').modal('show');
-                    $('#modal-success').on('hidden.bs.modal', function (e) {
-                        if (data != 0) {
-                            document.getElementById('message1').innerHTML = "You have " + data + " new supplierble order items";
-                            $('#modal-success').modal('show');
-                            data = 0;
-                        }
-                    });
+                    //document.getElementById('message1').innerHTML = "Stock successfully updated";
+                    // $('#modal-success').modal('show');
+                    // $('#modal-success').on('hidden.bs.modal', function (e) {
+                    //     if (data != 0) {
+                    //         document.getElementById('message1').innerHTML = "You have " + data + " new supplierble order items";
+                    //         $('#modal-success').modal('show');
+                    //         data = 0;
+                    //     }
+                    // });
 
 
 
@@ -118,9 +118,11 @@
 
             });
             i++;
-            //alert("Stock update successfully");
+
             //eliment.parentElement.parentElement.remove();
 
         }
+        alert("Stock update successfully");
+        eliment.parentElement.parentElement.remove();
     }
 </script>
