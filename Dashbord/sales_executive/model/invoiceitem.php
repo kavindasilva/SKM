@@ -8,6 +8,7 @@ $invoiceno=$_POST['invoiceno'];
 $sordno=$_POST['sordno'];
 $qty=$_POST['qty'];
 $tiresize=trim($tiresize);
+//getting the details of the tire
 $query="SELECT t_id from tire WHERE brand_name='$brand' AND country='$country' AND tire_size='$tiresize'";
 $result=mysqli_query($conn,$query);
 $row=mysqli_fetch_array($result);

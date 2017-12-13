@@ -10,17 +10,17 @@
 <?php include '../../assets/success.php'?>           
     <!-- Content Header (Page header) -->
     <section class="content-header">
-   <h1>
-        New quotation request
-      </h1>     
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-         <li><a href="#"><i class="fa"></i> Quotations</a></li>
-          <li class="active"><a href="#"><i class="fa"></i> New quotation request</a></li>       
-      </ol>
+	   <h1>
+			New quotation request
+	   </h1>     
+	   <ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="#"><i class="fa"></i> Quotations</a></li>
+			<li class="active"><a href="#"><i class="fa"></i> New quotation request</a></li>       
+	   </ol>
     </section>
 <div class="box">   		
-    	</div>
+</div>
      <section class="content ">
   <form id="maininvoiceform">
    <!-- invoice items pannel starts here-->
