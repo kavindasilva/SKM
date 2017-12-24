@@ -39,7 +39,8 @@ else{
 		}
 	}
 	else{
-		echo "wrong password";
+		echo "wrong login password";
+		echo "<script>alert('Wrong login password');javascript:history.go(-1);</script>";
 	}
 }
 

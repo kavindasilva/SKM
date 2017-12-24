@@ -99,7 +99,9 @@ $newUserType=$_GET['type'];
 	<tr><td>Last name</td>	<td><input type="text" name="lname" class="form-control" autocomplete="off" required/></td></tr>
 	<tr><td>Email</td>		<td><input type="email" name="eml" class="form-control" autocomplete="off" required/></td></tr>
 	<tr><td>Address</td>	<td><textarea name="addr" class="form-control" autocomplete="off"></textarea></td></tr>
+	<!--
 	<tr><td>Phone</td>		<td><input type="text" name="telp" id="telp" autocomplete="off" class="form-control" onkeyup="validateTel()" required/></td></tr>
+	-->
 	<tr><td>Prefered username</td><td><input type="text" name="prefusern" id="prefuser" class="form-control" onkeyup="checknamek();"  /><span id="name_statusun"><sup>Enter a user name</sup></span>
 	</td></tr>
 
@@ -153,6 +155,7 @@ function fillForm($field){ //field == text box name
 	}
 }
 function customer(){
+	echo "<tr><td>Phone</td>		<td><input type='text' name='telp' id='telp' autocomplete='off' class='form-control' onkeyup='validateTel()' required/></td></tr>";
 	echo "<tr><td>Company</td>		<td><input type='text' class='form-control' name='comp' autocomplete='off'/></td></tr>";
 	echo "<tr><td>User type</td>		<td><input type='text' class='form-control' name='utype0' value='Customer' disabled/>";
 	//echo "<td><input type='text' name='utype0' value='Customer' hidden/>"; //for user type
@@ -160,6 +163,7 @@ function customer(){
 
 function salesEx(){
 	//echo "<tr><td>Company</td>	<td><input type='text' name='comp' autocomplete='off'/></td></tr>";
+	echo "<tr><td>Phone</td>		<td><input type='text' name='telp' id='telp' autocomplete='off' class='form-control' onkeyup='validateTel()' required/></td></tr>";
 	echo "<tr><td>User type</td>		<td><input type='text' class='form-control' name='utype0' value='Sales Executive' disabled/>";
 }
 
@@ -170,6 +174,7 @@ function supplier(){
 }
 
 function dealer(){
+	echo "<tr><td>Phone</td>		<td><input type='text' name='telp' id='telp' autocomplete='off' class='form-control' onkeyup='validateTel()' required/></td></tr>";
 	echo "<tr><td>Shop name</td>		<td><input type='text' class='form-control' name='shopnm' required/>";
 	echo "<tr><td>User type</td>		<td><input type='text' class='form-control' name='utype0' value='Dealer' disabled/>";
 }

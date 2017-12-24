@@ -75,10 +75,12 @@ function viewEmp($type2){
 
 			
 			echo "<td><input type='submit' name='updatemgr' onclick='return confirmU()' value='Update'/>";
+			//echo "<td><input type='submit' name='updatemgr' class='btn btn-sm btn-warning' onclick='return confirmU()' value='Update'/>";
 			echo "<input type='submit' name='resetmgr' onclick='return confirmU()' value='Reset password'/>";
 			
 			if($type2=="sales")
-				echo "<input type='submit' name='deletex' onclick='return confirmD()' value='Delete'/>";
+				echo "<input type='submit' name='deletex' style='color:red;' onclick='return confirmD()' value='Delete'/>";
+				//echo "<input type='submit' name='deletex' class='btn btn-sm btn-danger' onclick='return confirmD()' value='Delete'/>";
 			
 			echo "</form></td></tr>";
 		}
@@ -87,7 +89,7 @@ function viewEmp($type2){
 }
 
 function empSearch(){
-	echo "<span class='panel-title'> <B>Dealers </B>";
+	echo "<span class='panel-title'> <B>Sales executives </B>";
 	echo "<input type='text' id='search2' onkeyup='searchRows(1,this.id, \"tblMgr\");'  placeholder='Name'/>";
 	echo "<input type='text' id='search4' onkeyup='searchRows(2,this.id, \"tblMgr\");'  placeholder='Telephone'/>";
 	echo "<input type='text' id='search3' onkeyup='searchRows(4,this.id, \"tblMgr\");'  placeholder='Username'/>";
