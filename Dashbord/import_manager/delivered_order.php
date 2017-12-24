@@ -8,7 +8,6 @@
 ?>
 <?php include '../../assets/success.php'?>
 <section class="content-header">
-<!--      <input type="hidden" id="sup_id" value="--><?php //echo $sup_id; ?><!--">-->
    <h1>
        Delivering orders
       </h1>
@@ -89,34 +88,40 @@
         //var sup_id= document.getElementById("sup_id1").value;
         for (j = 1; j < x; j++) {
             var pr_no = eliment.value;
-
             var t_size = document.getElementById("confirm_tbl").rows[j].cells[0].innerHTML;
             var sup_qty = document.getElementById("confirm_tbl").rows[j].cells[2].innerHTML;
             var unitprice = document.getElementById("confirm_tbl").rows[j].cells[3].innerHTML;
 
-            //alert(sup_id);
+            //alert(pr_no);
             $.ajax({
                 type: "post",
                 data: {pr_no: pr_no, t_size: t_size, sup_qty: sup_qty, unitprice: unitprice, i: i},
                 url: "received_order_btn_quary.php",
                 success: function (data) {
                     //alert(data);
-                    document.getElementById('message1').innerHTML = "Stock successfully updated";
-                    $('#modal-success').modal('show');
-                    $('#modal-success').on('hidden.bs.modal', function (e) {
-                        if (data != 0) {
-                            document.getElementById('message1').innerHTML = "You have " + data + " new supplierble order items";
-                            $('#modal-success').modal('show');
-                            data = 0;
-                        }
-                    });
+
+
+                    //document.getElementById('message1').innerHTML = "Stock successfully updated";
+                    // $('#modal-success').modal('show');
+                    // $('#modal-success').on('hidden.bs.modal', function (e) {
+                    //     if (data != 0) {
+                    //         document.getElementById('message1').innerHTML = "You have " + data + " new supplierble order items";
+                    //         $('#modal-success').modal('show');
+                    //         data = 0;
+                    //     }
+                    // });
+
+
+
                 }
 
-        });
+            });
             i++;
-            alert("Stock update successfully");
-            eliment.parentElement.parentElement.remove();
+
+            //eliment.parentElement.parentElement.remove();
 
         }
+        alert("Stock update successfully");
+        eliment.parentElement.parentElement.remove();
     }
 </script>

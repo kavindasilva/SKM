@@ -18,7 +18,7 @@
 </section>
 <div class="col-md-3" id="received_requisition_div">
     <ul id="quotation">
-
+<!--supplier replied msg loading-->
         <?php
         require_once('../../php/dbcon.php');
         $pr_no_quary="SELECT pr_no,supplier_s_id FROM purchase_requisition WHERE status='replied'";
@@ -80,15 +80,12 @@
             }
         });
 
-       // $('#quotation a').removeClass("goingtorm");
-        //$(this).addClass('goingtorm');
-        //$('#qrdetails').load('quotationreqdetails.php')
-
     });
 
 </script>
 
 <script>
+    //confirmbtn in rr_quary.php with html tbl
     function confirmbtn(eliment) {
         $.ajax({
             type:"post",
@@ -105,7 +102,7 @@
         });
 
         eliment.parentElement.parentElement.remove();
-
+        alert("Successfully confirm tire orders");
     }
 </script>
 

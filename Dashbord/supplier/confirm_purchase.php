@@ -16,7 +16,7 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
   <section class="content-header">
       <input type="hidden" id="sup_id" value="<?php echo $sup_id; ?>">
    <h1>
-       Purchase Requests
+       Confirm purchase
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -113,8 +113,9 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             });
             i++;
         }
-        //alert("Confirmed successfully");
         eliment.parentElement.parentElement.remove();
+        alert("Confirmed successfully");
+
 
     }
 </script>
