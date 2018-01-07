@@ -27,7 +27,7 @@ if($result=mysqli_query($GLOBALS['conn'],$getinvoce)){
 						$getqunatity="SELECT qty FROM order_item WHERE sord_no=$sordno and tire_t_id=$tid;";
 						$result4=mysqli_query($GLOBALS['conn'],$getqunatity);	
 						$tire=mysqli_fetch_array($result4);
-						$tcount+=$tire['qty'];
+						$tcount+=$tire['qty'];	
 					}
 					
 					

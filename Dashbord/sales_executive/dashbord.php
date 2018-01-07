@@ -95,7 +95,7 @@
           </div>
 	</div>
 <!-- BAR CHART -->
-         <div class="col-md-6 col-xs-12">
+         <div class="col-md-6 col-xs-12" style="overflow-x:auto;height: 50px;" >
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Sales Progress Bar Chart</h3>

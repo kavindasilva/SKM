@@ -60,7 +60,7 @@ include_once "php/tireDetails.php";
 	  </div>
 	  </div>
   <body id="mainbackground">	
-  <div class="container">
+  <div class="">
   <!--header-->
    <header id="header" class="row">   
    		<a href="index.php"><img src="images/skmlogo.jpg" id="hedinicon"></a>
@@ -80,7 +80,8 @@ include_once "php/tireDetails.php";
    <!-- header concludes here-->
     
   
-    <div id="carousel1" class="carousel slide" data-ride="carousel" data-aos="fade-up">
+<!--
+    <div id="carousel1" class="carousel slide col-md-12" data-ride="carousel" data-aos="fade-up">
       <ol class="carousel-indicators">
         <li data-target="#carousel1" data-slide-to="0" class="active"></li>
         <li data-target="#carousel1" data-slide-to="1"></li>
@@ -117,100 +118,62 @@ include_once "php/tireDetails.php";
       </div>
  
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
-	  </br></br></br></br></br>
-    <div class="row">
-    <div class="col-md-5 pull-left" id="abouttext" style="color: aliceblue;" data-aos="zoom-out-right">
-    <label > We are sole agents for Dunlop, Kaizen, Malhotra Tyres & Dong-Ah Tubes</label>
-    <p>In 1888, John Boyd Dunlop, a Scottish Veterinarian invented the first practical pneumatic tyre.J.B. Dunlop experimented ways to ease the discomfort of his son's tricycle and eventually came up with the air-filled or pneumatic tyre. From there this remarkable new idea has made a great contribution to the development of contemporary automobile society.Since then, Dunlop flourished in the world for more than 123 years. </p>
-    
-		</div>
-    <div id="dunlop" class=" col-md-2" style="padding-top: 20px;">
-    	<img src="images/Dunlop_tyres.svg.png" class="tire" data-aos="fade-left">
-    </div>
-    <div id="kaizen" class="tire col-md-5" style="padding-top: 20px;">
-    	<img src="images/kaizen_logo.jpg" class="tire" data-aos="zoom-out-left">
-    </div>
-    </div> 
-    
-  </div>
+--><img id="banner" src="images/banner.jpg" style="margin-top: 70px;"> 
  	<div id="pricelist">
-    	<div class="tab">
+    	<div class="tab col-md-8">
+    		<div class="box-header">
+              <h4 class="box-title">Tires price List</h3>
+            </div>
   			<button class="tablinks" onclick="searchRows2(4,'car','orderitems');">Passenger Car Tyres</button>
  			<button class="tablinks" onclick="searchRows2(4,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
   			<button class="tablinks" onclick="searchRows2(4,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
   			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
-		</div>
- 		<div id="searchdiv"><i class="fa fa-search" aria-hidden="true" style="width:5%;margin-left: 10px;"></i>
-			<input type="text" id="myInput" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Search for tire size.."/>
-			<input type="button" value="clear" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');"/></div></br>
+  			<button class="tablinks" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');">Clear</button>
+		
+ 		
+			<input type="text" id="myInput" class="form-control" onkeyup="searchRows(0,this.id,'orderitems');" placeholder="Type to search tire size.."/>
+			</br>
+			</div>
+			<!--google map location of SKM-->          
+          
+          <div id="map" class="pull-right col-md-5"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.346597921569!2d79.87071012246584!3d6.880222420451064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3e5718eafe129f4!2sS.+K.+Munasinghe+Motors!5e0!3m2!1sen!2s!4v1503665177210" width="550" height="500" frameborder="0" style="margin-top: 20px;" allowfullscreen></iframe></div>
+			
 <!-- dunlop tires price list table-->			
 			<div class="row">
-  		<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
-            <div class="box-header">
-              <h3 class="box-title">Tires price List</h3>
-            </div>
+  		<div class="box col-md-6 box-success" id="pricetable">
+            
             <!-- /.box-header -->
-            <div class="box-body">
-              <table id="orderitems" class="table-bordered table-hover" width="620" >
+            <div class="box-body scrollbar" id="style-1">
+            
+              <table id="orderitems" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>Tire Size</th>
                   <th>Brand</th>
-                  <th>Price</th>
                   <th>Country</th>
-				  <th>Vehicle type</th>
+                  <th>Vehicle type</th>
+				  <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>
-                	<?php //viewTire('Dunlop'); ?>                 
+                	     
                 	<?php viewTire(); ?>                 
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
-<!--->		  
-<!--google map location of SKM-->          
-          <div id="map" class="pull-right col-md-5" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.346597921569!2d79.87071012246584!3d6.880222420451064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd3e5718eafe129f4!2sS.+K.+Munasinghe+Motors!5e0!3m2!1sen!2s!4v1503665177210" width="550" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+		  
+
           </div>
 		</br>
 <!-- kaizen tires price list-->          
-          <div class="row">
-          	<div class="box dunlopprice col-md-6" style="background-color:aliceblue;" data-aos="fade-up">
-            <div class="box-header">
-              <h3 class="box-title">Kaizen tires price List</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="orderitems" class="table-bordered table-hover" width="620" >
-                <thead>
-                <tr>
-                  <th>Tire Size</th>
-                  <th>Brand</th>
-                  <th>Country</th>
-                  <th>Country</th>
-				  <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>    
-                	<?php viewTire('Kaizen'); ?>             
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <div class="col-md-5" style="margin-left: 80px;">
-          <img src="images/tires.png" data-aos="flip-right" class="topbotom">
-          <img src="images/cars.usnews.com.jpg" data-aos="flip-right" class="middlepic">
-          <img src="images/The-Fast-and-the-Furious-modern-renders-Mitsubishi-Eclipse-Cross.jpg" data-aos="flip-right" class="middlepic">
-          <img src="images/1379603518.jpg" data-aos="flip-right" class="topbotom">
-			  </div>
-          </div>
+        
 <!-- kaizen tires price list concludes here-->           
    	
     </div>
 <!-- fotter goes here-->    
-    <div id="footterskm">
+    <div id="footterskm" style="font-family: 'Lobster', cursive;">
 
     <div class="col-md-3 col-sm-3" id="footerheding">
     	<label><strong>SKM</strong>unasinghe Motors <br>
@@ -265,7 +228,7 @@ include_once "php/tireDetails.php";
 
 
     </div>
-
+</div>
 <!-- fotter concluds here-->
   </body>
   

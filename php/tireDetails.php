@@ -36,11 +36,11 @@ function viewTire($brnd='All'){
 				
 				echo "<td>".$row['tire_size']."</td>";
 				echo "<td>".$row['brand_name']."</td>";
-				echo "<td>Rs.".$row['unit_price']."</td>";
+				
 				echo "<td>".$row['country']."</td>";
 				
 				echo "<td>".$row['t_type']."</td>";
-				
+				echo "<td>Rs.".$row['unit_price']."</td>";
 				echo "</tr>";
 			}
 		}

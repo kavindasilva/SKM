@@ -1,8 +1,11 @@
 /* CSS Document */
   body{
-	background-image: url(../images/road.jpg);
+	background-image: url(../images/background.jpg);
+/*	  background-color: #1F1F1F; */
 	background-attachment: fixed;
+	  
 }
+
 #loginicon{
 	width: 55px;
 	height: 55px;
@@ -79,50 +82,63 @@
 #carousel1{
 	position: relative;
 	top: 70px;
-	width: 1275px;
-	right: 70px;
-}
-.carousel1{
-	position: fixed;
+	
 	
 }
+#pricetable{
+	background-color:goldenrod;
+	height: 360px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-left: 27px;
+	width: 645px;
+}
 #pricelist{
-	background-color:antiquewhite;
+	background-image: url(../images/wheel-tire-set-.jpg);
 	height: auto;
 	position:relative;
 	top: 30px;
 	width: 1265px;
 	margin-left: 40px;
-}
-.tire{
-	margin-left: 100px;
-	width:250px;
-	height: 150px;
-}
- /* Style the tab */
-div.tab {
-	margin-left: 10px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color:goldenrod;
-	width: 41%;
-	
+	margin-bottom: 100px;
+	font-family: 'Lobster', cursive;
+	border-radius: 25px;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
+ /* Style the tab */
+div.tab {
+	margin-left: 12px;
+	margin-top: 20px;
+    overflow: hidden;
+    background-color:goldenrod;
+	width: 51%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-family: 'Lobster', cursive;
+}
+#map{
+	border-radius:10px;
+}
 /* Style the buttons inside the tab */
 div.tab button {
     background-color: inherit;
     float: left;
     border: thin;
-    outline:double#F1F1F1;
+   
     cursor: pointer;
     padding: 14px 2%; /* changed from 14px 16px */
-    transition: 0.3s;
+    transition: 0.6s;
 }
-
+.brandimg{
+	border-radius: 10px;
+}
 /* Change background color of buttons on hover */
 div.tab button:hover {
-    background-color: #C0C0C0;
+    background-color:aliceblue;
+	
+	border-radius: 5px;
 }
 
 /* Create an active/current tablink class */
@@ -151,11 +167,11 @@ div.tab button:focus
 	font-size: 17px;
 	border: 1px solid #ddd;
 	background-color: aliceblue;
-	width: 41%;
+	width: 51%;
 }
 #myInput{
 	border: 1px solid #ddd;
-	width: 92%;
+	
 }
 #map{
 	margin-right: 60px;
@@ -190,4 +206,44 @@ div.tab button:focus
 	font-size: 16px;
 	/*opacity: 0.3;*/
 	background: rgba(200, 54, 54, 0.5);
+}
+header
+{
+	font-family: 'Lobster', cursive;
+	
+}
+
+
+
+a{
+	color: #074E8C;
+}
+
+.scrollbar
+{
+	height: 340px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	border-radius:10px;
+}
+
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
