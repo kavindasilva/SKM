@@ -30,7 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['usertype']=$usrtype; //user type. tp prevent unwanted access
 			
 			if($usrtype=='adm')
+			{	
 				header('Location: ../admin/index.php');
+			}
 			elseif($usrtype=='salex')
 				header('Location: ../dashbord/sales_executive/index.php');		
 			elseif($usrtype=='chiefmgr')
