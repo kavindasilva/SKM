@@ -1,7 +1,10 @@
   <!DOCTYPE html>
 <html>
-<?php //include '../../assets/success.php'?><!--  -->
+<?php include '../../assets/success.php';
+
+?><!--  -->
 <head>
+
   <link rel="stylesheet" href="../../css/mystyle.css">
 
     <!-- Google Font -->
@@ -159,7 +162,7 @@
     </div>
 
 <!-- jQuery 3.1.1 -->
-<script src="../../js/jquery-3.1.1.min.js"></script>
+<!--<script src="../../js/jquery-3.1.1.min.js"></script>-->
 <script src="../../js/ava_tire_filterjs.js"></script>
 
 <!--    selected tire list table script-->
@@ -222,7 +225,8 @@
                             url:"pr_quary.php",
                             data:{tire_id:tire_id,pr_no:pr_no},
                             success:function (data) {
-                                alert("Successfully Requested");
+                                document.getElementById('message1').innerHTML="Successfully Requested";
+                                $('#modal-success').modal('show');
                                 // document.getElementById('message1').innerHTML="Successfully Requested";
                                 // $('#modal-success').modal('show');
                             }
@@ -258,6 +262,8 @@
 </script>
 <script>
     $("#send_all_btn").click(function () {
+       // document.getElementById('message1').innerHTML="New stock item added successfully";
+        //$('#successModal').modal('show');
         var x = document.getElementById("Requisition_itm_tbl").rows.length;
         //j for catching one pr_no
         var j=0;
@@ -265,16 +271,15 @@
         for(i=1;i<x;i++){
                 var tire_id = document.getElementById("Requisition_itm_tbl").rows[i].cells[1].innerHTML;
                 var qty = document.getElementById("Requisition_itm_tbl").rows[i].cells[5].children[0].value;
-                if(qty && qty>=0){
+                if(qty && qty>0){
                     if(j==0){
                         $.ajax({
                             type:"post",
                             url:"pr_quary.php",
                             data:{tire_id:tire_id,pr_no:pr_no},
                             success:function (data) {
-                                alert("Successfully Requested");
-                                //document.getElementById('message1').innerHTML="Successfully Requested";
-                                //$('#modal-success').modal('show');
+                                document.getElementById('message1').innerHTML="Successfully Requested";
+                                $('#modal-success').modal('show');
 
                             }
 
@@ -307,3 +312,16 @@
 <!--<script src="../../js/tgoBtnControllerjs.js"></script>-->
 </body>
 </html>
+<!--  <div id="successModal" class="modal fade" role="dialog">-->
+<!--      <div class="modal-dialog">-->
+<!--          <div class="modal-content">-->
+<!--              <div class="modal-header">-->
+<!--                  <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--              </div>-->
+<!--              <div class="modal-body">-->
+<!--                  <h2>Success</h2>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!---->
+<!--  </div>-->

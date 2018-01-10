@@ -206,32 +206,18 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
             <i class="fa fa-table"></i> <span>Notifications</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-              <small class="label pull-right bg-green lowstockitemscount"></small>
-              <small class="label pull-right bg-red"><?php
-				  if($_SESSION['unavalableorderitemscount']>0){
-					  echo($_SESSION['unavalableorderitemscount']);
-				  }?></small>
+              <small class="label pull-right bg-red lowstockitemscount"></small>
+              <small class="label pull-right bg-green unavalableorderitemscount"></small>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" name="lowstock"><i class="fa fa-circle-o"></i>Low Stock Levels</a></li>
-            <li><a href="#" name="outofstockorders"><i class="fa fa-circle-o"></i>Out Of Stock Orders</a></li>
+            <li><a href="#" name="lowstock"><i class="fa fa-circle-o"></i>Low Stock Levels<span><label class="label label-danger pull-right lowstockitemscount"></label></span></a></li>
+            <li><a href="#" name="outofstockorders"><i class="fa fa-circle-o"></i>Out Of Stock Orders<span><label class="label label-success pull-right unavalableorderitemscount"></label></span></a></li>
           </ul>
         </li>   
       </ul>
 	  
-	  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#" name="passchangeUI"><i class="fa fa-circle-o"></i>Change password</a></li>
-            <li><a href="../../php/logout.php" name="findinvoice"><i class="fa fa-circle-o"></i>Log out</a></li>
-          </ul>
-        </li>
+	
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -290,17 +276,26 @@ function doSomething()
 {
    $.ajax({//updating notification
 			type:"post",
-			url:"model/notification.php",
+			url:"modal/notification.php",
 			success:function(data){
-				if(data>0){
-					if($_SESSION['notificationcount']>0)
-						$('.topnoti').html($_SESSION['notificationcount']);
-					<?php
-				  if($_SESSION['lowstockitemscount']>0){
-					  echo($_SESSION['lowstockitemscount']);
-				  }?>
+				data=$.parseJSON(data);
+				
+				if(data['notificationcount']>0)
+					$('.topnoti').html(data['notificationcount']);
+				else
+					$('.topnoti').html('');
+				
+				if(data['lowstockitemscount']>0)
+					 $('.lowstockitemscount').html(data['lowstockitemscount']);
+				else
+					$('.lowstockitemscount').html('');
+				
+				if(data['unavalableorderitemscount']>0)
+					 $('.unavalableorderitemscount').html(data['unavalableorderitemscount']);
+				else
+					$('.unavalableorderitemscount').html('');
 					
-				}
+				
 			}
 		});
 }

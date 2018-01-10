@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include '../../assets/success.php'?>  
+<?php include '../../assets/missing.php'?>
 <head>
   <title>SKMM| Purchase Requisition| Pending</title>
   
@@ -98,12 +98,14 @@
             url:"delete_request_quary.php",
             data:{t_id:t_id},
             success:function (data) {
+                document.getElementById('message').innerHTML="Request Deleted";
+                $('#modal-missing').modal('show');
 
         }
 
         });
         this.parentElement.parentElement.remove();
-        alert("Requisition deleted successfully");
+        //alert("Requisition deleted successfully");
  // document.getElementById('message1').innerHTML="Requisition deleted successfully";
 	// 				   $('#modal-success').modal('show');
         
