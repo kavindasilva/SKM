@@ -1,6 +1,5 @@
 <?php
 include_once "php/tireDetails.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -126,10 +125,10 @@ include_once "php/tireDetails.php";
     		<div class="box-header">
               <h4 class="box-title">Tires price List</h3>
             </div>
-  			<button class="tablinks" onclick="searchRows2(4,'car','orderitems');">Passenger Car Tyres</button>
- 			<button class="tablinks" onclick="searchRows2(4,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
-  			<button class="tablinks" onclick="searchRows2(4,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
-  			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
+  			<button class="tablinks" onclick="searchRows2(3,'car','orderitems');">Passenger Car Tyres</button>
+ 			<button class="tablinks" onclick="searchRows2(3,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(3,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(3,'','orderitems')">All</button>
   			<button class="tablinks" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');">Clear</button>
 		
  		
