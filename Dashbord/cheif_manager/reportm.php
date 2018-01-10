@@ -1,16 +1,3 @@
-
-<?php
-/**
-	This is the chief managers normal reports generation control class
-	Reports Main page
-*/
-
-//echo "file called";
-
-
-
-
-?>
 <html>
 	<head>
 		<style>

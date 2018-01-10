@@ -137,7 +137,7 @@
         <select id=\"textBox7\" class=\"blur\"><option value=\"car\">car</option>
 			<option value=\"4wd\">4WD</option>
 			<option value=\"bus\">Bus</option>
-			<option value=\"other\">Other</option></select></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-popout\" data-placement=\"top\" title=\"Delete this stock item?\" onclick=\"setelement(this);\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick=\"updatestock(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
+			<option value=\"other\">Other</option></select></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-popout\" data-placement=\"top\" title=\"Delete this stock item?\" onclick=\"setelement(this);\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick=\"updatestock(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a><a onclick=\"gotohistory(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Go to history\"><i class=\"fa fa-history\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
 		}
 		
 		}
@@ -155,11 +155,17 @@
 </section>
 <script src="../../js/formcontrol.js?v=2"></script>
 <script>
+	
 var deletingrow; 
 function setelement(element){
 	deletingrow=element;
 }
+function gotohistory(element){
+	
+	$('.content-wrapper').load('history.php');
+}	
 function searchstock(){
+	
 	var tbody1=document.getElementById('stocktable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 	var country=$('#searchcountry').val();
 	var brand=$('#searchbrand').val();
