@@ -60,6 +60,7 @@
 	 $('#tablebody table tbody tr td button').click(function(){
 	var requiredamount=this.parentElement.previousSibling.firstChild.value;
 	if(requiredamount!=""){
+		alert(requiredamount);
 	$(this).html('<i class="fa fa-check-circle" style="font-size: 18px;" aria-hidden="true"></i>');
 	$(this).prop('disabled', true);
 	var row=$(this).parent().parent();

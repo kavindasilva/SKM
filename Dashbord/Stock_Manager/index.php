@@ -40,7 +40,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
     <!-- Google Font -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body class="hold-transition skin-purple sidebar-mini"> 
 <div class="wrapper">
 
   <header class="main-header" id="mainhead">
@@ -65,12 +65,10 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
+              <i class="fa fa-bell-o "></i>
               
-           		<?php
-				   if($_SESSION['notificationcount']>0)
-					   echo "<span class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";
-				  ?>
+					   <span class="label label-danger topnoti"></span>
+				
              
             </a>
             <ul class="dropdown-menu">
@@ -208,10 +206,7 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
             <i class="fa fa-table"></i> <span>Notifications</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-              <small class="label pull-right bg-green"><?php
-				  if($_SESSION['lowstockitemscount']>0){
-					  echo($_SESSION['lowstockitemscount']);
-				  }?></small>
+              <small class="label pull-right bg-green lowstockitemscount"></small>
               <small class="label pull-right bg-red"><?php
 				  if($_SESSION['unavalableorderitemscount']>0){
 					  echo($_SESSION['unavalableorderitemscount']);
@@ -290,3 +285,26 @@ $_SESSION['unavalableorderitemscount']=mysqli_num_rows($result2);
 
 
 </html>
+<script>
+function doSomething()
+{
+   $.ajax({//updating notification
+			type:"post",
+			url:"model/notification.php",
+			success:function(data){
+				if(data>0){
+					if($_SESSION['notificationcount']>0)
+						$('.topnoti').html($_SESSION['notificationcount']);
+					<?php
+				  if($_SESSION['lowstockitemscount']>0){
+					  echo($_SESSION['lowstockitemscount']);
+				  }?>
+					
+				}
+			}
+		});
+}
+
+
+setInterval(doSomething, 2*1000);	
+</script>

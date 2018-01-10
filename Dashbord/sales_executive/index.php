@@ -67,11 +67,8 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o shownotification "></i>
-             <?php
-				   /*if($_SESSION['notificationcount']>0)
-					   echo "<span id=\"notificationc\" class=\"label label-danger\">".$_SESSION['notificationcount']." </span>";*/
-				  ?>
+              <i class="fa fa-bell-o shownotification2 "></i>
+         		<span class="label label-danger topnoti" id="notificationc"></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have <?php
@@ -208,13 +205,9 @@ $_SESSION['notificationcount']=mysqli_num_rows($result);
         <li id="quotationrequests">
           <a href="#">
             <i class="fa fa-envelope"></i> <span>Quotation Requests</span>
-            <span class="pull-right-container shownotification" >
+            <span class="pull-right-container shownotification" id="notic" >
               
-				<?php
-				   /*if($_SESSION['notificationcount']>0)
-					   echo "<small id=\"notic\" class=\"label pull-right bg-red\">".$_SESSION['notificationcount']."</small>";*/
-				  ?>              	
-              
+				
             </span>
           </a>
         </li>
@@ -301,15 +294,21 @@ function doSomething()
 			type:"post",
 			url:"model/notification.php",
 			success:function(data){
+				
+				if(data==0){
+					$('.shownotification').html("");
+					$('.topnoti').html('');
+				}
 				if(data>0){
 					$('.shownotification').html("<small id=\"notic\" class=\"label pull-right bg-red\">"+data+"</small>");
+					$('.topnoti').html(data);
 				}
 			}
 		});
 }
 
 
-setInterval(doSomething, 4*1000);	
+setInterval(doSomething, 2*1000);	
 function loadquotationreq(){
 	$('#content-wrapper').load('quotationrequests.php');
 }
