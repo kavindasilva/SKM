@@ -19,8 +19,8 @@ function searchRows(trindex, eleid, tableid) {//tr index, element id
 	input = document.getElementById(eleid);
 	
 	//var vivainput=document.getElementById('myInput').value;
-	var vivainput=document.getElementById(eleid).value;
-	alert(vivainput);
+	//var vivainput=document.getElementById(eleid).value;
+	//alert(vivainput);
 	
 	
 	filter = input.value.toUpperCase();
