@@ -1,4 +1,5 @@
 <?php
+//include '../../assets/success.php';
 session_start();
 require_once('../../php/dbcon.php');
 $sup_quary="SELECT s_id FROM supplier WHERE user_user_name='".$_SESSION['currentuser']."';";
@@ -88,13 +89,39 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
                 data: {sup_id:sup_id ,t_size: t_size, qty:qty, sup_qty: sup_qty, unitprice: unitprice,i:i},
                 url: "sendbtn_quary.php",
                 success: function (data) {
+                    //location.reload(true);
+                    document.getElementById('message1').innerHTML="Successfully Sent Quatation";
+                    $('#modal-success').modal('show');
                 }
             });
             i++;
         }
         eliment.parentElement.parentElement.remove();
         $('#content-wrapper').load('dashbord.php');
-        alert("Successfully Send your quatation");
+
+        //alert("Successfully Send your quatation");
 
     }
+</script>
+
+<div class="modal modal-success fade" id="modal-success">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="message1"></h4>
+                <button type="button" class="btn btn-outline pull-right" data-dismiss="modal" onclick="modal_ok_btn(this)">OK</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+    function modal_ok_btn(element){
+        location.reload(true);
+    }
+
 </script>

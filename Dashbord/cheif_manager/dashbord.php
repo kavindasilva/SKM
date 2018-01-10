@@ -37,7 +37,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         
-          <li class="active"><a href="#"><i class="fa"></i>Dashbord</a></li>
+          <li class="active"><a href="#"><i class="fa"></i>Dashboard</a></li>
       </ol>
     </section>
      <div class="box">

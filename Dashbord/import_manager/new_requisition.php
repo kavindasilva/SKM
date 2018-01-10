@@ -1,6 +1,7 @@
   <!DOCTYPE html>
 <html>
 <?php include '../../assets/success.php';
+    include '../../assets/missing.php';
 
 ?><!--  -->
 <head>
@@ -299,7 +300,8 @@
 
                 }
                 else{
-                    alert("There are null values or minus quantity");
+                    document.getElementById('message').innerHTML="There are null values or minus quantity";
+                    $('#modal-missing').modal('show');
                     break;
                 }
 
