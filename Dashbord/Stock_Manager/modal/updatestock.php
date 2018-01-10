@@ -14,18 +14,23 @@ if($result=mysqli_query($conn,$getsupplier)){
 	$updatestock="UPDATE tire SET country='$country' , brand_name='$brand' ,tire_size='$tsize', orderable_qty=orderable_qty+$qty-quantity , quantity=$qty,unit_price=$up ,status='$status', supplier_s_id=$sid, t_type='$ttype' WHERE t_id=$tid;";
 	
 	//===================================================================================
-	$predata="select *,curdate() as date1, select current_time() as time1 from tire where t_id=$tid";
+	
+	/**/
+	$predata="select *,curdate() as date1, current_time() as time1 from tire where t_id=$tid";
 	$res2=mysqli_query($conn, $predata);
 	if($res2){
-		$ttid=$res2['t_id'];
+		while($res=mysqli_fetch_array($res2)){
+		$ttid=$res['t_id'];
 		$qty=$res['quantity'];
 		$up=$res['unit_price'];
 		$stt=$res['status'];
 		$ttype=$res['t_type'];
+		$date1=$res['date1'];
+		$time1=$res['time1'];
 		//$$res['unit_price'];
 		
 		//tire id, quantity, unit price, status, type
-		$predata2="insert into stocklog values(null, 'date1', 'time1', $ttid, $qty, $up, '$stt', '$ttype');";
+		$predata2="insert into stocklog values(null, '$date1', '$time1', $ttid, $qty, $up, '$stt', '$ttype');";
 		
 		$res3=mysqli_query($conn, $predata2);
 		if($res3){
@@ -37,11 +42,14 @@ if($result=mysqli_query($conn,$getsupplier)){
 			return;
 		}
 		
+		}
+		
 	}
 	else{
 		mysqli_error($conn);
 		return;
 	}
+	/**/
 	//===================================================================================
 	
 	if(mysqli_query($conn,$updatestock)){
