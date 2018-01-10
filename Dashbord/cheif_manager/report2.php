@@ -12,7 +12,7 @@ if(mysqli_num_rows($objQuery)==0){
 	echo "No data in system";
 }
 else{
-	echo "<table>";
+
 	echo "<tr> <th>Tire id</th> <th>Brand</th> <th>Country</th> <th>type</th> <th>Size</th> 
 	<th>unit price(Rs.)</th> <th>Quantity</th> </tr>";
 	while ($eachResult=mysqli_fetch_assoc($objQuery)) 
