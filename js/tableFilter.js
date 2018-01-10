@@ -4,9 +4,9 @@
 	Clear search boxes
 */
 
-//document.write("JS is ok<BR>");
+document.write("JS is ok<BR>");
 function searchRows(trindex, eleid, tableid) {//tr index, element id
-	//alert(trindex); working
+	//alert(trindex); //working
 	// Declare variables
 	var input,
 	    filter,
@@ -17,6 +17,12 @@ function searchRows(trindex, eleid, tableid) {//tr index, element id
 	    tindex;
 	//input = document.getElementById("myInput");
 	input = document.getElementById(eleid);
+	
+	//var vivainput=document.getElementById('myInput').value;
+	var vivainput=document.getElementById(eleid).value;
+	alert(vivainput);
+	
+	
 	filter = input.value.toUpperCase();
 	//key word to uppercase
 
@@ -41,6 +47,9 @@ function searchRows(trindex, eleid, tableid) {//tr index, element id
 
 function searchRows2(trindex, keyval, tableid) {//tr index, key value
 	var input,filter,table,tr,td,i,tindex;
+	
+	//var vivainput=document.getElementById('myInput').value;
+	//alert(vivainput);
 
 	input = keyval;
 	filter = input.toUpperCase();
