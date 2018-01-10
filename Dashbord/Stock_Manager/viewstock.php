@@ -161,8 +161,10 @@ function setelement(element){
 	deletingrow=element;
 }
 function gotohistory(element){
-	
-	$('.content-wrapper').load('history.php');
+	var tiddef= $(element).parent().parent().attr('id'); //alert(tiddef);
+	var url3 = "history.php?tid="+tiddef;
+	//$('.content-wrapper').load('history.php?tid=');
+	$('.content-wrapper').load(url3);
 }	
 function searchstock(){
 	
