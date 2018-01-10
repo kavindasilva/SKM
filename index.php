@@ -1,6 +1,5 @@
 <?php
 include_once "php/tireDetails.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +66,7 @@ include_once "php/tireDetails.php";
 	   	<nav id="header-nav-wrap">
 	   	
 			<ul class="header-main-nav">
-				<li class="skm">SKMunasinghe motors</li>
+				<li class="skm">SKMunasinghe Motors</li>
 				<li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
                 <li ><a class="smoothscroll"  href="#about" title="about">About</a></li>
 				<li><a class="smoothscroll"  href="#Other" title="Other">Other</a></li>
@@ -118,16 +117,18 @@ include_once "php/tireDetails.php";
       </div>
  
       <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
---><img id="banner" src="images/banner.jpg" style="margin-top: 70px;"> 
- 	<div id="pricelist">
-    	<div class="tab col-md-8">
+-->
+	<img id="bannervideo" src="images/bannervideo.gif" style="margin-top: 70px;" width="100%">
+	<img id="banner" src="images/banner.jpg" style="margin-top: 70px;" data-aos="zoom-out-up"> 
+ 	<div id="pricelist" data-aos="flip-up">
+    	<div class="tab col-md-8" >
     		<div class="box-header">
               <h4 class="box-title">Tires price List</h3>
             </div>
-  			<button class="tablinks" onclick="searchRows2(4,'car','orderitems');">Passenger Car Tyres</button>
- 			<button class="tablinks" onclick="searchRows2(4,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
-  			<button class="tablinks" onclick="searchRows2(4,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
-  			<button class="tablinks" onclick="searchRows2(4,'','orderitems')">All</button>
+  			<button class="tablinks" onclick="searchRows2(3,'car','orderitems');">Passenger Car Tyres</button>
+ 			<button class="tablinks" onclick="searchRows2(3,'4wd','orderitems')">4x4 (RV/4WD) Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(3,'bus','orderitems')">Truck Tyres & Bus Tyres</button>
+  			<button class="tablinks" onclick="searchRows2(3,'','orderitems')">All</button>
   			<button class="tablinks" onclick="document.getElementById('myInput').value=''; searchRows2(4,'','orderitems');">Clear</button>
 		
  		
@@ -233,6 +234,26 @@ include_once "php/tireDetails.php";
   </body>
   
   <script>
+	  $('#bannervideo').hide();
+	  var time=8000;
+	  var flag=1;
+	  function bannerchange(){
+		  if(flag){
+			   $('#banner').hide();
+		  	   $('#bannervideo').show();
+			   flag=0;
+			   
+		  }
+		  else{
+			   $('#bannervideo').hide();
+		  	   $('#banner').show();
+			   flag=1;
+			  
+		  }
+		 
+	  }
+	 
+	  setInterval(bannerchange, time);
     AOS.init();
   </script>
   
