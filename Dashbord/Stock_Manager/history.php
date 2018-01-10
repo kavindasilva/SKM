@@ -1,3 +1,8 @@
+<?php
+	//require_once
+	require_once('../../php/dbcon.php');
+?>
+
 <html>
  <link href="../../css/aos.css" rel="stylesheet">
   <script src="../../js/plugins.js"></script>
@@ -24,6 +29,7 @@
 		<tr>
 			<th>Country</th>
 			<th>Brand name</th>
+			<th>Modified time</th>
 			<th>Tyre Size</th>
             <th>Qty</th>
             <th>Unit Price</th>
@@ -33,7 +39,43 @@
 		</tr>
 	</thead>
 	<tbody>
+		<?php
+			if(!isset($_GET['tid'])){
+				echo "<script>alert('tire id not set');</script>";
+			}
+			//echo "<script>alert('". $_GET['tid']."');</script>";
+			
+		//table body here
+		//$sql="select * from tire t, stocklog s where s.tireid=t.t_id and t.t_id=".$_GET['tid'];
+		$sql="select * from stocklog where s.tireid=".$_GET['tid'];
+		$sql="select * from tire t, stocklog s where s.tireid=t.t_id and s.tireid=".$_GET['tid'];
+		$res=mysqli_query($conn, $sql);
+				
+		if(!$res){
+			echo mysqli_error($conn);
+			return;
+		}
+		elseif(mysqli_num_rows($res)==0){
+			echo "<tr><td colspan=7>No history details available</td></tr>";
+			return;
+		}
 		
+		while($row=mysqli_fetch_array($res)){
+			echo "<tr><td>".$row['country']."</td>";
+			echo "<td>".$row['brand_name']."</td>";
+			
+			$tttime=$row['sdate']." @ ".$row['stime'];
+			echo "<td>".$tttime."</td>"; //time
+			echo "<td>".$row['tire_size']."</td>";
+			
+			echo "<td>".$row['qty']."</td>";
+			echo "<td>".$row['unitprice']."</td>";
+			echo "<td>".$row['status']."</td>";
+			echo "<td>".$row['type']."</td></tr>";
+		}
+		
+		
+		?>
 	</tbody>
 	</table>
 			  </div>
