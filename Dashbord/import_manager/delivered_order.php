@@ -121,7 +121,8 @@
             //eliment.parentElement.parentElement.remove();
 
         }
-        alert("Stock update successfully");
+        document.getElementById('message1').innerHTML="Stock update successfully";
+        $('#modal-success').modal('show');
         eliment.parentElement.parentElement.remove();
     }
 </script>

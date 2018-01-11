@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<?php include '../../assets/success.php'?>  
+<?php include '../../assets/success.php';
+    include '../../assets/missing.php';
+?>
 <head>
     <link rel="stylesheet" href="../../css/mystyle.css">
     <!-- Google Font -->
@@ -9,7 +11,7 @@
 <body>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>New Requision</h1>
+    <h1>Received Requision</h1>
     <ol class="breadcrumb">
         <li><a href="navigation.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#"><i class="fa"></i> Purchase Confirmation</a></li>
@@ -102,7 +104,8 @@
         });
 
         eliment.parentElement.parentElement.remove();
-        alert("Successfully confirm tire orders");
+        document.getElementById('message1').innerHTML="Successfully confirm tire orders";
+        $('#modal-success').modal('show');
     }
 </script>
 
@@ -115,8 +118,8 @@
                 sup_qty:eliment.parentElement.parentElement.getElementsByTagName('td')[2].innerHTML}),
             url:"rr_delete_quary.php",
             success:function (data) {
-               document.getElementById('message1').innerHTML=" deleted successfully";
-					   $('#modal-success').modal('show');
+                document.getElementById('message').innerHTML="deleted successfully";
+                $('#modal-missing').modal('show');
 
             }
 
@@ -127,7 +130,7 @@
     }
 </script>
 <!-- jQuery 3.1.1 -->
-<script src="../../js/jquery-3.1.1.min.js"></script>
+<!--<script src="../../js/jquery-3.1.1.min.js"></script>-->
 
 </html>
 
