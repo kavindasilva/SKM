@@ -5,6 +5,7 @@
  * Date: 12/11/2017
  * Time: 3:25 PM
  */
+include '../../assets/success.php';
 session_start();
 require_once('../../php/dbcon.php');
 $sup_quary="SELECT s_id FROM supplier WHERE user_user_name='".$_SESSION['currentuser']."';";
@@ -114,7 +115,8 @@ $sup_id=mysqli_fetch_row(mysqli_query($conn,$sup_quary))[0];
             i++;
         }
         eliment.parentElement.parentElement.remove();
-        alert("Confirmed successfully");
+        document.getElementById('message1').innerHTML="Confirmed successfully";
+        $('#modal-success').modal('show');
 
 
     }
