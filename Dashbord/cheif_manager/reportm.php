@@ -4,6 +4,9 @@
 			.skm-def1{
 				height: 50px;
 			}
+			.nav-tabs li{
+				background-color:#DCDCDC;
+			}
 		</style>
 	</head>
 	
@@ -21,7 +24,7 @@
     </section>
     <div class="box">   		
     	</div>
-<div class="container">
+<section class="content">
   
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Stock Status</a></li>
@@ -33,14 +36,34 @@
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-		<a href="report2.php" target="frm1"><input type="button" value="view Current stock status report"  class="btn   btn-success"> </a>
-		<input type="button" value="print Current stock status report"  class="btn  btn-success" onclick="openTab('../../report/reports2.php')"/> 	<br/>
+		<br/>
+		<label>Date &nbsp;:&nbsp;&nbsp;</label><label class="showdate"></label>
+		<input type="button" value="Print this report"  class="btn  btn-success btn-sm pull-right" onclick="openTab('../../report/reports2.php')"/> <br/><br/>
+		
+        <div class="box container">
+            <div class="box-body" style="overflow-x:auto;">
+				<table class="table table-hover">
+  				<?php include('report2.php'); ?>
+			</div>
+		</div>
     </div>
     <div id="menu1" class="tab-pane fade">
-		<input type="month" name="months3" id="months3" onchange="checkCur(this.id)"/>
+		</br>
+  		<label>Date &nbsp;:&nbsp;&nbsp;</label><label class="showdate"></label>
+   		<input type="button" style="margin-left: 5px;" id="months3btn2" value="Print report"  class="btn pull-right btn-sm btn-success" onclick="openTabMonth('../../report/reports3.php','months3')" disabled  /> 
+   		<input type="button" onclick="viewMonthReport('report3.php','months3')" id="months3btn" value="view report"  class="btn btn-success pull-right btn-sm"  disabled />
+    	<div class="pull-right" style="margin-right: 5px;">
+    		<label>Pick a date &nbsp;:&nbsp;&nbsp;</label>
+			<input type="month" name="months3" id="months3" onchange="checkCur(this.id)"/>
+		</div><br/>
+   		<div class="box container">
+            <div class="box-body" style="overflow-x:auto;">
+			
+<iframe src="" name="frm1" id="frm1" width=800 height=500 style="overflow: scroll; border-color: #00AA00;" frameborder="0" >
+</iframe>
 
-		<input type="button" onclick="viewMonthReport('report3.php','months3')" id="months3btn" value="view Monthly sales quantity"  class="btn   btn-success"  disabled /> 
-		<input type="button" id="months3btn2" value="print Monthly sales quantity"  class="btn   btn-success" onclick="openTabMonth('../../report/reports3.php','months3')" disabled  /> 	<br/>
+			</div>
+		</div>
     </div>
     <div id="menu2" class="tab-pane fade">
 		  <!--month sales report = report4.php -->
@@ -61,11 +84,12 @@
 		<input type="button" id="months6btn2" value="print purchase requisitions report"  class="btn   btn-success" onclick="openTabMonth('../../report/reports6.php','months6')" disabled   /> 	<br/>
     </div>
   </div>
-</div>
+</section>
 
 <script type="text/javascript" src="chiefmgr.js"></script>
 
 <script type="text/javascript" >
+	
 	function openTab(url){
 		window.open(url, '_blank');
 	}
@@ -94,15 +118,14 @@
 		//return url;
 		//window.open(url, '_blank');
 	}
+	
+		  n =  new Date();
+		  y = n.getFullYear();
+		  m = n.getMonth() + 1;
+		  d = n.getDate();
+		  $('.showdate').html(y + "/" + m + "/" + d);
+		
 </script>
-
-<div class="skm-def1">
-</div>
-
-<center>
-<iframe src="" name="frm1" id="frm1" width=800 height=500 style="overflow: scroll; border-color: #00AA00;" >
-</iframe>
-</center>
 
 </body>
 </html>

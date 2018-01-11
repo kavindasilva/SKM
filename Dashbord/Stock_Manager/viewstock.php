@@ -114,7 +114,7 @@
 			<option value="bus">Bus</option>
 			<option value="other">Other</option>
 		</select></td>
-		<td><button class="btn btn-success col-md-10 btn-sm" style="width:100%;" id="addbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add</button></td>
+		<td><button class="btn btn-success col-md-12 btn-sm"  id="addbtn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></td>
 	</tr>	
 	<?php
 		//add new rows to stock table
@@ -137,7 +137,7 @@
         <select id=\"textBox7\" class=\"blur\"><option value=\"car\">car</option>
 			<option value=\"4wd\">4WD</option>
 			<option value=\"bus\">Bus</option>
-			<option value=\"other\">Other</option></select></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-popout\" data-placement=\"top\" title=\"Delete this stock item?\" onclick=\"setelement(this);\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick=\"updatestock(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a><a onclick=\"gotohistory(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Go to history\"><i class=\"fa fa-history\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
+			<option value=\"other\">Other</option></select></td><td><a href=\"#\" class=\"delete\" data-singleton=\"true\" data-toggle=\"confirmation-popout\" data-placement=\"top\" title=\"Delete this stock item?\" onclick=\"setelement(this);\"><i class=\"fa fa-trash \" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick=\"updatestock(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Save\"><i class=\"fa fa-floppy-o\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick=\"gotohistory(this);\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Go to history\"><i class=\"fa fa-history\" aria-hidden=\"true\" style=\"font-size: 22px;\"></i></a></td></tr>";
 		}
 		
 		}
@@ -161,8 +161,10 @@ function setelement(element){
 	deletingrow=element;
 }
 function gotohistory(element){
-	
-	$('.content-wrapper').load('history.php');
+	var tiddef= $(element).parent().parent().attr('id'); //alert(tiddef);
+	var url3 = "history.php?tid="+tiddef;
+	//$('.content-wrapper').load('history.php?tid=');
+	$('.content-wrapper').load(url3);
 }	
 function searchstock(){
 	

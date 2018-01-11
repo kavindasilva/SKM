@@ -26,7 +26,7 @@ if(mysqli_num_rows($objQuery)==0){
 	echo "No data in system";
 }
 else{
-	echo "<table>";
+	echo "<table class=\"table table-hover\">";
 	echo "<tr> <th>Tire id</th> <th>Brand</th> <th>Country</th>"; //<th>type</th>
 	echo " <th>Size</th>";// <th>unit price(Rs.)</th> 
 	echo "<th>Quantity</th> </tr>";
