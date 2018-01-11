@@ -2,10 +2,10 @@
 	//require_once
 	require_once('../../php/dbcon.php');
 ?>
-
+<?php include '../../assets/success.php'?> 
 <?php
 	//restore code
-	if(isset($_POST['resto'])){
+	/*if(isset($_POST['resto'])){
 		$coun=$_POST['country'];
 		$brr=$_POST['brand_name'];
 		$TID=$_POST['ttid'];
@@ -32,7 +32,7 @@
 		}
 		
 		
-	}
+	}*/
 ?>
 
 <html>
@@ -91,7 +91,7 @@
 		//table body here
 		//$sql="select * from tire t, stocklog s where s.tireid=t.t_id and t.t_id=".$_GET['tid'];
 		$sql="select * from stocklog where s.tireid=".$_GET['tid'];
-		$sql="select * from tire t, stocklog s where s.tireid=t.t_id and s.tireid=".$_GET['tid'];
+		$sql="select * from tire t, stocklog s where s.tireid=t.t_id and s.tireid=".$_GET['tid']." order by s.sdate desc, s.stime desc";
 		$res=mysqli_query($conn, $sql);
 				
 		if(!$res){
@@ -123,7 +123,8 @@
 			echo "<td>".$row['type']."</td>"; echo "<input type='text' name='type' value='".$row['type']."' hidden>";
 			
 			echo "<td>";
-			echo "<input name='resto' type='submit' value='Restore' onclick='return confirmR();'>";
+			echo "<a href=\"#\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"Restore to this point\"><i id=\"restorepoint\" onclick=\"restore(this);\" class=\"fa fa-undo\" aria-hidden=\"true\" style=\"font-size: 20px;\"></i><a> ";
+			//echo "<input name='resto' type='submit' value='Restore' onclick='return confirmR();'>";
 			echo "</td></tr>";
 			
 			echo "</form>";
@@ -144,7 +145,36 @@
    
 </html>   
 
-
 <script>
+	function restore(element){
+	//var index=this.parentNode.parentNode.firstChild.innerHTML;
+	var row=element.parentNode.parentNode.parentNode.getElementsByTagName('td');
+	var tid=<?php
+		if(isset($_GET['tid'])){
+				echo $_GET['tid'];
+			}; ?>;
+	var country=row[0].innerHTML;
+	var brand=row[1].innerHTML;
+	var tsize=row[3].innerHTML;
+	var qty=row[4].innerHTML;
+	var up=row[5].innerHTML;
+	var status=row[6].innerHTML;
+	var ttype=row[7].innerHTML;
+	$.ajax({
+		type:"post",
+		url:"modal/updatestock.php",
+		data:{tid:tid,country:country,brand:brand,tsize:tsize,qty:qty,up:up,status:status,ttype:ttype},
+		success:function(data){
+			document.getElementById('message1').innerHTML="Restore success";
+					   $('#modal-success').modal('show');
+			$('#modal-success').on('hidden.bs.modal', function (e) {
+				$('.content-wrapper').load('viewstock.php');
+			});
+		}
+	
+		
+	});
+	
+}
     AOS.init();
 </script> 

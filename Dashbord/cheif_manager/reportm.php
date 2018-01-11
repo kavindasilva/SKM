@@ -55,7 +55,7 @@
     	<div class="pull-right" style="margin-right: 5px;">
     		<label>Pick a date &nbsp;:&nbsp;&nbsp;</label>
 			<input type="month" name="months3" id="months3" onchange="checkCur(this.id)"/>
-		</div><br/>
+		</div><br/></br>
    		<div class="box container">
             <div class="box-body" style="overflow-x:auto;">
 			

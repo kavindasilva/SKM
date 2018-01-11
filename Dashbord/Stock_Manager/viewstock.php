@@ -375,7 +375,7 @@ function updatestock(element){
 					   $('#modal-success').modal('show');
 			$('#modal-success').on('hidden.bs.modal', function (e) {
  			if(data!=0){
-				document.getElementById('message1').innerHTML="You have "+data+"new supplierble order items";
+				document.getElementById('message1').innerHTML="You have "+data+" new supplierble order items";
 					   $('#modal-success').modal('show');
 				data=0;
 			}
